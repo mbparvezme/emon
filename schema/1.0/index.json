@@ -1,0 +1,57 @@
+{
+    "$schema": "https://mbparvezme.github.io/emon/schema/1.0",
+    "name": "EMON Structure Definition",
+    "version": "1.0.0",
+    "description": "JSON-based schema defining EMON syntax and data types.",
+    "definitions": {
+        "definition": {
+            "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*:.*$",
+            "example": "#user:name:string,age:number,verified:bool"
+        },
+        "record": {
+            "pattern": "^=.*$",
+            "example": "=Parvez,30,true"
+        },
+        "type": {
+            "enum": [
+                "string",
+                "number",
+                "bool",
+                "boolean",
+                "int",
+                "float",
+                "[string]",
+                "[number]",
+                "[bool]"
+            ]
+        },
+        "value": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "number"
+                },
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "array"
+                },
+                {
+                    "type": "object"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^#\\w+$"
+                }
+            ]
+        }
+    },
+    "structure": {
+        "definition": "Defines reusable data model (starts with #)",
+        "record": "Defines data row/value (starts with =)",
+        "reference": "Use #name to reuse structure"
+    }
+}
