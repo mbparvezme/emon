@@ -1,13 +1,13 @@
-#schema:name:string,version:string,description:string,definitions:[#definition]
-#definition:id:string,pattern:string,example:string,description:string,type_list:[string]
+#schema(name:string,version:string,description:string,definitions:[#definition])
+#definition(id:string,pattern:string,example:string,description:string,type_list:[string])
 
 ="EMON Schema", "1.0.0",
 "Official schema definition for EMON (Efficient Modular Object Notation). Defines structures, types, and references for EMON files.",
 [
     {
         "definition",
-        "^#[a-zA-Z_][a-zA-Z0-9_]*:.*$",
-        "#user:name:string,age:number,verified:bool",
+        "^#[a-zA-Z_][a-zA-Z0-9_]*\(.*\)$",
+        "#user(name:string,age:number,verified:bool)",
         "Defines reusable structures (start with #). Can include multiple fields with types.",
         ["string","number","bool","int","float","[string]","[number]","[bool]"]
     },

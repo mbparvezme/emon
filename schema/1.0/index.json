@@ -1,12 +1,12 @@
 {
-    "$schema": "https://mbparvezme.github.io/emon/schema/1.0",
+    "$schema": "[https://mbparvezme.github.io/emon/schema/1.0](https://mbparvezme.github.io/emon/schema/1.0)",
     "name": "EMON Structure Definition",
     "version": "1.0.0",
-    "description": "JSON-based schema defining EMON syntax and data types.",
+    "description": "JSON-based schema defining EMON syntax and data types using parentheses for field definitions.",
     "definitions": {
         "definition": {
-            "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*:.*$",
-            "example": "#user:name:string,age:number,verified:bool"
+            "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)$",
+            "example": "#user(name:string,age:number,verified:bool)"
         },
         "record": {
             "pattern": "^=.*$",
@@ -47,6 +47,10 @@
                     "pattern": "^#\\w+$"
                 }
             ]
+        },
+        "reference": {
+            "pattern": "^#\\w+$",
+            "example": "#profile"
         }
     },
     "structure": {

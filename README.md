@@ -37,8 +37,8 @@ EMON rethinks this with:
 ## 📘 Basic Syntax
 
 ```text
-#user:name:string,age:number,profile:#profile,verified:bool
-#profile:bio:string,location:string
+#user(name:string,age:number,profile:#profile,verified:bool)
+#profile(bio:string,location:string)
 
 =Parvez,30,{Developer,"NY, USA"},true
 =Rafi,27,{Designer,"Dhaka, BD"},false
@@ -50,7 +50,7 @@ EMON rethinks this with:
 
 | Concept          | JSON                                                                                                          | EMON                                    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Structure        | `{ "name": "Parvez", "age": 30, "profile": { "bio": "Developer", "location": "NY, USA" }, "verified": true }` | `=Parvez,30,{Developer,"NY, USA"},true` |
+| Structure        | `{"name": "Parvez", "age": 30, "profile": { "bio": "Developer", "location": "NY, USA" }, "verified": true }` | `=Parvez,30,{Developer,"NY, USA"},true` |
 | Character Count  | 118                                                                                                           | 48                                      |
 | Token Efficiency | High usage                                                                                                    | ~50–60% reduced                         |
 
