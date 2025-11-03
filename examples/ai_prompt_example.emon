@@ -1,0 +1,14 @@
+#prompt:id:number,title:string,input:#input,expected_output:string
+#input:context:string,instruction:string,language:string
+
+=1,"Summarize Blog",{ "AI in healthcare","Summarize in 3 bullet points","English" },"Three short points"
+=2,"Translate",{ "How are you?","Translate to Bangla","Bangla" },"Ami kemon achho?"
+
+#dataset:question:string,answer:string,category:string
+="What is EMON?","Efficient Modular Object Notation — a compact data structure for AI and apps.","Technology"
+="Why is EMON useful?","It reduces token usage in AI models by simplifying structure.","AI Efficiency"
+="Can EMON replace JSON?","Not entirely — but it complements it for specific use cases.","Comparison"
+
+#chat:user:string,message:string,timestamp:string
+="User","Tell me about EMON","2025-11-03T12:30:00Z"
+="Assistant","EMON is an efficient data notation for AI.","2025-11-03T12:30:03Z"
