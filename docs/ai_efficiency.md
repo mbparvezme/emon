@@ -4,6 +4,8 @@ This document explains why using our structured format improves efficiency for A
 
 ---
 
+<br>
+
 ## Advantages
 
 1. **Explicit Types**
@@ -11,7 +13,7 @@ This document explains why using our structured format improves efficiency for A
    * Fields are clearly typed (`string`, `number`, `bool`) → no AI inference needed.
    * Example:
 
-     ```
+     ```emon
      #task(id:number, title:string, completed:bool)
      =101, "Write report", false
      ```
@@ -31,16 +33,16 @@ This document explains why using our structured format improves efficiency for A
    * Less verbose than JSON → fewer tokens processed.
    * Reduces computational cost and speeds up processing.
 
----
+<br>
 
 ## Detailed Example
 
 **Input**
 
-```
+```emon
 #employee(id:number, name:string, skills:[#skill])
 #skill(name:string, level:string)
-=1, "Parvez", [{"PHP","Expert"},{"JS","Intermediate"}]
+=1,Parvez,[{PHP,Expert},{JS,Intermediate}]
 ```
 
 **Benefits**
@@ -49,7 +51,7 @@ This document explains why using our structured format improves efficiency for A
 * Nested objects are clearly separated → fewer parsing errors.
 * Array lengths and types are predictable.
 
----
+<br>
 
 ## Use Cases
 
@@ -58,12 +60,10 @@ This document explains why using our structured format improves efficiency for A
 * Exchanging data between AI microservices.
 * Any scenario requiring deterministic AI input parsing.
 
----
+<br>
 
 ## Best Practices
 
 * Keep type definitions consistent across files.
 * Use nested objects instead of unstructured arrays of mixed types.
 * Ensure arrays are homogenous in type.
-
----

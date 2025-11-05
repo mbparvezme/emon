@@ -4,7 +4,10 @@ export class EMONParser {
     }
 
     parse(emonText) {
-        const lines = emonText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        const lines = emonText
+            .split(/\r?\n/)
+            .map(l => l.trim())
+            .filter(Boolean);
         const records = [];
 
         for (let line of lines) {
@@ -21,7 +24,7 @@ export class EMONParser {
 
     _parseDefinition(line) {
         const match = line.match(/^#([a-zA-Z_][\w]*)\((.*)\)$/);
-        if (!match) throw new Error(`Invalid definition: ${ line } `);
+        if (!match) throw new Error(`Invalid definition: ${line}`);
         const [, name, fieldsStr] = match;
 
         const fields = fieldsStr.split(',').map(f => {
@@ -33,14 +36,13 @@ export class EMONParser {
     }
 
     _parseRecord(line) {
-        // Identify which definition it belongs to (first defined definition with matching fields)
         const recordStr = line.slice(1).trim();
         const values = this._splitValues(recordStr);
 
-        // For key-based mapping, find last added definition
+        // Map to the last added definition
         const lastDefName = Object.keys(this.definitions).pop();
         const fields = this.definitions[lastDefName];
-        if (!fields) throw new Error(`No definition found for record: ${ line } `);
+        if (!fields) throw new Error(`No definition found for record: ${line}`);
 
         const obj = {};
         fields.forEach((f, i) => {
@@ -69,7 +71,6 @@ export class EMONParser {
                     continue;
                 }
             }
-
             current += char;
         }
         if (current) result.push(current.trim());
@@ -80,12 +81,26 @@ export class EMONParser {
         if (!val) return null;
         val = val.trim();
 
-        if (val.startsWith('{') || val.startsWith('[')) return JSON.parse(val);
+        // Nested array/object
+        if (val.startsWith('{') && val.endsWith('}')) {
+            const inner = val.slice(1, -1);
+            return this._splitValues(inner).map(v => this._convertValue(v, 'string'));
+        }
+        if (val.startsWith('[') && val.endsWith(']')) {
+            const inner = val.slice(1, -1);
+            return this._splitValues(inner).map(v => this._convertValue(v, 'string'));
+        }
+
+        // Primitive types
         if (val === 'true') return true;
         if (val === 'false') return false;
         if (!isNaN(Number(val))) return Number(val);
-        if (type.startsWith('#')) return { __ref: val }; // keep reference as string
-        return val.replace(/^["']|["']$/g, '');
-    }
 
+        // Reference type
+        if (type.startsWith('#')) return { __ref: val };
+
+        // String: remove quotes only if allowed
+        if (/^".*"$/.test(val)) return val.slice(1, -1);
+        return val;
+    }
 }

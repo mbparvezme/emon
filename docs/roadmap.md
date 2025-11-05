@@ -21,19 +21,21 @@ EMON aims to be a compact, modular, and AI-friendly structured data format. Its 
 * Training dataset prepared with 1,000 EMON↔JSON examples.
 * Documentation for syntax, comparison with JSON, and AI efficiency.
 
+<br>
+
 ## 3. Short-Term Goals (Next 6 Months)
 
-### 1. Tooling Enhancements
+### Tooling Enhancements
     
 * Add CLI support for parsing, validating, and converting EMON.
 * Integrate EMON visualizer for GitHub Pages.
 
-### 2. Expanded Training Data
+### Expanded Training Data
 
 * Increase dataset diversity: more nested objects, arrays, AI prompts, and configuration data.
 * Introduce multilingual examples for AI training.
 
-### 3. Documentation Improvements
+### Documentation Improvements
 * Interactive examples using GitHub Pages.
 * Tutorials for researchers and developers.
 

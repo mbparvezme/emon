@@ -3,12 +3,13 @@
 This document provides a detailed comparison between EMON (Efficient Modular Object Notation) and JSON, highlighting why EMON is optimized for AI workflows, human readability, and structured data processing.
 
 ---
+<br>
 
 ## Overview
 
 While JSON is a widely-used data interchange format, EMON provides explicit typing, modular structure, and compact representation. These characteristics make it particularly useful in AI and machine learning pipelines.
 
----
+<br>
 
 ## Key Differences
 
@@ -21,13 +22,13 @@ While JSON is a widely-used data interchange format, EMON provides explicit typi
 | Comments        | Not supported inside values           | Not supported (only outside) |
 | AI-Friendliness | Directly parseable                    | Needs schema or inference    |
 
----
+<br>
 
 ## Example Conversion
 
 **Our Format**
 
-```
+```emon
 #user(id:number, name:string, roles:[string])
 =1, "M Alice", [admin,editor]
 ```
@@ -50,7 +51,7 @@ While JSON is a widely-used data interchange format, EMON provides explicit typi
 * Nested objects and arrays are clearly defined.
 * Faster AI parsing due to predictable structure.
 
----
+<br>
 
 ### When to Use
 
@@ -58,7 +59,7 @@ While JSON is a widely-used data interchange format, EMON provides explicit typi
 * Best for structured human-readable configs.
 * Use JSON when standard interoperability is required with external systems.
 
----
+<br>
 
 ### Summary
 

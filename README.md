@@ -44,14 +44,13 @@ EMON rethinks this with:
 
 ## 📘 Basic Syntax
 
-```text
+```emon
 #user(name:string,age:number,profile:#profile,verified:bool)
 #profile(bio:string,location:string)
 
 =Parvez,30,{Developer,"NY, USA"},true
 =Rafi,27,{Designer,"Dhaka, BD"},false
 ```
-
 <br>
 
 ## 🔍 Comparison Example
