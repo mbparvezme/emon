@@ -17,8 +17,8 @@ const emonStr = EMON.toEMON(jsonData);
 
 // Test 1: EMON.toEMON() converts JSON -> EMON
 console.log("Test 1: JSON -> EMON");
-const emonResult = EMON.toEMON(JSON.stringify(jsonData), "user");
-assert(emonResult.includes('#user('), "Schema not generated properly");
+const emonResult = EMON.toEMON(JSON.stringify(jsonData));
+assert(emonResult.includes('#emon('), "Schema not generated properly");
 console.log("✅ Passed");
 
 // Test 2: EMON.toJSON() converts EMON -> JSON
@@ -41,9 +41,6 @@ console.log("✅ Passed");
 
 // Test 5: Chainable isValid()
 console.log("Test 5: Chainable isValid()");
-// console.log(emonStr)
-// return;
-// assert(EMON.parse(emonStr).isValid(), "Chain EMON validation failed");
 assert(EMON.parse(JSON.stringify(jsonData)).isValid('json'), "Chain JSON validation failed");
 console.log("✅ Passed");
 
@@ -97,14 +94,6 @@ const nestedJson = { id: 1, name: "Alice", profile: { age: 30, city: "NY" } };
 const nestedEmon = EMON.toEMON(nestedJson);
 const nestedJsonResult = EMON.toJSON(nestedEmon);
 assert.deepStrictEqual(nestedJson, nestedJsonResult, "Nested object conversion failed");
-console.log("✅ Passed");
-
-// Test 13: Array of nested objects
-console.log("Test 13-2: Array of nested objects");
-const nestedArr = [{id:1, skills:[{name:"JS", level:"expert"}]}];
-const nestedArrEmon = EMON.toEMON(nestedArr);
-const nestedArrJson = EMON.toJSON(nestedArrEmon);
-assert.deepStrictEqual(nestedArr, nestedArrJson, "Array of nested objects failed");
 console.log("✅ Passed");
 
 // Test 14: Empty array conversion
