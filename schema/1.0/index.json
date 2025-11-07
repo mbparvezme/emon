@@ -1,61 +1,56 @@
 {
-    "$schema": "[https://mbparvezme.github.io/emon/schema/1.0](https://mbparvezme.github.io/emon/schema/1.0)",
-    "name": "EMON Structure Definition",
-    "version": "1.0.0",
-    "description": "JSON-based schema defining EMON syntax and data types using parentheses for field definitions.",
-    "definitions": {
-        "definition": {
-            "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)$",
-            "example": "#user(name:string,age:number,verified:bool)"
-        },
-        "record": {
-            "pattern": "^=.*$",
-            "example": "=Parvez,30,true"
-        },
-        "type": {
-            "enum": [
-                "string",
-                "number",
-                "bool",
-                "boolean",
-                "int",
-                "float",
-                "[string]",
-                "[number]",
-                "[bool]"
-            ]
-        },
-        "value": {
-            "anyOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "number"
-                },
-                {
-                    "type": "boolean"
-                },
-                {
-                    "type": "array"
-                },
-                {
-                    "type": "object"
-                },
-                {
-                    "type": "string",
-                    "pattern": "^#\\w+$"
-                }
-            ]
-        },
-        "reference": {
-            "pattern": "^#\\w+$",
-            "example": "#profile"
-        }
+  "$schema": "https://mbparvezme.github.io/emon/schema/1.0",
+  "name": "EMON Syntax Definition",
+  "version": "1.1.0",
+  "description": "Defines EMON data notation syntax, structure, and typing rules.",
+  "definitions": {
+    "definition": {
+      "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)(\\[\\])?$",
+      "example": "#user(id:number,name:string,profile:#profile,roles:[string])"
     },
-    "structure": {
-        "definition": "Defines reusable data model (starts with #)",
-        "record": "Defines data row/value (starts with =)",
-        "reference": "Use #name to reuse structure"
+    "record": {
+      "pattern": "^=.*$",
+      "example": "=1,Parvez,{30,Dhaka},[admin,editor]"
+    },
+    "type": {
+      "enum": [
+        "string",
+        "number",
+        "bool",
+        "boolean",
+        "int",
+        "float",
+        "[string]",
+        "[number]",
+        "[bool]",
+        "#identifier",
+        "(field1:type,field2:type)"
+      ]
+    },
+    "value": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" },
+        { "type": "object" },
+        { "type": "array" },
+        { "type": "string", "pattern": "^#\\w+$" }
+      ]
+    },
+    "reference": {
+      "pattern": "^#\\w+$",
+      "example": "#profile"
+    },
+    "multiline_string": {
+      "description": "Triple-quoted multiline text block",
+      "example": "\"\"\"This is a\nmultiline\ntext block.\"\"\""
     }
+  },
+  "structure": {
+    "definition": "Schema definition starts with # and may define arrays using []",
+    "record": "Data record starts with = and follows the last defined schema",
+    "reference": "Use #name to refer to another type",
+    "multiline": "Triple quotes (\"\"\") for multiline text values"
+  }
 }

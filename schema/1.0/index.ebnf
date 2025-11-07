@@ -1,26 +1,37 @@
-(* EMON Syntax Definition in EBNF *)
+(* EMON Syntax Definition in EBNF (v1.1) *)
 
-emon_document  = { definition | record } ;
+emon_document   = { comment | definition | record } ;
 
-definition = "#" , identifier , "(" , field_list , ")" ;
-field_list     = field , { "," , field } ;
-field          = identifier , ":" , type ;
+comment         = "//" , { ? any character except newline ? } ;
 
-record         = "=" , value , { "," , value } ;
+definition      = "#" , identifier , "(" , field_list , ")" , [ "[]" ] ;
+field_list      = field , { "," , field } ;
+field           = identifier , ":" , type ;
 
-type           = "string" | "number" | "bool" | "boolean" | "float"
-               | "int" | "[" , type , "]" | "#" , identifier ;
+record          = "=" , value , { "," , value } ;
 
-value          = string | number | boolean | object | array | reference ;
-object         = "{" , value , { "," , value } , "}" ;
-array          = "[" , value , { "," , value } , "]" ;
+type            = "string" | "number" | "bool" | "boolean" | "float" | "int"
+                | "[" , type , "]"
+                | "#" , identifier
+                | "(" , field_list , ")" ;
 
-identifier     = letter , { letter | digit | "_" } ;
-string         = '"' , { character } , '"' ;
-number         = [ "-" ] , digit , { digit | "." , digit } ;
-boolean        = "true" | "false" ;
+value           = string | number | boolean | null | object | array | multiline_string | reference ;
 
-letter         = ? any alphabetic character ? ;
-digit          = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-character      = ? any printable character except " and newline ? ;
-reference      = "#" , identifier ;
+object          = "{" , [ value , { "," , value } ] , "}" ;
+array           = "[" , [ value , { "," , value } ] , "]" ;
+
+multiline_string = "\"\"\"" , { ? any character including newline ? } , "\"\"\"" ;
+
+reference       = "#" , identifier ;
+
+identifier      = letter , { letter | digit | "_" } ;
+string          = '"' , { character } , '"' | unquoted_string ;
+unquoted_string = letter , { letter | digit | "_" | "-" | "@" | "." } ;
+
+number          = [ "-" ] , digit , { digit | "." , digit } ;
+boolean         = "true" | "false" ;
+null            = "null" ;
+
+letter          = ? any alphabetic character ? ;
+digit           = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+character       = ? any printable character except " and newline ? ;

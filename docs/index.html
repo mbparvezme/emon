@@ -10,8 +10,8 @@
   </head>
   <body class="bg-gray-50 min-h-screen flex flex-col">
     <header class="bg-white shadow-md py-4 px-8">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold">
+      <div class="max-w-6xl mx-auto flex items-center">
+        <h1 class="text-xl font-bold me-auto">
           EMON
           <span class="block text-xs font-normal">AI First Object Notation</span>
         </h1>
@@ -20,20 +20,20 @@
           <button onclick="loadPage('syntax')" class="font-medium text-gray-600 hover:text-slate-900">Syntax</button>
           <button onclick="loadPage('schema')" class="font-medium text-gray-600 hover:text-slate-900">Schema</button>
           <button onclick="loadPage('ai')" class="font-medium text-gray-600 hover:text-slate-900">AI Efficiency</button>
-          <button onclick="loadPage('comparison')" class="font-medium text-gray-600 hover:text-slate-900">Comparison</button>
+          <button onclick="loadPage('training')" class="font-medium text-gray-600 hover:text-slate-900">AI Training</button>
           <button onclick="loadPage('roadmap')" class="font-medium text-gray-600 hover:text-slate-900">Roadmap</button>
-          <button onclick="loadPage('contributing')" class="font-medium text-gray-600 hover:text-slate-900">Contributing</button>
         </nav>
 
-        <div class="lg:hidden relative">
+        <div class="ps-16">
           <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none text-2xl">&#9776;</button>
           <div id="mobile-menu" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md hidden flex-col py-2">
-            <button onclick="loadPage('intro'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Home</button>
-            <button onclick="loadPage('syntax'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Syntax</button>
-            <button onclick="loadPage('schema'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Schema</button>
-            <button onclick="loadPage('ai'); toggleMobileMenu()" class="text-font-medium gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">AI Efficiency</button>
+            <button onclick="loadPage('intro'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Home</button>
+            <button onclick="loadPage('syntax'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Syntax</button>
+            <button onclick="loadPage('schema'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Schema</button>
+            <button onclick="loadPage('ai'); toggleMobileMenu()" class="lg:hidden relative text-font-medium gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">AI Efficiency</button>
+            <button onclick="loadPage('training'); toggleMobileMenu()" class="lg:hidden relative text-font-medium gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">AI Training</button>
+            <button onclick="loadPage('roadmap'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Roadmap</button>
             <button onclick="loadPage('comparison'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Comparison</button>
-            <button onclick="loadPage('roadmap'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Roadmap</button>
             <button onclick="loadPage('contributing'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Contributing</button>
           </div>
         </div>
@@ -55,8 +55,9 @@
         intro: '../README.md',
         syntax: 'syntax.md',
         schema: '../schema/1.0/README.md',
-        ai: 'ai_efficiency.md',
-        comparison: 'comparison_with_json.md',
+        ai: 'ai-efficiency.md',
+        training: '../ai-training/emon-ai-training-guide.md',
+        comparison: 'comparison-with-json.md',
         roadmap: 'roadmap.md',
         contributing: '../CONTRIBUTING.md'
       }

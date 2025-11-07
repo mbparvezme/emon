@@ -1,0 +1,100 @@
+{"emon": "#user(id:number,name:string)\n=1,Dave", "json": "{\"id\":1,\"name\":\"Dave\"}", "description": "Format A: Basic types and unquoted string."}
+{"emon": "#project(title:string,active:bool)\n=\"New Feature\",true", "json": "{\"title\":\"New Feature\",\"active\":true}", "description": "Format A: Quoted string and boolean true."}
+{"emon": "#config(timeout:number,notes:string)\n=null,null", "json": "{\"timeout\":null,\"notes\":null}", "description": "Format A: All null values."}
+{"emon": "#tags(list:[string])\n=[a.1,b-2,c_3]", "json": "{\"list\":[\"a.1\",\"b-2\",\"c_3\"]}", "description": "Format A: Array of unquoted complex strings."}
+{"emon": "#data(a:string,b:string)\n=\"With Space\", \"With,Comma\"", "json": "{\"a\":\"With Space\",\"b\":\"With,Comma\"}", "description": "Format A: Required quoting for spaces and special characters."}
+{"emon": "#coords(x:number,y:number)[]\n=10.5,-5\n=20.0,30", "json": "[{\"x\":10.5,\"y\":-5},{\"x\":20.0,\"y\":30}]", "description": "Format A: Array of objects using multiple records."}
+{"emon": "#status(codes:[number])\n=[200,404,500]", "json": "{\"codes\":[200,404,500]}", "description": "Format A: Array of numbers."}
+{"emon": "#message(content:string)\n=\"He said \\\"Run!\\\"\"", "json": "{\"content\":\"He said \\\"Run!\\\"\"}", "description": "Format A: String with an escaped double quote."}
+{"emon": "#group(members:[(id:number, name:string)])\n=[{5,John},{6,Jane}]", "json": "{\"members\":[{\"id\":5,\"name\":\"John\"},{\"id\":6,\"name\":\"Jane\"}]}", "description": "Format A: Array of inline nested objects, no spaces."}
+{"emon": "#doc(id:number, text:string)\n=20,\n\"\"\"This is line 1.\nThis is line 2 with preservation.\n\"\"\"", "json": "{\"id\":20,\"text\":\"This is line 1.\\nThis is line 2 with preservation.\\n\"}", "description": "Format A: Multiline text block conversion."}
+{"emon": "#task(priority:number,completed:bool)\n=1,false", "json": "{\"priority\":1,\"completed\":false}", "description": "Format A: Mixed boolean and numeric types."}
+{"emon": "#user(profile:[(age:number)])\n={35}", "json": "{\"profile\":{\"age\":35}}", "description": "Format A: Single inline nested object."}
+{"emon": "#file(ext:string, size:number)\n=pdf,1200", "json": "{\"ext\":\"pdf\",\"size\":1200}", "description": "Format A: Simple two-field object."}
+{"emon": "#list(data:[bool])\n=[true,false,true]", "json": "{\"data\":[true,false,true]}", "description": "Format A: Array of booleans."}
+{"emon": "#color(hex:string)\n=FF0000", "json": "{\"hex\":\"FF0000\"}", "description": "Format A: Simple object, unquoted string."}
+{"emon": "#label(text:string)\n=\"Item Label\"", "json": "{\"text\":\"Item Label\"}", "description": "Format A: Simple object, quoted string (space)."}
+{"emon": "#count(value:number)\n=999", "json": "{\"value\":999}", "description": "Format A: Simple object, integer number."}
+{"emon": "#check(done:bool)\n=true", "json": "{\"done\":true}", "description": "Format A: Simple object, boolean true."}
+{"emon": "#check(done:bool)\n=false", "json": "{\"done\":false}", "description": "Format A: Simple object, boolean false."}
+{"emon": "#value(data:string)\n=null", "json": "{\"data\":null}", "description": "Format A: Simple object, null value."}
+{"emon": "#point(lat:number, lon:number)\n=40.71,-74.01", "json": "{\"lat\":40.71,\"lon\":-74.01}", "description": "Format A: Multi-field object with floats."}
+{"emon": "#message(sender:string, status:string)\n=admin,\"OK\"", "json": "{\"sender\":\"admin\",\"status\":\"OK\"}", "description": "Format A: Multi-field, mixed quoting."}
+{"emon": "#id(key:string)\n=key-123_abc.456", "json": "{\"key\":\"key-123_abc.456\"}", "description": "Format A: Unquoted string with valid special chars (-, _, .)."}
+{"emon": "#notes(text:string)\n=\"\"", "json": "{\"text\":\"\"}", "description": "Format A: Empty quoted string."}
+{"emon": "#list(names:[string])\n=[Bob,Alice]", "json": "{\"names\":[\"Bob\",\"Alice\"]}", "description": "Format A: Array of unquoted primitive strings."}
+{"emon": "#list(names:[string])\n=[\"Bob B.\",\"Alice A.\"]", "json": "{\"names\":[\"Bob B.\",\"Alice A.\"]}", "description": "Format A: Array of quoted primitive strings."}
+{"emon": "#data(list:[number])\n=[]", "json": "{\"list\":[]}", "description": "Format A: Empty array of numbers."}
+{"emon": "#item(a:number, b:string)[]\n=1,X\n=2,Y", "json": "[{\"a\":1,\"b\":\"X\"},{\"a\":2,\"b\":\"Y\"}]", "description": "Format A: Root array of objects (two records)."}
+{"emon": "#data(a:string,b:string,c:string)\n=\"A \\\"quoted\\\" string\",\"Another\",\"Final string\"", "json": "{\"a\":\"A \\\"quoted\\\" string\",\"b\":\"Another\",\"c\":\"Final string\"}", "description": "Format A: Quoted string with escaped quote in multi-field."}
+{"emon": "#price(value:number)\n=-100.5", "json": "{\"value\":-100.5}", "description": "Format A: Negative floating point number."}
+{"emon": "#item(qty:number, price:number)\n=0,0", "json": "{\"qty\":0,\"price\":0}", "description": "Format A: Zero values for numbers."}
+{"emon": "#config(url:string)\n=https://test.com", "json": "{\"url\":\"https://test.com\"}", "description": "Format A: Unquoted string resembling a URL."}
+{"emon": "// This is ignored\n#data(x:number)\n=500", "json": "{\"x\":500}", "description": "Format A: Full-line comment ignored."}
+{"emon": "#data(x:number) // Inline comment\n=500", "json": "{\"x\":500}", "description": "Format A: Inline comment ignored in schema."}
+{"emon": "#pair(key:string, value:number)\n=A,10", "json": "{\"key\":\"A\",\"value\":10}", "description": "Format A: Simple key-value record."}
+{"emon": "#status(a:bool, b:bool)\n=true,false", "json": "{\"a\":true,\"b\":false}", "description": "Format A: Two boolean values."}
+{"emon": "#report(details:[number])\n=[1,2,3,4,5]", "json": "{\"details\":[1,2,3,4,5]}", "description": "Format A: Array of five numbers."}
+{"emon": "#mixed(name:string, data:number, active:bool)\n=Item-Z, 42, null", "json": "{\"name\":\"Item-Z\",\"data\":42,\"active\":null}", "description": "Format A: Mixed types including a final null value."}
+{"emon": "#doc(content:string)\n=\"\"\"Line 1\nLine 2\n\"\"\"", "json": "{\"content\":\"Line 1\\nLine 2\\n\"}", "description": "Format A: Multiline text with exact line break conversion."}
+{"emon": "#group(ids:[number], labels:[string])\n=[1,2],[\"A\",\"B\"]", "json": "{\"ids\":[1,2],\"labels\":[\"A\",\"B\"]}", "description": "Format A: Two different primitive arrays in one record."}
+{"emon": "#user(id:number, name:string)[]\n=10,Bob\n=11,\"Alice C.\"", "json": "[{\"id\":10,\"name\":\"Bob\"},{\"id\":11,\"name\":\"Alice C.\"} ]", "description": "Format A: Array of objects with mixed quoting across records."}
+{"emon": "#coord(x:number, y:number)\n=null,null", "json": "{\"x\":null,\"y\":null}", "description": "Format A: All fields null."}
+{"emon": "#order(items:[(id:number)])\n=[{1},{2},{3}]", "json": "{\"items\":[{\"id\":1},{\"id\":2},{\"id\":3}]}", "description": "Format A: Array of minimal inline objects."}
+{"emon": "#data(a:string)\n=null", "json": "{\"a\":null}", "description": "Format A: Single null field."}
+{"emon": "#setting(value:number)\n=1e5", "json": "{\"value\":100000}", "description": "Format A: Number in scientific notation."}
+{"emon": "#config(value:number)\n=0.001", "json": "{\"value\":0.001}", "description": "Format A: Small float number."}
+{"emon": "#data(a:string, b:number)\n=\"\\\"Quote at start\\\"\", 5", "json": "{\"a\":\"\\\"Quote at start\\\"\",\"b\":5}", "description": "Format A: Escaped quote at the start of a string."}
+{"emon": "#doc(content:string)\n=\"\"\"Line 1\r\nLine 2\n\"\"\"", "json": "{\"content\":\"Line 1\\r\\nLine 2\\n\"}", "description": "Format A: Multiline text with mixed \\r\\n and \\n line endings (all preserved)."}
+{"emon": "#status(code:number, msg:string)\n=200,ok", "json": "{\"code\":200,\"msg\":\"ok\"}", "description": "Format A: Two primitive fields."}
+{"emon": "#event(ts:number, type:string)\n=1678886400,LOGIN", "json": "{\"ts\":1678886400,\"type\":\"LOGIN\"}", "description": "Format A: Timestamp (number) and unquoted string."}
+{"emon": "#data(a:string, b:string)\n=valueA, valueB", "json": "{\"a\":\"valueA\",\"b\":\"valueB\"}", "description": "Format A: Two unquoted string values."}
+{"emon": "#test(a:bool, b:bool, c:bool)\n=true,false,null", "json": "{\"a\":true,\"b\":false,\"c\":null}", "description": "Format A: Mixed boolean and null values."}
+{"emon": "#item(id:number, data:[(a:number)])[]\n=1,[{10}]\n=2,[{20}]", "json": "[{\"id\":1,\"data\":[{\"a\":10}]},{\"id\":2,\"data\":[{\"a\":20}]}]", "description": "Format A: Array of objects with an array of inline nested objects."}
+{"emon": "#single(value:number)\n=123", "json": "{\"value\":123}", "description": "Format A: Simplest possible record."}
+{"emon": "#doc(version:number, name:string)\n=1.0,Readme", "json": "{\"version\":1.0,\"name\":\"Readme\"}", "description": "Format A: Float and unquoted string."}
+{"emon": "#user(email:string, registered:bool)\n=test@app.co,true", "json": "{\"email\":\"test@app.co\",\"registered\":true}", "description": "Format A: Email-like unquoted string and boolean true."}
+{"emon": "#data(value:number)\n=-99.9", "json": "{\"value\":-99.9}", "description": "Format A: Negative float value."}
+{"emon": "#item(a:number, b:string)\n=null,\"None\"", "json": "{\"a\":null,\"b\":\"None\"}", "description": "Format A: Null number and quoted string."}
+{"emon": "#tags(list:[string])\n=[alpha,beta,gamma]", "json": "{\"list\":[\"alpha\",\"beta\",\"gamma\"]}", "description": "Format A: Array of unquoted strings."}
+{"emon": "#event(x:number, y:number)[]\n=5,10\n=15,20", "json": "[{\"x\":5,\"y\":10},{\"x\":15,\"y\":20}]", "description": "Format A: Root array, two records."}
+{"emon": "#status(code:number, error:string)\n=400,\"Bad Request\"", "json": "{\"code\":400,\"error\":\"Bad Request\"}", "description": "Format A: Mixed types, quoted string with space."}
+{"emon": "#message(text:string)\n=\"It's 5 o'clock\"", "json": "{\"text\":\"It's 5 o'clock\"}", "description": "Format A: Quoted string with apostrophe."}
+{"emon": "#notes(val:string)\n=\"\"", "json": "{\"val\":\"\"}", "description": "Format A: Empty quoted string."}
+{"emon": "#settings(size:number, active:bool)\n=256,false", "json": "{\"size\":256,\"active\":false}", "description": "Format A: Integer, boolean false."}
+{"emon": "#product(id:string, price:number, isTaxed:bool)\n=P-99, 5.0, true", "json": "{\"id\":\"P-99\",\"price\":5.0,\"isTaxed\":true}", "description": "Format A: Three primitive fields."}
+{"emon": "#colors(primary:[string], secondary:[number])\n=[red,blue],[10,20]", "json": "{\"primary\":[\"red\",\"blue\"],\"secondary\":[10,20]}", "description": "Format A: Two different primitive arrays in one record."}
+{"emon": "#data(val:string)\n=\"Line 1\\nLine 2\"", "json": "{\"val\":\"Line 1\\nLine 2\"}", "description": "Format A: String containing escaped newline (testing parser output)."}
+{"emon": "#device(name:string, data:[(metric:number)])\n=Sensor-1,[{12.3},{45.6}]", "json": "{\"name\":\"Sensor-1\",\"data\":[{\"metric\":12.3},{\"metric\":45.6}]}", "description": "Format A: Array of inline nested objects."}
+{"emon": "#config(key:string, data:number)\n=null,null", "json": "{\"key\":null,\"data\":null}", "description": "Format A: Both fields null."}
+{"emon": "#profile(name:string, roles:[string])\n=Jane, [user]", "json": "{\"name\":\"Jane\",\"roles\":[\"user\"]}", "description": "Format A: Array with single unquoted element."}
+{"emon": "#user(comment:string)\n=\"He said, \\\"OK\\\"\"", "json": "{\"comment\":\"He said, \\\"OK\\\"\"}", "description": "Format A: Escaped quote in complex quoted string."}
+{"emon": "#item(a:number, b:number, c:number)\n=1,2,3", "json": "{\"a\":1,\"b\":2,\"c\":3}", "description": "Format A: Three integer fields."}
+{"emon": "#list(data:[(val:string)])\n=[]", "json": "{\"data\":[]}", "description": "Format A: Empty array of nested objects."}
+{"emon": "#entry(notes:string)\n=\"\"\"\nFirst line.\nSecond line.\n\"\"\"", "json": "{\"notes\":\"\\nFirst line.\\nSecond line.\\n\"}", "description": "Format A: Multiline block preservation."}
+{"emon": "#check(id:number, status:bool)\n=100,true", "json": "{\"id\":100,\"status\":true}", "description": "Format A: Simple data record (integer and boolean)."}
+{"emon": "#data(a:string, b:string)\n=Value1,\"Value 2\"", "json": "{\"a\":\"Value1\",\"b\":\"Value 2\"}", "description": "Format A: Mixed quoted/unquoted strings in one record."}
+{"emon": "#dims(w:number, h:number)\n=100.5,200.5", "json": "{\"w\":100.5,\"h\":200.5}", "description": "Format A: Two float values."}
+{"emon": "#config(details:[(version:string)])\n=[{v1.0},{v2.0}]", "json": "{\"details\":[{\"version\":\"v1.0\"},{\"version\":\"v2.0\"}]}", "description": "Format A: Array of inline objects with unquoted strings."}
+{"emon": "#list(items:[number])\n=[5,null,15]", "json": "{\"items\":[5,null,15]}", "description": "Format A: Array with mixed number and null."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#user(a:string, b:number, c:bool)", "output": "{ \"a\": \"string\", \"b\": \"number\", \"c\": \"boolean\" }", "description": "Format B: Schema conversion for basic primitive types."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#record(id:number, tags:[string])", "output": "{ \"id\": \"number\", \"tags\": [\"string\"] }", "description": "Format B: Schema conversion for number and array of strings."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#item(dims:[(w:number, h:number)])", "output": "{ \"dims\": [{\"w\": \"number\", \"h\": \"number\"}] }", "description": "Format B: Schema conversion for array of inline nested type."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#log(data:[[number]])", "output": "{ \"data\": [[\"number\"]] }", "description": "Format B: Schema conversion for multi-dimensional primitive array."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#tasks(list:bool[])", "output": "{ \"list\": [\"boolean\"] }", "description": "Format B: Schema conversion for array of booleans (root type)."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#product(sku:string, price:number)", "output": "{ \"sku\": \"string\", \"price\": \"number\" }", "description": "Format B: Schema conversion for string and number."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#settings(cache:bool, debug:bool)", "output": "{ \"cache\": \"boolean\", \"debug\": \"boolean\" }", "description": "Format B: Schema conversion for multiple booleans."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#list(data:[bool])", "output": "{ \"data\": [\"boolean\"] }", "description": "Format B: Schema conversion for array of boolean."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#coord(x:number, y:number)[]", "output": "[{ \"x\": \"number\", \"y\": \"number\" }]", "description": "Format B: Schema conversion for root array of simple objects."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#container(items:[(name:string)])", "output": "{ \"items\": [{\"name\": \"string\"}] }", "description": "Format B: Schema conversion for array of inline object with one field."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#record(id:number, value:string, status:bool)", "output": "{ \"id\": \"number\", \"value\": \"string\", \"status\": \"boolean\" }", "description": "Format B: Schema conversion for three basic types."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#config(options:[string])", "output": "{ \"options\": [\"string\"] }", "description": "Format B: Schema conversion for array of string."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#details(age:number, city:string)", "output": "{ \"age\": \"number\", \"city\": \"string\" }", "description": "Format B: Schema conversion for number and string."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#data(list:[number], active:bool)", "output": "{ \"list\": [\"number\"], \"active\": \"boolean\" }", "description": "Format B: Schema conversion for array and boolean."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#item(meta:[(key:string, val:number)])", "output": "{ \"meta\": [{\"key\": \"string\", \"val\": \"number\"}] }", "description": "Format B: Schema conversion for array of inline nested object."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#data(a:number, b:string, c:bool)", "output": "{ \"a\": \"number\", \"b\": \"string\", \"c\": \"boolean\" }", "description": "Format B: Schema conversion for basic types."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#config(list:[string], details:[number])", "output": "{ \"list\": [\"string\"], \"details\": [\"number\"] }", "description": "Format B: Schema conversion for primitive arrays."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#order(items:[(id:number, name:string)])", "output": "{ \"items\": [{\"id\": \"number\", \"name\": \"string\"}] }", "description": "Format B: Schema conversion for inline nested type."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#profile(skills:#skill[])", "output": "{ \"skills\": [\"#skill\"] }", "description": "Format B: Schema conversion for array of type references."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#record(a:number, b:string)[]", "output": "[{ \"a\": \"number\", \"b\": \"string\" }]", "description": "Format B: Schema conversion for a root array type."}
+{"instruction": "Convert this EMON definition into JSON schema.", "input": "#geo(loc:[(lat:number, lon:number)])", "output": "{ \"loc\": [{\"lat\": \"number\", \"lon\": \"number\"}] }", "description": "Format B: Schema conversion for array of inline nested type."}
