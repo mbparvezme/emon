@@ -37,6 +37,8 @@ This example shows a simple object structure, demonstrating the rules for quotin
 }
 ```
 
+<br>
+
 ## 2. Array of Objects (Multiple Records)
 
 To represent an array of objects, the root type declaration uses [] (e.g., #product(...)[]), and subsequent data records start with = until a new schema is declared.
@@ -56,6 +58,7 @@ To represent an array of objects, the root type declaration uses [] (e.g., #prod
 
 **JSON Equivalent**
 
+```json
 [
   {
     "sku": "SKU001",
@@ -70,6 +73,9 @@ To represent an array of objects, the root type declaration uses [] (e.g., #prod
     "tags": ["drink", "packaged"]
   }
 ]
+```
+
+<br>
 
 ## 3. Nested Objects (Type References)
 
@@ -90,6 +96,7 @@ This demonstrates defining a child type (#location) separately and referencing i
 
 **JSON Equivalent**
 
+```json
 [
   {
     "id": 201,
@@ -108,8 +115,11 @@ This demonstrates defining a child type (#location) separately and referencing i
     }
   }
 ]
+```
 
 Note: In this case, two records imply the root JSON structure is an array.
+
+<br>
 
 ## 4. Array of Inline Nested Types
 
@@ -143,16 +153,18 @@ If a nested object is simple and unlikely to be reused, it can be defined inline
 }
 ```
 
+<br>
+
 ## 5. Multiline Text Block
 
 The triple-quote ("""...""") syntax is used for multiline strings. All internal line breaks and white space are preserved exactly as written.
 
 **EMON**
 
+```emon
 #article(title:string,body:string)
 ="Q3 Summary", """
 The third quarter performance exceeded expectations.
-
 Key highlights include:
   - 15% growth in services.
   - Successful product launch.
@@ -169,6 +181,8 @@ We look forward to the next fiscal period.
   "body": "The third quarter performance exceeded expectations.\n\nKey highlights include:\n  - 15% growth in services.\n  - Successful product launch.\n\nWe look forward to the next fiscal period.\n"
 }
 ```
+
+<br>
 
 ## 6. Null Values and Empty Arrays
 
@@ -193,6 +207,8 @@ Fields can be explicitly set to null. Arrays can be empty [] or explicitly null.
   "notes": ""
 }
 ```
+
+<br>
 
 ## 7. Configuration Object with Deep Inline Nesting
 
@@ -222,6 +238,8 @@ Demonstrating inline type definition used for a complex, nested configuration st
 }
 ```
 
+<br>
+
 ## 8. Mixed Quoting and Escaped Characters
 
 A single record demonstrating all quoting rules: unquoted strings, quoted strings, and quotes escaped inside a quoted string.
@@ -244,6 +262,8 @@ A single record demonstrating all quoting rules: unquoted strings, quoted string
   "message": "He said \"Hello\" to me."
 }
 ```
+
+<br>
 
 ## 9. Multiline Text Containing JSON
 
@@ -270,6 +290,8 @@ The multiline block can hold complex structured text, like a JSON snippet, prese
   "payload": "{\n  \"status\": \"fail\",\n  \"reason\": \"Invalid card details\",\n  \"code\": 401\n}"
 }
 ```
+
+<br>
 
 ## 10. Multiline Text Containing HTML/XML
 
@@ -298,6 +320,8 @@ The multiline block can hold HTML or XML structure.
 }
 ```
 
+<br>
+
 ## 11. Array of Type References
 
 Demonstrates an array field that holds multiple references to a separately defined object type.
@@ -322,6 +346,8 @@ Demonstrates an array field that holds multiple references to a separately defin
   ]
 }
 ```
+
+<br>
 
 ## 12. Multiple Schemas in One File
 
@@ -359,6 +385,8 @@ If parsed as an array of #ship objects:
 
 (The toJSON function should ideally return the last processed set, or handle the entire block for complex parsers.)
 
+<br>
+
 ## 13. Inventory Log (Numbers and Booleans)
 
 Simple demonstration of mixed numeric and boolean types.
@@ -391,6 +419,8 @@ Simple demonstration of mixed numeric and boolean types.
 ]
 ```
 
+<br>
+
 ## 14. Nested Multiline Text
 
 A multiline string used as a value inside a nested object.
@@ -421,6 +451,8 @@ Release notes for 2.1:
 }
 ```
 
+<br>
+
 ## 15. User Permissions Structure
 
 Demonstrates an array of primitives (roles) and an array of simple nested objects (access) within one structure.
@@ -446,6 +478,8 @@ Demonstrates an array of primitives (roles) and an array of simple nested object
 }
 ```
 
+<br>
+
 ## 16. Object with All Nulls
 
 Demonstrates a record where all fields are explicitly set to null.
@@ -467,6 +501,8 @@ Demonstrates a record where all fields are explicitly set to null.
   "details": null
 }
 ```
+
+<br>
 
 ## 17. Array of Objects with Only One Field (Inline)
 
@@ -492,6 +528,8 @@ Demonstrates a minimal inline object type [(a:string)].
 }
 ```
 
+<br>
+
 ## 18. Complex Geographic Data (Nested Reference Array)
 
 **EMON**
@@ -514,6 +552,8 @@ Demonstrates a minimal inline object type [(a:string)].
   ]
 }
 ```
+
+<br>
 
 ## 19. Simple Array of Primitive Arrays
 
@@ -538,6 +578,8 @@ An array field containing an array of primitive types (like a matrix row).
 }
 ```
 
+<br>
+
 ## 20. Simple Array of Booleans
 
 **EMON**
@@ -555,6 +597,8 @@ An array field containing an array of primitive types (like a matrix row).
   "states": [true, false, false, true]
 }
 ```
+
+<br>
 
 ## 21. Data with Different Root Schema (Array)
 
@@ -576,6 +620,8 @@ An array field containing an array of primitive types (like a matrix row).
   { "code": "I300", "description": "Backup Complete", "severity": 0 }
 ]
 ```
+
+<br>
 
 ## Summary and Usage
 
