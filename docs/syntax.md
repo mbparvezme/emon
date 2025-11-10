@@ -206,6 +206,9 @@ import "./common/user.emon"
 ="25"  // ❌ Wrong type
 ```
 
+> [!TIP]
+> Keep EMON data modular, validated, and readable - your AI models and parsers will process it faster and more reliably.
+
 <br>
 
 ## Example
