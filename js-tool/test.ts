@@ -5,7 +5,8 @@ import { EMON } from './src/index';
 // --- Configuration ---
 // Path is calculated relative to the current working directory of the test script.
 // We assume the JSON file is located at the root for this example.
-const INPUT_FILE_NAME = '../docs/benchmark-data/employee/employees.json';
+// const INPUT_FILE_NAME = '../docs/benchmark-data/employee/employees.json';
+const INPUT_FILE_NAME = '../docs/benchmark-data/customer/customers-compact.json';
 const INPUT_PATH = path.join(__dirname, INPUT_FILE_NAME);
 
 /**
@@ -22,7 +23,7 @@ function runConversionTest() {
         console.log(`\n✅ Input File Read: ${INPUT_FILE_NAME}`);
 
         // 2. Perform Conversion and Retrieve Metadata
-        const result = EMON.fromJSON(jsonData, 'employee').withMeta();
+        const result = EMON.fromJSON(jsonData).withMeta();
 
         // 3. Destructure and Print Results
         const emonOutput = result.emon;

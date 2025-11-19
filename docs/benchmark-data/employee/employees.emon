@@ -6,7 +6,6 @@
 #address(home:#home,office:#office)
 #home(street:string,city:string,country:string)
 #office(street:string,city:string,country:string)
-
 ={"Mr. Joshua Simpson",45,{"pbaxter@garcia.biz","345-186-6295"}},{"Backend Developer",Data,{Ruby,[SQL,Rails,RSpec]}},{{"909 Matthew Mills Apt. 582",Sanchezton,"Falkland Islands (Malvinas)"},{"6199 Lori Falls Apt. 579",Moranside,"New Zealand"}}   
 ={"Stephanie Valdez",48,{"richardpeterson@hanson-johnson.org","001-641-473-9218x638"}},{"UI/UX Designer",QA,{Node.js,[Express,SQL,MongoDB]}},{{"8220 Park Greens","South Steven",Niue},{"414 Martinez Road",Lewisfurt,Uruguay}}
 ={"Samantha Watson",31,{"robert69@hotmail.com","707-099-0058x5936"}},{"Software Engineer",DevOps,{JavaScript,[React,Angular,Vue]}},{{"0841 Taylor Glens","North Paulaside","Sierra Leone"},{"8273 Deborah Inlet","West Rebekahshire",Ecuador}}        
