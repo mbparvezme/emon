@@ -4,8 +4,6 @@
 
 Unlike JSON or XML, EMON is built with **efficiency in mind**: every symbol, key, and quote is considered for its impact on storage, bandwidth, or token usage. This makes EMON particularly valuable in AI applications where token economy translates directly into **lower cost** and **faster model processing**.
 
-
-
 <br>
 
 ## Why EMON
@@ -221,13 +219,11 @@ For full syntax details, advanced nested types, arrays, and multiline text, see 
 
 The table below illustrates how **EMON** reduces redundancy compared to JSON while preserving the same data structure with a simple example.
 
-<table border="1" cellpadding="5" cellspacing="0">
+<table>
   <thead>
     <tr>
       <th></th>
       <th>JSON</th>
-      <th>XML</th>
-      <th>YAML</th>
       <th>EMON</th>
     </tr>
   </thead>
@@ -250,59 +246,26 @@ The table below illustrates how **EMON** reduces redundancy compared to JSON whi
 </td>
       <td>
 
-```xml
-<user>
-  <name>Parvez</name>
-  <age>30</age>
-  <profile>
-    <bio>Developer</bio>
-    <location>NY, USA</location>
-  </profile>
-  <verified>true</verified>
-</user>
-```
-</td>
-      <td>
-
-```yml
-name: Parvez
-age: 30
-profile:
-  bio: Developer
-  location: NY, USA
-verified: true
-```
-</td>
-      <td>
-
 `=Parvez,30,{Developer,"NY, USA"},true`</td>
     </tr>
     <tr>
       <td>Token Count</td>
       <td>46</td>
-      <td>56</td>
-      <td>27</td>
       <td>13</td>
     </tr>
     <tr>
       <td>Character Count</td>
       <td>125</td>
-      <td>163</td>
-      <td>81</td>
       <td>37</td>
     </tr>
     <tr>
       <td>Token Reduction</td>
       <td>--</td>
-      <td>~ -22%</td>
-      <td> ~41%</td>
       <td> ~72%</td>
     </tr>
     <tr>
       <td>Character Reduction</td>
       <td>--</td>
-      <td> ~ -30%</td>
-      <td> ~35%</td>
       <td> ~70%</td>
     </tr>
   </tbody>
