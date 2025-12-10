@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMON Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md py-4 px-8">
+      <div class="max-w-6xl mx-auto flex items-center">
+        <h1 class="text-xl font-bold me-auto">
+          EMON
+          <span class="block text-xs font-normal">AI First Object Notation</span>
+        </h1>
+        <nav class="hidden lg:flex space-x-4">
+          <button onclick="loadPage('intro')" class="font-medium text-gray-600 hover:text-slate-900">Home</button>
+          <button onclick="loadPage('syntax')" class="font-medium text-gray-600 hover:text-slate-900">Syntax</button>
+          <button onclick="loadPage('schema')" class="font-medium text-gray-600 hover:text-slate-900">Schema</button>
+          <button onclick="loadPage('training')" class="font-medium text-gray-600 hover:text-slate-900">AI Training</button>
+        </nav>
+
+        <div class="ps-16">
+          <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none text-2xl">&#9776;</button>
+          <div id="mobile-menu" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md hidden flex-col py-2">
+            <button onclick="loadPage('intro'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Home</button>
+            <button onclick="loadPage('syntax'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Syntax</button>
+            <button onclick="loadPage('schema'); toggleMobileMenu()" class="lg:hidden relative font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Schema</button>
+            <button onclick="loadPage('training'); toggleMobileMenu()" class="lg:hidden relative text-font-medium gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">AI Training</button>
+            <button onclick="loadPage('contributing'); toggleMobileMenu()" class="font-medium text-gray-600 hover:text-slate-900 py-1 px-4 text-left w-full hover:bg-gray-100 transition-color duration-500">Contributing</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl mx-auto px-8 pt-16 pb-24">
+      <div id="content" class="prose max-w-full"></div>
+    </main>
+
+    <footer class="bg-white shadow-inner p-4 text-center text-gray-500 text-sm">
+      © 2025 EMON | <a href="https://github.com/mbparvezme/emon" target="_blank">GitHub Repo</a>
+    </footer>
+
+    <script>
+      const pages = {
+        intro: '../README.md',
+        syntax: 'syntax.md',
+        schema: '../schema/1.0/README.md',
+        training: '../ai-training/emon-ai-training-guide.md',
+        contributing: '../CONTRIBUTING.md'
+      }
+
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      let toggleMobileMenu = () => mobileMenu.classList.toggle('hidden')
+
+      mobileBtn.addEventListener('click', toggleMobileMenu);
+
+      let applyMarkdownStyles = () => {
+        const content = document.getElementById('content');
+        if (!content) return;
+        // Headings
+        content.querySelectorAll('h1').forEach(el => el.classList.add('text-4xl', 'font-bold', 'mb-4'));
+        content.querySelectorAll('h2').forEach(el => el.classList.add('text-2xl', 'font-semibold', 'mb-3'));
+        content.querySelectorAll('h3').forEach(el => el.classList.add('text-xl', 'font-semibold', 'mb-2'));
+        // Paragraphs
+        content.querySelectorAll('p').forEach(el => el.classList.add('text-gray-700', 'leading-relaxed', 'mb-3'));
+        // Lists
+        content.querySelectorAll('ul').forEach(el => el.classList.add('ps-4', 'mb-4'));
+        content.querySelectorAll('ol').forEach(el => el.classList.add('ps-4', 'mb-4'));
+        content.querySelectorAll('li').forEach(el => el.classList.add('mb-1', 'ml-5', 'list-disc'));
+        // Code blocks
+        content.querySelectorAll('pre').forEach(el => el.classList.add('bg-gray-900', 'text-white', 'p-4', 'rounded', 'overflow-x-auto', 'mb-4', 'whitespace-pre'));
+        content.querySelectorAll('code').forEach(el => el.classList.add('rounded', 'text-md', 'font-mono'));
+        // Tables
+        content.querySelectorAll('table').forEach(el => el.classList.add('border-collapse', 'border', 'border-gray-300', 'mb-4'));
+        content.querySelectorAll('th, td').forEach(el => el.classList.add('border', 'border-gray-300', 'p-2'));
+        // Links
+        content.querySelectorAll('a').forEach(el => el.classList.add('text-blue-600', 'hover:underline'));
+      }
+
+      async function loadPage(page) {
+        const mdFile = pages[page]
+        try {
+          const response = await fetch(mdFile)
+          if (!response.ok) throw new Error('File not found')
+          const text = await response.text()
+          document.getElementById('content').innerHTML = marked.parse(text)
+          applyMarkdownStyles()
+        } catch (err) {
+          document.getElementById('content').innerHTML = `<p class="text-red-600">Error loading page: ${err.message}</p>`
+        }
+      }
+
+      loadPage('intro')
+    </script>
+  </body>
+</html>

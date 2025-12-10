@@ -1,42 +1,49 @@
 #schema(name:string,version:string,description:string,definitions:[#definition])
 #definition(id:string,pattern:string,example:string,description:string,type_list:[string])
 
-="EMON Schema", "1.0.0",
-"Official schema definition for EMON (Efficient Modular Object Notation). Defines structures, types, and references for EMON files.",
+="EMON Schema","1.1.0",
+"Official EMON (Efficient Minimal Object Notation) schema definition. Supports inline and nested types, triple-quoted multiline text, and comments.",
 [
-    {
-        "definition",
-        "^#[a-zA-Z_][a-zA-Z0-9_]*\(.*\)$",
-        "#user(name:string,age:number,verified:bool)",
-        "Defines reusable structures (start with #). Can include multiple fields with types.",
-        ["string","number","bool","int","float","[string]","[number]","[bool]"]
-    },
-    {
-        "record",
-        "^=.*$",
-        "=Parvez,30,true",
-        "Defines data values for a structure (start with =). Values must match field types.",
-        []
-    },
-    {
-        "type",
-        "string|number|bool|int|float|[string]|[number]|[bool]|#<identifier>",
-        "string",
-        "Specifies allowed field types. Can be basic types, arrays, or references to other structures.",
-        ["string","number","bool","int","float","[string]","[number]","[bool]"]
-    },
-    {
-        "reference",
-        "^#\w+$",
-        "#profile",
-        "Reference to a previously defined structure. Used in nested fields or values.",
-        []
-    },
-    {
-        "value",
-        "string|number|boolean|object|array|reference",
-        "=John,25,true,{...},[...]",
-        "Allowed value types for records. Objects and arrays can be nested. References point to other structures.",
-        []
-    }
+  {
+    "definition",
+    "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)(\\[\\])?$",
+    "#user(id:number,name:string,profile:#profile,roles:[string])",
+    "Defines data structure (schema) with optional array indicator [].",
+    ["string","number","bool","int","float","[string]","[number]","[bool]"]
+  },
+  {
+    "record",
+    "^=.*$",
+    "=1,Parvez,{30,Dhaka},[admin,editor]",
+    "Defines data rows matching a schema (start with =). Each value follows field order.",
+    []
+  },
+  {
+    "type",
+    "string|number|bool|int|float|#<identifier>|(field:type,...)",
+    "(id:number,name:string)",
+    "Defines field data type. Can be basic, array, nested, or reference type.",
+    ["string","number","bool","int","float","[string]","[number]","[bool]"]
+  },
+  {
+    "multiline_string",
+    "\"\"\".*\"\"\"",
+    "\"\"\"This is a multiline\ntext block.\"\"\"",
+    "Triple-quoted text block preserving line breaks and spaces. Converts to JSON string with \\n.",
+    []
+  },
+  {
+    "reference",
+    "^#\\w+$",
+    "#profile",
+    "Reference to another schema or nested type definition.",
+    []
+  },
+  {
+    "comment",
+    "^//.*$",
+    "// this is a comment",
+    "Comments start with // and are ignored by parser.",
+    []
+  }
 ]

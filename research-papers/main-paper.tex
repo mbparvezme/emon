@@ -1,0 +1,107 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{float}
+
+\geometry{margin=1in}
+\setstretch{1.25}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{M. B. Parvez}
+\lhead{Development of EMON}
+\rfoot{\thepage}
+
+\title{Development of EMON --- An Efficient JSON-like Data Structure}
+\author{M. B. Parvez}
+\date{November 8, 2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+During the development of modern AI systems, efficient data exchange is critical for cost and performance. JSON, while universal, often carries unnecessary repetition and formatting overhead that increases token usage in AI models. This paper presents \textbf{EMON (Efficient Minimal Object Notation)} --- a compact, human-readable data format designed to reduce redundancy and optimize token consumption without losing clarity or structure. Experiments show that EMON can reduce text size and AI token usage by approximately 40--60\% compared with equivalent JSON data, making it highly efficient for AI applications and large-scale data transfers.
+\end{abstract}
+
+\section{Introduction}
+As artificial intelligence continues to integrate into everyday systems, the need for structured yet lightweight data formats grows. JSON remains the default standard, but its verbose syntax can become a performance bottleneck --- particularly in environments that rely on token-based processing, such as OpenAI or Gemini APIs.
+
+While testing AI features, I observed that JSON’s repeated keys and frequent quotation marks contributed significantly to higher token usage. This realization led to the exploration of a simpler model that could maintain structure while minimizing textual weight. The result of that exploration is EMON.
+
+\section{Background and Motivation}
+Most modern APIs use JSON for simplicity, but the format’s redundancy can quickly accumulate cost in large datasets. For instance, representing arrays of objects with repeated property names wastes tokens and bandwidth.
+
+During AI model testing, I noticed that even small improvements in structure could result in notable savings. That insight motivated the design of EMON --- a notation that retains the essence of JSON while improving efficiency through minimal syntax.
+
+\section{Design Principles of EMON}
+EMON was built around three simple goals:
+\begin{enumerate}
+    \item Reduce redundancy by avoiding repetitive keys.
+    \item Maintain clarity with human-friendly notation.
+    \item Improve AI efficiency by lowering token counts during parsing and transmission.
+\end{enumerate}
+
+To achieve this, EMON introduces a structure that separates definitions and records:
+\begin{lstlisting}[language={},frame=single]
+#user(name:string, age:number, verified:bool)
+=Parvez, 30, true
+\end{lstlisting}
+
+Definitions (marked with \#) describe the schema, and records (marked with =) contain the actual data values. This model keeps data compact while retaining clear relationships between fields and values.
+
+\section{Syntax and Structure}
+EMON follows a clean and minimal syntax, inspired by EBNF grammar:
+\begin{itemize}
+    \item \# introduces reusable structures (schemas).
+    \item = defines instance data following those schemas.
+    \item Parentheses () group field definitions.
+    \item Square brackets [] represent arrays or lists.
+\end{itemize}
+
+This approach allows EMON to support both simple and nested structures while staying easy to read and parse.
+
+\section{Implementation and Tools}
+A full schema and parser for EMON were implemented using JavaScript and PHP, along with definitions written in .emon and .json schema files. Supporting tools include:
+\begin{itemize}
+    \item EMON Schema Validator --- validates structure definitions.
+    \item AI Training Dataset --- used to teach models to recognize and parse EMON.
+    \item Integration Library --- allows conversion between JSON and EMON formats.
+\end{itemize}
+
+\section{Evaluation and Results}
+Benchmarking showed that EMON consistently reduces both data size and AI token consumption. Across multiple datasets, EMON achieved a reduction of approximately 40--60\% in comparison to equivalent JSON representations.
+
+For instance, representing 50 user records with repeated keys:
+\begin{itemize}
+    \item JSON size: 8,200 characters, 100\% token usage
+    \item EMON size: 4,900 characters, 45--60\% token usage
+\end{itemize}
+
+These results were measured using OpenAI and Gemini API simulations, demonstrating significant cost savings during AI model training and testing. Importantly, all EMON records maintained full data integrity and schema validity.
+
+\section{Use Cases}
+EMON works well in:
+\begin{itemize}
+    \item AI dataset representation and training data compression, where token reduction of 40--60\% significantly lowers costs.
+    \item Configuration files with repeated keys.
+    \item Lightweight web or IoT communication systems.
+    \item Human-editable structured data files.
+\end{itemize}
+
+\section{Conclusion}
+EMON provides a new way to express structured data with balance between efficiency and readability. It preserves meaning while reducing repetition --- an advantage for both human developers and AI systems.
+
+Future work will explore deeper AI integration, allowing models to natively process EMON data and automatically infer structure during generation.
+
+\section*{References}
+(See References.bib)
+
+\section*{Author Declaration}
+I confirm that this work, including the design and evaluation of EMON, is entirely my original research and has not been previously published elsewhere.
+
+\end{document}

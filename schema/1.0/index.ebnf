@@ -1,26 +1,67 @@
-(* EMON Syntax Definition in EBNF *)
+(* EMON (Efficient Modular Object Notation) Syntax Definition in EBNF (v2.0) )
+( Reference: IEEE Research Paper, Section 3.2 *)
 
-emon_document  = { definition | record } ;
+(* ------------------- 1. DOCUMENT STRUCTURE ------------------- *)
 
-definition = "#" , identifier , "(" , field_list , ")" ;
-field_list     = field , { "," , field } ;
-field          = identifier , ":" , type ;
+emon_document      = { header_line } , { comment | definition | record } ;
 
-record         = "=" , value , { "," , value } ;
+header_line        = "@" , identifier , "(" , { unquoted_string | quoted_string } , ")" ;
+comment            = "//" , { character } , new_line ; (* Comments not allowed on data lines *)
+definition         = "#" , type_identifier , "(" , field_list , ")" , [ "[]" ] , new_line ;
 
-type           = "string" | "number" | "bool" | "boolean" | "float"
-               | "int" | "[" , type , "]" | "#" , identifier ;
+record             = "=" , value_list , new_line ;
 
-value          = string | number | boolean | object | array | reference ;
-object         = "{" , value , { "," , value } , "}" ;
-array          = "[" , value , { "," , value } , "]" ;
+(* ------------------- 2. TYPE DEFINITIONS (#) ------------------- *)
 
-identifier     = letter , { letter | digit | "_" } ;
-string         = '"' , { character } , '"' ;
-number         = [ "-" ] , digit , { digit | "." , digit } ;
-boolean        = "true" | "false" ;
+type_identifier    = letter , { letter | digit | "_" } ;
+field_list         = field_definition , { "," , field_definition } ;
+field_definition   = identifier , ":" , field_type ;
 
-letter         = ? any alphabetic character ? ;
-digit          = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-character      = ? any printable character except " and newline ? ;
-reference      = "#" , identifier ;
+field_type         = primitive_type
+                    | array_type
+                    | custom_type_ref
+                    | inline_type_def ; (* Currently discouraged but structurally possible *)
+
+primitive_type     = "string" | "number" | "bool" ; (* Rule 7: Strict primitive types *)
+custom_type_ref    = "#" , type_identifier ;
+array_type         = "[" , field_type , "]" ;
+inline_type_def    = "(" , field_list , ")" ;
+
+(* ------------------- 3. DATA RECORDS (=) ------------------- *)
+
+value_list         = value_segment , { "," , value_segment } ;
+
+value_segment      = quoted_string
+                    | multiline_string
+                    | number
+                    | boolean
+                    | null
+                    | array_instance
+                    | object_instance
+                    | unquoted_string ; (* Must be single word, no delimiters *)
+
+array_instance     = "[" , [ value_list ] , "]" ; (* Homogenous values expected per Rule 12 )
+object_instance    = "{" , value_list , "}" ; ( Value order strictly matches definition *)
+
+(* ------------------- 4. PRIMITIVE VALUES (Terminals) ------------------- *)
+
+(* Rule 4/9: Handles quoted strings, escaping, and multi-line strings *)
+quoted_string      = '"' , { character | escaped_quote } , '"' ;
+multiline_string   = '"""' , { character | new_line } , '"""' ;
+escaped_quote      = '' , '"' ;
+
+(* Rule 4: Must not contain delimiters (space, comma, structural chars) *)
+unquoted_string    = { letter | digit | "_" | "." | "-" | "@" | "/" } - ( reserved_keyword ) ;
+
+number             = [ "-" | "+" ] , digit , { digit } , [ "." , { digit } ] ;
+boolean            = "true" | "false" ;
+null               = "null" ;
+
+(* ------------------- 5. FUNDAMENTAL TERMINALS ------------------- *)
+
+identifier         = letter , { letter | digit | "_" } ; (* Used for field names *)
+reserved_keyword   = "true" | "false" | "null" ;
+letter             = ? any alphabetic character (A-Z, a-z) ? ;
+digit              = ? any decimal digit (0-9) ? ;
+new_line           = ? carriage return and/or line feed ? ;
+character          = ? any printable character including new_line, except control characters ? ;

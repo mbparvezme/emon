@@ -1,0 +1,2110 @@
+customers:
+  - customer_id: CUST00001
+    first_name: Oliver
+    last_name: Hayes
+    email: oliver.hayes@example.com
+    registration_date: 2024-01-15
+    address:
+      street: 12 Elm St
+      city: Springfield
+      zip_code: '10001'
+      country: USA
+    orders:
+      - order_id: ORD1000
+        order_date: 2024-02-01T11:00:00Z
+        total_amount: 54.98
+        status: Delivered
+        products:
+          - product_id: PROD001
+            name: Cotton T-Shirt (Blue)
+            price: 25.99
+            quantity: 2
+          - product_id: PROD005
+            name: Canvas Tote Bag
+            price: 2.99
+            quantity: 1
+  - customer_id: CUST00002
+    first_name: Sophia
+    last_name: Chen
+    email: sophia.chen@example.com
+    registration_date: 2024-03-10
+    address:
+      street: 789 Pine Ave
+      city: Oakland
+      zip_code: '94601'
+      country: USA
+    orders:
+      - order_id: ORD1001
+        order_date: 2024-03-20T15:45:00Z
+        total_amount: 129.99
+        status: Shipped
+        products:
+          - product_id: PROD010
+            name: Noise-Cancelling Headphones
+            price: 129.99
+            quantity: 1
+      - order_id: ORD1002
+        order_date: 2024-04-05T08:30:00Z
+        total_amount: 45
+        status: Processing
+        products:
+          - product_id: PROD012
+            name: Stainless Steel Water Bottle
+            price: 22.5
+            quantity: 2
+  - customer_id: CUST00003
+    first_name: Liam
+    last_name: Patel
+    email: liam.patel@example.com
+    registration_date: 2023-11-20
+    address:
+      street: 30 Maple Lane
+      city: Riverdale
+      zip_code: '20005'
+      country: USA
+    orders:
+      - order_id: ORD1003
+        order_date: 2024-01-10T14:00:00Z
+        total_amount: 89.99
+        status: Delivered
+        products:
+          - product_id: PROD020
+            name: Leather Wallet
+            price: 89.99
+            quantity: 1
+  - customer_id: CUST00004
+    first_name: Ava
+    last_name: Rodriguez
+    email: ava.rodriguez@example.com
+    registration_date: 2024-02-28
+    address:
+      street: 101 Cedar Blvd
+      city: Phoenix
+      zip_code: '85001'
+      country: USA
+    orders:
+      - order_id: ORD1004
+        order_date: 2024-03-01T09:15:00Z
+        total_amount: 299
+        status: Cancelled
+        products:
+          - product_id: PROD035
+            name: 4K Ultra HD Monitor
+            price: 299
+            quantity: 1
+      - order_id: ORD1005
+        order_date: 2024-03-15T16:20:00Z
+        total_amount: 19.99
+        status: Delivered
+        products:
+          - product_id: PROD030
+            name: Charging Cable (USB-C)
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00005
+    first_name: Noah
+    last_name: Williams
+    email: noah.williams@example.com
+    registration_date: 2023-12-05
+    address:
+      street: 22 Forest Road
+      city: Seattle
+      zip_code: '98101'
+      country: USA
+    orders:
+      - order_id: ORD1006
+        order_date: 2024-01-01T12:00:00Z
+        total_amount: 75.5
+        status: Delivered
+        products:
+          - product_id: PROD040
+            name: Yoga Mat
+            price: 40
+            quantity: 1
+          - product_id: PROD041
+            name: Resistance Bands Set
+            price: 35.5
+            quantity: 1
+  - customer_id: CUST00006
+    first_name: Elijah
+    last_name: Brown
+    email: elijah.brown@example.com
+    registration_date: 2024-04-12
+    address:
+      street: 55 Hillside Dr
+      city: Boston
+      zip_code: '02108'
+      country: USA
+    orders:
+      - order_id: ORD1007
+        order_date: 2024-05-01T10:00:00Z
+        total_amount: 15.99
+        status: Delivered
+        products:
+          - product_id: PROD050
+            name: Coffee Mug (Ceramic)
+            price: 15.99
+            quantity: 1
+  - customer_id: CUST00007
+    first_name: Isabella
+    last_name: Garcia
+    email: isabella.garcia@example.com
+    registration_date: 2023-10-01
+    address:
+      street: 99 Ocean View Rd
+      city: Miami
+      zip_code: '33101'
+      country: USA
+    orders:
+      - order_id: ORD1008
+        order_date: 2023-10-15T18:00:00Z
+        total_amount: 499
+        status: Shipped
+        products:
+          - product_id: PROD060
+            name: Digital Camera Kit
+            price: 499
+            quantity: 1
+      - order_id: ORD1009
+        order_date: 2024-01-22T13:10:00Z
+        total_amount: 12.5
+        status: Delivered
+        products:
+          - product_id: PROD065
+            name: Camera Lens Cleaning Cloth
+            price: 12.5
+            quantity: 1
+  - customer_id: CUST00008
+    first_name: Lucas
+    last_name: Martinez
+    email: lucas.martinez@example.com
+    registration_date: 2024-05-20
+    address:
+      street: 21 Bayside Dr
+      city: San Diego
+      zip_code: '92101'
+      country: USA
+    orders: []
+  - customer_id: CUST00009
+    first_name: Mia
+    last_name: Clark
+    email: mia.clark@example.com
+    registration_date: 2024-01-05
+    address:
+      street: 88 Gold St
+      city: New York
+      zip_code: '10005'
+      country: USA
+    orders:
+      - order_id: ORD1010
+        order_date: 2024-01-18T16:00:00Z
+        total_amount: 34.5
+        status: Shipped
+        products:
+          - product_id: PROD070
+            name: Scented Candle (Lavender)
+            price: 17.25
+            quantity: 2
+  - customer_id: CUST00010
+    first_name: Ethan
+    last_name: Hall
+    email: ethan.hall@example.com
+    registration_date: 2023-09-15
+    address:
+      street: 14 Main St
+      city: Chicago
+      zip_code: '60601'
+      country: USA
+    orders:
+      - order_id: ORD1011
+        order_date: 2023-11-01T09:00:00Z
+        total_amount: 199.99
+        status: Delivered
+        products:
+          - product_id: PROD080
+            name: Smart Watch (Model X)
+            price: 199.99
+            quantity: 1
+  - customer_id: CUST00011
+    first_name: Amelia
+    last_name: King
+    email: amelia.king@example.com
+    registration_date: 2024-04-01
+    address:
+      street: 400 Lake View Pl
+      city: Dallas
+      zip_code: '75201'
+      country: USA
+    orders:
+      - order_id: ORD1012
+        order_date: 2024-05-10T14:30:00Z
+        total_amount: 79.99
+        status: Processing
+        products:
+          - product_id: PROD090
+            name: Blender (High Power)
+            price: 79.99
+            quantity: 1
+  - customer_id: CUST00012
+    first_name: Ben
+    last_name: Lee
+    email: ben.lee@example.com
+    registration_date: 2024-01-25
+    address:
+      street: 77 River Rd
+      city: Austin
+      zip_code: '78701'
+      country: USA
+    orders:
+      - order_id: ORD1013
+        order_date: 2024-02-14T10:00:00Z
+        total_amount: 25
+        status: Delivered
+        products:
+          - product_id: PROD100
+            name: Notebook (Spiral, Lined)
+            price: 5
+            quantity: 5
+      - order_id: ORD1014
+        order_date: 2024-03-29T11:15:00Z
+        total_amount: 12.99
+        status: Shipped
+        products:
+          - product_id: PROD105
+            name: Pen Set (Black Ink)
+            price: 12.99
+            quantity: 1
+  - customer_id: CUST00013
+    first_name: Charlotte
+    last_name: Baker
+    email: charlotte.baker@example.com
+    registration_date: 2023-11-05
+    address:
+      street: 123 Cherry Ln
+      city: Denver
+      zip_code: '80202'
+      country: USA
+    orders:
+      - order_id: ORD1015
+        order_date: 2023-12-01T17:00:00Z
+        total_amount: 175.5
+        status: Delivered
+        products:
+          - product_id: PROD110
+            name: Wool Scarf (Red)
+            price: 45
+            quantity: 1
+          - product_id: PROD111
+            name: Winter Gloves
+            price: 35.5
+            quantity: 1
+          - product_id: PROD112
+            name: Thermal Socks
+            price: 15
+            quantity: 3
+  - customer_id: CUST00014
+    first_name: Daniel
+    last_name: Scott
+    email: daniel.scott@example.com
+    registration_date: 2024-02-10
+    address:
+      street: 45 Tech Way
+      city: San Jose
+      zip_code: '95113'
+      country: USA
+    orders:
+      - order_id: ORD1016
+        order_date: 2024-02-20T09:30:00Z
+        total_amount: 999.99
+        status: Shipped
+        products:
+          - product_id: PROD120
+            name: High-End Laptop (16-inch)
+            price: 999.99
+            quantity: 1
+  - customer_id: CUST00015
+    first_name: Ella
+    last_name: Adams
+    email: ella.adams@example.com
+    registration_date: 2024-05-01
+    address:
+      street: 10 Pine Cone Trail
+      city: Portland
+      zip_code: '97204'
+      country: USA
+    orders:
+      - order_id: ORD1017
+        order_date: 2024-05-15T12:45:00Z
+        total_amount: 50
+        status: Processing
+        products:
+          - product_id: PROD130
+            name: Gift Card ($50)
+            price: 50
+            quantity: 1
+  - customer_id: CUST00016
+    first_name: Finley
+    last_name: Green
+    email: finley.green@example.com
+    registration_date: 2023-10-20
+    address:
+      street: 303 Bridge Blvd
+      city: Philadelphia
+      zip_code: '19103'
+      country: USA
+    orders:
+      - order_id: ORD1018
+        order_date: 2023-11-05T15:30:00Z
+        total_amount: 25.99
+        status: Delivered
+        products:
+          - product_id: PROD140
+            name: Wall Calendar 2024
+            price: 25.99
+            quantity: 1
+  - customer_id: CUST00017
+    first_name: Grace
+    last_name: Taylor
+    email: grace.taylor@example.com
+    registration_date: 2024-03-05
+    address:
+      street: 10 Downing St
+      city: Washington
+      zip_code: '20004'
+      country: USA
+    orders:
+      - order_id: ORD1019
+        order_date: 2024-03-10T11:45:00Z
+        total_amount: 150
+        status: Shipped
+        products:
+          - product_id: PROD150
+            name: Luxury Bath Towel Set
+            price: 75
+            quantity: 2
+      - order_id: ORD1020
+        order_date: 2024-04-10T16:00:00Z
+        total_amount: 35
+        status: Processing
+        products:
+          - product_id: PROD155
+            name: Organic Soap Bar
+            price: 7
+            quantity: 5
+  - customer_id: CUST00018
+    first_name: Henry
+    last_name: White
+    email: henry.white@example.com
+    registration_date: 2024-01-01
+    address:
+      street: 50 Skyline Blvd
+      city: Los Angeles
+      zip_code: '90001'
+      country: USA
+    orders:
+      - order_id: ORD1021
+        order_date: 2024-01-05T18:30:00Z
+        total_amount: 10.99
+        status: Delivered
+        products:
+          - product_id: PROD160
+            name: Phone Stand (Plastic)
+            price: 10.99
+            quantity: 1
+      - order_id: ORD1022
+        order_date: 2024-02-01T12:00:00Z
+        total_amount: 6.99
+        status: Delivered
+        products:
+          - product_id: PROD161
+            name: Screen Protector
+            price: 6.99
+            quantity: 1
+  - customer_id: CUST00019
+    first_name: Ivy
+    last_name: Harris
+    email: ivy.harris@example.com
+    registration_date: 2023-12-15
+    address:
+      street: 15 Water St
+      city: Baltimore
+      zip_code: '21201'
+      country: USA
+    orders:
+      - order_id: ORD1023
+        order_date: 2024-01-20T14:00:00Z
+        total_amount: 59.99
+        status: Shipped
+        products:
+          - product_id: PROD170
+            name: Electric Toothbrush
+            price: 59.99
+            quantity: 1
+  - customer_id: CUST00020
+    first_name: Jack
+    last_name: Martin
+    email: jack.martin@example.com
+    registration_date: 2024-04-20
+    address:
+      street: 500 High St
+      city: Salt Lake City
+      zip_code: '84101'
+      country: USA
+    orders:
+      - order_id: ORD1024
+        order_date: 2024-05-05T10:30:00Z
+        total_amount: 150.5
+        status: Delivered
+        products:
+          - product_id: PROD180
+            name: Camping Tent (2 Person)
+            price: 120.5
+            quantity: 1
+          - product_id: PROD181
+            name: Headlamp (LED)
+            price: 15
+            quantity: 2
+  - customer_id: CUST00021
+    first_name: Kira
+    last_name: Nelson
+    email: kira.nelson@example.com
+    registration_date: 2023-09-01
+    address:
+      street: 10 Riverbend Pkwy
+      city: Atlanta
+      zip_code: '30303'
+      country: USA
+    orders:
+      - order_id: ORD1025
+        order_date: 2023-09-10T13:00:00Z
+        total_amount: 35
+        status: Delivered
+        products:
+          - product_id: PROD190
+            name: Picture Frame (8x10)
+            price: 35
+            quantity: 1
+      - order_id: ORD1026
+        order_date: 2024-01-10T15:00:00Z
+        total_amount: 5.99
+        status: Processing
+        products:
+          - product_id: PROD191
+            name: Photo Paper Pack
+            price: 5.99
+            quantity: 1
+  - customer_id: CUST00022
+    first_name: Leo
+    last_name: Perez
+    email: leo.perez@example.com
+    registration_date: 2024-03-25
+    address:
+      street: 300 Tech Dr
+      city: Seattle
+      zip_code: '98101'
+      country: USA
+    orders:
+      - order_id: ORD1027
+        order_date: 2024-04-01T10:00:00Z
+        total_amount: 599.99
+        status: Shipped
+        products:
+          - product_id: PROD200
+            name: Gaming PC Tower
+            price: 599.99
+            quantity: 1
+  - customer_id: CUST00023
+    first_name: Maya
+    last_name: Quinn
+    email: maya.quinn@example.com
+    registration_date: 2023-10-10
+    address:
+      street: 70 Green St
+      city: San Francisco
+      zip_code: '94107'
+      country: USA
+    orders:
+      - order_id: ORD1028
+        order_date: 2023-11-01T11:30:00Z
+        total_amount: 80
+        status: Delivered
+        products:
+          - product_id: PROD210
+            name: Silk Pillowcase
+            price: 40
+            quantity: 2
+  - customer_id: CUST00024
+    first_name: Nathan
+    last_name: Ross
+    email: nathan.ross@example.com
+    registration_date: 2024-05-15
+    address:
+      street: 1090 Industrial Rd
+      city: Detroit
+      zip_code: '48201'
+      country: USA
+    orders: []
+  - customer_id: CUST00025
+    first_name: Olivia
+    last_name: Sanchez
+    email: olivia.sanchez@example.com
+    registration_date: 2023-11-25
+    address:
+      street: 25 Park Ave
+      city: Houston
+      zip_code: '77002'
+      country: USA
+    orders:
+      - order_id: ORD1029
+        order_date: 2023-12-10T14:45:00Z
+        total_amount: 149.99
+        status: Delivered
+        products:
+          - product_id: PROD220
+            name: Espresso Machine (Basic)
+            price: 149.99
+            quantity: 1
+  - customer_id: CUST00026
+    first_name: Peter
+    last_name: Thompson
+    email: peter.thompson@example.com
+    registration_date: 2024-02-01
+    address:
+      street: 8 Quiet Lane
+      city: Minneapolis
+      zip_code: '55401'
+      country: USA
+    orders:
+      - order_id: ORD1030
+        order_date: 2024-02-15T11:00:00Z
+        total_amount: 39.99
+        status: Shipped
+        products:
+          - product_id: PROD230
+            name: Bluetooth Speaker (Small)
+            price: 39.99
+            quantity: 1
+  - customer_id: CUST00027
+    first_name: Quinn
+    last_name: Underwood
+    email: quinn.underwood@example.com
+    registration_date: 2023-10-05
+    address:
+      street: 40 Oak Ln
+      city: Raleigh
+      zip_code: '27601'
+      country: USA
+    orders:
+      - order_id: ORD1031
+        order_date: 2023-10-20T16:30:00Z
+        total_amount: 15
+        status: Delivered
+        products:
+          - product_id: PROD240
+            name: Gardening Gloves
+            price: 15
+            quantity: 1
+      - order_id: ORD1032
+        order_date: 2024-04-01T09:00:00Z
+        total_amount: 29.99
+        status: Delivered
+        products:
+          - product_id: PROD241
+            name: Packet of Flower Seeds
+            price: 4.99
+            quantity: 6
+  - customer_id: CUST00028
+    first_name: Ryan
+    last_name: Vance
+    email: ryan.vance@example.com
+    registration_date: 2024-01-08
+    address:
+      street: 19 Summit View
+      city: Denver
+      zip_code: '80202'
+      country: USA
+    orders:
+      - order_id: ORD1033
+        order_date: 2024-01-25T13:00:00Z
+        total_amount: 200
+        status: Processing
+        products:
+          - product_id: PROD250
+            name: Ski Goggles
+            price: 100
+            quantity: 2
+  - customer_id: CUST00029
+    first_name: Sarah
+    last_name: Wong
+    email: sarah.wong@example.com
+    registration_date: 2023-12-10
+    address:
+      street: 777 Lucky Pl
+      city: Las Vegas
+      zip_code: '89109'
+      country: USA
+    orders:
+      - order_id: ORD1034
+        order_date: 2024-01-01T10:00:00Z
+        total_amount: 65.5
+        status: Delivered
+        products:
+          - product_id: PROD260
+            name: Makeup Brush Set
+            price: 45
+            quantity: 1
+          - product_id: PROD261
+            name: Lipstick (Red)
+            price: 10.25
+            quantity: 2
+  - customer_id: CUST00030
+    first_name: Thomas
+    last_name: Xu
+    email: thomas.xu@example.com
+    registration_date: 2024-03-18
+    address:
+      street: 5 Schoolhouse Rd
+      city: Providence
+      zip_code: '02903'
+      country: USA
+    orders:
+      - order_id: ORD1035
+        order_date: 2024-04-05T15:00:00Z
+        total_amount: 49.99
+        status: Cancelled
+        products:
+          - product_id: PROD270
+            name: Geometry Set
+            price: 49.99
+            quantity: 1
+  - customer_id: CUST00031
+    first_name: Victoria
+    last_name: Young
+    email: victoria.young@example.com
+    registration_date: 2024-05-08
+    address:
+      street: 100 Broadway
+      city: New York
+      zip_code: '10007'
+      country: USA
+    orders:
+      - order_id: ORD1036
+        order_date: 2024-05-20T10:30:00Z
+        total_amount: 349
+        status: Shipped
+        products:
+          - product_id: PROD280
+            name: Designer Handbag (Red)
+            price: 349
+            quantity: 1
+  - customer_id: CUST00032
+    first_name: William
+    last_name: Zimmerman
+    email: william.zimmerman@example.com
+    registration_date: 2023-11-01
+    address:
+      street: 555 South Blvd
+      city: Nashville
+      zip_code: '37203'
+      country: USA
+    orders:
+      - order_id: ORD1037
+        order_date: 2023-12-05T12:00:00Z
+        total_amount: 25
+        status: Delivered
+        products:
+          - product_id: PROD290
+            name: Vinyl Record (Jazz)
+            price: 25
+            quantity: 1
+  - customer_id: CUST00033
+    first_name: Xavier
+    last_name: Allen
+    email: xavier.allen@example.com
+    registration_date: 2024-04-15
+    address:
+      street: 10 Center Pl
+      city: Cincinnati
+      zip_code: '45202'
+      country: USA
+    orders:
+      - order_id: ORD1038
+        order_date: 2024-05-01T14:30:00Z
+        total_amount: 17.5
+        status: Processing
+        products:
+          - product_id: PROD300
+            name: Box of Assorted Chocolates
+            price: 17.5
+            quantity: 1
+  - customer_id: CUST00034
+    first_name: Yara
+    last_name: Brown
+    email: yara.brown@example.com
+    registration_date: 2023-10-28
+    address:
+      street: 888 Main Ave
+      city: Orlando
+      zip_code: '32801'
+      country: USA
+    orders:
+      - order_id: ORD1039
+        order_date: 2023-11-10T10:00:00Z
+        total_amount: 12.99
+        status: Delivered
+        products:
+          - product_id: PROD310
+            name: Travel Sized Shampoo
+            price: 6.5
+            quantity: 2
+  - customer_id: CUST00035
+    first_name: Zachary
+    last_name: Carter
+    email: zachary.carter@example.com
+    registration_date: 2024-01-12
+    address:
+      street: 9 Old Mill Rd
+      city: Buffalo
+      zip_code: '14202'
+      country: USA
+    orders:
+      - order_id: ORD1040
+        order_date: 2024-02-01T16:00:00Z
+        total_amount: 7.99
+        status: Shipped
+        products:
+          - product_id: PROD320
+            name: Reusable Coffee Filter
+            price: 7.99
+            quantity: 1
+      - order_id: ORD1041
+        order_date: 2024-03-15T09:30:00Z
+        total_amount: 29.99
+        status: Delivered
+        products:
+          - product_id: PROD321
+            name: Bag of Coffee Beans (Medium Roast)
+            price: 29.99
+            quantity: 1
+  - customer_id: CUST00036
+    first_name: Chloe
+    last_name: Davis
+    email: chloe.davis@example.com
+    registration_date: 2023-12-20
+    address:
+      street: 456 Sunset Way
+      city: San Antonio
+      zip_code: '78205'
+      country: USA
+    orders:
+      - order_id: ORD1042
+        order_date: 2024-01-05T11:00:00Z
+        total_amount: 29.5
+        status: Delivered
+        products:
+          - product_id: PROD330
+            name: Set of 6 Wine Glasses
+            price: 29.5
+            quantity: 1
+  - customer_id: CUST00037
+    first_name: Dylan
+    last_name: Evans
+    email: dylan.evans@example.com
+    registration_date: 2024-03-01
+    address:
+      street: 10 Broadway
+      city: San Francisco
+      zip_code: '94133'
+      country: USA
+    orders:
+      - order_id: ORD1043
+        order_date: 2024-03-15T15:30:00Z
+        total_amount: 179.99
+        status: Shipped
+        products:
+          - product_id: PROD340
+            name: Smart Doorbell
+            price: 179.99
+            quantity: 1
+      - order_id: ORD1044
+        order_date: 2024-04-20T10:00:00Z
+        total_amount: 49
+        status: Processing
+        products:
+          - product_id: PROD341
+            name: Extra Doorbell Battery
+            price: 49
+            quantity: 1
+  - customer_id: CUST00038
+    first_name: Emily
+    last_name: Foster
+    email: emily.foster@example.com
+    registration_date: 2023-09-05
+    address:
+      street: 77 Sunset Blvd
+      city: Los Angeles
+      zip_code: '90046'
+      country: USA
+    orders:
+      - order_id: ORD1045
+        order_date: 2023-09-20T12:00:00Z
+        total_amount: 14.5
+        status: Delivered
+        products:
+          - product_id: PROD350
+            name: Sunscreen (SPF 50)
+            price: 14.5
+            quantity: 1
+  - customer_id: CUST00039
+    first_name: Frank
+    last_name: Gomez
+    email: frank.gomez@example.com
+    registration_date: 2024-02-05
+    address:
+      street: 14 Fifth Ave
+      city: New York
+      zip_code: '10011'
+      country: USA
+    orders:
+      - order_id: ORD1046
+        order_date: 2024-03-01T10:00:00Z
+        total_amount: 25.99
+        status: Delivered
+        products:
+          - product_id: PROD360
+            name: Cookbook (Italian Cuisine)
+            price: 25.99
+            quantity: 1
+  - customer_id: CUST00040
+    first_name: Hannah
+    last_name: Hughes
+    email: hannah.hughes@example.com
+    registration_date: 2024-04-25
+    address:
+      street: 30 Riverwalk
+      city: San Antonio
+      zip_code: '78205'
+      country: USA
+    orders:
+      - order_id: ORD1047
+        order_date: 2024-05-10T11:30:00Z
+        total_amount: 99
+        status: Processing
+        products:
+          - product_id: PROD370
+            name: Air Fryer (4 Quart)
+            price: 99
+            quantity: 1
+  - customer_id: CUST00041
+    first_name: Isaac
+    last_name: Ibrahim
+    email: isaac.ibrahim@example.com
+    registration_date: 2023-11-15
+    address:
+      street: 5 City Center Dr
+      city: Atlanta
+      zip_code: '30303'
+      country: USA
+    orders:
+      - order_id: ORD1048
+        order_date: 2023-12-01T13:45:00Z
+        total_amount: 10.99
+        status: Delivered
+        products:
+          - product_id: PROD380
+            name: Pack of AAA Batteries
+            price: 10.99
+            quantity: 1
+  - customer_id: CUST00042
+    first_name: Jasmine
+    last_name: Jackson
+    email: jasmine.jackson@example.com
+    registration_date: 2024-03-12
+    address:
+      street: 20 Palm Tree Ln
+      city: Tampa
+      zip_code: '33602'
+      country: USA
+    orders:
+      - order_id: ORD1049
+        order_date: 2024-04-01T16:00:00Z
+        total_amount: 150
+        status: Shipped
+        products:
+          - product_id: PROD390
+            name: Beach Umbrella
+            price: 75
+            quantity: 2
+  - customer_id: CUST00043
+    first_name: Kevin
+    last_name: Kim
+    email: kevin.kim@example.com
+    registration_date: '2024-01-22'
+    address:
+      street: 1 High Tech Rd
+      city: San Jose
+      zip_code: '95113'
+      country: USA
+    orders:
+      - order_id: ORD1050
+        order_date: '2024-02-10T10:00:00Z'
+        total_amount: 79.99
+        status: Delivered
+        products:
+          - product_id: PROD400
+            name: Gaming Mouse
+            price: 79.99
+            quantity: 1
+      - order_id: ORD1051
+        order_date: '2024-03-05T14:00:00Z'
+        total_amount: 19.99
+        status: Delivered
+        products:
+          - product_id: PROD401
+            name: Mouse Pad (Large)
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00044
+    first_name: Lily
+    last_name: Lopez
+    email: lily.lopez@example.com
+    registration_date: '2023-10-02'
+    address:
+      street: 400 Maple Ave
+      city: Chicago
+      zip_code: '60601'
+      country: USA
+    orders:
+      - order_id: ORD1052
+        order_date: '2023-10-15T09:30:00Z'
+        total_amount: 55
+        status: Delivered
+        products:
+          - product_id: PROD410
+            name: Electric Kettle
+            price: 55
+            quantity: 1
+  - customer_id: CUST00045
+    first_name: Marcus
+    last_name: Miller
+    email: marcus.miller@example.com
+    registration_date: '2024-05-01'
+    address:
+      street: 99 Broadway
+      city: New York
+      zip_code: '10007'
+      country: USA
+    orders:
+      - order_id: ORD1053
+        order_date: '2024-05-25T14:00:00Z'
+        total_amount: 250
+        status: Processing
+        products:
+          - product_id: PROD420
+            name: Power Drill Set
+            price: 250
+            quantity: 1
+  - customer_id: CUST00046
+    first_name: Nora
+    last_name: Nunez
+    email: nora.nunez@example.com
+    registration_date: '2023-11-08'
+    address:
+      street: 145 Elmwood Ave
+      city: Buffalo
+      zip_code: '14202'
+      country: USA
+    orders:
+      - order_id: ORD1054
+        order_date: '2023-11-20T11:00:00Z'
+        total_amount: 39
+        status: Delivered
+        products:
+          - product_id: PROD430
+            name: Set of Paint Brushes
+            price: 13
+            quantity: 3
+  - customer_id: CUST00047
+    first_name: Owen
+    last_name: O'Connell
+    email: owen.oconnell@example.com
+    registration_date: '2024-01-30'
+    address:
+      street: 20 River St
+      city: Boston
+      zip_code: '02108'
+      country: USA
+    orders:
+      - order_id: ORD1055
+        order_date: '2024-02-15T15:00:00Z'
+        total_amount: 18
+        status: Shipped
+        products:
+          - product_id: PROD440
+            name: Insulated Lunch Bag
+            price: 18
+            quantity: 1
+  - customer_id: CUST00048
+    first_name: Penny
+    last_name: Parker
+    email: penny.parker@example.com
+    registration_date: '2023-09-20'
+    address:
+      street: 30 Park Place
+      city: Philadelphia
+      zip_code: '19103'
+      country: USA
+    orders:
+      - order_id: ORD1056
+        order_date: '2023-10-01T12:00:00Z'
+        total_amount: 69.98
+        status: Delivered
+        products:
+          - product_id: PROD450
+            name: Pillow (Memory Foam)
+            price: 34.99
+            quantity: 2
+  - customer_id: CUST00049
+    first_name: Quentin
+    last_name: Quezada
+    email: quentin.quezada@example.com
+    registration_date: '2024-04-10'
+    address:
+      street: 55 Desert View Rd
+      city: Phoenix
+      zip_code: '85001'
+      country: USA
+    orders: []
+  - customer_id: CUST00050
+    first_name: Rachel
+    last_name: Ramos
+    email: rachel.ramos@example.com
+    registration_date: '2023-12-01'
+    address:
+      street: 100 Broadway
+      city: San Diego
+      zip_code: '92101'
+      country: USA
+    orders:
+      - order_id: ORD1057
+        order_date: '2023-12-15T10:00:00Z'
+        total_amount: 12
+        status: Delivered
+        products:
+          - product_id: PROD460
+            name: Reusable Shopping Bag
+            price: 3
+            quantity: 4
+      - order_id: ORD1058
+        order_date: '2024-01-25T14:30:00Z'
+        total_amount: 18
+        status: Shipped
+        products:
+          - product_id: PROD461
+            name: Produce Bags (Mesh)
+            price: 6
+            quantity: 3
+  - customer_id: CUST00051
+    first_name: Samuel
+    last_name: Smith
+    email: samuel.smith@example.com
+    registration_date: '2024-03-01'
+    address:
+      street: 123 Main St
+      city: Anytown
+      zip_code: '10101'
+      country: USA
+    orders:
+      - order_id: ORD1059
+        order_date: '2024-03-10T10:00:00Z'
+        total_amount: 49.99
+        status: Delivered
+        products:
+          - product_id: PROD470
+            name: Running Shoes
+            price: 49.99
+            quantity: 1
+  - customer_id: CUST00052
+    first_name: Tina
+    last_name: Turner
+    email: tina.turner@example.com
+    registration_date: '2023-11-20'
+    address:
+      street: 45 Oak Ave
+      city: Central City
+      zip_code: '20202'
+      country: USA
+    orders:
+      - order_id: ORD1060
+        order_date: '2023-12-05T14:00:00Z'
+        total_amount: 19.99
+        status: Shipped
+        products:
+          - product_id: PROD480
+            name: Wall Clock
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00053
+    first_name: Uriel
+    last_name: Urbina
+    email: uriel.urbina@example.com
+    registration_date: '2024-02-15'
+    address:
+      street: 78 River Rd
+      city: Eastville
+      zip_code: '30303'
+      country: USA
+    orders:
+      - order_id: ORD1061
+        order_date: '2024-03-01T11:30:00Z'
+        total_amount: 45
+        status: Delivered
+        products:
+          - product_id: PROD490
+            name: Set of Storage Bins
+            price: 15
+            quantity: 3
+  - customer_id: CUST00054
+    first_name: Vivian
+    last_name: Velasquez
+    email: vivian.velasquez@example.com
+    registration_date: '2023-10-10'
+    address:
+      street: 100 Mountain View
+      city: Westlake
+      zip_code: '40404'
+      country: USA
+    orders:
+      - order_id: ORD1062
+        order_date: '2023-10-25T16:00:00Z'
+        total_amount: 25
+        status: Cancelled
+        products:
+          - product_id: PROD500
+            name: Paper Shredder
+            price: 25
+            quantity: 1
+  - customer_id: CUST00055
+    first_name: Wesley
+    last_name: Watson
+    email: wesley.watson@example.com
+    registration_date: '2024-04-05'
+    address:
+      street: 22 Forest Ave
+      city: Northwood
+      zip_code: '50505'
+      country: USA
+    orders:
+      - order_id: ORD1063
+        order_date: '2024-04-20T09:00:00Z'
+        total_amount: 199.99
+        status: Shipped
+        products:
+          - product_id: PROD510
+            name: Drone with Camera
+            price: 199.99
+            quantity: 1
+  - customer_id: CUST00056
+    first_name: Zara
+    last_name: Xiong
+    email: zara.xiong@example.com
+    registration_date: '2023-09-28'
+    address:
+      street: 99 Willow Dr
+      city: Southside
+      zip_code: '60606'
+      country: USA
+    orders:
+      - order_id: ORD1064
+        order_date: '2023-10-15T15:00:00Z'
+        total_amount: 29.99
+        status: Delivered
+        products:
+          - product_id: PROD520
+            name: Weighted Hula Hoop
+            price: 29.99
+            quantity: 1
+  - customer_id: CUST00057
+    first_name: Aiden
+    last_name: Anderson
+    email: aiden.anderson@example.com
+    registration_date: '2024-01-01'
+    address:
+      street: 10 Poplar St
+      city: Midtown
+      zip_code: '70707'
+      country: USA
+    orders:
+      - order_id: ORD1065
+        order_date: '2024-01-15T10:30:00Z'
+        total_amount: 5.97
+        status: Delivered
+        products:
+          - product_id: PROD530
+            name: Ballpoint Pens (Black)
+            price: 1.99
+            quantity: 3
+  - customer_id: CUST00058
+    first_name: Brooke
+    last_name: Bell
+    email: brooke.bell@example.com
+    registration_date: '2024-03-14'
+    address:
+      street: 500 High St
+      city: Westport
+      zip_code: '80808'
+      country: USA
+    orders:
+      - order_id: ORD1066
+        order_date: '2024-04-01T13:00:00Z'
+        total_amount: 25
+        status: Processing
+        products:
+          - product_id: PROD540
+            name: Sketch Pad (A3)
+            price: 25
+            quantity: 1
+  - customer_id: CUST00059
+    first_name: Caleb
+    last_name: Cruz
+    email: caleb.cruz@example.com
+    registration_date: '2023-10-05'
+    address:
+      street: 30 Pine Ridge
+      city: Lakeview
+      zip_code: '90909'
+      country: USA
+    orders:
+      - order_id: ORD1067
+        order_date: '2023-11-01T17:00:00Z'
+        total_amount: 89.99
+        status: Delivered
+        products:
+          - product_id: PROD550
+            name: Electric Blanket
+            price: 89.99
+            quantity: 1
+  - customer_id: CUST00060
+    first_name: Dana
+    last_name: Diaz
+    email: dana.diaz@example.com
+    registration_date: '2024-05-10'
+    address:
+      street: 1 Riverwalk Dr
+      city: Southside
+      zip_code: '60606'
+      country: USA
+    orders:
+      - order_id: ORD1068
+        order_date: '2024-05-20T12:00:00Z'
+        total_amount: 15
+        status: Shipped
+        products:
+          - product_id: PROD560
+            name: Travel Mug (Insulated)
+            price: 15
+            quantity: 1
+  - customer_id: CUST00061
+    first_name: Evan
+    last_name: Edwards
+    email: evan.edwards@example.com
+    registration_date: '2023-11-01'
+    address:
+      street: 15 Willow Way
+      city: Northwood
+      zip_code: '50505'
+      country: USA
+    orders:
+      - order_id: ORD1069
+        order_date: '2023-12-01T10:00:00Z'
+        total_amount: 19.99
+        status: Delivered
+        products:
+          - product_id: PROD570
+            name: Desk Organizer
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00062
+    first_name: Fiona
+    last_name: Fox
+    email: fiona.fox@example.com
+    registration_date: '2024-02-01'
+    address:
+      street: 8 Quiet Lane
+      city: Westlake
+      zip_code: '40404'
+      country: USA
+    orders:
+      - order_id: ORD1070
+        order_date: '2024-02-14T14:00:00Z'
+        total_amount: 9.99
+        status: Delivered
+        products:
+          - product_id: PROD580
+            name: Silicone Spatula Set
+            price: 9.99
+            quantity: 1
+  - customer_id: CUST00063
+    first_name: George
+    last_name: Gomez
+    email: george.gomez@example.com
+    registration_date: '2023-10-20'
+    address:
+      street: 20 Commerce Rd
+      city: Eastville
+      zip_code: '30303'
+      country: USA
+    orders:
+      - order_id: ORD1071
+        order_date: '2023-11-10T11:00:00Z'
+        total_amount: 35
+        status: Shipped
+        products:
+          - product_id: PROD590
+            name: Portable Vacuum Cleaner (Handheld)
+            price: 35
+            quantity: 1
+  - customer_id: CUST00064
+    first_name: Holly
+    last_name: Hansen
+    email: holly.hansen@example.com
+    registration_date: '2024-04-18'
+    address:
+      street: 50 Shoreline Dr
+      city: Central City
+      zip_code: '20202'
+      country: USA
+    orders:
+      - order_id: ORD1072
+        order_date: '2024-05-01T15:30:00Z'
+        total_amount: 12.99
+        status: Processing
+        products:
+          - product_id: PROD600
+            name: Hair Brush (Boar Bristle)
+            price: 12.99
+            quantity: 1
+  - customer_id: CUST00065
+    first_name: Ian
+    last_name: Ingram
+    email: ian.ingram@example.com
+    registration_date: '2023-12-05'
+    address:
+      street: 100 Industry Blvd
+      city: Anytown
+      zip_code: '10101'
+      country: USA
+    orders:
+      - order_id: ORD1073
+        order_date: '2023-12-20T10:00:00Z'
+        total_amount: 49
+        status: Delivered
+        products:
+          - product_id: PROD610
+            name: Power Bank (10000mAh)
+            price: 49
+            quantity: 1
+  - customer_id: CUST00066
+    first_name: Jade
+    last_name: Jensen
+    email: jade.jensen@example.com
+    registration_date: '2024-01-25'
+    address:
+      street: 77 Mountain Rd
+      city: Midtown
+      zip_code: '70707'
+      country: USA
+    orders:
+      - order_id: ORD1074
+        order_date: '2024-02-10T12:00:00Z'
+        total_amount: 15.99
+        status: Delivered
+        products:
+          - product_id: PROD620
+            name: Fleece Throw Blanket
+            price: 15.99
+            quantity: 1
+  - customer_id: CUST00067
+    first_name: Kyle
+    last_name: Keller
+    email: kyle.keller@example.com
+    registration_date: '2023-11-10'
+    address:
+      street: 1 Pine St
+      city: Westport
+      zip_code: '80808'
+      country: USA
+    orders:
+      - order_id: ORD1075
+        order_date: '2023-11-25T14:30:00Z'
+        total_amount: 29.99
+        status: Shipped
+        products:
+          - product_id: PROD630
+            name: Resistance Bands Set
+            price: 29.99
+            quantity: 1
+  - customer_id: CUST00068
+    first_name: Leah
+    last_name: Lee
+    email: leah.lee@example.com
+    registration_date: '2024-05-01'
+    address:
+      street: 50 Bayside Dr
+      city: Lakeview
+      zip_code: '90909'
+      country: USA
+    orders:
+      - order_id: ORD1076
+        order_date: '2024-05-15T11:00:00Z'
+        total_amount: 125
+        status: Processing
+        products:
+          - product_id: PROD640
+            name: Electric Scooter (Kids)
+            price: 125
+            quantity: 1
+  - customer_id: CUST00069
+    first_name: Mike
+    last_name: Mitchell
+    email: mike.mitchell@example.com
+    registration_date: '2023-10-08'
+    address:
+      street: 900 Market St
+      city: San Francisco
+      zip_code: '94107'
+      country: USA
+    orders:
+      - order_id: ORD1077
+        order_date: '2023-10-25T14:00:00Z'
+        total_amount: 8
+        status: Delivered
+        products:
+          - product_id: PROD650
+            name: Tire Patch Kit (Bicycle)
+            price: 8
+            quantity: 1
+  - customer_id: CUST00070
+    first_name: Nina
+    last_name: Nguyen
+    email: nina.nguyen@example.com
+    registration_date: '2024-03-20'
+    address:
+      street: 15 Bay St
+      city: Tampa
+      zip_code: '33602'
+      country: USA
+    orders:
+      - order_id: ORD1078
+        order_date: '2024-04-10T10:00:00Z'
+        total_amount: 33.99
+        status: Shipped
+        products:
+          - product_id: PROD660
+            name: Set of 4 Plant Pots
+            price: 33.99
+            quantity: 1
+  - customer_id: CUST00071
+    first_name: Oscar
+    last_name: Ortiz
+    email: oscar.ortiz@example.com
+    registration_date: '2024-01-10'
+    address:
+      street: 22 Riverwalk Blvd
+      city: San Antonio
+      zip_code: '78205'
+      country: USA
+    orders:
+      - order_id: ORD1079
+        order_date: '2024-02-01T15:00:00Z'
+        total_amount: 15
+        status: Delivered
+        products:
+          - product_id: PROD670
+            name: BBQ Sauce (Spicy)
+            price: 7.5
+            quantity: 2
+  - customer_id: CUST00072
+    first_name: Piper
+    last_name: Price
+    email: piper.price@example.com
+    registration_date: '2023-12-05'
+    address:
+      street: 400 Oak Lane
+      city: Portland
+      zip_code: '97204'
+      country: USA
+    orders:
+      - order_id: ORD1080
+        order_date: '2023-12-20T11:00:00Z'
+        total_amount: 59.99
+        status: Shipped
+        products:
+          - product_id: PROD680
+            name: Book (Fiction Bestseller)
+            price: 19.99
+            quantity: 3
+  - customer_id: CUST00073
+    first_name: Quincy
+    last_name: Quinn
+    email: quincy.quinn@example.com
+    registration_date: '2024-04-25'
+    address:
+      street: 10 Center Pl
+      city: Cincinnati
+      zip_code: '45202'
+      country: USA
+    orders:
+      - order_id: ORD1081
+        order_date: '2024-05-10T14:00:00Z'
+        total_amount: 10.99
+        status: Processing
+        products:
+          - product_id: PROD690
+            name: Reusable Straws (Metal)
+            price: 10.99
+            quantity: 1
+  - customer_id: CUST00074
+    first_name: Riley
+    last_name: Rivera
+    email: riley.rivera@example.com
+    registration_date: '2023-11-18'
+    address:
+      street: 500 Lake View Pl
+      city: Dallas
+      zip_code: '75201'
+      country: USA
+    orders:
+      - order_id: ORD1082
+        order_date: '2023-12-05T09:30:00Z'
+        total_amount: 119.98
+        status: Delivered
+        products:
+          - product_id: PROD700
+            name: Digital Photo Frame
+            price: 59.99
+            quantity: 2
+  - customer_id: CUST00075
+    first_name: Stella
+    last_name: Scott
+    email: stella.scott@example.com
+    registration_date: '2024-03-05'
+    address:
+      street: 30 River Rd
+      city: Austin
+      zip_code: '78701'
+      country: USA
+    orders:
+      - order_id: ORD1083
+        order_date: '2024-03-20T16:00:00Z'
+        total_amount: 25
+        status: Shipped
+        products:
+          - product_id: PROD710
+            name: Journal (Leather Bound)
+            price: 25
+            quantity: 1
+  - customer_id: CUST00076
+    first_name: Trent
+    last_name: Taylor
+    email: trent.taylor@example.com
+    registration_date: '2023-10-15'
+    address:
+      street: 14 Main St
+      city: Chicago
+      zip_code: '60601'
+      country: USA
+    orders:
+      - order_id: ORD1084
+        order_date: '2023-11-01T10:00:00Z'
+        total_amount: 49.99
+        status: Delivered
+        products:
+          - product_id: PROD720
+            name: Electric Toothbrush Heads (4-pack)
+            price: 12.5
+            quantity: 4
+  - customer_id: CUST00077
+    first_name: Uma
+    last_name: Upton
+    email: uma.upton@example.com
+    registration_date: '2024-01-01'
+    address:
+      street: 88 Gold St
+      city: New York
+      zip_code: '10005'
+      country: USA
+    orders:
+      - order_id: ORD1085
+        order_date: '2024-01-15T15:00:00Z'
+        total_amount: 19.99
+        status: Shipped
+        products:
+          - product_id: PROD730
+            name: Desk Lamp (LED)
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00078
+    first_name: Victor
+    last_name: Vargas
+    email: victor.vargas@example.com
+    registration_date: '2024-04-12'
+    address:
+      street: 55 Hillside Dr
+      city: Boston
+      zip_code: '02108'
+      country: USA
+    orders:
+      - order_id: ORD1086
+        order_date: '2024-05-01T10:00:00Z'
+        total_amount: 45.98
+        status: Processing
+        products:
+          - product_id: PROD740
+            name: Running Shorts (Black)
+            price: 22.99
+            quantity: 2
+  - customer_id: CUST00079
+    first_name: Willow
+    last_name: White
+    email: willow.white@example.com
+    registration_date: '2023-09-15'
+    address:
+      street: 10 Ocean View Rd
+      city: Miami
+      zip_code: '33101'
+      country: USA
+    orders:
+      - order_id: ORD1087
+        order_date: '2023-10-01T18:00:00Z'
+        total_amount: 150
+        status: Delivered
+        products:
+          - product_id: PROD750
+            name: Swimming Goggles (Pro)
+            price: 50
+            quantity: 3
+  - customer_id: CUST00080
+    first_name: Yancy
+    last_name: Yang
+    email: yancy.yang@example.com
+    registration_date: '2024-02-28'
+    address:
+      street: 101 Cedar Blvd
+      city: Houston
+      zip_code: '77002'
+      country: USA
+    orders:
+      - order_id: ORD1088
+        order_date: '2024-03-15T16:20:00Z'
+        total_amount: 9.99
+        status: Delivered
+        products:
+          - product_id: PROD760
+            name: Phone Case (Clear)
+            price: 9.99
+            quantity: 1
+  - customer_id: CUST00081
+    first_name: Zane
+    last_name: Zavala
+    email: zane.zavala@example.com
+    registration_date: 2024-01-05
+    address:
+      street: 21 Bayside Dr
+      city: San Diego
+      zip_code: '92101'
+      country: USA
+    orders:
+      - order_id: ORD1089
+        order_date: 2024-01-20T14:00:00Z
+        total_amount: 19.99
+        status: Shipped
+        products:
+          - product_id: PROD770
+            name: Car Phone Mount
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00082
+    first_name: Alice
+    last_name: Avery
+    email: alice.avery@example.com
+    registration_date: 2023-11-05
+    address:
+      street: 30 Maple Lane
+      city: Riverdale
+      zip_code: '20005'
+      country: USA
+    orders:
+      - order_id: ORD1090
+        order_date: 2023-12-01T17:00:00Z
+        total_amount: 49
+        status: Delivered
+        products:
+          - product_id: PROD780
+            name: Set of Bath Bombs
+            price: 49
+            quantity: 1
+  - customer_id: CUST00083
+    first_name: Brian
+    last_name: Barnes
+    email: brian.barnes@example.com
+    registration_date: 2024-05-01
+    address:
+      street: 45 Tech Way
+      city: San Jose
+      zip_code: '95113'
+      country: USA
+    orders:
+      - order_id: ORD1091
+        order_date: 2024-05-15T12:45:00Z
+        total_amount: 499
+        status: Processing
+        products:
+          - product_id: PROD790
+            name: Virtual Reality Headset
+            price: 499
+            quantity: 1
+  - customer_id: CUST00084
+    first_name: Carla
+    last_name: Cobb
+    email: carla.cobb@example.com
+    registration_date: 2023-10-20
+    address:
+      street: 10 Pine Cone Trail
+      city: Portland
+      zip_code: '97204'
+      country: USA
+    orders:
+      - order_id: ORD1092
+        order_date: 2023-11-05T15:30:00Z
+        total_amount: 15
+        status: Delivered
+        products:
+          - product_id: PROD800
+            name: Dog Leash (Retractable)
+            price: 15
+            quantity: 1
+  - customer_id: CUST00085
+    first_name: David
+    last_name: Dale
+    email: david.dale@example.com
+    registration_date: 2024-03-05
+    address:
+      street: 303 Bridge Blvd
+      city: Philadelphia
+      zip_code: '19103'
+      country: USA
+    orders:
+      - order_id: ORD1093
+        order_date: 2024-03-10T11:45:00Z
+        total_amount: 6.99
+        status: Shipped
+        products:
+          - product_id: PROD810
+            name: Pack of Post-it Notes
+            price: 6.99
+            quantity: 1
+  - customer_id: CUST00086
+    first_name: Eva
+    last_name: Esparza
+    email: eva.esparza@example.com
+    registration_date: 2024-01-01
+    address:
+      street: 50 Skyline Blvd
+      city: Los Angeles
+      zip_code: '90001'
+      country: USA
+    orders:
+      - order_id: ORD1094
+        order_date: 2024-01-05T18:30:00Z
+        total_amount: 99
+        status: Delivered
+        products:
+          - product_id: PROD820
+            name: Digital Drawing Tablet
+            price: 99
+            quantity: 1
+  - customer_id: CUST00087
+    first_name: Felix
+    last_name: Franco
+    email: felix.franco@example.com
+    registration_date: 2023-12-15
+    address:
+      street: 15 Water St
+      city: Baltimore
+      zip_code: '21201'
+      country: USA
+    orders:
+      - order_id: ORD1095
+        order_date: 2024-01-20T14:00:00Z
+        total_amount: 29.99
+        status: Shipped
+        products:
+          - product_id: PROD830
+            name: Set of 3 Fitness Jump Ropes
+            price: 29.99
+            quantity: 1
+  - customer_id: CUST00088
+    first_name: Giselle
+    last_name: Graham
+    email: giselle.graham@example.com
+    registration_date: 2024-04-20
+    address:
+      street: 500 High St
+      city: Salt Lake City
+      zip_code: '84101'
+      country: USA
+    orders:
+      - order_id: ORD1096
+        order_date: 2024-05-05T10:30:00Z
+        total_amount: 15
+        status: Processing
+        products:
+          - product_id: PROD840
+            name: Reusable Food Wraps (Set of 3)
+            price: 15
+            quantity: 1
+  - customer_id: CUST00089
+    first_name: Hugo
+    last_name: Hidalgo
+    email: hugo.hidalgo@example.com
+    registration_date: 2023-09-01
+    address:
+      street: 10 Riverbend Pkwy
+      city: Atlanta
+      zip_code: '30303'
+      country: USA
+    orders:
+      - order_id: ORD1097
+        order_date: 2023-09-10T13:00:00Z
+        total_amount: 75
+        status: Delivered
+        products:
+          - product_id: PROD850
+            name: Leather Messenger Bag
+            price: 75
+            quantity: 1
+  - customer_id: CUST00090
+    first_name: Iris
+    last_name: Inman
+    email: iris.inman@example.com
+    registration_date: 2024-03-25
+    address:
+      street: 300 Tech Dr
+      city: Seattle
+      zip_code: '98101'
+      country: USA
+    orders:
+      - order_id: ORD1098
+        order_date: 2024-04-01T10:00:00Z
+        total_amount: 15
+        status: Shipped
+        products:
+          - product_id: PROD860
+            name: Webcam Cover (3-pack)
+            price: 5
+            quantity: 3
+  - customer_id: CUST00091
+    first_name: Jake
+    last_name: Jansen
+    email: jake.jansen@example.com
+    registration_date: 2023-10-10
+    address:
+      street: 70 Green St
+      city: San Francisco
+      zip_code: '94107'
+      country: USA
+    orders:
+      - order_id: ORD1099
+        order_date: 2023-11-01T11:30:00Z
+        total_amount: 19.99
+        status: Delivered
+        products:
+          - product_id: PROD870
+            name: Rechargeable Hand Warmer
+            price: 19.99
+            quantity: 1
+  - customer_id: CUST00092
+    first_name: Kylie
+    last_name: Katz
+    email: kylie.katz@example.com
+    registration_date: 2024-05-15
+    address:
+      street: 1090 Industrial Rd
+      city: Detroit
+      zip_code: '48201'
+      country: USA
+    orders:
+      - order_id: ORD1100
+        order_date: 2024-05-25T16:00:00Z
+        total_amount: 12
+        status: Processing
+        products:
+          - product_id: PROD880
+            name: Car Wash Mitt (Microfiber)
+            price: 12
+            quantity: 1
+  - customer_id: CUST00093
+    first_name: Leo
+    last_name: Larson
+    email: leo.larson@example.com
+    registration_date: 2023-11-25
+    address:
+      street: 25 Park Ave
+      city: Houston
+      zip_code: '77002'
+      country: USA
+    orders:
+      - order_id: ORD1101
+        order_date: 2023-12-10T14:45:00Z
+        total_amount: 7.99
+        status: Delivered
+        products:
+          - product_id: PROD890
+            name: Microfiber Cleaning Cloths (10-pack)
+            price: 7.99
+            quantity: 1
+  - customer_id: CUST00094
+    first_name: Maria
+    last_name: Mendez
+    email: maria.mendez@example.com
+    registration_date: 2024-02-01
+    address:
+      street: 8 Quiet Lane
+      city: Minneapolis
+      zip_code: '55401'
+      country: USA
+    orders:
+      - order_id: ORD1102
+        order_date: 2024-02-15T11:00:00Z
+        total_amount: 25.99
+        status: Shipped
+        products:
+          - product_id: PROD900
+            name: Portable Desk Fan (USB)
+            price: 25.99
+            quantity: 1
+  - customer_id: CUST00095
+    first_name: Noah
+    last_name: Newman
+    email: noah.newman@example.com
+    registration_date: 2023-10-05
+    address:
+      street: 40 Oak Ln
+      city: Raleigh
+      zip_code: '27601'
+      country: USA
+    orders:
+      - order_id: ORD1103
+        order_date: 2023-10-20T16:30:00Z
+        total_amount: 35
+        status: Delivered
+        products:
+          - product_id: PROD910
+            name: Puzzle (1000 Pieces)
+            price: 35
+            quantity: 1
+  - customer_id: CUST00096
+    first_name: Penelope
+    last_name: Pena
+    email: penelope.pena@example.com
+    registration_date: 2024-01-08
+    address:
+      street: 19 Summit View
+      city: Denver
+      zip_code: '80202'
+      country: USA
+    orders:
+      - order_id: ORD1104
+        order_date: 2024-01-25T13:00:00Z
+        total_amount: 10.99
+        status: Processing
+        products:
+          - product_id: PROD920
+            name: Set of Highlighter Pens
+            price: 10.99
+            quantity: 1
+  - customer_id: CUST00097
+    first_name: Rafael
+    last_name: Ramirez
+    email: rafael.ramirez@example.com
+    registration_date: 2023-12-10
+    address:
+      street: 777 Lucky Pl
+      city: Las Vegas
+      zip_code: '89109'
+      country: USA
+    orders:
+      - order_id: ORD1105
+        order_date: 2024-01-01T10:00:00Z
+        total_amount: 15
+        status: Delivered
+        products:
+          - product_id: PROD930
+            name: Deck of Cards
+            price: 7.5
+            quantity: 2
+  - customer_id: CUST00098
+    first_name: Samantha
+    last_name: Salazar
+    email: samantha.salazar@example.com
+    registration_date: 2024-03-18
+    address:
+      street: 5 Schoolhouse Rd
+      city: Providence
+      zip_code: '02903'
+      country: USA
+    orders:
+      - order_id: ORD1106
+        order_date: 2024-04-05T15:00:00Z
+        total_amount: 199.99
+        status: Shipped
+        products:
+          - product_id: PROD940
+            name: Electric Guitar (Beginner)
+            price: 199.99
+            quantity: 1
+  - customer_id: CUST00099
+    first_name: Tyler
+    last_name: Tran
+    email: tyler.tran@example.com
+    registration_date: 2024-05-08
+    address:
+      street: 100 Broadway
+      city: New York
+      zip_code: '10007'
+      country: USA
+    orders:
+      - order_id: ORD1107
+        order_date: 2024-05-20T10:30:00Z
+        total_amount: 15.99
+        status: Processing
+        products:
+          - product_id: PROD950
+            name: Guitar Picks (Pack of 10)
+            price: 5.99
+            quantity: 1
+          - product_id: PROD951
+            name: Guitar Strap (Black)
+            price: 10
+            quantity: 1
+  - customer_id: CUST00100
+    first_name: Ursula
+    last_name: Vega
+    email: ursula.vega@example.com
+    registration_date: 2023-11-01
+    address:
+      street: 555 South Blvd
+      city: Nashville
+      zip_code: '37203'
+      country: USA
+    orders:
+      - order_id: ORD1108
+        order_date: 2023-12-05T12:00:00Z
+        total_amount: 12.99
+        status: Delivered
+        products:
+          - product_id: PROD960
+            name: Dog Treats (Large Bag)
+            price: 12.99
+            quantity: 1
