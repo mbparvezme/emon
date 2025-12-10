@@ -1,4 +1,4 @@
-# EMON – Efficient Modular Object Notation
+# EMON: Efficient Modular Object Notation
 
 **EMON** is a compact, modular, and AI-friendly structured data format designed for research, AI pipelines, web/mobile data exchange, and human-readable configuration. It provides a minimal yet expressive way to represent structured information, making it ideal for **AI training, data serialization, and efficient communication** across systems.
 
@@ -26,6 +26,69 @@ While JSON is simple, readable, and widely supported, it introduces redundancy t
 - **Cross-domain utility**: works for AI, web APIs, mobile data, IoT messages, and database serialization.
 
 By optimizing both **human readability** and **machine efficiency**, EMON strikes a balance between clarity and performance.
+
+<br>
+
+Here is a quick look at how the same data looks in both JSON and EMON. This makes it easy to see the difference in structure and style.
+
+<table>
+    <tr>
+        <th width="50%">JSON</th>
+        <th width="50%">EMON</th>
+    </tr>
+    <tr>
+        <td>
+
+```json
+[
+  {
+    "name": "Parvez",
+    "age": 30,
+    "profile": {
+      "bio": "Developer",
+      "location": "NY, USA"
+    },
+    "verified": true
+  },
+  {
+    "name": "Rafi",
+    "age": 27,
+    "profile": {
+      "bio": "Designer",
+      "location": "Dhaka, BD"
+    },
+    "verified": false
+  },
+  {
+    "name": "Sana",
+    "age": 22,
+    "profile": {
+      "bio": "Writer",
+      "location": "Delhi, IN"
+    },
+    "verified": true
+  }
+]
+
+```
+</td>
+        <td>
+
+```emon
+// Schema
+#user(name:string,age:number,profile:#profile,verified:bool)
+#profile(bio:string,location:string)
+
+// Data
+=Parvez,30,{Developer,"NY, USA"},true
+=Rafi,27,{Designer,"Dhaka, BD"},false
+=Sana,22,{Writer,"Delhi, IN"},true
+```
+</td>
+    </tr>
+</table>
+
+As you can see, both formats show the same data but in different styles. EMON is much smaller than JSON and uses fewer tokens, making it lighter and easier to work with.
 
 <br>
 
@@ -66,6 +129,10 @@ EMON can be converted **to/from JSON** losslessly. This allows smooth integratio
 **10. Scalable & Version-Control Friendly**<br>
 Its modular design and clear type definitions make EMON suitable for **large-scale projects**. Schema updates, extensions, or versioning can be applied without breaking existing systems or requiring full rewrites.
 
+<br>
+
+## File Format, Media Type and Encoding
+EMON documents use the `.emon` extension, making them easy to recognize and manage in file systems. When shared over the web or processed by software that handles content types, EMON files should use the media type `text/emon` to ensure proper interpretation. All EMON files are saved in `UTF-8` encoding. While specifying `charset=utf-8` is optional, UTF-8 is always assumed when it’s not included.
 
 <br>
 
@@ -94,9 +161,9 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 
 #### How it works
 
-* `#user` and `#contact` are defined separately.
-* `#user` includes a nested reference to `#contact`.
-* You can reuse `#contact` in multiple other definitions (e.g., `#employee`, `#vendor`).
+* `#user` and `#profile` are defined separately.
+* `#user` includes a nested reference to `#profile`.
+* You can reuse `#profile` in multiple other definitions (e.g., `#employee`, `#vendor`).
 
 #### Benefits
 
@@ -154,14 +221,95 @@ For full syntax details, advanced nested types, arrays, and multiline text, see 
 
 The table below illustrates how **EMON** reduces redundancy compared to JSON while preserving the same data structure with a simple example.
 
-| Concept           | JSON                                                                                                          | EMON                                    |
-| ----------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Structure         | `{"name":"Parvez","age":30,"profile":{"bio":"Developer","location":"NY, USA"},"verified":true}` | `=Parvez,30,{Developer,"NY, USA"},true` |
-| Token Count       | 27                                                                                              | 13                                      |
-| Character Count   | 93                                                                                              | 37                                      |
-| Token Efficiency  | --                                                                                              | ~52% reduced                            |
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th></th>
+      <th>JSON</th>
+      <th>XML</th>
+      <th>YAML</th>
+      <th>EMON</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data</td>
+      <td>
 
-> **Note:** EMON achieves a ~50% reduction in token usage and ~60% reduction in character count while maintaining full data fidelity. This improves **AI model cost efficiency** and **data transmission performance**.
+```json
+{
+  "name": "Parvez",
+  "age": 30,
+  "profile": {
+    "bio": "Developer",
+    "location": "NY, USA"
+  },
+  "verified": true
+}
+```
+</td>
+      <td>
+
+```xml
+<user>
+  <name>Parvez</name>
+  <age>30</age>
+  <profile>
+    <bio>Developer</bio>
+    <location>NY, USA</location>
+  </profile>
+  <verified>true</verified>
+</user>
+```
+</td>
+      <td>
+
+```yml
+name: Parvez
+age: 30
+profile:
+  bio: Developer
+  location: NY, USA
+verified: true
+```
+</td>
+      <td>
+
+`=Parvez,30,{Developer,"NY, USA"},true`</td>
+    </tr>
+    <tr>
+      <td>Token Count</td>
+      <td>46</td>
+      <td>56</td>
+      <td>27</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Character Count</td>
+      <td>125</td>
+      <td>163</td>
+      <td>81</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>Token Reduction</td>
+      <td>--</td>
+      <td>~ -22%</td>
+      <td> ~41%</td>
+      <td> ~72%</td>
+    </tr>
+    <tr>
+      <td>Character Reduction</td>
+      <td>--</td>
+      <td> ~ -30%</td>
+      <td> ~35%</td>
+      <td> ~70%</td>
+    </tr>
+  </tbody>
+</table>
+
+
+> **Note:** EMON achieves more than ~72% reduction in token usage and ~70% reduction in character count while maintaining full data fidelity. This improves **AI model cost efficiency** and **data transmission performance**.
 
 <br>
 
@@ -274,7 +422,7 @@ You can also open an issue for:
 
 ## 📄 License
 
-Released under the **MIT License** — free to use, modify, and experiment with.
+Released under the **MIT License** - free to use, modify, and experiment with.
 
 <br>
 
