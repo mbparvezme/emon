@@ -609,6 +609,12 @@
             "name": "Screen Protector",
             "price": 6.99,
             "quantity": 1
+          },
+          {
+            "product_id": "PROD170",
+            "name": "Electric Toothbrush",
+            "price": 59.99,
+            "quantity": 1
           }
         ]
       }
@@ -2219,9 +2225,9 @@
   },
   {
     "customer_id": "CUST00072",
-    "first_name": "Piper",
-    "last_name": "Price",
-    "email": "piper.price@example.com",
+    "first_name": "John",
+    "last_name": "Pitter",
+    "email": "john.pitter@example.com",
     "registration_date": "2023-12-05",
     "address": {
       "street": "400 Oak Lane",

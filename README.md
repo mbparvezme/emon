@@ -19,9 +19,9 @@ While JSON is simple, readable, and widely supported, it introduces redundancy t
 - **Compact, positional syntax**: values follow the schema order, removing repeated key names.
 - **Type-aware field definitions**: each field has an explicit type (string, number, bool, nested type) to ensure correctness.
 - **Minimal structural symbols**: braces, quotes, and brackets appear only when necessary.
-- **Easy JSON mapping**: EMON can be converted to/from JSON without data loss.
 - **AI-token efficient**: reduces token usage by 40–60% compared to standard JSON.
 - **Cross-domain utility**: works for AI, web APIs, mobile data, IoT messages, and database serialization.
+- **Lossless JSON Mapping:** Can be seamlessly converted to and from JSON for integration into existing workflows.
 
 By optimizing both **human readability** and **machine efficiency**, EMON strikes a balance between clarity and performance.
 
@@ -74,7 +74,7 @@ Here is a quick look at how the same data looks in both JSON and EMON. This make
 
 ```emon
 // Schema
-#user(name:string,age:number,profile:#profile,verified:bool)
+#(name:string,age:number,profile:#profile,verified:bool)
 #profile(bio:string,location:string)
 
 // Data
@@ -86,7 +86,7 @@ Here is a quick look at how the same data looks in both JSON and EMON. This make
     </tr>
 </table>
 
-As you can see, both formats show the same data but in different styles. EMON is much smaller than JSON and uses fewer tokens, making it lighter and easier to work with.
+**Result:** EMON is significantly smaller and uses fewer tokens because the field names (`name`, `age`, etc.) are only defined once, not repeated for every object.
 
 <br>
 
@@ -97,35 +97,29 @@ As you can see, both formats show the same data but in different styles. EMON is
 
 ## Key Features & Benefits of EMON
 
-**1. Efficient**<br>
-EMON reduces redundant characters, repeated key names, and unnecessary quotation marks. This compact structure lowers **data size** by 40–60% compared to JSON, reducing network payloads, storage requirements, and AI token usage. Smaller payloads also mean **faster transmission** across web, mobile, and IoT platforms.
+**1. Token Efficiency (40%–70% Savings)**<br>
+EMON's core innovation is reducing the size of the structured payload. This reduction lowers LLM API costs and accelerates data processing in high-volume AI pipelines.
 
-**2. Modular**<br>
-Type definitions in EMON are **reusable and referenceable**. You can define a module once (#user, #profile, etc.) and reuse it across multiple structures. This promotes **clarity**, reduces duplication, and simplifies maintenance. Updating a single type automatically updates all dependent structures.
+**2. Structural Modularity**<br>
+Type definitions are reusable and referenceable (`#profile`). This modular design promotes clear data modeling, simplifies maintenance, and reduces duplication across large datasets.
 
 **3. Nested & Flexible**<br>
-EMON naturally supports **multi-level, mixed-type objects**, arrays, and inline nested types. Complex data structures can be modeled without verbose syntax, keeping it readable for humans while being fully machine-parseable.
+EMON naturally supports **multi-level, mixed-type objects**, arrays, and inline nested types. Complex data structures can be modeled without verbose syntax, keeping it readable for humans while being fully machine-parsable.
 
-**4. Readable & Human-Friendly**<br>
-Unlike JSON or XML, EMON minimizes structural clutter - braces, quotes, and separators appear **only when necessary**. This makes it easy for developers, analysts, or AI models to read and understand, while maintaining a compact representation.
-
-**5. Cross-Platform Ready**<br>
-EMON works seamlessly across **JavaScript, PHP, Python**, and other programming environments. Its simplicity ensures that developers can **parse, serialize, and convert** EMON data with minimal dependencies.
-
-**6. AI-Friendly & Token-Efficient**<br>
+**4. AI-Friendly & Token-Efficient**<br>
 By eliminating redundancy, EMON **reduces token consumption** in AI applications by up to 60%. It is ideal for training AI models, feeding large datasets into generative models, or exchanging structured data in low-token-cost pipelines.
 
-**7. Web, Mobile & IoT Optimized**<br>
-EMON’s minimal payload makes it perfect for **HTTP APIs, mobile app data synchronization, and IoT telemetry**. Reduced data size improves network performance, lowers latency, and decreases bandwidth consumption.
+**5. Readable & Human-Friendly**<br>
+Unlike JSON or XML, EMON minimizes structural clutter - braces, quotes, and separators appear **only when necessary**. This makes it easy for developers, analysts, or AI models to read and understand, while maintaining a compact representation.
 
-**8. Plain Text & UTF-8 Safe**<br>
+**6. Cross-Domain Utility**<br>
+EMON is optimized for fast transmission across bandwidth-constrained environments, making it ideal for **HTTP APIs, mobile data sync, and IoT telemetry**.
+
+**7. Plain Text & UTF-8 Safe**<br>
 EMON is fully compatible with UTF-8 encoding and **plain text storage**. It can be saved, shared, or transmitted easily across systems without requiring special binary formats.
 
-**9. Easy JSON Integration**<br>
+**8. Easy JSON Integration**<br>
 EMON can be converted **to/from JSON** losslessly. This allows smooth integration with existing JSON-based workflows while benefiting from EMON’s compactness and efficiency.
-
-**10. Scalable & Version-Control Friendly**<br>
-Its modular design and clear type definitions make EMON suitable for **large-scale projects**. Schema updates, extensions, or versioning can be applied without breaking existing systems or requiring full rewrites.
 
 <br>
 
@@ -135,7 +129,6 @@ EMON documents use the `.emon` extension, making them easy to recognize and mana
 <br>
 
 ## Modularity
-
 EMON encourages **modular and reusable type definitions**, allowing you to break large structures into smaller, maintainable parts. Each module (type) can be defined once and referenced anywhere - improving clarity and reducing duplication.
 
 A core strength of EMON is its **modular design**. Complex datasets can be decomposed into **small**, **reusable type definitions**, allowing:
@@ -145,11 +138,10 @@ A core strength of EMON is its **modular design**. Complex datasets can be decom
 - **Simplified maintenance**: Updating a single type automatically propagates to all references, reducing errors.
 - **Clearer data modeling**: Each module clearly defines fields and types, improving readability for humans and parsers alike.
 
-
 #### Example: Modular Type Usage
 ```emon
-#profile(age:number, city:string)
-#user(id:number,name:string,profile:#profile,roles:[string])
+#(id:number,name:string,profile:#profile,roles:[string])
+#profile(age:number,city:string)
 
 =1,Alice,{30,"New York"},[admin,editor]
 =2,Bob,{25,London},[user]
@@ -159,57 +151,48 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 
 #### How it works
 
-* `#user` and `#profile` are defined separately.
-* `#user` includes a nested reference to `#profile`.
-* You can reuse `#profile` in multiple other definitions (e.g., `#employee`, `#vendor`).
+* The entire payload structure starts with the most token-efficient root: `#(...)[]`.
+* The named type `#profile` is defined once for the structure `age:number, city:string`.
+* The root definition then references the reusable structure via `profile:#profile`.
+* All data records (`=`) follow the fields defined in the nameless root: `id`, `name`, `profile`, `roles`.
+* The value for profile is the nested object: `{30,"New York"}`.
 
 #### Benefits
 
-* Keeps large datasets clean and consistent
-* Encourages reusability and separation of logic
-* Simplifies parsing for AI and validation tools
+* Keeps large datasets clean and consistent.
+* Encourages reusability and separation of logic.
+* Simplifies parsing for AI and validation tools.
 
 <br>
 
 ## Basic Syntax
-
 EMON follows a **structured and minimal format** for defining data types and records. Each EMON file is composed of **schemas** and **data records**.
 
-#### Type Definitions (Schemas)
+#### 1. Root Definition (Nameless)
 
-- Start with `#typeName(...)`
-- Define each field with a name and type: `fieldName:type`
-- Types can be primitives (`string`, `number`, `bool`) or nested types (`#profile`)
-- Arrays are denoted using square brackets: `[type]`
+The root structure must be the first definition and lacks a name after the `#`.
 
 ```emon
-#user(name:string,age:number,profile:#profile,verified:bool)
-#profile(bio:string,location:string)
+#(id:number, name:string, is_manager:bool, roles:[string])[]
 ```
 
-**Explanation:**
-Here, `user` has four fields: `name`, `age`, `profile` (nested type `#profile`), and `verified`.
-<br>
-The `profile` type is defined separately, containing `bio` and `location`.
+**Explanation**: This defines an array of records where the first field is `id` (number) and the last is `roles` (array of strings).
 
-
-#### Data Records
-
-- Start with `=`
-- Values are positional according to the schema
-- Nested objects use `{}`
-- Arrays use `[]`
-- Strings with spaces or special characters must be **quoted**
+#### 2. Nested Definition (Named)
+Nested types *must* be named for reference, maintaining modularity.
 
 ```emon
-=John,30,{Developer,"NY, USA"},true
-=Rafi,27,{Designer,"Dhaka, BD"},false
+#contact(email:string, phone:string)
+#(name:string, contact_info:#contact)
 ```
 
-**Explanation:**
-The first record assigns `Parvez` to `name`, `30` to `age`, `{Developer,"NY, USA"}` to `profile`, and `true` to `verified`.
-<br>
-Nested object `{Developer,"NY, USA"}` matches the `#profile` schema.
+#### 3. Data Records (Positional)
+Values must exactly follow the order of the fields defined in the root schema.
+
+```emon
+=101,Alice,true,[admin,editor]
+```
+**Explanation**: `101` goes to `id`, `Alice` to `name`, `true` to `is_manager`, and the array `[admin,editor]` to `roles`.
 
 For full syntax details, advanced nested types, arrays, and multiline text, see the [official Syntax Guide](doc/syntax.md).
 
@@ -328,18 +311,17 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 
 **EMON** is designed to solve real-world efficiency and structure challenges in data processing, AI pipelines, and application development.
 
-1. **AI Prompt Optimization**<br>
-EMON reduces redundant syntax, cutting prompt size and token cost by 40–60%. Ideal for LLMs that process structured data like user profiles, logs, or API outputs.
-2. **Lightweight Data Exchange**<br>
-Perfect for microservices and API communication, EMON minimizes payload size, enabling faster HTTP transfers and lower bandwidth usage across distributed systems.
-3. **Cross-Platform Configuration**<br>
-Used as config files in mobile, desktop, and server environments, EMON ensures consistent parsing behavior and human readability without heavy dependencies.
-4. **Edge and Embedded Systems**<br>
-EMON’s plain-text, compact nature makes it suitable for IoT devices, offline apps, and low-memory systems that need fast serialization and minimal storage footprint.
-5. **AI Dataset Serialization**<br>
-In research and ML pipelines, EMON simplifies dataset storage and improves interoperability when generating or consuming structured AI training data.
-6. **Experimental LLM Interchange Format**<br>
-EMON offers a new way to represent structured knowledge in prompt engineering and AI reasoning frameworks, bridging the gap between text and structured representation.
+**1. AI Prompt Optimization**: EMON reduces redundant syntax, cutting prompt size and token cost by 40–60%. Ideal for LLMs that process structured data like user profiles, logs, or API outputs.
+
+**2. Lightweight Data Exchange**: Perfect for microservices and API communication, EMON minimizes payload size, enabling faster HTTP transfers and lower bandwidth usage across distributed systems.
+
+**3. Cross-Platform Configuration**: Used as config files in mobile, desktop, and server environments, EMON ensures consistent parsing behavior and human readability without heavy dependencies.
+
+**4. Edge and Embedded Systems**: EMON’s plain-text, compact nature makes it suitable for IoT devices, offline apps, and low-memory systems that need fast serialization and minimal storage footprint.
+
+**5. AI Dataset Serialization**: In research and ML pipelines, EMON simplifies dataset storage and improves interoperability when generating or consuming structured AI training data.
+
+**6. Experimental LLM Interchange Format**: EMON offers a new way to represent structured knowledge in prompt engineering and AI reasoning frameworks, bridging the gap between text and structured representation.
 
 <br>
 

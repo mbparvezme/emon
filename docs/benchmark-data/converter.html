@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMON Converter (JSON to EMON)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafc; }
+        .code-area { font-family: monospace; font-size: 14px; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-6 md:p-10">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">EMON Converter Tool</h1>
+        <p class="text-gray-600 mb-6">Paste your JSON data below to generate the token-efficient EMON format (Schema + Data).</p>
+
+        <!-- Input Area -->
+        <div class="mb-6">
+            <label for="json-input" class="block text-lg font-semibold text-gray-700 mb-2">1. JSON Input</label>
+            <textarea id="json-input" rows="10" 
+                      class="code-area w-full p-4 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 shadow-inner" 
+                      placeholder='[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]'></textarea>
+        </div>
+
+        <!-- Conversion Button -->
+        <button id="convert-button" 
+                class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Convert JSON to EMON
+        </button>
+        
+        <!-- Output Area -->
+        <div class="mt-8">
+            <label for="emon-output" class="block text-lg font-semibold text-gray-700 mb-2">2. EMON Output</label>
+            <textarea id="emon-output" rows="10" readonly
+                      class="code-area w-full p-4 border border-gray-300 bg-gray-50 rounded-lg resize-none shadow-inner text-gray-800" 
+                      placeholder="The generated EMON syntax will appear here..."></textarea>
+            
+            <div id="status-message" class="mt-4 p-3 rounded-lg text-sm transition duration-300 hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- EMON LIBRARY LOGIC ---        
+        // Simplified EmonType definitions for the client-side tool
+        class EmonSchema {
+            constructor() {
+                this.schemas = {};
+                this.usedNames = new Set();
+                this.generatedOrder = [];
+            }
+
+            // Utility to validate schema name (A-Za-z_ and not starting with digit)
+            validateSchemaName(name) {
+                return /^[A-Za-z_][\w]*$/.test(name);
+            }
+
+            makeTypeName(preferred) {
+                let base = (preferred || 'anon').replace(/[^A-Za-z0-9_]/g, '') || 'anon';
+                base = base.toLowerCase();
+
+                if (this.validateSchemaName(base) && !this.usedNames.has(base)) {
+                    this.usedNames.add(base);
+                    this.generatedOrder.push(base);
+                    return base;
+                }
+
+                let i = 1;
+                let uniqueName = `${base}${i}`;
+                while (!this.validateSchemaName(uniqueName) || this.usedNames.has(uniqueName)) {
+                    i++;
+                    uniqueName = `${base}${i}`;
+                }
+                this.usedNames.add(uniqueName);
+                this.generatedOrder.push(uniqueName);
+                return uniqueName;
+            }
+
+            detectType(val, propName) {
+                if (val === null || val === undefined) return 'string';
+                if (typeof val === 'number') return 'number';
+                if (typeof val === 'boolean') return 'bool';
+                if (typeof val === 'string') return 'string';
+
+                if (Array.isArray(val)) {
+                    if (val.length === 0) return '[string]'; 
+                    const first = val.find(item => item !== null && item !== undefined);
+
+                    if (!first) return '[string]';
+
+                    const innerPropName = propName.endsWith('s') ? propName.slice(0, -1) : propName;
+
+                    if (typeof first === 'object' && first !== null && !Array.isArray(first)) {
+                        const childName = this.makeTypeName(innerPropName);
+                        this.genSchema(childName, first); 
+                        return `[#${childName}]`;
+                    }
+                    const innerType = this.detectType(first, innerPropName);
+                    return `[${innerType}]`;
+                }
+
+                if (typeof val === 'object' && val !== null) {
+                    const nestedName = this.makeTypeName(propName || 'child');
+                    this.genSchema(nestedName, val);
+                    return `#${nestedName}`;
+                }
+                return 'string';
+            }
+
+            genSchema(name, obj) {
+                if (this.schemas[name]) return; 
+
+                const fields = [];
+                for (const key of Object.keys(obj)) {
+                    const val = obj[key];
+                    const fieldType = this.detectType(val, key);
+                    fields.push({ name: key, type: fieldType });
+                }
+
+                this.schemas[name] = { name, fields, isArray: false };
+            }
+
+            getSchemas() {
+                return { schemas: this.schemas, order: this.generatedOrder };
+            }
+        }
+
+        // --- Primitives (Essentials for Serialization) ---
+        
+        const needsQuote = (s) => {
+            if (s.trim().length === 0) return true;
+            // Check for delimiters, spaces, or internal quotes that need escaping
+            if (/[ \t,:{}[\]()@=;/\\]/.test(s)) return true;
+            // Check for boolean or null keywords
+            if (s.toLowerCase() === 'true' || s.toLowerCase() === 'false' || s.toLowerCase() === 'null') return true;
+            // Check if it starts with a number or sign, preventing accidental number parsing
+            if (/^[\d+-]/.test(s) && !/^\d+(\.\d*)?$/.test(s)) return true;
+            return false;
+        };
+
+        const serializePrimitive = (val) => {
+            // CRITICAL: Explicit Null Support
+            if (val === null || val === undefined) {
+                return 'null';
+            }
+            if (typeof val === 'boolean') return val ? 'true' : 'false';
+            if (typeof val === 'number') return String(val);
+
+            if (typeof val === 'string') {
+                const str = val;
+                
+                if (str.includes('\n')) {
+                    // Multi-line: Use triple quotes
+                    const safeVal = str.replace(/"""/g, '\\"\\"\\"');
+                    return `"""\n${safeVal}\n"""`; 
+                }
+
+                const escaped = str.replace(/"/g, '\\"');
+                
+                // Quote if needed based on the rules
+                return needsQuote(str) ? `"${escaped}"` : str;
+            }
+            return String(val); 
+        };
+
+        // --- Serializer Core Logic ---
+
+        const serializeValue = (fieldType, val, schemas) => {
+            if (val === null || val === undefined) return 'null';
+
+            // 1. Array Type 
+            if (fieldType.startsWith('[') && fieldType.endsWith(']')) {
+                const innerTypeRaw = fieldType.slice(1, -1);
+                if (!Array.isArray(val)) return '[]';
+
+                const serializedItems = val.map(item => {
+                    if (innerTypeRaw.startsWith('#')) {
+                        const typeName = innerTypeRaw.slice(1);
+                        return `{${serializeRecord(typeName, item, schemas)}}`;
+                    } else if (typeof item === 'object' && item !== null) {
+                        // Handle anonymous objects within arrays (best effort, using values)
+                        return `{${Object.values(item).map(serializePrimitive).join(',')}}`;
+                    } else {
+                        // Array of Primitives
+                        return serializePrimitive(item);
+                    }
+                });
+                return `[${serializedItems.join(',')}]`;
+            }
+
+            // 2. Custom Type Reference 
+            if (fieldType.startsWith('#')) {
+                const typeName = fieldType.slice(1);
+                if (typeof val !== 'object' || val === null) return 'null';
+                return `{${serializeRecord(typeName, val, schemas)}}`;
+            }
+
+            // 3. Primitive Type 
+            return serializePrimitive(val);
+        };
+
+        const serializeRecord = (typeName, obj, schemas) => {
+            const type = schemas[typeName];
+            if (!type) throw new Error(`Serialization Error: Unknown type ${typeName}`);
+
+            const parts = type.fields.map(field => {
+                const val = obj[field.name];
+                return serializeValue(field.type, val, schemas);
+            });
+
+            return parts.join(',');
+        };
+
+        const jsonToEmonString = (jsonData, schemaName = 'emon') => {
+            let data;
+            if (typeof jsonData === 'string') {
+                try { data = JSON.parse(jsonData); } catch { throw new Error('Invalid JSON string provided.'); }
+            } else {
+                data = jsonData;
+            }
+
+            if (data === null || data === undefined) {
+                throw new Error('JSON data cannot be null or undefined.');
+            }
+
+            // 1. Schema Generation
+            const generator = new EmonSchema();
+            let rootTypeName = schemaName;
+            const isRootArray = Array.isArray(data);
+
+            if (isRootArray) {
+                const sample = data.length > 0 ? data[0] : {};
+                rootTypeName = generator.makeTypeName(schemaName.endsWith('s') ? schemaName.slice(0, -1) : schemaName + 'Item');
+                generator.genSchema(rootTypeName, sample);
+            } else {
+                generator.genSchema(schemaName, data);
+            }
+
+            const { schemas: generatedSchemas, order: generatedOrder } = generator.getSchemas();
+
+            // 2. Format Schema String
+            const schemaLines = [];
+            for (const name of generatedOrder) {
+                const type = generatedSchemas[name];
+                const fieldsStr = type.fields.map(f => `${f.name}:${f.type}`).join(',');
+                let typeLine = `#${name}(${fieldsStr})`;
+                if (isRootArray && name === rootTypeName) {
+                    typeLine += '[]';
+                }
+                schemaLines.push(typeLine);
+            }
+            const schemaStr = schemaLines.join('\n');
+
+            // 3. Format Data String
+            const dataRecords = isRootArray ? data : [data];
+            const dataLines = dataRecords.map((record) => {
+                return '=' + serializeRecord(isRootArray ? rootTypeName : schemaName, record, generatedSchemas);
+            }).join('\n');
+            
+            return schemaStr + '\n' + dataLines;
+        };
+
+        // --- UI LOGIC ---
+
+        const jsonInput = document.getElementById('json-input');
+        const emonOutput = document.getElementById('emon-output');
+        const convertButton = document.getElementById('convert-button');
+        const statusMessage = document.getElementById('status-message');
+
+        const setStatus = (message, isError = false) => {
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+            if (isError) {
+                statusMessage.classList.add('bg-red-100', 'text-red-800');
+            } else {
+                statusMessage.classList.add('bg-green-100', 'text-green-800');
+            }
+            statusMessage.classList.remove('opacity-0');
+        };
+
+        const handleConversion = () => {
+            emonOutput.value = '';
+            statusMessage.classList.add('opacity-0');
+            
+            const jsonText = jsonInput.value.trim();
+            if (!jsonText) {
+                setStatus("Input field is empty. Please paste valid JSON.", true);
+                return;
+            }
+
+            try {
+                const startTime = performance.now();
+                const emonText = jsonToEmonString(jsonText, 'emon');
+                const endTime = performance.now();
+
+                emonOutput.value = emonText;
+
+                // Calculate Token Reduction Estimate (Simple Char Count Proxy)
+                const jsonLength = jsonText.length;
+                const emonLength = emonText.length;
+                const reduction = (((jsonLength - emonLength) / jsonLength) * 100).toFixed(2);
+                
+                setStatus(`Conversion successful! Processed in ${(endTime - startTime).toFixed(2)}ms. Character reduction estimate: ${reduction}%`, false);
+
+            } catch (error) {
+                setStatus(`Conversion Error: ${error.message}`, true);
+            }
+        };
+
+        convertButton.addEventListener('click', handleConversion);
+    </script>
+</body>
+</html>

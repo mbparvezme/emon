@@ -1,7 +1,8 @@
-#emonitem(customer_id:string,first_name:string,last_name:string,email:string,registration_date:string,address:#address,orders:[#order])[]
+#(customer_id:string,first_name:string,last_name:string,email:string,registration_date:string,address:#address,orders:[#order])[]
 #address(street:string,city:string,zip_code:string,country:string)
 #order(order_id:string,order_date:string,total_amount:number,status:string,products:[#product])
 #product(product_id:string,name:string,price:number,quantity:number)
+
 =CUST00001,Oliver,Hayes,"oliver.hayes@example.com","2024-01-15",{"12 Elm St",Springfield,10001,USA},[{ORD1000,"2024-02-01T11:00:00Z",54.98,Delivered,[{PROD001,"Cotton T-Shirt (Blue)",25.99,2},{PROD005,"Canvas Tote Bag",2.99,1}]}]
 =CUST00002,Sophia,Chen,"sophia.chen@example.com","2024-03-10",{"789 Pine Ave",Oakland,94601,USA},[{ORD1001,"2024-03-20T15:45:00Z",129.99,Shipped,[{PROD010,"Noise-Cancelling Headphones",129.99,1}]},{ORD1002,"2024-04-05T08:30:00Z",45,Processing,[{PROD012,"Stainless Steel Water Bottle",22.5,2}]}]
 =CUST00003,Liam,Patel,"liam.patel@example.com","2023-11-20",{"30 Maple Lane",Riverdale,20005,USA},[{ORD1003,"2024-01-10T14:00:00Z",89.99,Delivered,[{PROD020,"Leather Wallet",89.99,1}]}]
@@ -19,7 +20,7 @@
 =CUST00015,Ella,Adams,"ella.adams@example.com","2024-05-01",{"10 Pine Cone Trail",Portland,97204,USA},[{ORD1017,"2024-05-15T12:45:00Z",50,Processing,[{PROD130,"Gift Card ($50)",50,1}]}]
 =CUST00016,Finley,Green,"finley.green@example.com","2023-10-20",{"303 Bridge Blvd",Philadelphia,19103,USA},[{ORD1018,"2023-11-05T15:30:00Z",25.99,Delivered,[{PROD140,"Wall Calendar 2024",25.99,1}]}]
 =CUST00017,Grace,Taylor,"grace.taylor@example.com","2024-03-05",{"10 Downing St",Washington,20004,USA},[{ORD1019,"2024-03-10T11:45:00Z",150,Shipped,[{PROD150,"Luxury Bath Towel Set",75,2}]},{ORD1020,"2024-04-10T16:00:00Z",35,Processing,[{PROD155,"Organic Soap Bar",7,5}]}]
-=CUST00018,Henry,White,"henry.white@example.com","2024-01-01",{"50 Skyline Blvd","Los Angeles",90001,USA},[{ORD1021,"2024-01-05T18:30:00Z",10.99,Delivered,[{PROD160,"Phone Stand (Plastic)",10.99,1}]},{ORD1022,"2024-02-01T12:00:00Z",6.99,Delivered,[{PROD161,"Screen Protector",6.99,1}]}]
+=CUST00018,Henry,White,"henry.white@example.com","2024-01-01",{"50 Skyline Blvd","Los Angeles",90001,USA},[{ORD1021,"2024-01-05T18:30:00Z",10.99,Delivered,[{PROD160,"Phone Stand (Plastic)",10.99,1}]},{ORD1022,"2024-02-01T12:00:00Z",6.99,Delivered,[{PROD161,"Screen Protector",6.99,1},{PROD170,"Electric Toothbrush",59.99,1}]}]
 =CUST00019,Ivy,Harris,"ivy.harris@example.com","2023-12-15",{"15 Water St",Baltimore,21201,USA},[{ORD1023,"2024-01-20T14:00:00Z",59.99,Shipped,[{PROD170,"Electric Toothbrush",59.99,1}]}]
 =CUST00020,Jack,Martin,"jack.martin@example.com","2024-04-20",{"500 High St","Salt Lake City",84101,USA},[{ORD1024,"2024-05-05T10:30:00Z",150.5,Delivered,[{PROD180,"Camping Tent (2 Person)",120.5,1},{PROD181,"Headlamp (LED)",15,2}]}]
 =CUST00021,Kira,Nelson,"kira.nelson@example.com","2023-09-01",{"10 Riverbend Pkwy",Atlanta,30303,USA},[{ORD1025,"2023-09-10T13:00:00Z",35,Delivered,[{PROD190,"Picture Frame (8x10)",35,1}]},{ORD1026,"2024-01-10T15:00:00Z",5.99,Processing,[{PROD191,"Photo Paper Pack",5.99,1}]}]
@@ -73,7 +74,7 @@
 =CUST00069,Mike,Mitchell,"mike.mitchell@example.com","2023-10-08",{"900 Market St","San Francisco",94107,USA},[{ORD1077,"2023-10-25T14:00:00Z",8,Delivered,[{PROD650,"Tire Patch Kit (Bicycle)",8,1}]}]
 =CUST00070,Nina,Nguyen,"nina.nguyen@example.com","2024-03-20",{"15 Bay St",Tampa,33602,USA},[{ORD1078,"2024-04-10T10:00:00Z",33.99,Shipped,[{PROD660,"Set of 4 Plant Pots",33.99,1}]}]
 =CUST00071,Oscar,Ortiz,"oscar.ortiz@example.com","2024-01-10",{"22 Riverwalk Blvd","San Antonio",78205,USA},[{ORD1079,"2024-02-01T15:00:00Z",15,Delivered,[{PROD670,"BBQ Sauce (Spicy)",7.5,2}]}]
-=CUST00072,Piper,Price,"piper.price@example.com","2023-12-05",{"400 Oak Lane",Portland,97204,USA},[{ORD1080,"2023-12-20T11:00:00Z",59.99,Shipped,[{PROD680,"Book (Fiction Bestseller)",19.99,3}]}]
+=CUST00072,John,Pitter,"john.pitter@example.com","2023-12-05",{"400 Oak Lane",Portland,97204,USA},[{ORD1080,"2023-12-20T11:00:00Z",59.99,Shipped,[{PROD680,"Book (Fiction Bestseller)",19.99,3}]}]
 =CUST00073,Quincy,Quinn,"quincy.quinn@example.com","2024-04-25",{"10 Center Pl",Cincinnati,45202,USA},[{ORD1081,"2024-05-10T14:00:00Z",10.99,Processing,[{PROD690,"Reusable Straws (Metal)",10.99,1}]}]
 =CUST00074,Riley,Rivera,"riley.rivera@example.com","2023-11-18",{"500 Lake View Pl",Dallas,75201,USA},[{ORD1082,"2023-12-05T09:30:00Z",119.98,Delivered,[{PROD700,"Digital Photo Frame",59.99,2}]}]
 =CUST00075,Stella,Scott,"stella.scott@example.com","2024-03-05",{"30 River Rd",Austin,78701,USA},[{ORD1083,"2024-03-20T16:00:00Z",25,Shipped,[{PROD710,"Journal (Leather Bound)",25,1}]}]
@@ -86,7 +87,7 @@
 =CUST00082,Alice,Avery,"alice.avery@example.com","2023-11-05",{"30 Maple Lane",Riverdale,20005,USA},[{ORD1090,"2023-12-01T17:00:00Z",49,Delivered,[{PROD780,"Set of Bath Bombs",49,1}]}]
 =CUST00083,Brian,Barnes,"brian.barnes@example.com","2024-05-01",{"45 Tech Way","San Jose",95113,USA},[{ORD1091,"2024-05-15T12:45:00Z",499,Processing,[{PROD790,"Virtual Reality Headset",499,1}]}]
 =CUST00084,Carla,Cobb,"carla.cobb@example.com","2023-10-20",{"10 Pine Cone Trail",Portland,97204,USA},[{ORD1092,"2023-11-05T15:30:00Z",15,Delivered,[{PROD800,"Dog Leash (Retractable)",15,1}]}]
-=CUST00085,David,Dale,"david.dale@example.com","2024-03-05",{"303 Bridge Blvd",Philadelphia,19103,USA},[{ORD1093,"2024-03-10T11:45:00Z",6.99,Shipped,[{PROD810,"Pack of P:45:00Z",6.99,Shipped,[{PROD810,"Pack of Post-it Notes",6.99,1}]}]
+=CUST00085,David,Dale,"david.dale@example.com","2024-03-05",{"303 Bridge Blvd",Philadelphia,19103,USA},[{ORD1093,"2024-03-10T11:45:00Z",6.99,Shipped,[{PROD810,"Pack of Post-it Notes",6.99,1}]}]
 =CUST00086,Eva,Esparza,"eva.esparza@example.com","2024-01-01",{"50 Skyline Blvd","Los Angeles",90001,USA},[{ORD1094,"2024-01-05T18:30:00Z",99,Delivered,[{PROD820,"Digital Drawing Tablet",99,1}]}]
 =CUST00087,Felix,Franco,"felix.franco@example.com","2023-12-15",{"15 Water St",Baltimore,21201,USA},[{ORD1095,"2024-01-20T14:00:00Z",29.99,Shipped,[{PROD830,"Set of 3 Fitness Jump Ropes",29.99,1}]}]
 =CUST00088,Giselle,Graham,"giselle.graham@example.com","2024-04-20",{"500 High St","Salt Lake City",84101,USA},[{ORD1096,"2024-05-05T10:30:00Z",15,Processing,[{PROD840,"Reusable Food Wraps (Set of 3)",15,1}]}]

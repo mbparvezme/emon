@@ -1,0 +1,49 @@
+#definition(id:string,pattern:string,example:string,description:string,type_list:[string])
+#(name:string,version:string,description:string,definitions:[#definition])
+
+="EMON Schema",0.1.0,
+"""Official EMON (Efficient Minimal Object Notation) schema definition. Supports inline and nested types, triple-quoted multiline text, and comments.""",
+[
+    {
+        definition,
+        "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)(\\[\\])?$",
+        "#user(id:number,name:string,profile:#profile,roles:[string])",
+        "Defines data structure (schema) with optional array indicator [].",
+        [string,number,bool,int,float,[string],[number],[bool]]
+    },
+    {
+        record,
+        "^=.*$",
+        "=1,Parvez,{30,Dhaka},[admin,editor]",
+        "Defines data rows matching a schema (start with =). Each value follows field order.",
+        []
+    },
+    {
+        type,
+        "string|number|bool|int|float|#<identifier>|(field:type,...)",
+        "(id:number,name:string)",
+        "Defines field data type. Can be basic, array, nested, or reference type.",
+        [string,number,bool,int,float,[string],[number],[bool]]
+    },
+    {
+        multiline_string,
+        "\"\"\".*\"\"\"",
+        "\"\"\"This is a multiline\ntext block.\"\"\"",
+        "Triple-quoted text block preserving line breaks and spaces. Converts to JSON string with \\n.",
+        []
+    },
+    {
+        reference,
+        "^#\\w+$",
+        "#profile",
+        "Reference to another schema or nested type definition.",
+        []
+    },
+    {
+        comment,
+        "^//.*$",
+        "// this is a comment",
+        "Comments start with // and are ignored by parser.",
+        []
+    }
+]

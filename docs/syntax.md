@@ -7,16 +7,16 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 
 ## Core Syntax
 
-* **Type Declaration**: Begin with `#` to define a type and its fields.
+* **Type Declaration**: Begin with `#(` to define the primary root type and its fields.
 
   ```emon
-  #type_name(field:type,...)
+  #(field:type,...)
   ```
 
   Example:
 
   ```emon
-  #user(id:number,name:string,gender:string,roles:[string])
+  #(id:number,name:string,gender:string,roles:[string])
   ```
 
 * **Value Assignment**: Use `=` to provide values in the same order as the fields.
@@ -28,7 +28,7 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 * **Nested Structures**: Define nested objects or arrays explicitly.
 
   ```emon
-  #project(name:string,members:#member[])
+  #(name:string,members:#member[])
   #member(name:string,role:string)
   =AI_Dev,[{Alice,Lead},{Bob,Engineer}]
   ```
@@ -54,8 +54,8 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Field names and type names are case-sensitive.
 
 **2. Object vs Array**  
-- `#type(...)` → single JSON object `{...}`  
-- `#type(...)[]` → array of objects `[{...}, {...}]`
+- `#(...)` → single JSON object `{...}`  
+- `#(...)[]` → array of objects `[{...}, {...}]`
 
 **3. Value Assignment**  
 - Each `=` line represents **one record**.  
@@ -76,7 +76,7 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Inline nested type (optional): `(name:string,price:number)`
 
 **7. Primitive Types**  
-- `string`, `number`, `bool`  
+- `string`, `number`, `bool`
 - Arrays: `[type]`  
 - Nested object: `#type`
 
@@ -88,7 +88,7 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Use `\` for special characters: `"He said \"Hello\""`  
 - Multi-line strings: triple quotes  
    ```emon
-   #note(text:string)
+   #(text:string)
    ="""Line 1
    Line 2"""
    ```
@@ -101,7 +101,7 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 
 **11. Strict Type Validation**  
 - Values must match declared types exactly:  
-- `#user(age:number)` → `=25` ✅  
+- `#(age:number)` → `=25` ✅  
 - `=twenty-five` ❌
 
 **12. Array Rules**  
@@ -109,9 +109,9 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Arrays must be homogenous in type.
 
 **13. Importing Types**: Reuse types across files using:  
-   ```emon
-   import "./common/user.emon"
-   ```
+```emon
+import "./common/user.emon"
+```
 
 **14. Single Root Type per File**: Each file should have one main root type; others as helper types.
 
@@ -123,22 +123,22 @@ Follow these guidelines to write clean, efficient, and valid EMON files.
 
 **1. Keep Field Order Consistent**: Values must always follow the same order as defined in the type.
 ```emon
-#user(name:string,age:number,verified:bool)
+#(name:string,age:number,verified:bool)
 =Parvez,30,true      // ✅ Correct
 =true,Parvez,30      // ❌ Wrong (order mismatch)
 ```
 
 **2. Avoid Circular References**: Types cannot reference each other in a loop.
 ```emon
-#A(b:#B)
-#A(a:#A)    // ❌ Circular reference — not supported
-#B(a:#A)    // ❌ Circular reference — not supported
+#(a:#A)
+#A(x:#X)    // ❌ Circular reference — not supported
+#X(a:#A)    // ❌ Circular reference — not supported
 ```
 
 **3. Use Clear, Descriptive Field Names**: Use meaningful field names instead of short or unclear ones.
 ```emon
-#product(id:number,name:string,price:number)   // ✅ Good
-#p(i:n,n:s,p:n)                                // ❌ Avoid unclear abbreviations
+#t(id:number,name:string,price:number)   // ✅ Good
+#(i:n,n:s,p:n)                           // ❌ Avoid unclear abbreviations
 ```
 
 **4. Maintain Human Readability with Compact Syntax**: Keep data compact but readable — don’t over-optimize spacing.
@@ -150,7 +150,7 @@ Follow these guidelines to write clean, efficient, and valid EMON files.
 
 **5. Test Nested Structures**: Always verify deeply nested or referenced structures to ensure correct parsing.
 ```emon
-#team(name:string,members:#member[])
+#(name:string,members:#member[])
 #member(name:string,role:string)
 =Dev_Team,[{Alice,Lead},{Bob,Engineer}]  // ✅ Proper nesting
 ```
@@ -164,14 +164,14 @@ Follow these guidelines to write clean, efficient, and valid EMON files.
 **7. Use Modular Types for Reusability**: Define and reuse structures instead of repeating fields.
 ```emon
 #user(name:string,age:number)
-#post(title:string,author:#user)
+#(title:string,author:#user)
 ```
 This makes files shorter and more maintainable.
 
 **8. Import Shared Types**: Share definitions across files using `import`.
 ```emon
 import "./common/user.emon"
-#comment(text:string,author:#user)
+#(text:string,author:#user)
 ```
 
 **9. Comment Outside Data Lines**: Keep comments above or beside definitions - never inline with `=` records.
@@ -181,9 +181,9 @@ import "./common/user.emon"
 =user2,25,false   // ❌ Inline comment breaks parsing
 ```
 
-**10. Focus on One Root Type per File**: Each EMON file should define one main structure (root type) for clarity.
+**10. Focus on One Root Type per File**: Each EMON file should define one main structure (root) for clarity.
 ```emon
-#employee(...)
+#(...)
 #skill(...)
 ```
 
@@ -201,7 +201,7 @@ import "./common/user.emon"
 
 **13. Validate Data Types Strictly**: Every field must match the declared type.
 ```emon
-#user(age:number)
+#(age:number)
 =25    // ✅
 ="25"  // ❌ Wrong type
 ```
@@ -214,7 +214,7 @@ import "./common/user.emon"
 ## Example
 
 ```emon
-#employee(id:number,name:string,gender:string,skills:#skill[])
+#(id:number,name:string,gender:string,skills:#skill[])
 #skill(name:string,level:string)
 =1,Parvez,male,[{PHP,Expert},{JS,Intermediate}]
 ```

@@ -1,0 +1,67 @@
+{
+  "name": "EMON Schema",
+  "version": "0.1.0",
+  "description": "Official EMON (Efficient Minimal Object Notation) schema definition. Supports inline and nested types, triple-quoted multiline text, and comments.",
+  "definitions": [
+    {
+      "id": "definition",
+      "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)(\\[\\])?$",
+      "example": "#user(id:number,name:string,profile:#profile,roles:[string])",
+      "description": "Defines data structure (schema) with optional array indicator [].",
+      "type_list": [
+        "string",
+        "number",
+        "bool",
+        "int",
+        "float",
+        "[string]",
+        "[number]",
+        "[bool]"
+      ]
+    },
+    {
+      "id": "record",
+      "pattern": "^=.*$",
+      "example": "=1,Parvez,{30,Dhaka},[admin,editor]",
+      "description": "Defines data rows matching a schema (start with =). Each value follows field order.",
+      "type_list": []
+    },
+    {
+      "id": "type",
+      "pattern": "string|number|bool|int|float|#<identifier>|(field:type,...)",
+      "example": "(id:number,name:string)",
+      "description": "Defines field data type. Can be basic, array, nested, or reference type.",
+      "type_list": [
+        "string",
+        "number",
+        "bool",
+        "int",
+        "float",
+        "[string]",
+        "[number]",
+        "[bool]"
+      ]
+    },
+    {
+      "id": "multiline_string",
+      "pattern": "\"\"\"\n.*\"\"\"",
+      "example": "\"\"\"This is a multiline\ntext block.\"\"\"",
+      "description": "Triple-quoted text block preserving line breaks and spaces. Converts to JSON string with \\n.",
+      "type_list": []
+    },
+    {
+      "id": "reference",
+      "pattern": "^#\\w+$",
+      "example": "#profile",
+      "description": "Reference to another schema or nested type definition.",
+      "type_list": []
+    },
+    {
+      "id": "comment",
+      "pattern": "^//.*$",
+      "example": "// this is a comment",
+      "description": "Comments start with // and are ignored by parser.",
+      "type_list": []
+    }
+  ]
+}
