@@ -6,21 +6,23 @@ import { EmonPrimitiveType } from "../types";
  * Checks if a string contains characters that require double quotes in EMON.
  * Needs quotes if it contains spaces, commas, or structural delimiters ({}[]:).
  * We must also quote if it starts with a number (to prevent ambiguity with the number type)
- * or if it matches 'true'/'false' (to prevent ambiguity with the bool type)
+ * or if it matches 'true'/'false'/'null' (to prevent ambiguity with the keyword type)
  * @param s The string value.
  * @returns boolean
  */
 export const needsQuote = (s: string): boolean => {
     if (s.trim().length === 0) return true;
-    // Check for delimiters, spaces, or internal quotes that need escaping
-    // if (/[ \t,:{}[\]()]/.test(s)) return true;
+    // Check for delimiters, spaces, or internal quotes that need escaping (Rule 4)
     if (/[ \t,:{}[\]()@=;/\\]/.test(s)) return true;
+
     // Check for boolean or null values which should be treated as keywords if unquoted
+    // This ensures if the user actually typed "null" as a string, it gets quoted.
     if (s.toLowerCase() === 'true' || s.toLowerCase() === 'false' || s.toLowerCase() === 'null') return true;
+
     // Check if it starts with a number or sign, preventing accidental number parsing
+    // It must not look like a complete number if it contains non-numeric/dot characters (preventing "12a")
     if (/^[\d+-]/.test(s) && !/^\d+(\.\d*)?$/.test(s)) return true;
-    // If it contains triple quotes, it should be treated as a regular string that needs quotes for consistency,
-    // although triple-quote handling is usually done by the calling function for multiline.
+
     return false;
 };
 
@@ -58,6 +60,7 @@ export const unquote = (str: string): string => {
  * @returns The EMON string representation.
  */
 export const serializePrimitive = (val: any): string => {
+    // CRITICAL: Handle null/undefined using the 'null' keyword (Explicit Null Support)
     if (val === null || val === undefined) return 'null';
     if (typeof val === 'boolean') return val ? 'true' : 'false';
     if (typeof val === 'number') return String(val);
@@ -66,15 +69,15 @@ export const serializePrimitive = (val: any): string => {
         // Rule 9: Multi-line strings use triple quotes
         if (val.includes('\n')) {
             // Triple quotes handle escaping automatically but ensure no internal """ exists
-            const safeVal = val.replace(/"""/g, '\"\"\"'); // Escape internal triple quotes if necessary
-            return `"""\n${safeVal}\n"""`; // Recommended format with newlines for clarity
+            const safeVal = val.replace(/"""/g, '\\"\\"\\"'); // Escape internal triple quotes if necessary
+            // Format with newlines for clarity (optional but good practice)
+            return `"""\n${safeVal}\n"""`;
         }
 
         // Rule 4: Handle single-line strings
-        // Escape internal double quotes
         const escaped = val.replace(/"/g, '\\"');
-        
-        // Rule 4/11: Quote if needed
+
+        // Rule 4/11: Quote if needed based on the needsQuote logic
         return needsQuote(val) ? `"${escaped}"` : val;
     }
 
@@ -105,18 +108,16 @@ export const splitTopLevel = (str: string | undefined | null, delimiter: string 
 
     for (let i = 0; i < str.length; i++) {
         const ch = str[i];
+        const nextTwo = str.substring(i + 1, i + 3);
         const prev = str[i - 1];
 
-        // 1. Triple Quote Handling (Rule 9)
-        if (ch === '"' && str.substring(i, i + 3) === '"""') {
-            if (i > 0 && prev === '\\') { // skip escaped quotes
-                buf += ch;
-                continue;
-            }
+        // 1. Triple Quote Handling (Rule 9) - Check for " or \"
+        if (ch === '"' && nextTwo === '""' && prev !== '\\') {
+            // Check for the start/end of """ (3 quotes)
             if (!inQuote) {
                 inTripleQuote = !inTripleQuote;
-                i += 2; // Skip the next two quotes
                 buf += '"""';
+                i += 2; // Skip the next two quotes
                 continue;
             }
         }
@@ -139,7 +140,7 @@ export const splitTopLevel = (str: string | undefined | null, delimiter: string 
                 continue;
             }
         }
-        
+
         // Append current character to buffer
         buf += ch;
     }

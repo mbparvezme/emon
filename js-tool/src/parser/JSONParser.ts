@@ -1,4 +1,4 @@
-import { EmonSchema, EmonType, EmonField, EmonDataRecord } from "../types";
+import { EmonSchema, EmonField, EmonDataRecord } from "../types";
 import { validateSchemaName, serializePrimitive, splitTopLevel } from "../utils";
 
 // Helper class to manage unique names for automatically generated schemas
@@ -94,7 +94,7 @@ class SchemaGenerator {
         this.schemas[name] = {
             name,
             fields,
-            isArray: false, // Updated later if it's the root array
+            isArray: false,
         };
     }
 
@@ -184,7 +184,7 @@ const serializeRecord = (typeName: string, obj: EmonDataRecord, schemas: EmonSch
  * @param schemaName The desired name for the root schema.
  * @returns The complete EMON string (Schema + Data).
  */
-export const jsonToEmonString = (jsonData: any, schemaName: string = 'emon'): { emonString: string, emonData: EmonDataRecord | EmonDataRecord[], emonSchema: EmonSchema, rootTypeName: string } => {
+export const jsonToEmonString = (jsonData: any, schemaName: string): { emonString: string, emonData: EmonDataRecord | EmonDataRecord[], emonSchema: EmonSchema, rootTypeName: string } => {
     if (!validateSchemaName(schemaName)) {
         throw new Error(`Invalid schema name provided: "${schemaName}". Must be alphanumeric/underscore and cannot start with a number.`);
     }
@@ -235,7 +235,6 @@ export const jsonToEmonString = (jsonData: any, schemaName: string = 'emon'): { 
     const dataLines = dataRecords.map((record: EmonDataRecord) => { // FIX 2: Explicitly type 'record'
         return '=' + serializeRecord(isRootArray ? rootTypeName : schemaName, record, generatedSchemas);
     }).join('\n');
-    
     // 4. Return
     const finalEmonString = schemaStr + '\n' + dataLines;
 
@@ -243,7 +242,6 @@ export const jsonToEmonString = (jsonData: any, schemaName: string = 'emon'): { 
 
     // The rootTypeName for the EMON structure is the name of the main type
     const finalRootTypeName = isRootArray ? rootTypeName : schemaName;
-    
     return {
         emonString: finalEmonString,
         emonData: isRootArray ? emonData : emonData[0],

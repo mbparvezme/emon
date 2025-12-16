@@ -1,4 +1,4 @@
-import { ConversionContext, MetaData, EmonDataRecord, EmonSchema } from "./types";
+import { ConversionContext, MetaData, EmonDataRecord } from "./types";
 import { generateMetaData, serializePrimitive } from "./utils";
 import { jsonToEmonString } from "./parser";
 import { emonToJSON } from "./serializer";

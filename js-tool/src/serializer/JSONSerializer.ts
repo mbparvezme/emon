@@ -14,10 +14,10 @@ const parseTypeDefinition = (line: string): EmonType => {
     if (!match) throw new Error(`Invalid type definition syntax: ${line}`);
 
     const [, name, , fieldsStr, isArray] = match;
-    
+
     // Fields string is split by comma, ignoring potential inline type definitions 
     // (though inline types are currently not supported in the schema generator flow, we parse them minimally).
-    const fields: EmonField[] = fieldsStr 
+    const fields: EmonField[] = fieldsStr
         ? fieldsStr.split(',').map(f => f.trim()).filter(Boolean).map(f => {
             const [name, type] = f.split(':').map(x => x.trim());
             if (!name || !type) throw new Error(`Invalid field definition in type ${name}: ${f}`);
@@ -63,7 +63,7 @@ const parsePrimitive = (val: string, type: string): any => {
         // Unquote handles both double and triple quotes
         return unquote(val);
     }
-    
+
     // Fallback if type is unknown or implicitly string/primitive
     return unquote(val);
 };
@@ -79,14 +79,14 @@ const parsePrimitive = (val: string, type: string): any => {
  */
 const parseValueRecursive = (fieldType: string, value: string, schemas: EmonSchema): any => {
     value = value.trim();
-    if (value === 'null' || value === '') return null; // Handle nulls and empty segments
+    if (value === 'null' || value === '') return null; // Handle explicit 'null' keyword and implicit null segments (e.g., in =A,,C)
 
     // 1. Custom Type Reference (e.g., '#member')
     if (fieldType.startsWith('#')) {
         const typeName = fieldType.slice(1);
         // Rule 6: Nested objects are wrapped in {}
         if (!value.startsWith('{') || !value.endsWith('}')) {
-             throw new Error(`Structure Error: Expected nested object {} for type ${typeName}, found ${value}`);
+            throw new Error(`Structure Error: Expected nested object {} for type ${typeName}, found ${value}`);
         }
         const inner = value.slice(1, -1).trim();
         return parseRecord(typeName, inner, schemas);
@@ -98,13 +98,13 @@ const parseValueRecursive = (fieldType: string, value: string, schemas: EmonSche
 
         // Rule 6: Arrays are wrapped in []
         if (!value.startsWith('[') || !value.endsWith(']')) {
-             throw new Error(`Structure Error: Expected array [] for type ${fieldType}, found ${value}`);
+            throw new Error(`Structure Error: Expected array [] for type ${fieldType}, found ${value}`);
         }
         const inner = value.slice(1, -1).trim();
         if (inner === '') return []; // Empty array
 
         const items = splitTopLevel(inner, ','); // Split top-level array elements
-        
+
         // Rule 12: Arrays must be homogenous
         return items.map(it => parseValueRecursive(innerTypeRaw, it, schemas));
     }
@@ -126,14 +126,14 @@ const parseRecord = (typeName: string, recordStr: string, schemas: EmonSchema): 
 
     // Rule 3: Split top-level by comma to get field values
     const parts = splitTopLevel(recordStr, ',');
-    
+
     // Rule 3/1: Values must follow the exact field order
     if (parts.length !== type.fields.length) {
         // Note: Strict validation against nulls is handled in parseValueRecursive
         // But the number of top-level segments must match the field count
         // Allow missing trailing segments if they are nulls/undefined for flexibility
         if (parts.length > type.fields.length) {
-             throw new Error(`Structure Error: Too many fields found in record for type ${typeName}. Expected ${type.fields.length}, found ${parts.length}`);
+            throw new Error(`Structure Error: Too many fields found in record for type ${typeName}. Expected ${type.fields.length}, found ${parts.length}`);
         }
     }
 
@@ -154,10 +154,10 @@ const parseRecord = (typeName: string, recordStr: string, schemas: EmonSchema): 
  */
 export const emonToJSON = (emonStr: string): { jsonData: EmonDataRecord | EmonDataRecord[], emonData: EmonDataRecord | EmonDataRecord[], emonSchema: EmonSchema, rootTypeName: string } => {
     if (typeof emonStr !== 'string') throw new Error('EMON input must be a string');
-    
+
     // Rule 8/9: Filter out comments and trim lines
     const lines = emonStr.split(/\r?\n/).map(l => l.trim()).filter(l => l && !l.startsWith('//') && !l.startsWith('@') && !l.startsWith('import'));
-    
+
     const schemas: EmonSchema = {};
     const records: EmonDataRecord[] = [];
     let rootType: EmonType | null = null;
@@ -183,7 +183,7 @@ export const emonToJSON = (emonStr: string): { jsonData: EmonDataRecord | EmonDa
     if (!rootType) {
         throw new Error('Parsing Error: No EMON schema definition found.');
     }
-    
+
     // Since rootType is guaranteed non-null here, rootTypeName is also guaranteed non-null.
     const jsonData = rootType.isArray ? records : records[0];
 
@@ -191,6 +191,6 @@ export const emonToJSON = (emonStr: string): { jsonData: EmonDataRecord | EmonDa
         jsonData,
         emonData: jsonData, // For consistent internal use
         emonSchema: schemas,
-        rootTypeName: rootTypeName!
+        rootTypeName: rootTypeName! // FIX: Using non-null assertion as the preceding check guarantees it's a string
     };
 };

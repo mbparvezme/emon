@@ -1,0 +1,33 @@
+{
+  "name": "emon-js",
+  "version": "0.5.0",
+  "description": "EMON: A Schema-Driven, Token-Optimal Data Format Parser and Serializer, based on formal research.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "homepage": "https://github.com/mbparvezme/emon#readme",
+  "bugs": {
+    "url": "https://github.com/mbparvezme/emon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbparvezme/emon.git"
+  },
+  "license": "MIT",
+  "author": "M B Parvez",
+  "type": "module",
+  "keywords": [
+    "emon",
+    "json-replacement",
+    "token-efficient",
+    "data-serialization",
+    "llm",
+    "microservice"
+  ]
+}
