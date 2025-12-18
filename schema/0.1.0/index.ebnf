@@ -1,30 +1,27 @@
-(* EMON (Efficient Modular Object Notation) Syntax Definition in EBNF (v2.1) *)
-(* Updated for Nameless Root Definition *)
+(* EMON (Efficient Modular Object Notation) Syntax Definition in EBNF (v2.2) *)
+(* Features: Nameless Root, Suffix Array Notation (type[]), and Explicit Nulls *)
 
 (* ------------------- 1. DOCUMENT STRUCTURE ------------------- *)
 
 emon_document      = { header_line } , { comment | definition | record } ;
 
 header_line        = "@" , identifier , "(" , { unquoted_string | quoted_string } , ")" ;
-comment            = "//" , { character } , new_line ; (* Comments not allowed on data lines *)
-definition         = "#" , [ type_identifier ] , "(" , field_list , ")" , [ "[]" ] , new_line ; (* Nameless root is supported if type_identifier is absent *)
+comment            = "//" , { character } , new_line ;
+definition         = "#" , [ type_identifier ] , "(" , field_list , ")" , [ "[]" ] , new_line ;
 
 record             = "=" , value_list , new_line ;
 
 (* ------------------- 2. TYPE DEFINITIONS (#) ------------------- *)
 
-type_identifier    = letter , { letter | digit | "_" } ; (* Used only for nested types *)
+type_identifier    = letter , { letter | digit | "_" } ;
 field_list         = field_definition , { "," , field_definition } ;
 field_definition   = identifier , ":" , field_type ;
 
-field_type         = primitive_type 
-                   | array_type
-                   | custom_type_ref
-                   | inline_type_def ; (* Currently discouraged but structurally possible *)
+(* Array syntax updated to suffix notation: type[] *)
+field_type         = ( primitive_type | custom_type_ref | inline_type_def ) , [ "[]" ] ;
 
-primitive_type     = "string" | "number" | "bool" ; (* Rule 7: Strict primitive types *)
+primitive_type     = "string" | "number" | "bool" ;
 custom_type_ref    = "#" , type_identifier ;
-array_type         = "[" , field_type , "]" ;
 inline_type_def    = "(" , field_list , ")" ;
 
 (* ------------------- 3. DATA RECORDS (=) ------------------- *)
@@ -35,22 +32,20 @@ value_segment      = quoted_string
                    | multiline_string
                    | number
                    | boolean
-                   | null_value (* Explicitly added null_value terminal *)
+                   | null_value
                    | array_instance
                    | object_instance
-                   | unquoted_string ; (* Must be single word, no delimiters *)
+                   | unquoted_string ;
 
-array_instance     = "[" , [ value_list ] , "]" ; (* Homogenous values expected per Rule 12 *)
-object_instance    = "{" , value_list , "}" ; (* Value order strictly matches definition *)
+array_instance     = "[" , [ value_list ] , "]" ;
+object_instance    = "{" , value_list , "}" ;
 
 (* ------------------- 4. PRIMITIVE VALUES (Terminals) ------------------- *)
 
-(* Rule 4/9: Handles quoted strings, escaping, and multi-line strings *)
 quoted_string      = '"' , { character | escaped_quote } , '"' ;
 multiline_string   = '"""' , { character | new_line } , '"""' ;
 escaped_quote      = '\' , '"' ;
 
-(* Rule 4: Must not contain delimiters (space, comma, structural chars) *)
 unquoted_string    = { letter | digit | "_" | "." | "-" | "@" | "/" } - ( reserved_keyword ) ;
 
 number             = [ "-" | "+" ] , digit , { digit } , [ "." , { digit } ] ;
@@ -59,7 +54,7 @@ null_value         = "null" ;
 
 (* ------------------- 5. FUNDAMENTAL TERMINALS ------------------- *)
 
-identifier         = letter , { letter | digit | "_" } ; (* Used for field names *)
+identifier         = letter , { letter | digit | "_" } ;
 reserved_keyword   = "true" | "false" | "null" ;
 letter             = ? any alphabetic character (A-Z, a-z) ? ;
 digit              = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;

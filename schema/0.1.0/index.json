@@ -1,66 +1,66 @@
 {
   "name": "EMON Schema",
-  "version": "0.1.0",
-  "description": "Official EMON (Efficient Minimal Object Notation) schema definition. Supports inline and nested types, triple-quoted multiline text, and comments.",
+  "version": "1.1.0",
+  "description": "Official EMON (Efficient Minimal Object Notation) schema definition. Supports nameless roots, suffix-based arrays (type[]), and explicit nulls.",
   "definitions": [
     {
       "id": "definition",
-      "pattern": "^#[a-zA-Z_][a-zA-Z0-9_]*\\(.*\\)(\\[\\])?$",
-      "example": "#user(id:number,name:string,profile:#profile,roles:[string])",
-      "description": "Defines data structure (schema) with optional array indicator [].",
+      "pattern": "^#[a-zA-Z_]*\\(.*\\)(\\[\\])?$",
+      "example": "#(id:number,name:string,roles:string[])[]",
+      "description": "Defines data structure (schema). Root is nameless; arrays use suffix notation.",
       "type_list": [
         "string",
         "number",
         "bool",
         "int",
         "float",
-        "[string]",
-        "[number]",
-        "[bool]"
+        "string[]",
+        "number[]",
+        "bool[]"
       ]
     },
     {
       "id": "record",
       "pattern": "^=.*$",
       "example": "=1,Parvez,{30,Dhaka},[admin,editor]",
-      "description": "Defines data rows matching a schema (start with =). Each value follows field order.",
+      "description": "Defines data rows matching a schema (starts with =). Values follow positional order.",
       "type_list": []
     },
     {
       "id": "type",
-      "pattern": "string|number|bool|int|float|#<identifier>|(field:type,...)",
-      "example": "(id:number,name:string)",
-      "description": "Defines field data type. Can be basic, array, nested, or reference type.",
+      "pattern": "string|number|bool|int|float|#<identifier>|type[]",
+      "example": "roles:string[]",
+      "description": "Defines field data type. Primitives, custom types, or array suffixes are supported.",
       "type_list": [
         "string",
         "number",
         "bool",
         "int",
         "float",
-        "[string]",
-        "[number]",
-        "[bool]"
+        "string[]",
+        "number[]",
+        "bool[]"
       ]
     },
     {
       "id": "multiline_string",
       "pattern": "\"\"\"\n.*\"\"\"",
-      "example": "\"\"\"This is a multiline\ntext block.\"\"\"",
-      "description": "Triple-quoted text block preserving line breaks and spaces. Converts to JSON string with \\n.",
+      "example": "\"\"\"Line 1\nLine 2\"\"\"",
+      "description": "Triple-quoted block preserving line breaks. Converts to JSON string with \\n.",
       "type_list": []
     },
     {
       "id": "reference",
       "pattern": "^#\\w+$",
       "example": "#profile",
-      "description": "Reference to another schema or nested type definition.",
+      "description": "Reference to a named nested type definition.",
       "type_list": []
     },
     {
       "id": "comment",
       "pattern": "^//.*$",
       "example": "// this is a comment",
-      "description": "Comments start with // and are ignored by parser.",
+      "description": "Comments start with // and are ignored by the parser.",
       "type_list": []
     }
   ]

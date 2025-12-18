@@ -43,13 +43,13 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 
 ## Field Types
 
-| Type      | Description                                        | Example                        |
-| --------- | -------------------------------------------------- | ------------------------------ |
-| `string`  | Text values; quotes only when needed               | `"John Doe"` or `John`         |
-| `number`  | Integer or float values                            | `42`, `3.14`                   |
-| `bool`    | Boolean values                                     | `true`, `false`                |
-| `type[]`  | Array of a single type (homogenous).               | `[admin,editor]`, `#member[]`  |
-| `#type`   | Reference to another defined type (nested object). | `{PHP,Expert}`                 |
+| Type      | Description                                        | Example                              |
+| --------- | -------------------------------------------------- | ------------------------------------ |
+| `string`  | Text values; quotes only when needed               | `"John Doe"` or `John`               |
+| `number`  | Integer or float values                            | `42`, `3.14`                         |
+| `bool`    | Boolean values                                     | `true`, `false`                      |
+| `type[]`  | Array of a single type (homogenous).               | `string[]`, `number[]`, `#member[]`  |
+| `#type`   | Reference to another defined type (nested object). | `{PHP,Expert}`                       |
 
 <br>
 
@@ -73,14 +73,12 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Multi-word or special strings → use double quotes (`"M Alice"`, `"NY, USA"`). **Quotes are mandatory if the string contains spaces or delimiters.**
 
 **5. Null / Missing Values**
-- **Explicit Null**: Use the keyword `null` for missing data, mandatory if the field is in the middle of a record.
-
-Implicit Null: An empty segment (e.g., adjacent commas `,,` or a trailing empty segment) implies a `null` value, maximizing token savings.
+- **Explicit Null**: Use the keyword `null` for missing data. This is mandatory if the null field is followed by other values in the record.
 
 ```emon
 #(f1:string,f2:number,f3:string)
-=Value1,null,Value3   // f2 is explicitly null
-=Value1,,Value3       // f2 is implicitly null (preferred)
+=Value1,null,Value3   // ✅ Correct: f2 is explicitly null
+=Value1,,Value3       // ❌ Incorrect: Empty segments are not allowed
 ```
 
 **6. Spacing**
@@ -92,16 +90,16 @@ Implicit Null: An empty segment (e.g., adjacent commas `,,` or a trailing empty 
 - Use `{}` for objects.
 - Use `[]` for arrays of primitives or objects. Example: `string[]`, `number[]` or `#type[]`
 
-**7. Primitive Types**
+**8. Primitive Types**
 - `string`, `number`, `bool`
 - Arrays: `type[]`
 - Nested object: `#type`
 
-**8. Comments**  
+**9. Comments**  
 - Use `//` **outside** data lines.  
 - Inline comments inside `=` lines or type definitions are **not allowed**.
 
-**9. Escaping & Special Strings**  
+**10. Escaping & Special Strings**  
 - Use `\` for special characters: `"He said \"Hello\""`  
 - Multi-line strings: triple quotes  
 ```emon
@@ -110,27 +108,27 @@ Implicit Null: An empty segment (e.g., adjacent commas `,,` or a trailing empty 
 Line 2"""
 ```
 
-**10. File Header (Optional)**: Meta information at the top:
+**11. File Header (Optional)**: Meta information at the top:
 ```emon
 @version(1.0)
 @encoding(utf-8)
 ```
 
-**11. Strict Type Validation**  
+**12. Strict Type Validation**  
 - Values must match declared types exactly:  
 - `#(age:number)` → `=twenty-five` ❌
 - `#(age:number)` → `=25` ✅  
 
-**12. Array Rules**  
+**13. Array Rules**  
 - Arrays are **position-based**, no indexes required: `[A,B,C]`  
 - Arrays must be homogenous in type.
 
-**13. Importing Types**: Reuse types across files using:  
+**14. Importing Types**: Reuse types across files using:  
 ```emon
 import "./common/user.emon"
 ```
 
-**14. Single Root Type per File**: Each file should have one main root type; others as helper types.
+**15. Single Root Type per File**: Each file should have one main root type; others as helper types.
 
 <br>
 
