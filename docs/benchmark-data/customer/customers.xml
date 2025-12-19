@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <customers>
   <customer>
-    <customer_id>CUST00001</customer_id>
-    <first_name>Oliver</first_name>
-    <last_name>Hayes</last_name>
+    <customer-id>CUST00001</customer-id>
+    <first-name>Oliver</first-name>
+    <last-name>Hayes</last-name>
     <email>oliver.hayes@example.com</email>
-    <registration_date>2024-01-15</registration_date>
+    <registration-date>2024-01-15</registration-date>
     <address>
       <street>12 Elm St</street>
       <city>Springfield</city>
-      <zip_code>10001</zip_code>
+      <zip-code>10001</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1000</order_id>
-        <order_date>2024-02-01T11:00:00Z</order_date>
-        <total_amount>54.98</total_amount>
+        <order-id>ORD1000</order-id>
+        <order-date>2024-02-01T11:00:00Z</order-date>
+        <total-amount>54.98</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD001</product_id>
+            <product-id>PROD001</product-id>
             <name>Cotton T-Shirt (Blue)</name>
             <price>25.99</price>
             <quantity>2</quantity>
           </product>
           <product>
-            <product_id>PROD005</product_id>
+            <product-id>PROD005</product-id>
             <name>Canvas Tote Bag</name>
             <price>2.99</price>
             <quantity>1</quantity>
@@ -36,26 +36,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00002</customer_id>
-    <first_name>Sophia</first_name>
-    <last_name>Chen</last_name>
+    <customer-id>CUST00002</customer-id>
+    <first-name>Sophia</first-name>
+    <last-name>Chen</last-name>
     <email>sophia.chen@example.com</email>
-    <registration_date>2024-03-10</registration_date>
+    <registration-date>2024-03-10</registration-date>
     <address>
       <street>789 Pine Ave</street>
       <city>Oakland</city>
-      <zip_code>94601</zip_code>
+      <zip-code>94601</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1001</order_id>
-        <order_date>2024-03-20T15:45:00Z</order_date>
-        <total_amount>129.99</total_amount>
+        <order-id>ORD1001</order-id>
+        <order-date>2024-03-20T15:45:00Z</order-date>
+        <total-amount>129.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD010</product_id>
+            <product-id>PROD010</product-id>
             <name>Noise-Cancelling Headphones</name>
             <price>129.99</price>
             <quantity>1</quantity>
@@ -63,13 +63,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1002</order_id>
-        <order_date>2024-04-05T08:30:00Z</order_date>
-        <total_amount>45</total_amount>
+        <order-id>ORD1002</order-id>
+        <order-date>2024-04-05T08:30:00Z</order-date>
+        <total-amount>45</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD012</product_id>
+            <product-id>PROD012</product-id>
             <name>Stainless Steel Water Bottle</name>
             <price>22.5</price>
             <quantity>2</quantity>
@@ -79,26 +79,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00003</customer_id>
-    <first_name>Liam</first_name>
-    <last_name>Patel</last_name>
+    <customer-id>CUST00003</customer-id>
+    <first-name>Liam</first-name>
+    <last-name>Patel</last-name>
     <email>liam.patel@example.com</email>
-    <registration_date>2023-11-20</registration_date>
+    <registration-date>2023-11-20</registration-date>
     <address>
       <street>30 Maple Lane</street>
       <city>Riverdale</city>
-      <zip_code>20005</zip_code>
+      <zip-code>20005</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1003</order_id>
-        <order_date>2024-01-10T14:00:00Z</order_date>
-        <total_amount>89.99</total_amount>
+        <order-id>ORD1003</order-id>
+        <order-date>2024-01-10T14:00:00Z</order-date>
+        <total-amount>89.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD020</product_id>
+            <product-id>PROD020</product-id>
             <name>Leather Wallet</name>
             <price>89.99</price>
             <quantity>1</quantity>
@@ -108,26 +108,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00004</customer_id>
-    <first_name>Ava</first_name>
-    <last_name>Rodriguez</last_name>
+    <customer-id>CUST00004</customer-id>
+    <first-name>Ava</first-name>
+    <last-name>Rodriguez</last-name>
     <email>ava.rodriguez@example.com</email>
-    <registration_date>2024-02-28</registration_date>
+    <registration-date>2024-02-28</registration-date>
     <address>
       <street>101 Cedar Blvd</street>
       <city>Phoenix</city>
-      <zip_code>85001</zip_code>
+      <zip-code>85001</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1004</order_id>
-        <order_date>2024-03-01T09:15:00Z</order_date>
-        <total_amount>299</total_amount>
+        <order-id>ORD1004</order-id>
+        <order-date>2024-03-01T09:15:00Z</order-date>
+        <total-amount>299</total-amount>
         <status>Cancelled</status>
         <products>
           <product>
-            <product_id>PROD035</product_id>
+            <product-id>PROD035</product-id>
             <name>4K Ultra HD Monitor</name>
             <price>299</price>
             <quantity>1</quantity>
@@ -135,13 +135,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1005</order_id>
-        <order_date>2024-03-15T16:20:00Z</order_date>
-        <total_amount>19.99</total_amount>
+        <order-id>ORD1005</order-id>
+        <order-date>2024-03-15T16:20:00Z</order-date>
+        <total-amount>19.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD030</product_id>
+            <product-id>PROD030</product-id>
             <name>Charging Cable (USB-C)</name>
             <price>19.99</price>
             <quantity>1</quantity>
@@ -151,32 +151,32 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00005</customer_id>
-    <first_name>Noah</first_name>
-    <last_name>Williams</last_name>
+    <customer-id>CUST00005</customer-id>
+    <first-name>Noah</first-name>
+    <last-name>Williams</last-name>
     <email>noah.williams@example.com</email>
-    <registration_date>2023-12-05</registration_date>
+    <registration-date>2023-12-05</registration-date>
     <address>
       <street>22 Forest Road</street>
       <city>Seattle</city>
-      <zip_code>98101</zip_code>
+      <zip-code>98101</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1006</order_id>
-        <order_date>2024-01-01T12:00:00Z</order_date>
-        <total_amount>75.5</total_amount>
+        <order-id>ORD1006</order-id>
+        <order-date>2024-01-01T12:00:00Z</order-date>
+        <total-amount>75.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD040</product_id>
+            <product-id>PROD040</product-id>
             <name>Yoga Mat</name>
             <price>40</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD041</product_id>
+            <product-id>PROD041</product-id>
             <name>Resistance Bands Set</name>
             <price>35.5</price>
             <quantity>1</quantity>
@@ -186,26 +186,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00006</customer_id>
-    <first_name>Elijah</first_name>
-    <last_name>Brown</last_name>
+    <customer-id>CUST00006</customer-id>
+    <first-name>Elijah</first-name>
+    <last-name>Brown</last-name>
     <email>elijah.brown@example.com</email>
-    <registration_date>2024-04-12</registration_date>
+    <registration-date>2024-04-12</registration-date>
     <address>
       <street>55 Hillside Dr</street>
       <city>Boston</city>
-      <zip_code>02108</zip_code>
+      <zip-code>02108</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1007</order_id>
-        <order_date>2024-05-01T10:00:00Z</order_date>
-        <total_amount>15.99</total_amount>
+        <order-id>ORD1007</order-id>
+        <order-date>2024-05-01T10:00:00Z</order-date>
+        <total-amount>15.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD050</product_id>
+            <product-id>PROD050</product-id>
             <name>Coffee Mug (Ceramic)</name>
             <price>15.99</price>
             <quantity>1</quantity>
@@ -215,26 +215,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00007</customer_id>
-    <first_name>Isabella</first_name>
-    <last_name>Garcia</last_name>
+    <customer-id>CUST00007</customer-id>
+    <first-name>Isabella</first-name>
+    <last-name>Garcia</last-name>
     <email>isabella.garcia@example.com</email>
-    <registration_date>2023-10-01</registration_date>
+    <registration-date>2023-10-01</registration-date>
     <address>
       <street>99 Ocean View Rd</street>
       <city>Miami</city>
-      <zip_code>33101</zip_code>
+      <zip-code>33101</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1008</order_id>
-        <order_date>2023-10-15T18:00:00Z</order_date>
-        <total_amount>499</total_amount>
+        <order-id>ORD1008</order-id>
+        <order-date>2023-10-15T18:00:00Z</order-date>
+        <total-amount>499</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD060</product_id>
+            <product-id>PROD060</product-id>
             <name>Digital Camera Kit</name>
             <price>499</price>
             <quantity>1</quantity>
@@ -242,13 +242,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1009</order_id>
-        <order_date>2024-01-22T13:10:00Z</order_date>
-        <total_amount>12.5</total_amount>
+        <order-id>ORD1009</order-id>
+        <order-date>2024-01-22T13:10:00Z</order-date>
+        <total-amount>12.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD065</product_id>
+            <product-id>PROD065</product-id>
             <name>Camera Lens Cleaning Cloth</name>
             <price>12.5</price>
             <quantity>1</quantity>
@@ -258,40 +258,40 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00008</customer_id>
-    <first_name>Lucas</first_name>
-    <last_name>Martinez</last_name>
+    <customer-id>CUST00008</customer-id>
+    <first-name>Lucas</first-name>
+    <last-name>Martinez</last-name>
     <email>lucas.martinez@example.com</email>
-    <registration_date>2024-05-20</registration_date>
+    <registration-date>2024-05-20</registration-date>
     <address>
       <street>21 Bayside Dr</street>
       <city>San Diego</city>
-      <zip_code>92101</zip_code>
+      <zip-code>92101</zip-code>
       <country>USA</country>
     </address>
     <orders/>
   </customer>
   <customer>
-    <customer_id>CUST00009</customer_id>
-    <first_name>Mia</first_name>
-    <last_name>Clark</last_name>
+    <customer-id>CUST00009</customer-id>
+    <first-name>Mia</first-name>
+    <last-name>Clark</last-name>
     <email>mia.clark@example.com</email>
-    <registration_date>2024-01-05</registration_date>
+    <registration-date>2024-01-05</registration-date>
     <address>
       <street>88 Gold St</street>
       <city>New York</city>
-      <zip_code>10005</zip_code>
+      <zip-code>10005</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1010</order_id>
-        <order_date>2024-01-18T16:00:00Z</order_date>
-        <total_amount>34.5</total_amount>
+        <order-id>ORD1010</order-id>
+        <order-date>2024-01-18T16:00:00Z</order-date>
+        <total-amount>34.5</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD070</product_id>
+            <product-id>PROD070</product-id>
             <name>Scented Candle (Lavender)</name>
             <price>17.25</price>
             <quantity>2</quantity>
@@ -301,26 +301,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00010</customer_id>
-    <first_name>Ethan</first_name>
-    <last_name>Hall</last_name>
+    <customer-id>CUST00010</customer-id>
+    <first-name>Ethan</first-name>
+    <last-name>Hall</last-name>
     <email>ethan.hall@example.com</email>
-    <registration_date>2023-09-15</registration_date>
+    <registration-date>2023-09-15</registration-date>
     <address>
       <street>14 Main St</street>
       <city>Chicago</city>
-      <zip_code>60601</zip_code>
+      <zip-code>60601</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1011</order_id>
-        <order_date>2023-11-01T09:00:00Z</order_date>
-        <total_amount>199.99</total_amount>
+        <order-id>ORD1011</order-id>
+        <order-date>2023-11-01T09:00:00Z</order-date>
+        <total-amount>199.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD080</product_id>
+            <product-id>PROD080</product-id>
             <name>Smart Watch (Model X)</name>
             <price>199.99</price>
             <quantity>1</quantity>
@@ -330,26 +330,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00011</customer_id>
-    <first_name>Amelia</first_name>
-    <last_name>King</last_name>
+    <customer-id>CUST00011</customer-id>
+    <first-name>Amelia</first-name>
+    <last-name>King</last-name>
     <email>amelia.king@example.com</email>
-    <registration_date>2024-04-01</registration_date>
+    <registration-date>2024-04-01</registration-date>
     <address>
       <street>400 Lake View Pl</street>
       <city>Dallas</city>
-      <zip_code>75201</zip_code>
+      <zip-code>75201</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1012</order_id>
-        <order_date>2024-05-10T14:30:00Z</order_date>
-        <total_amount>79.99</total_amount>
+        <order-id>ORD1012</order-id>
+        <order-date>2024-05-10T14:30:00Z</order-date>
+        <total-amount>79.99</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD090</product_id>
+            <product-id>PROD090</product-id>
             <name>Blender (High Power)</name>
             <price>79.99</price>
             <quantity>1</quantity>
@@ -359,26 +359,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00012</customer_id>
-    <first_name>Ben</first_name>
-    <last_name>Lee</last_name>
+    <customer-id>CUST00012</customer-id>
+    <first-name>Ben</first-name>
+    <last-name>Lee</last-name>
     <email>ben.lee@example.com</email>
-    <registration_date>2024-01-25</registration_date>
+    <registration-date>2024-01-25</registration-date>
     <address>
       <street>77 River Rd</street>
       <city>Austin</city>
-      <zip_code>78701</zip_code>
+      <zip-code>78701</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1013</order_id>
-        <order_date>2024-02-14T10:00:00Z</order_date>
-        <total_amount>25</total_amount>
+        <order-id>ORD1013</order-id>
+        <order-date>2024-02-14T10:00:00Z</order-date>
+        <total-amount>25</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD100</product_id>
+            <product-id>PROD100</product-id>
             <name>Notebook (Spiral, Lined)</name>
             <price>5</price>
             <quantity>5</quantity>
@@ -386,13 +386,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1014</order_id>
-        <order_date>2024-03-29T11:15:00Z</order_date>
-        <total_amount>12.99</total_amount>
+        <order-id>ORD1014</order-id>
+        <order-date>2024-03-29T11:15:00Z</order-date>
+        <total-amount>12.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD105</product_id>
+            <product-id>PROD105</product-id>
             <name>Pen Set (Black Ink)</name>
             <price>12.99</price>
             <quantity>1</quantity>
@@ -402,38 +402,38 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00013</customer_id>
-    <first_name>Charlotte</first_name>
-    <last_name>Baker</last_name>
+    <customer-id>CUST00013</customer-id>
+    <first-name>Charlotte</first-name>
+    <last-name>Baker</last-name>
     <email>charlotte.baker@example.com</email>
-    <registration_date>2023-11-05</registration_date>
+    <registration-date>2023-11-05</registration-date>
     <address>
       <street>123 Cherry Ln</street>
       <city>Denver</city>
-      <zip_code>80202</zip_code>
+      <zip-code>80202</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1015</order_id>
-        <order_date>2023-12-01T17:00:00Z</order_date>
-        <total_amount>175.5</total_amount>
+        <order-id>ORD1015</order-id>
+        <order-date>2023-12-01T17:00:00Z</order-date>
+        <total-amount>175.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD110</product_id>
+            <product-id>PROD110</product-id>
             <name>Wool Scarf (Red)</name>
             <price>45</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD111</product_id>
+            <product-id>PROD111</product-id>
             <name>Winter Gloves</name>
             <price>35.5</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD112</product_id>
+            <product-id>PROD112</product-id>
             <name>Thermal Socks</name>
             <price>15</price>
             <quantity>3</quantity>
@@ -443,26 +443,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00014</customer_id>
-    <first_name>Daniel</first_name>
-    <last_name>Scott</last_name>
+    <customer-id>CUST00014</customer-id>
+    <first-name>Daniel</first-name>
+    <last-name>Scott</last-name>
     <email>daniel.scott@example.com</email>
-    <registration_date>2024-02-10</registration_date>
+    <registration-date>2024-02-10</registration-date>
     <address>
       <street>45 Tech Way</street>
       <city>San Jose</city>
-      <zip_code>95113</zip_code>
+      <zip-code>95113</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1016</order_id>
-        <order_date>2024-02-20T09:30:00Z</order_date>
-        <total_amount>999.99</total_amount>
+        <order-id>ORD1016</order-id>
+        <order-date>2024-02-20T09:30:00Z</order-date>
+        <total-amount>999.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD120</product_id>
+            <product-id>PROD120</product-id>
             <name>High-End Laptop (16-inch)</name>
             <price>999.99</price>
             <quantity>1</quantity>
@@ -472,26 +472,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00015</customer_id>
-    <first_name>Ella</first_name>
-    <last_name>Adams</last_name>
+    <customer-id>CUST00015</customer-id>
+    <first-name>Ella</first-name>
+    <last-name>Adams</last-name>
     <email>ella.adams@example.com</email>
-    <registration_date>2024-05-01</registration_date>
+    <registration-date>2024-05-01</registration-date>
     <address>
       <street>10 Pine Cone Trail</street>
       <city>Portland</city>
-      <zip_code>97204</zip_code>
+      <zip-code>97204</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1017</order_id>
-        <order_date>2024-05-15T12:45:00Z</order_date>
-        <total_amount>50</total_amount>
+        <order-id>ORD1017</order-id>
+        <order-date>2024-05-15T12:45:00Z</order-date>
+        <total-amount>50</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD130</product_id>
+            <product-id>PROD130</product-id>
             <name>Gift Card ($50)</name>
             <price>50</price>
             <quantity>1</quantity>
@@ -501,26 +501,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00016</customer_id>
-    <first_name>Finley</first_name>
-    <last_name>Green</last_name>
+    <customer-id>CUST00016</customer-id>
+    <first-name>Finley</first-name>
+    <last-name>Green</last-name>
     <email>finley.green@example.com</email>
-    <registration_date>2023-10-20</registration_date>
+    <registration-date>2023-10-20</registration-date>
     <address>
       <street>303 Bridge Blvd</street>
       <city>Philadelphia</city>
-      <zip_code>19103</zip_code>
+      <zip-code>19103</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1018</order_id>
-        <order_date>2023-11-05T15:30:00Z</order_date>
-        <total_amount>25.99</total_amount>
+        <order-id>ORD1018</order-id>
+        <order-date>2023-11-05T15:30:00Z</order-date>
+        <total-amount>25.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD140</product_id>
+            <product-id>PROD140</product-id>
             <name>Wall Calendar 2024</name>
             <price>25.99</price>
             <quantity>1</quantity>
@@ -530,26 +530,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00017</customer_id>
-    <first_name>Grace</first_name>
-    <last_name>Taylor</last_name>
+    <customer-id>CUST00017</customer-id>
+    <first-name>Grace</first-name>
+    <last-name>Taylor</last-name>
     <email>grace.taylor@example.com</email>
-    <registration_date>2024-03-05</registration_date>
+    <registration-date>2024-03-05</registration-date>
     <address>
       <street>10 Downing St</street>
       <city>Washington</city>
-      <zip_code>20004</zip_code>
+      <zip-code>20004</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1019</order_id>
-        <order_date>2024-03-10T11:45:00Z</order_date>
-        <total_amount>150</total_amount>
+        <order-id>ORD1019</order-id>
+        <order-date>2024-03-10T11:45:00Z</order-date>
+        <total-amount>150</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD150</product_id>
+            <product-id>PROD150</product-id>
             <name>Luxury Bath Towel Set</name>
             <price>75</price>
             <quantity>2</quantity>
@@ -557,13 +557,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1020</order_id>
-        <order_date>2024-04-10T16:00:00Z</order_date>
-        <total_amount>35</total_amount>
+        <order-id>ORD1020</order-id>
+        <order-date>2024-04-10T16:00:00Z</order-date>
+        <total-amount>35</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD155</product_id>
+            <product-id>PROD155</product-id>
             <name>Organic Soap Bar</name>
             <price>7</price>
             <quantity>5</quantity>
@@ -573,26 +573,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00018</customer_id>
-    <first_name>Henry</first_name>
-    <last_name>White</last_name>
+    <customer-id>CUST00018</customer-id>
+    <first-name>Henry</first-name>
+    <last-name>White</last-name>
     <email>henry.white@example.com</email>
-    <registration_date>2024-01-01</registration_date>
+    <registration-date>2024-01-01</registration-date>
     <address>
       <street>50 Skyline Blvd</street>
       <city>Los Angeles</city>
-      <zip_code>90001</zip_code>
+      <zip-code>90001</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1021</order_id>
-        <order_date>2024-01-05T18:30:00Z</order_date>
-        <total_amount>10.99</total_amount>
+        <order-id>ORD1021</order-id>
+        <order-date>2024-01-05T18:30:00Z</order-date>
+        <total-amount>10.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD160</product_id>
+            <product-id>PROD160</product-id>
             <name>Phone Stand (Plastic)</name>
             <price>10.99</price>
             <quantity>1</quantity>
@@ -600,42 +600,19 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1022</order_id>
-        <order_date>2024-02-01T12:00:00Z</order_date>
-        <total_amount>6.99</total_amount>
+        <order-id>ORD1022</order-id>
+        <order-date>2024-02-01T12:00:00Z</order-date>
+        <total-amount>6.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD161</product_id>
+            <product-id>PROD161</product-id>
             <name>Screen Protector</name>
             <price>6.99</price>
             <quantity>1</quantity>
           </product>
-        </products>
-      </order>
-    </orders>
-  </customer>
-  <customer>
-    <customer_id>CUST00019</customer_id>
-    <first_name>Ivy</first_name>
-    <last_name>Harris</last_name>
-    <email>ivy.harris@example.com</email>
-    <registration_date>2023-12-15</registration_date>
-    <address>
-      <street>15 Water St</street>
-      <city>Baltimore</city>
-      <zip_code>21201</zip_code>
-      <country>USA</country>
-    </address>
-    <orders>
-      <order>
-        <order_id>ORD1023</order_id>
-        <order_date>2024-01-20T14:00:00Z</order_date>
-        <total_amount>59.99</total_amount>
-        <status>Shipped</status>
-        <products>
           <product>
-            <product_id>PROD170</product_id>
+            <product-id>PROD170</product-id>
             <name>Electric Toothbrush</name>
             <price>59.99</price>
             <quantity>1</quantity>
@@ -645,32 +622,61 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00020</customer_id>
-    <first_name>Jack</first_name>
-    <last_name>Martin</last_name>
-    <email>jack.martin@example.com</email>
-    <registration_date>2024-04-20</registration_date>
+    <customer-id>CUST00019</customer-id>
+    <first-name>Ivy</first-name>
+    <last-name>Harris</last-name>
+    <email>ivy.harris@example.com</email>
+    <registration-date>2023-12-15</registration-date>
     <address>
-      <street>500 High St</street>
-      <city>Salt Lake City</city>
-      <zip_code>84101</zip_code>
+      <street>15 Water St</street>
+      <city>Baltimore</city>
+      <zip-code>21201</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1024</order_id>
-        <order_date>2024-05-05T10:30:00Z</order_date>
-        <total_amount>150.5</total_amount>
+        <order-id>ORD1023</order-id>
+        <order-date>2024-01-20T14:00:00Z</order-date>
+        <total-amount>59.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD170</product-id>
+            <name>Electric Toothbrush</name>
+            <price>59.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00020</customer-id>
+    <first-name>Jack</first-name>
+    <last-name>Martin</last-name>
+    <email>jack.martin@example.com</email>
+    <registration-date>2024-04-20</registration-date>
+    <address>
+      <street>500 High St</street>
+      <city>Salt Lake City</city>
+      <zip-code>84101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1024</order-id>
+        <order-date>2024-05-05T10:30:00Z</order-date>
+        <total-amount>150.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD180</product_id>
+            <product-id>PROD180</product-id>
             <name>Camping Tent (2 Person)</name>
             <price>120.5</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD181</product_id>
+            <product-id>PROD181</product-id>
             <name>Headlamp (LED)</name>
             <price>15</price>
             <quantity>2</quantity>
@@ -680,26 +686,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00021</customer_id>
-    <first_name>Kira</first_name>
-    <last_name>Nelson</last_name>
+    <customer-id>CUST00021</customer-id>
+    <first-name>Kira</first-name>
+    <last-name>Nelson</last-name>
     <email>kira.nelson@example.com</email>
-    <registration_date>2023-09-01</registration_date>
+    <registration-date>2023-09-01</registration-date>
     <address>
       <street>10 Riverbend Pkwy</street>
       <city>Atlanta</city>
-      <zip_code>30303</zip_code>
+      <zip-code>30303</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1025</order_id>
-        <order_date>2023-09-10T13:00:00Z</order_date>
-        <total_amount>35</total_amount>
+        <order-id>ORD1025</order-id>
+        <order-date>2023-09-10T13:00:00Z</order-date>
+        <total-amount>35</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD190</product_id>
+            <product-id>PROD190</product-id>
             <name>Picture Frame (8x10)</name>
             <price>35</price>
             <quantity>1</quantity>
@@ -707,13 +713,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1026</order_id>
-        <order_date>2024-01-10T15:00:00Z</order_date>
-        <total_amount>5.99</total_amount>
+        <order-id>ORD1026</order-id>
+        <order-date>2024-01-10T15:00:00Z</order-date>
+        <total-amount>5.99</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD191</product_id>
+            <product-id>PROD191</product-id>
             <name>Photo Paper Pack</name>
             <price>5.99</price>
             <quantity>1</quantity>
@@ -723,26 +729,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00022</customer_id>
-    <first_name>Leo</first_name>
-    <last_name>Perez</last_name>
+    <customer-id>CUST00022</customer-id>
+    <first-name>Leo</first-name>
+    <last-name>Perez</last-name>
     <email>leo.perez@example.com</email>
-    <registration_date>2024-03-25</registration_date>
+    <registration-date>2024-03-25</registration-date>
     <address>
       <street>300 Tech Dr</street>
       <city>Seattle</city>
-      <zip_code>98101</zip_code>
+      <zip-code>98101</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1027</order_id>
-        <order_date>2024-04-01T10:00:00Z</order_date>
-        <total_amount>599.99</total_amount>
+        <order-id>ORD1027</order-id>
+        <order-date>2024-04-01T10:00:00Z</order-date>
+        <total-amount>599.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD200</product_id>
+            <product-id>PROD200</product-id>
             <name>Gaming PC Tower</name>
             <price>599.99</price>
             <quantity>1</quantity>
@@ -752,26 +758,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00023</customer_id>
-    <first_name>Maya</first_name>
-    <last_name>Quinn</last_name>
+    <customer-id>CUST00023</customer-id>
+    <first-name>Maya</first-name>
+    <last-name>Quinn</last-name>
     <email>maya.quinn@example.com</email>
-    <registration_date>2023-10-10</registration_date>
+    <registration-date>2023-10-10</registration-date>
     <address>
       <street>70 Green St</street>
       <city>San Francisco</city>
-      <zip_code>94107</zip_code>
+      <zip-code>94107</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1028</order_id>
-        <order_date>2023-11-01T11:30:00Z</order_date>
-        <total_amount>80</total_amount>
+        <order-id>ORD1028</order-id>
+        <order-date>2023-11-01T11:30:00Z</order-date>
+        <total-amount>80</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD210</product_id>
+            <product-id>PROD210</product-id>
             <name>Silk Pillowcase</name>
             <price>40</price>
             <quantity>2</quantity>
@@ -781,40 +787,40 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00024</customer_id>
-    <first_name>Nathan</first_name>
-    <last_name>Ross</last_name>
+    <customer-id>CUST00024</customer-id>
+    <first-name>Nathan</first-name>
+    <last-name>Ross</last-name>
     <email>nathan.ross@example.com</email>
-    <registration_date>2024-05-15</registration_date>
+    <registration-date>2024-05-15</registration-date>
     <address>
       <street>1090 Industrial Rd</street>
       <city>Detroit</city>
-      <zip_code>48201</zip_code>
+      <zip-code>48201</zip-code>
       <country>USA</country>
     </address>
     <orders/>
   </customer>
   <customer>
-    <customer_id>CUST00025</customer_id>
-    <first_name>Olivia</first_name>
-    <last_name>Sanchez</last_name>
+    <customer-id>CUST00025</customer-id>
+    <first-name>Olivia</first-name>
+    <last-name>Sanchez</last-name>
     <email>olivia.sanchez@example.com</email>
-    <registration_date>2023-11-25</registration_date>
+    <registration-date>2023-11-25</registration-date>
     <address>
       <street>25 Park Ave</street>
       <city>Houston</city>
-      <zip_code>77002</zip_code>
+      <zip-code>77002</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1029</order_id>
-        <order_date>2023-12-10T14:45:00Z</order_date>
-        <total_amount>149.99</total_amount>
+        <order-id>ORD1029</order-id>
+        <order-date>2023-12-10T14:45:00Z</order-date>
+        <total-amount>149.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD220</product_id>
+            <product-id>PROD220</product-id>
             <name>Espresso Machine (Basic)</name>
             <price>149.99</price>
             <quantity>1</quantity>
@@ -824,26 +830,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00026</customer_id>
-    <first_name>Peter</first_name>
-    <last_name>Thompson</last_name>
+    <customer-id>CUST00026</customer-id>
+    <first-name>Peter</first-name>
+    <last-name>Thompson</last-name>
     <email>peter.thompson@example.com</email>
-    <registration_date>2024-02-01</registration_date>
+    <registration-date>2024-02-01</registration-date>
     <address>
       <street>8 Quiet Lane</street>
       <city>Minneapolis</city>
-      <zip_code>55401</zip_code>
+      <zip-code>55401</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1030</order_id>
-        <order_date>2024-02-15T11:00:00Z</order_date>
-        <total_amount>39.99</total_amount>
+        <order-id>ORD1030</order-id>
+        <order-date>2024-02-15T11:00:00Z</order-date>
+        <total-amount>39.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD230</product_id>
+            <product-id>PROD230</product-id>
             <name>Bluetooth Speaker (Small)</name>
             <price>39.99</price>
             <quantity>1</quantity>
@@ -853,26 +859,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00027</customer_id>
-    <first_name>Quinn</first_name>
-    <last_name>Underwood</last_name>
+    <customer-id>CUST00027</customer-id>
+    <first-name>Quinn</first-name>
+    <last-name>Underwood</last-name>
     <email>quinn.underwood@example.com</email>
-    <registration_date>2023-10-05</registration_date>
+    <registration-date>2023-10-05</registration-date>
     <address>
       <street>40 Oak Ln</street>
       <city>Raleigh</city>
-      <zip_code>27601</zip_code>
+      <zip-code>27601</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1031</order_id>
-        <order_date>2023-10-20T16:30:00Z</order_date>
-        <total_amount>15</total_amount>
+        <order-id>ORD1031</order-id>
+        <order-date>2023-10-20T16:30:00Z</order-date>
+        <total-amount>15</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD240</product_id>
+            <product-id>PROD240</product-id>
             <name>Gardening Gloves</name>
             <price>15</price>
             <quantity>1</quantity>
@@ -880,13 +886,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1032</order_id>
-        <order_date>2024-04-01T09:00:00Z</order_date>
-        <total_amount>29.99</total_amount>
+        <order-id>ORD1032</order-id>
+        <order-date>2024-04-01T09:00:00Z</order-date>
+        <total-amount>29.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD241</product_id>
+            <product-id>PROD241</product-id>
             <name>Packet of Flower Seeds</name>
             <price>4.99</price>
             <quantity>6</quantity>
@@ -896,26 +902,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00028</customer_id>
-    <first_name>Ryan</first_name>
-    <last_name>Vance</last_name>
+    <customer-id>CUST00028</customer-id>
+    <first-name>Ryan</first-name>
+    <last-name>Vance</last-name>
     <email>ryan.vance@example.com</email>
-    <registration_date>2024-01-08</registration_date>
+    <registration-date>2024-01-08</registration-date>
     <address>
       <street>19 Summit View</street>
       <city>Denver</city>
-      <zip_code>80202</zip_code>
+      <zip-code>80202</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1033</order_id>
-        <order_date>2024-01-25T13:00:00Z</order_date>
-        <total_amount>200</total_amount>
+        <order-id>ORD1033</order-id>
+        <order-date>2024-01-25T13:00:00Z</order-date>
+        <total-amount>200</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD250</product_id>
+            <product-id>PROD250</product-id>
             <name>Ski Goggles</name>
             <price>100</price>
             <quantity>2</quantity>
@@ -925,32 +931,32 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00029</customer_id>
-    <first_name>Sarah</first_name>
-    <last_name>Wong</last_name>
+    <customer-id>CUST00029</customer-id>
+    <first-name>Sarah</first-name>
+    <last-name>Wong</last-name>
     <email>sarah.wong@example.com</email>
-    <registration_date>2023-12-10</registration_date>
+    <registration-date>2023-12-10</registration-date>
     <address>
       <street>777 Lucky Pl</street>
       <city>Las Vegas</city>
-      <zip_code>89109</zip_code>
+      <zip-code>89109</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1034</order_id>
-        <order_date>2024-01-01T10:00:00Z</order_date>
-        <total_amount>65.5</total_amount>
+        <order-id>ORD1034</order-id>
+        <order-date>2024-01-01T10:00:00Z</order-date>
+        <total-amount>65.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD260</product_id>
+            <product-id>PROD260</product-id>
             <name>Makeup Brush Set</name>
             <price>45</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD261</product_id>
+            <product-id>PROD261</product-id>
             <name>Lipstick (Red)</name>
             <price>10.25</price>
             <quantity>2</quantity>
@@ -960,26 +966,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00030</customer_id>
-    <first_name>Thomas</first_name>
-    <last_name>Xu</last_name>
+    <customer-id>CUST00030</customer-id>
+    <first-name>Thomas</first-name>
+    <last-name>Xu</last-name>
     <email>thomas.xu@example.com</email>
-    <registration_date>2024-03-18</registration_date>
+    <registration-date>2024-03-18</registration-date>
     <address>
       <street>5 Schoolhouse Rd</street>
       <city>Providence</city>
-      <zip_code>02903</zip_code>
+      <zip-code>02903</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1035</order_id>
-        <order_date>2024-04-05T15:00:00Z</order_date>
-        <total_amount>49.99</total_amount>
+        <order-id>ORD1035</order-id>
+        <order-date>2024-04-05T15:00:00Z</order-date>
+        <total-amount>49.99</total-amount>
         <status>Cancelled</status>
         <products>
           <product>
-            <product_id>PROD270</product_id>
+            <product-id>PROD270</product-id>
             <name>Geometry Set</name>
             <price>49.99</price>
             <quantity>1</quantity>
@@ -989,26 +995,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00031</customer_id>
-    <first_name>Victoria</first_name>
-    <last_name>Young</last_name>
+    <customer-id>CUST00031</customer-id>
+    <first-name>Victoria</first-name>
+    <last-name>Young</last-name>
     <email>victoria.young@example.com</email>
-    <registration_date>2024-05-08</registration_date>
+    <registration-date>2024-05-08</registration-date>
     <address>
       <street>100 Broadway</street>
       <city>New York</city>
-      <zip_code>10007</zip_code>
+      <zip-code>10007</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1036</order_id>
-        <order_date>2024-05-20T10:30:00Z</order_date>
-        <total_amount>349</total_amount>
+        <order-id>ORD1036</order-id>
+        <order-date>2024-05-20T10:30:00Z</order-date>
+        <total-amount>349</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD280</product_id>
+            <product-id>PROD280</product-id>
             <name>Designer Handbag (Red)</name>
             <price>349</price>
             <quantity>1</quantity>
@@ -1018,26 +1024,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00032</customer_id>
-    <first_name>William</first_name>
-    <last_name>Zimmerman</last_name>
+    <customer-id>CUST00032</customer-id>
+    <first-name>William</first-name>
+    <last-name>Zimmerman</last-name>
     <email>william.zimmerman@example.com</email>
-    <registration_date>2023-11-01</registration_date>
+    <registration-date>2023-11-01</registration-date>
     <address>
       <street>555 South Blvd</street>
       <city>Nashville</city>
-      <zip_code>37203</zip_code>
+      <zip-code>37203</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1037</order_id>
-        <order_date>2023-12-05T12:00:00Z</order_date>
-        <total_amount>25</total_amount>
+        <order-id>ORD1037</order-id>
+        <order-date>2023-12-05T12:00:00Z</order-date>
+        <total-amount>25</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD290</product_id>
+            <product-id>PROD290</product-id>
             <name>Vinyl Record (Jazz)</name>
             <price>25</price>
             <quantity>1</quantity>
@@ -1047,26 +1053,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00033</customer_id>
-    <first_name>Xavier</first_name>
-    <last_name>Allen</last_name>
+    <customer-id>CUST00033</customer-id>
+    <first-name>Xavier</first-name>
+    <last-name>Allen</last-name>
     <email>xavier.allen@example.com</email>
-    <registration_date>2024-04-15</registration_date>
+    <registration-date>2024-04-15</registration-date>
     <address>
       <street>10 Center Pl</street>
       <city>Cincinnati</city>
-      <zip_code>45202</zip_code>
+      <zip-code>45202</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1038</order_id>
-        <order_date>2024-05-01T14:30:00Z</order_date>
-        <total_amount>17.5</total_amount>
+        <order-id>ORD1038</order-id>
+        <order-date>2024-05-01T14:30:00Z</order-date>
+        <total-amount>17.5</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD300</product_id>
+            <product-id>PROD300</product-id>
             <name>Box of Assorted Chocolates</name>
             <price>17.5</price>
             <quantity>1</quantity>
@@ -1076,26 +1082,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00034</customer_id>
-    <first_name>Yara</first_name>
-    <last_name>Brown</last_name>
+    <customer-id>CUST00034</customer-id>
+    <first-name>Yara</first-name>
+    <last-name>Brown</last-name>
     <email>yara.brown@example.com</email>
-    <registration_date>2023-10-28</registration_date>
+    <registration-date>2023-10-28</registration-date>
     <address>
       <street>888 Main Ave</street>
       <city>Orlando</city>
-      <zip_code>32801</zip_code>
+      <zip-code>32801</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1039</order_id>
-        <order_date>2023-11-10T10:00:00Z</order_date>
-        <total_amount>12.99</total_amount>
+        <order-id>ORD1039</order-id>
+        <order-date>2023-11-10T10:00:00Z</order-date>
+        <total-amount>12.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD310</product_id>
+            <product-id>PROD310</product-id>
             <name>Travel Sized Shampoo</name>
             <price>6.5</price>
             <quantity>2</quantity>
@@ -1105,26 +1111,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00035</customer_id>
-    <first_name>Zachary</first_name>
-    <last_name>Carter</last_name>
+    <customer-id>CUST00035</customer-id>
+    <first-name>Zachary</first-name>
+    <last-name>Carter</last-name>
     <email>zachary.carter@example.com</email>
-    <registration_date>2024-01-12</registration_date>
+    <registration-date>2024-01-12</registration-date>
     <address>
       <street>9 Old Mill Rd</street>
       <city>Buffalo</city>
-      <zip_code>14202</zip_code>
+      <zip-code>14202</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1040</order_id>
-        <order_date>2024-02-01T16:00:00Z</order_date>
-        <total_amount>7.99</total_amount>
+        <order-id>ORD1040</order-id>
+        <order-date>2024-02-01T16:00:00Z</order-date>
+        <total-amount>7.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD320</product_id>
+            <product-id>PROD320</product-id>
             <name>Reusable Coffee Filter</name>
             <price>7.99</price>
             <quantity>1</quantity>
@@ -1132,13 +1138,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1041</order_id>
-        <order_date>2024-03-15T09:30:00Z</order_date>
-        <total_amount>29.99</total_amount>
+        <order-id>ORD1041</order-id>
+        <order-date>2024-03-15T09:30:00Z</order-date>
+        <total-amount>29.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD321</product_id>
+            <product-id>PROD321</product-id>
             <name>Bag of Coffee Beans (Medium Roast)</name>
             <price>29.99</price>
             <quantity>1</quantity>
@@ -1148,26 +1154,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00036</customer_id>
-    <first_name>Chloe</first_name>
-    <last_name>Davis</last_name>
+    <customer-id>CUST00036</customer-id>
+    <first-name>Chloe</first-name>
+    <last-name>Davis</last-name>
     <email>chloe.davis@example.com</email>
-    <registration_date>2023-12-20</registration_date>
+    <registration-date>2023-12-20</registration-date>
     <address>
       <street>456 Sunset Way</street>
       <city>San Antonio</city>
-      <zip_code>78205</zip_code>
+      <zip-code>78205</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1042</order_id>
-        <order_date>2024-01-05T11:00:00Z</order_date>
-        <total_amount>29.5</total_amount>
+        <order-id>ORD1042</order-id>
+        <order-date>2024-01-05T11:00:00Z</order-date>
+        <total-amount>29.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD330</product_id>
+            <product-id>PROD330</product-id>
             <name>Set of 6 Wine Glasses</name>
             <price>29.5</price>
             <quantity>1</quantity>
@@ -1177,26 +1183,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00037</customer_id>
-    <first_name>Dylan</first_name>
-    <last_name>Evans</last_name>
+    <customer-id>CUST00037</customer-id>
+    <first-name>Dylan</first-name>
+    <last-name>Evans</last-name>
     <email>dylan.evans@example.com</email>
-    <registration_date>2024-03-01</registration_date>
+    <registration-date>2024-03-01</registration-date>
     <address>
       <street>10 Broadway</street>
       <city>San Francisco</city>
-      <zip_code>94133</zip_code>
+      <zip-code>94133</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1043</order_id>
-        <order_date>2024-03-15T15:30:00Z</order_date>
-        <total_amount>179.99</total_amount>
+        <order-id>ORD1043</order-id>
+        <order-date>2024-03-15T15:30:00Z</order-date>
+        <total-amount>179.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD340</product_id>
+            <product-id>PROD340</product-id>
             <name>Smart Doorbell</name>
             <price>179.99</price>
             <quantity>1</quantity>
@@ -1204,13 +1210,13 @@
         </products>
       </order>
       <order>
-        <order_id>ORD1044</order_id>
-        <order_date>2024-04-20T10:00:00Z</order_date>
-        <total_amount>49</total_amount>
+        <order-id>ORD1044</order-id>
+        <order-date>2024-04-20T10:00:00Z</order-date>
+        <total-amount>49</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD341</product_id>
+            <product-id>PROD341</product-id>
             <name>Extra Doorbell Battery</name>
             <price>49</price>
             <quantity>1</quantity>
@@ -1220,26 +1226,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00038</customer_id>
-    <first_name>Emily</first_name>
-    <last_name>Foster</last_name>
+    <customer-id>CUST00038</customer-id>
+    <first-name>Emily</first-name>
+    <last-name>Foster</last-name>
     <email>emily.foster@example.com</email>
-    <registration_date>2023-09-05</registration_date>
+    <registration-date>2023-09-05</registration-date>
     <address>
       <street>77 Sunset Blvd</street>
       <city>Los Angeles</city>
-      <zip_code>90046</zip_code>
+      <zip-code>90046</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1045</order_id>
-        <order_date>2023-09-20T12:00:00Z</order_date>
-        <total_amount>14.5</total_amount>
+        <order-id>ORD1045</order-id>
+        <order-date>2023-09-20T12:00:00Z</order-date>
+        <total-amount>14.5</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD350</product_id>
+            <product-id>PROD350</product-id>
             <name>Sunscreen (SPF 50)</name>
             <price>14.5</price>
             <quantity>1</quantity>
@@ -1249,26 +1255,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00039</customer_id>
-    <first_name>Frank</first_name>
-    <last_name>Gomez</last_name>
+    <customer-id>CUST00039</customer-id>
+    <first-name>Frank</first-name>
+    <last-name>Gomez</last-name>
     <email>frank.gomez@example.com</email>
-    <registration_date>2024-02-05</registration_date>
+    <registration-date>2024-02-05</registration-date>
     <address>
       <street>14 Fifth Ave</street>
       <city>New York</city>
-      <zip_code>10011</zip_code>
+      <zip-code>10011</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1046</order_id>
-        <order_date>2024-03-01T10:00:00Z</order_date>
-        <total_amount>25.99</total_amount>
+        <order-id>ORD1046</order-id>
+        <order-date>2024-03-01T10:00:00Z</order-date>
+        <total-amount>25.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD360</product_id>
+            <product-id>PROD360</product-id>
             <name>Cookbook (Italian Cuisine)</name>
             <price>25.99</price>
             <quantity>1</quantity>
@@ -1278,26 +1284,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00040</customer_id>
-    <first_name>Hannah</first_name>
-    <last_name>Hughes</last_name>
+    <customer-id>CUST00040</customer-id>
+    <first-name>Hannah</first-name>
+    <last-name>Hughes</last-name>
     <email>hannah.hughes@example.com</email>
-    <registration_date>2024-04-25</registration_date>
+    <registration-date>2024-04-25</registration-date>
     <address>
       <street>30 Riverwalk</street>
       <city>San Antonio</city>
-      <zip_code>78205</zip_code>
+      <zip-code>78205</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1047</order_id>
-        <order_date>2024-05-10T11:30:00Z</order_date>
-        <total_amount>99</total_amount>
+        <order-id>ORD1047</order-id>
+        <order-date>2024-05-10T11:30:00Z</order-date>
+        <total-amount>99</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD370</product_id>
+            <product-id>PROD370</product-id>
             <name>Air Fryer (4 Quart)</name>
             <price>99</price>
             <quantity>1</quantity>
@@ -1307,26 +1313,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00041</customer_id>
-    <first_name>Isaac</first_name>
-    <last_name>Ibrahim</last_name>
+    <customer-id>CUST00041</customer-id>
+    <first-name>Isaac</first-name>
+    <last-name>Ibrahim</last-name>
     <email>isaac.ibrahim@example.com</email>
-    <registration_date>2023-11-15</registration_date>
+    <registration-date>2023-11-15</registration-date>
     <address>
       <street>5 City Center Dr</street>
       <city>Atlanta</city>
-      <zip_code>30303</zip_code>
+      <zip-code>30303</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1048</order_id>
-        <order_date>2023-12-01T13:45:00Z</order_date>
-        <total_amount>10.99</total_amount>
+        <order-id>ORD1048</order-id>
+        <order-date>2023-12-01T13:45:00Z</order-date>
+        <total-amount>10.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD380</product_id>
+            <product-id>PROD380</product-id>
             <name>Pack of AAA Batteries</name>
             <price>10.99</price>
             <quantity>1</quantity>
@@ -1336,26 +1342,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00042</customer_id>
-    <first_name>Jasmine</first_name>
-    <last_name>Jackson</last_name>
+    <customer-id>CUST00042</customer-id>
+    <first-name>Jasmine</first-name>
+    <last-name>Jackson</last-name>
     <email>jasmine.jackson@example.com</email>
-    <registration_date>2024-03-12</registration_date>
+    <registration-date>2024-03-12</registration-date>
     <address>
       <street>20 Palm Tree Ln</street>
       <city>Tampa</city>
-      <zip_code>33602</zip_code>
+      <zip-code>33602</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1049</order_id>
-        <order_date>2024-04-01T16:00:00Z</order_date>
-        <total_amount>150</total_amount>
+        <order-id>ORD1049</order-id>
+        <order-date>2024-04-01T16:00:00Z</order-date>
+        <total-amount>150</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD390</product_id>
+            <product-id>PROD390</product-id>
             <name>Beach Umbrella</name>
             <price>75</price>
             <quantity>2</quantity>
@@ -1364,1142 +1370,1142 @@
       </order>
     </orders>
   </customer>
-  <Customer>
-    <customer_id>CUST00043</customer_id>
-    <first_name>Kevin</first_name>
-    <last_name>Kim</last_name>
+  <customer>
+    <customer-id>CUST00043</customer-id>
+    <first-name>Kevin</first-name>
+    <last-name>Kim</last-name>
     <email>kevin.kim@example.com</email>
-    <registration_date>2024-01-22</registration_date>
-    <Address>
+    <registration-date>2024-01-22</registration-date>
+    <address>
       <street>1 High Tech Rd</street>
       <city>San Jose</city>
-      <zip_code>95113</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1050</order_id>
-        <order_date>2024-02-10T10:00:00Z</order_date>
-        <total_amount>79.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD400</product_id>
-            <name>Gaming Mouse</name>
-            <price>79.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-      <Order>
-        <order_id>ORD1051</order_id>
-        <order_date>2024-03-05T14:00:00Z</order_date>
-        <total_amount>19.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD401</product_id>
-            <name>Mouse Pad (Large)</name>
-            <price>19.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00044</customer_id>
-    <first_name>Lily</first_name>
-    <last_name>Lopez</last_name>
-    <email>lily.lopez@example.com</email>
-    <registration_date>2023-10-02</registration_date>
-    <Address>
-      <street>400 Maple Ave</street>
-      <city>Chicago</city>
-      <zip_code>60601</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1052</order_id>
-        <order_date>2023-10-15T09:30:00Z</order_date>
-        <total_amount>55</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD410</product_id>
-            <name>Electric Kettle</name>
-            <price>55</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00045</customer_id>
-    <first_name>Marcus</first_name>
-    <last_name>Miller</last_name>
-    <email>marcus.miller@example.com</email>
-    <registration_date>2024-05-01</registration_date>
-    <Address>
-      <street>99 Broadway</street>
-      <city>New York</city>
-      <zip_code>10007</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1053</order_id>
-        <order_date>2024-05-25T14:00:00Z</order_date>
-        <total_amount>250</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD420</product_id>
-            <name>Power Drill Set</name>
-            <price>250</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00046</customer_id>
-    <first_name>Nora</first_name>
-    <last_name>Nunez</last_name>
-    <email>nora.nunez@example.com</email>
-    <registration_date>2023-11-08</registration_date>
-    <Address>
-      <street>145 Elmwood Ave</street>
-      <city>Buffalo</city>
-      <zip_code>14202</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1054</order_id>
-        <order_date>2023-11-20T11:00:00Z</order_date>
-        <total_amount>39</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD430</product_id>
-            <name>Set of Paint Brushes</name>
-            <price>13</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00047</customer_id>
-    <first_name>Owen</first_name>
-    <last_name>O'Connell</last_name>
-    <email>owen.oconnell@example.com</email>
-    <registration_date>2024-01-30</registration_date>
-    <Address>
-      <street>20 River St</street>
-      <city>Boston</city>
-      <zip_code>02108</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1055</order_id>
-        <order_date>2024-02-15T15:00:00Z</order_date>
-        <total_amount>18</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD440</product_id>
-            <name>Insulated Lunch Bag</name>
-            <price>18</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00048</customer_id>
-    <first_name>Penny</first_name>
-    <last_name>Parker</last_name>
-    <email>penny.parker@example.com</email>
-    <registration_date>2023-09-20</registration_date>
-    <Address>
-      <street>30 Park Place</street>
-      <city>Philadelphia</city>
-      <zip_code>19103</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1056</order_id>
-        <order_date>2023-10-01T12:00:00Z</order_date>
-        <total_amount>69.98</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD450</product_id>
-            <name>Pillow (Memory Foam)</name>
-            <price>34.99</price>
-            <quantity>2</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00049</customer_id>
-    <first_name>Quentin</first_name>
-    <last_name>Quezada</last_name>
-    <email>quentin.quezada@example.com</email>
-    <registration_date>2024-04-10</registration_date>
-    <Address>
-      <street>55 Desert View Rd</street>
-      <city>Phoenix</city>
-      <zip_code>85001</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders/>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00050</customer_id>
-    <first_name>Rachel</first_name>
-    <last_name>Ramos</last_name>
-    <email>rachel.ramos@example.com</email>
-    <registration_date>2023-12-01</registration_date>
-    <Address>
-      <street>100 Broadway</street>
-      <city>San Diego</city>
-      <zip_code>92101</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1057</order_id>
-        <order_date>2023-12-15T10:00:00Z</order_date>
-        <total_amount>12</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD460</product_id>
-            <name>Reusable Shopping Bag</name>
-            <price>3</price>
-            <quantity>4</quantity>
-          </Product>
-        </Products>
-      </Order>
-      <Order>
-        <order_id>ORD1058</order_id>
-        <order_date>2024-01-25T14:30:00Z</order_date>
-        <total_amount>18</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD461</product_id>
-            <name>Produce Bags (Mesh)</name>
-            <price>6</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00051</customer_id>
-    <first_name>Samuel</first_name>
-    <last_name>Smith</last_name>
-    <email>samuel.smith@example.com</email>
-    <registration_date>2024-03-01</registration_date>
-    <Address>
-      <street>123 Main St</street>
-      <city>Anytown</city>
-      <zip_code>10101</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1059</order_id>
-        <order_date>2024-03-10T10:00:00Z</order_date>
-        <total_amount>49.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD470</product_id>
-            <name>Running Shoes</name>
-            <price>49.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00052</customer_id>
-    <first_name>Tina</first_name>
-    <last_name>Turner</last_name>
-    <email>tina.turner@example.com</email>
-    <registration_date>2023-11-20</registration_date>
-    <Address>
-      <street>45 Oak Ave</street>
-      <city>Central City</city>
-      <zip_code>20202</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1060</order_id>
-        <order_date>2023-12-05T14:00:00Z</order_date>
-        <total_amount>19.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD480</product_id>
-            <name>Wall Clock</name>
-            <price>19.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00053</customer_id>
-    <first_name>Uriel</first_name>
-    <last_name>Urbina</last_name>
-    <email>uriel.urbina@example.com</email>
-    <registration_date>2024-02-15</registration_date>
-    <Address>
-      <street>78 River Rd</street>
-      <city>Eastville</city>
-      <zip_code>30303</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1061</order_id>
-        <order_date>2024-03-01T11:30:00Z</order_date>
-        <total_amount>45</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD490</product_id>
-            <name>Set of Storage Bins</name>
-            <price>15</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00054</customer_id>
-    <first_name>Vivian</first_name>
-    <last_name>Velasquez</last_name>
-    <email>vivian.velasquez@example.com</email>
-    <registration_date>2023-10-10</registration_date>
-    <Address>
-      <street>100 Mountain View</street>
-      <city>Westlake</city>
-      <zip_code>40404</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1062</order_id>
-        <order_date>2023-10-25T16:00:00Z</order_date>
-        <total_amount>25</total_amount>
-        <status>Cancelled</status>
-        <Products>
-          <Product>
-            <product_id>PROD500</product_id>
-            <name>Paper Shredder</name>
-            <price>25</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00055</customer_id>
-    <first_name>Wesley</first_name>
-    <last_name>Watson</last_name>
-    <email>wesley.watson@example.com</email>
-    <registration_date>2024-04-05</registration_date>
-    <Address>
-      <street>22 Forest Ave</street>
-      <city>Northwood</city>
-      <zip_code>50505</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1063</order_id>
-        <order_date>2024-04-20T09:00:00Z</order_date>
-        <total_amount>199.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD510</product_id>
-            <name>Drone with Camera</name>
-            <price>199.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00056</customer_id>
-    <first_name>Zara</first_name>
-    <last_name>Xiong</last_name>
-    <email>zara.xiong@example.com</email>
-    <registration_date>2023-09-28</registration_date>
-    <Address>
-      <street>99 Willow Dr</street>
-      <city>Southside</city>
-      <zip_code>60606</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1064</order_id>
-        <order_date>2023-10-15T15:00:00Z</order_date>
-        <total_amount>29.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD520</product_id>
-            <name>Weighted Hula Hoop</name>
-            <price>29.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00057</customer_id>
-    <first_name>Aiden</first_name>
-    <last_name>Anderson</last_name>
-    <email>aiden.anderson@example.com</email>
-    <registration_date>2024-01-01</registration_date>
-    <Address>
-      <street>10 Poplar St</street>
-      <city>Midtown</city>
-      <zip_code>70707</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1065</order_id>
-        <order_date>2024-01-15T10:30:00Z</order_date>
-        <total_amount>5.97</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD530</product_id>
-            <name>Ballpoint Pens (Black)</name>
-            <price>1.99</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00058</customer_id>
-    <first_name>Brooke</first_name>
-    <last_name>Bell</last_name>
-    <email>brooke.bell@example.com</email>
-    <registration_date>2024-03-14</registration_date>
-    <Address>
-      <street>500 High St</street>
-      <city>Westport</city>
-      <zip_code>80808</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1066</order_id>
-        <order_date>2024-04-01T13:00:00Z</order_date>
-        <total_amount>25</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD540</product_id>
-            <name>Sketch Pad (A3)</name>
-            <price>25</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00059</customer_id>
-    <first_name>Caleb</first_name>
-    <last_name>Cruz</last_name>
-    <email>caleb.cruz@example.com</email>
-    <registration_date>2023-10-05</registration_date>
-    <Address>
-      <street>30 Pine Ridge</street>
-      <city>Lakeview</city>
-      <zip_code>90909</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1067</order_id>
-        <order_date>2023-11-01T17:00:00Z</order_date>
-        <total_amount>89.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD550</product_id>
-            <name>Electric Blanket</name>
-            <price>89.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00060</customer_id>
-    <first_name>Dana</first_name>
-    <last_name>Diaz</last_name>
-    <email>dana.diaz@example.com</email>
-    <registration_date>2024-05-10</registration_date>
-    <Address>
-      <street>1 Riverwalk Dr</street>
-      <city>Southside</city>
-      <zip_code>60606</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1068</order_id>
-        <order_date>2024-05-20T12:00:00Z</order_date>
-        <total_amount>15</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD560</product_id>
-            <name>Travel Mug (Insulated)</name>
-            <price>15</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00061</customer_id>
-    <first_name>Evan</first_name>
-    <last_name>Edwards</last_name>
-    <email>evan.edwards@example.com</email>
-    <registration_date>2023-11-01</registration_date>
-    <Address>
-      <street>15 Willow Way</street>
-      <city>Northwood</city>
-      <zip_code>50505</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1069</order_id>
-        <order_date>2023-12-01T10:00:00Z</order_date>
-        <total_amount>19.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD570</product_id>
-            <name>Desk Organizer</name>
-            <price>19.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00062</customer_id>
-    <first_name>Fiona</first_name>
-    <last_name>Fox</last_name>
-    <email>fiona.fox@example.com</email>
-    <registration_date>2024-02-01</registration_date>
-    <Address>
-      <street>8 Quiet Lane</street>
-      <city>Westlake</city>
-      <zip_code>40404</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1070</order_id>
-        <order_date>2024-02-14T14:00:00Z</order_date>
-        <total_amount>9.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD580</product_id>
-            <name>Silicone Spatula Set</name>
-            <price>9.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00063</customer_id>
-    <first_name>George</first_name>
-    <last_name>Gomez</last_name>
-    <email>george.gomez@example.com</email>
-    <registration_date>2023-10-20</registration_date>
-    <Address>
-      <street>20 Commerce Rd</street>
-      <city>Eastville</city>
-      <zip_code>30303</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1071</order_id>
-        <order_date>2023-11-10T11:00:00Z</order_date>
-        <total_amount>35</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD590</product_id>
-            <name>Portable Vacuum Cleaner (Handheld)</name>
-            <price>35</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00064</customer_id>
-    <first_name>Holly</first_name>
-    <last_name>Hansen</last_name>
-    <email>holly.hansen@example.com</email>
-    <registration_date>2024-04-18</registration_date>
-    <Address>
-      <street>50 Shoreline Dr</street>
-      <city>Central City</city>
-      <zip_code>20202</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1072</order_id>
-        <order_date>2024-05-01T15:30:00Z</order_date>
-        <total_amount>12.99</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD600</product_id>
-            <name>Hair Brush (Boar Bristle)</name>
-            <price>12.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00065</customer_id>
-    <first_name>Ian</first_name>
-    <last_name>Ingram</last_name>
-    <email>ian.ingram@example.com</email>
-    <registration_date>2023-12-05</registration_date>
-    <Address>
-      <street>100 Industry Blvd</street>
-      <city>Anytown</city>
-      <zip_code>10101</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1073</order_id>
-        <order_date>2023-12-20T10:00:00Z</order_date>
-        <total_amount>49</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD610</product_id>
-            <name>Power Bank (10000mAh)</name>
-            <price>49</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00066</customer_id>
-    <first_name>Jade</first_name>
-    <last_name>Jensen</last_name>
-    <email>jade.jensen@example.com</email>
-    <registration_date>2024-01-25</registration_date>
-    <Address>
-      <street>77 Mountain Rd</street>
-      <city>Midtown</city>
-      <zip_code>70707</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1074</order_id>
-        <order_date>2024-02-10T12:00:00Z</order_date>
-        <total_amount>15.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD620</product_id>
-            <name>Fleece Throw Blanket</name>
-            <price>15.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00067</customer_id>
-    <first_name>Kyle</first_name>
-    <last_name>Keller</last_name>
-    <email>kyle.keller@example.com</email>
-    <registration_date>2023-11-10</registration_date>
-    <Address>
-      <street>1 Pine St</street>
-      <city>Westport</city>
-      <zip_code>80808</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1075</order_id>
-        <order_date>2023-11-25T14:30:00Z</order_date>
-        <total_amount>29.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD630</product_id>
-            <name>Resistance Bands Set</name>
-            <price>29.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00068</customer_id>
-    <first_name>Leah</first_name>
-    <last_name>Lee</last_name>
-    <email>leah.lee@example.com</email>
-    <registration_date>2024-05-01</registration_date>
-    <Address>
-      <street>50 Bayside Dr</street>
-      <city>Lakeview</city>
-      <zip_code>90909</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1076</order_id>
-        <order_date>2024-05-15T11:00:00Z</order_date>
-        <total_amount>125</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD640</product_id>
-            <name>Electric Scooter (Kids)</name>
-            <price>125</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00069</customer_id>
-    <first_name>Mike</first_name>
-    <last_name>Mitchell</last_name>
-    <email>mike.mitchell@example.com</email>
-    <registration_date>2023-10-08</registration_date>
-    <Address>
-      <street>900 Market St</street>
-      <city>San Francisco</city>
-      <zip_code>94107</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1077</order_id>
-        <order_date>2023-10-25T14:00:00Z</order_date>
-        <total_amount>8</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD650</product_id>
-            <name>Tire Patch Kit (Bicycle)</name>
-            <price>8</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00070</customer_id>
-    <first_name>Nina</first_name>
-    <last_name>Nguyen</last_name>
-    <email>nina.nguyen@example.com</email>
-    <registration_date>2024-03-20</registration_date>
-    <Address>
-      <street>15 Bay St</street>
-      <city>Tampa</city>
-      <zip_code>33602</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1078</order_id>
-        <order_date>2024-04-10T10:00:00Z</order_date>
-        <total_amount>33.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD660</product_id>
-            <name>Set of 4 Plant Pots</name>
-            <price>33.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00071</customer_id>
-    <first_name>Oscar</first_name>
-    <last_name>Ortiz</last_name>
-    <email>oscar.ortiz@example.com</email>
-    <registration_date>2024-01-10</registration_date>
-    <Address>
-      <street>22 Riverwalk Blvd</street>
-      <city>San Antonio</city>
-      <zip_code>78205</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1079</order_id>
-        <order_date>2024-02-01T15:00:00Z</order_date>
-        <total_amount>15</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD670</product_id>
-            <name>BBQ Sauce (Spicy)</name>
-            <price>7.5</price>
-            <quantity>2</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00072</customer_id>
-    <first_name>Piper</first_name>
-    <last_name>Price</last_name>
-    <email>piper.price@example.com</email>
-    <registration_date>2023-12-05</registration_date>
-    <Address>
-      <street>400 Oak Lane</street>
-      <city>Portland</city>
-      <zip_code>97204</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1080</order_id>
-        <order_date>2023-12-20T11:00:00Z</order_date>
-        <total_amount>59.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD680</product_id>
-            <name>Book (Fiction Bestseller)</name>
-            <price>19.99</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00073</customer_id>
-    <first_name>Quincy</first_name>
-    <last_name>Quinn</last_name>
-    <email>quincy.quinn@example.com</email>
-    <registration_date>2024-04-25</registration_date>
-    <Address>
-      <street>10 Center Pl</street>
-      <city>Cincinnati</city>
-      <zip_code>45202</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1081</order_id>
-        <order_date>2024-05-10T14:00:00Z</order_date>
-        <total_amount>10.99</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD690</product_id>
-            <name>Reusable Straws (Metal)</name>
-            <price>10.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00074</customer_id>
-    <first_name>Riley</first_name>
-    <last_name>Rivera</last_name>
-    <email>riley.rivera@example.com</email>
-    <registration_date>2023-11-18</registration_date>
-    <Address>
-      <street>500 Lake View Pl</street>
-      <city>Dallas</city>
-      <zip_code>75201</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1082</order_id>
-        <order_date>2023-12-05T09:30:00Z</order_date>
-        <total_amount>119.98</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD700</product_id>
-            <name>Digital Photo Frame</name>
-            <price>59.99</price>
-            <quantity>2</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00075</customer_id>
-    <first_name>Stella</first_name>
-    <last_name>Scott</last_name>
-    <email>stella.scott@example.com</email>
-    <registration_date>2024-03-05</registration_date>
-    <Address>
-      <street>30 River Rd</street>
-      <city>Austin</city>
-      <zip_code>78701</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1083</order_id>
-        <order_date>2024-03-20T16:00:00Z</order_date>
-        <total_amount>25</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD710</product_id>
-            <name>Journal (Leather Bound)</name>
-            <price>25</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00076</customer_id>
-    <first_name>Trent</first_name>
-    <last_name>Taylor</last_name>
-    <email>trent.taylor@example.com</email>
-    <registration_date>2023-10-15</registration_date>
-    <Address>
-      <street>14 Main St</street>
-      <city>Chicago</city>
-      <zip_code>60601</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1084</order_id>
-        <order_date>2023-11-01T10:00:00Z</order_date>
-        <total_amount>49.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD720</product_id>
-            <name>Electric Toothbrush Heads (4-pack)</name>
-            <price>12.5</price>
-            <quantity>4</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00077</customer_id>
-    <first_name>Uma</first_name>
-    <last_name>Upton</last_name>
-    <email>uma.upton@example.com</email>
-    <registration_date>2024-01-01</registration_date>
-    <Address>
-      <street>88 Gold St</street>
-      <city>New York</city>
-      <zip_code>10005</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1085</order_id>
-        <order_date>2024-01-15T15:00:00Z</order_date>
-        <total_amount>19.99</total_amount>
-        <status>Shipped</status>
-        <Products>
-          <Product>
-            <product_id>PROD730</product_id>
-            <name>Desk Lamp (LED)</name>
-            <price>19.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00078</customer_id>
-    <first_name>Victor</first_name>
-    <last_name>Vargas</last_name>
-    <email>victor.vargas@example.com</email>
-    <registration_date>2024-04-12</registration_date>
-    <Address>
-      <street>55 Hillside Dr</street>
-      <city>Boston</city>
-      <zip_code>02108</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1086</order_id>
-        <order_date>2024-05-01T10:00:00Z</order_date>
-        <total_amount>45.98</total_amount>
-        <status>Processing</status>
-        <Products>
-          <Product>
-            <product_id>PROD740</product_id>
-            <name>Running Shorts (Black)</name>
-            <price>22.99</price>
-            <quantity>2</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00079</customer_id>
-    <first_name>Willow</first_name>
-    <last_name>White</last_name>
-    <email>willow.white@example.com</email>
-    <registration_date>2023-09-15</registration_date>
-    <Address>
-      <street>10 Ocean View Rd</street>
-      <city>Miami</city>
-      <zip_code>33101</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1087</order_id>
-        <order_date>2023-10-01T18:00:00Z</order_date>
-        <total_amount>150</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD750</product_id>
-            <name>Swimming Goggles (Pro)</name>
-            <price>50</price>
-            <quantity>3</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <Customer>
-    <customer_id>CUST00080</customer_id>
-    <first_name>Yancy</first_name>
-    <last_name>Yang</last_name>
-    <email>yancy.yang@example.com</email>
-    <registration_date>2024-02-28</registration_date>
-    <Address>
-      <street>101 Cedar Blvd</street>
-      <city>Houston</city>
-      <zip_code>77002</zip_code>
-      <country>USA</country>
-    </Address>
-    <Orders>
-      <Order>
-        <order_id>ORD1088</order_id>
-        <order_date>2024-03-15T16:20:00Z</order_date>
-        <total_amount>9.99</total_amount>
-        <status>Delivered</status>
-        <Products>
-          <Product>
-            <product_id>PROD760</product_id>
-            <name>Phone Case (Clear)</name>
-            <price>9.99</price>
-            <quantity>1</quantity>
-          </Product>
-        </Products>
-      </Order>
-    </Orders>
-  </Customer>
-  <customer>
-    <customer_id>CUST00081</customer_id>
-    <first_name>Zane</first_name>
-    <last_name>Zavala</last_name>
-    <email>zane.zavala@example.com</email>
-    <registration_date>2024-01-05</registration_date>
-    <address>
-      <street>21 Bayside Dr</street>
-      <city>San Diego</city>
-      <zip_code>92101</zip_code>
+      <zip-code>95113</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1089</order_id>
-        <order_date>2024-01-20T14:00:00Z</order_date>
-        <total_amount>19.99</total_amount>
+        <order-id>ORD1050</order-id>
+        <order-date>2024-02-10T10:00:00Z</order-date>
+        <total-amount>79.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD400</product-id>
+            <name>Gaming Mouse</name>
+            <price>79.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+      <order>
+        <order-id>ORD1051</order-id>
+        <order-date>2024-03-05T14:00:00Z</order-date>
+        <total-amount>19.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD401</product-id>
+            <name>Mouse Pad (Large)</name>
+            <price>19.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00044</customer-id>
+    <first-name>Lily</first-name>
+    <last-name>Lopez</last-name>
+    <email>lily.lopez@example.com</email>
+    <registration-date>2023-10-02</registration-date>
+    <address>
+      <street>400 Maple Ave</street>
+      <city>Chicago</city>
+      <zip-code>60601</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1052</order-id>
+        <order-date>2023-10-15T09:30:00Z</order-date>
+        <total-amount>55</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD410</product-id>
+            <name>Electric Kettle</name>
+            <price>55</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00045</customer-id>
+    <first-name>Marcus</first-name>
+    <last-name>Miller</last-name>
+    <email>marcus.miller@example.com</email>
+    <registration-date>2024-05-01</registration-date>
+    <address>
+      <street>99 Broadway</street>
+      <city>New York</city>
+      <zip-code>10007</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1053</order-id>
+        <order-date>2024-05-25T14:00:00Z</order-date>
+        <total-amount>250</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD420</product-id>
+            <name>Power Drill Set</name>
+            <price>250</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00046</customer-id>
+    <first-name>Nora</first-name>
+    <last-name>Nunez</last-name>
+    <email>nora.nunez@example.com</email>
+    <registration-date>2023-11-08</registration-date>
+    <address>
+      <street>145 Elmwood Ave</street>
+      <city>Buffalo</city>
+      <zip-code>14202</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1054</order-id>
+        <order-date>2023-11-20T11:00:00Z</order-date>
+        <total-amount>39</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD430</product-id>
+            <name>Set of Paint Brushes</name>
+            <price>13</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00047</customer-id>
+    <first-name>Owen</first-name>
+    <last-name>O'Connell</last-name>
+    <email>owen.oconnell@example.com</email>
+    <registration-date>2024-01-30</registration-date>
+    <address>
+      <street>20 River St</street>
+      <city>Boston</city>
+      <zip-code>02108</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1055</order-id>
+        <order-date>2024-02-15T15:00:00Z</order-date>
+        <total-amount>18</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD770</product_id>
+            <product-id>PROD440</product-id>
+            <name>Insulated Lunch Bag</name>
+            <price>18</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00048</customer-id>
+    <first-name>Penny</first-name>
+    <last-name>Parker</last-name>
+    <email>penny.parker@example.com</email>
+    <registration-date>2023-09-20</registration-date>
+    <address>
+      <street>30 Park Place</street>
+      <city>Philadelphia</city>
+      <zip-code>19103</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1056</order-id>
+        <order-date>2023-10-01T12:00:00Z</order-date>
+        <total-amount>69.98</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD450</product-id>
+            <name>Pillow (Memory Foam)</name>
+            <price>34.99</price>
+            <quantity>2</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00049</customer-id>
+    <first-name>Quentin</first-name>
+    <last-name>Quezada</last-name>
+    <email>quentin.quezada@example.com</email>
+    <registration-date>2024-04-10</registration-date>
+    <address>
+      <street>55 Desert View Rd</street>
+      <city>Phoenix</city>
+      <zip-code>85001</zip-code>
+      <country>USA</country>
+    </address>
+    <orders/>
+  </customer>
+  <customer>
+    <customer-id>CUST00050</customer-id>
+    <first-name>Rachel</first-name>
+    <last-name>Ramos</last-name>
+    <email>rachel.ramos@example.com</email>
+    <registration-date>2023-12-01</registration-date>
+    <address>
+      <street>100 Broadway</street>
+      <city>San Diego</city>
+      <zip-code>92101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1057</order-id>
+        <order-date>2023-12-15T10:00:00Z</order-date>
+        <total-amount>12</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD460</product-id>
+            <name>Reusable Shopping Bag</name>
+            <price>3</price>
+            <quantity>4</quantity>
+          </product>
+        </products>
+      </order>
+      <order>
+        <order-id>ORD1058</order-id>
+        <order-date>2024-01-25T14:30:00Z</order-date>
+        <total-amount>18</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD461</product-id>
+            <name>Produce Bags (Mesh)</name>
+            <price>6</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00051</customer-id>
+    <first-name>Samuel</first-name>
+    <last-name>Smith</last-name>
+    <email>samuel.smith@example.com</email>
+    <registration-date>2024-03-01</registration-date>
+    <address>
+      <street>123 Main St</street>
+      <city>Anytown</city>
+      <zip-code>10101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1059</order-id>
+        <order-date>2024-03-10T10:00:00Z</order-date>
+        <total-amount>49.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD470</product-id>
+            <name>Running Shoes</name>
+            <price>49.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00052</customer-id>
+    <first-name>Tina</first-name>
+    <last-name>Turner</last-name>
+    <email>tina.turner@example.com</email>
+    <registration-date>2023-11-20</registration-date>
+    <address>
+      <street>45 Oak Ave</street>
+      <city>Central City</city>
+      <zip-code>20202</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1060</order-id>
+        <order-date>2023-12-05T14:00:00Z</order-date>
+        <total-amount>19.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD480</product-id>
+            <name>Wall Clock</name>
+            <price>19.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00053</customer-id>
+    <first-name>Uriel</first-name>
+    <last-name>Urbina</last-name>
+    <email>uriel.urbina@example.com</email>
+    <registration-date>2024-02-15</registration-date>
+    <address>
+      <street>78 River Rd</street>
+      <city>Eastville</city>
+      <zip-code>30303</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1061</order-id>
+        <order-date>2024-03-01T11:30:00Z</order-date>
+        <total-amount>45</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD490</product-id>
+            <name>Set of Storage Bins</name>
+            <price>15</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00054</customer-id>
+    <first-name>Vivian</first-name>
+    <last-name>Velasquez</last-name>
+    <email>vivian.velasquez@example.com</email>
+    <registration-date>2023-10-10</registration-date>
+    <address>
+      <street>100 Mountain View</street>
+      <city>Westlake</city>
+      <zip-code>40404</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1062</order-id>
+        <order-date>2023-10-25T16:00:00Z</order-date>
+        <total-amount>25</total-amount>
+        <status>Cancelled</status>
+        <products>
+          <product>
+            <product-id>PROD500</product-id>
+            <name>Paper Shredder</name>
+            <price>25</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00055</customer-id>
+    <first-name>Wesley</first-name>
+    <last-name>Watson</last-name>
+    <email>wesley.watson@example.com</email>
+    <registration-date>2024-04-05</registration-date>
+    <address>
+      <street>22 Forest Ave</street>
+      <city>Northwood</city>
+      <zip-code>50505</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1063</order-id>
+        <order-date>2024-04-20T09:00:00Z</order-date>
+        <total-amount>199.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD510</product-id>
+            <name>Drone with Camera</name>
+            <price>199.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00056</customer-id>
+    <first-name>Zara</first-name>
+    <last-name>Xiong</last-name>
+    <email>zara.xiong@example.com</email>
+    <registration-date>2023-09-28</registration-date>
+    <address>
+      <street>99 Willow Dr</street>
+      <city>Southside</city>
+      <zip-code>60606</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1064</order-id>
+        <order-date>2023-10-15T15:00:00Z</order-date>
+        <total-amount>29.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD520</product-id>
+            <name>Weighted Hula Hoop</name>
+            <price>29.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00057</customer-id>
+    <first-name>Aiden</first-name>
+    <last-name>Anderson</last-name>
+    <email>aiden.anderson@example.com</email>
+    <registration-date>2024-01-01</registration-date>
+    <address>
+      <street>10 Poplar St</street>
+      <city>Midtown</city>
+      <zip-code>70707</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1065</order-id>
+        <order-date>2024-01-15T10:30:00Z</order-date>
+        <total-amount>5.97</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD530</product-id>
+            <name>Ballpoint Pens (Black)</name>
+            <price>1.99</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00058</customer-id>
+    <first-name>Brooke</first-name>
+    <last-name>Bell</last-name>
+    <email>brooke.bell@example.com</email>
+    <registration-date>2024-03-14</registration-date>
+    <address>
+      <street>500 High St</street>
+      <city>Westport</city>
+      <zip-code>80808</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1066</order-id>
+        <order-date>2024-04-01T13:00:00Z</order-date>
+        <total-amount>25</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD540</product-id>
+            <name>Sketch Pad (A3)</name>
+            <price>25</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00059</customer-id>
+    <first-name>Caleb</first-name>
+    <last-name>Cruz</last-name>
+    <email>caleb.cruz@example.com</email>
+    <registration-date>2023-10-05</registration-date>
+    <address>
+      <street>30 Pine Ridge</street>
+      <city>Lakeview</city>
+      <zip-code>90909</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1067</order-id>
+        <order-date>2023-11-01T17:00:00Z</order-date>
+        <total-amount>89.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD550</product-id>
+            <name>Electric Blanket</name>
+            <price>89.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00060</customer-id>
+    <first-name>Dana</first-name>
+    <last-name>Diaz</last-name>
+    <email>dana.diaz@example.com</email>
+    <registration-date>2024-05-10</registration-date>
+    <address>
+      <street>1 Riverwalk Dr</street>
+      <city>Southside</city>
+      <zip-code>60606</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1068</order-id>
+        <order-date>2024-05-20T12:00:00Z</order-date>
+        <total-amount>15</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD560</product-id>
+            <name>Travel Mug (Insulated)</name>
+            <price>15</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00061</customer-id>
+    <first-name>Evan</first-name>
+    <last-name>Edwards</last-name>
+    <email>evan.edwards@example.com</email>
+    <registration-date>2023-11-01</registration-date>
+    <address>
+      <street>15 Willow Way</street>
+      <city>Northwood</city>
+      <zip-code>50505</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1069</order-id>
+        <order-date>2023-12-01T10:00:00Z</order-date>
+        <total-amount>19.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD570</product-id>
+            <name>Desk Organizer</name>
+            <price>19.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00062</customer-id>
+    <first-name>Fiona</first-name>
+    <last-name>Fox</last-name>
+    <email>fiona.fox@example.com</email>
+    <registration-date>2024-02-01</registration-date>
+    <address>
+      <street>8 Quiet Lane</street>
+      <city>Westlake</city>
+      <zip-code>40404</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1070</order-id>
+        <order-date>2024-02-14T14:00:00Z</order-date>
+        <total-amount>9.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD580</product-id>
+            <name>Silicone Spatula Set</name>
+            <price>9.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00063</customer-id>
+    <first-name>George</first-name>
+    <last-name>Gomez</last-name>
+    <email>george.gomez@example.com</email>
+    <registration-date>2023-10-20</registration-date>
+    <address>
+      <street>20 Commerce Rd</street>
+      <city>Eastville</city>
+      <zip-code>30303</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1071</order-id>
+        <order-date>2023-11-10T11:00:00Z</order-date>
+        <total-amount>35</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD590</product-id>
+            <name>Portable Vacuum Cleaner (Handheld)</name>
+            <price>35</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00064</customer-id>
+    <first-name>Holly</first-name>
+    <last-name>Hansen</last-name>
+    <email>holly.hansen@example.com</email>
+    <registration-date>2024-04-18</registration-date>
+    <address>
+      <street>50 Shoreline Dr</street>
+      <city>Central City</city>
+      <zip-code>20202</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1072</order-id>
+        <order-date>2024-05-01T15:30:00Z</order-date>
+        <total-amount>12.99</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD600</product-id>
+            <name>Hair Brush (Boar Bristle)</name>
+            <price>12.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00065</customer-id>
+    <first-name>Ian</first-name>
+    <last-name>Ingram</last-name>
+    <email>ian.ingram@example.com</email>
+    <registration-date>2023-12-05</registration-date>
+    <address>
+      <street>100 Industry Blvd</street>
+      <city>Anytown</city>
+      <zip-code>10101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1073</order-id>
+        <order-date>2023-12-20T10:00:00Z</order-date>
+        <total-amount>49</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD610</product-id>
+            <name>Power Bank (10000mAh)</name>
+            <price>49</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00066</customer-id>
+    <first-name>Jade</first-name>
+    <last-name>Jensen</last-name>
+    <email>jade.jensen@example.com</email>
+    <registration-date>2024-01-25</registration-date>
+    <address>
+      <street>77 Mountain Rd</street>
+      <city>Midtown</city>
+      <zip-code>70707</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1074</order-id>
+        <order-date>2024-02-10T12:00:00Z</order-date>
+        <total-amount>15.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD620</product-id>
+            <name>Fleece Throw Blanket</name>
+            <price>15.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00067</customer-id>
+    <first-name>Kyle</first-name>
+    <last-name>Keller</last-name>
+    <email>kyle.keller@example.com</email>
+    <registration-date>2023-11-10</registration-date>
+    <address>
+      <street>1 Pine St</street>
+      <city>Westport</city>
+      <zip-code>80808</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1075</order-id>
+        <order-date>2023-11-25T14:30:00Z</order-date>
+        <total-amount>29.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD630</product-id>
+            <name>Resistance Bands Set</name>
+            <price>29.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00068</customer-id>
+    <first-name>Leah</first-name>
+    <last-name>Lee</last-name>
+    <email>leah.lee@example.com</email>
+    <registration-date>2024-05-01</registration-date>
+    <address>
+      <street>50 Bayside Dr</street>
+      <city>Lakeview</city>
+      <zip-code>90909</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1076</order-id>
+        <order-date>2024-05-15T11:00:00Z</order-date>
+        <total-amount>125</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD640</product-id>
+            <name>Electric Scooter (Kids)</name>
+            <price>125</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00069</customer-id>
+    <first-name>Mike</first-name>
+    <last-name>Mitchell</last-name>
+    <email>mike.mitchell@example.com</email>
+    <registration-date>2023-10-08</registration-date>
+    <address>
+      <street>900 Market St</street>
+      <city>San Francisco</city>
+      <zip-code>94107</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1077</order-id>
+        <order-date>2023-10-25T14:00:00Z</order-date>
+        <total-amount>8</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD650</product-id>
+            <name>Tire Patch Kit (Bicycle)</name>
+            <price>8</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00070</customer-id>
+    <first-name>Nina</first-name>
+    <last-name>Nguyen</last-name>
+    <email>nina.nguyen@example.com</email>
+    <registration-date>2024-03-20</registration-date>
+    <address>
+      <street>15 Bay St</street>
+      <city>Tampa</city>
+      <zip-code>33602</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1078</order-id>
+        <order-date>2024-04-10T10:00:00Z</order-date>
+        <total-amount>33.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD660</product-id>
+            <name>Set of 4 Plant Pots</name>
+            <price>33.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00071</customer-id>
+    <first-name>Oscar</first-name>
+    <last-name>Ortiz</last-name>
+    <email>oscar.ortiz@example.com</email>
+    <registration-date>2024-01-10</registration-date>
+    <address>
+      <street>22 Riverwalk Blvd</street>
+      <city>San Antonio</city>
+      <zip-code>78205</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1079</order-id>
+        <order-date>2024-02-01T15:00:00Z</order-date>
+        <total-amount>15</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD670</product-id>
+            <name>BBQ Sauce (Spicy)</name>
+            <price>7.5</price>
+            <quantity>2</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00072</customer-id>
+    <first-name>John</first-name>
+    <last-name>Pitter</last-name>
+    <email>john.pitter@example.com</email>
+    <registration-date>2023-12-05</registration-date>
+    <address>
+      <street>400 Oak Lane</street>
+      <city>Portland</city>
+      <zip-code>97204</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1080</order-id>
+        <order-date>2023-12-20T11:00:00Z</order-date>
+        <total-amount>59.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD680</product-id>
+            <name>Book (Fiction Bestseller)</name>
+            <price>19.99</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00073</customer-id>
+    <first-name>Quincy</first-name>
+    <last-name>Quinn</last-name>
+    <email>quincy.quinn@example.com</email>
+    <registration-date>2024-04-25</registration-date>
+    <address>
+      <street>10 Center Pl</street>
+      <city>Cincinnati</city>
+      <zip-code>45202</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1081</order-id>
+        <order-date>2024-05-10T14:00:00Z</order-date>
+        <total-amount>10.99</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD690</product-id>
+            <name>Reusable Straws (Metal)</name>
+            <price>10.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00074</customer-id>
+    <first-name>Riley</first-name>
+    <last-name>Rivera</last-name>
+    <email>riley.rivera@example.com</email>
+    <registration-date>2023-11-18</registration-date>
+    <address>
+      <street>500 Lake View Pl</street>
+      <city>Dallas</city>
+      <zip-code>75201</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1082</order-id>
+        <order-date>2023-12-05T09:30:00Z</order-date>
+        <total-amount>119.98</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD700</product-id>
+            <name>Digital Photo Frame</name>
+            <price>59.99</price>
+            <quantity>2</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00075</customer-id>
+    <first-name>Stella</first-name>
+    <last-name>Scott</last-name>
+    <email>stella.scott@example.com</email>
+    <registration-date>2024-03-05</registration-date>
+    <address>
+      <street>30 River Rd</street>
+      <city>Austin</city>
+      <zip-code>78701</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1083</order-id>
+        <order-date>2024-03-20T16:00:00Z</order-date>
+        <total-amount>25</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD710</product-id>
+            <name>Journal (Leather Bound)</name>
+            <price>25</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00076</customer-id>
+    <first-name>Trent</first-name>
+    <last-name>Taylor</last-name>
+    <email>trent.taylor@example.com</email>
+    <registration-date>2023-10-15</registration-date>
+    <address>
+      <street>14 Main St</street>
+      <city>Chicago</city>
+      <zip-code>60601</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1084</order-id>
+        <order-date>2023-11-01T10:00:00Z</order-date>
+        <total-amount>49.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD720</product-id>
+            <name>Electric Toothbrush Heads (4-pack)</name>
+            <price>12.5</price>
+            <quantity>4</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00077</customer-id>
+    <first-name>Uma</first-name>
+    <last-name>Upton</last-name>
+    <email>uma.upton@example.com</email>
+    <registration-date>2024-01-01</registration-date>
+    <address>
+      <street>88 Gold St</street>
+      <city>New York</city>
+      <zip-code>10005</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1085</order-id>
+        <order-date>2024-01-15T15:00:00Z</order-date>
+        <total-amount>19.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD730</product-id>
+            <name>Desk Lamp (LED)</name>
+            <price>19.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00078</customer-id>
+    <first-name>Victor</first-name>
+    <last-name>Vargas</last-name>
+    <email>victor.vargas@example.com</email>
+    <registration-date>2024-04-12</registration-date>
+    <address>
+      <street>55 Hillside Dr</street>
+      <city>Boston</city>
+      <zip-code>02108</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1086</order-id>
+        <order-date>2024-05-01T10:00:00Z</order-date>
+        <total-amount>45.98</total-amount>
+        <status>Processing</status>
+        <products>
+          <product>
+            <product-id>PROD740</product-id>
+            <name>Running Shorts (Black)</name>
+            <price>22.99</price>
+            <quantity>2</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00079</customer-id>
+    <first-name>Willow</first-name>
+    <last-name>White</last-name>
+    <email>willow.white@example.com</email>
+    <registration-date>2023-09-15</registration-date>
+    <address>
+      <street>10 Ocean View Rd</street>
+      <city>Miami</city>
+      <zip-code>33101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1087</order-id>
+        <order-date>2023-10-01T18:00:00Z</order-date>
+        <total-amount>150</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD750</product-id>
+            <name>Swimming Goggles (Pro)</name>
+            <price>50</price>
+            <quantity>3</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00080</customer-id>
+    <first-name>Yancy</first-name>
+    <last-name>Yang</last-name>
+    <email>yancy.yang@example.com</email>
+    <registration-date>2024-02-28</registration-date>
+    <address>
+      <street>101 Cedar Blvd</street>
+      <city>Houston</city>
+      <zip-code>77002</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1088</order-id>
+        <order-date>2024-03-15T16:20:00Z</order-date>
+        <total-amount>9.99</total-amount>
+        <status>Delivered</status>
+        <products>
+          <product>
+            <product-id>PROD760</product-id>
+            <name>Phone Case (Clear)</name>
+            <price>9.99</price>
+            <quantity>1</quantity>
+          </product>
+        </products>
+      </order>
+    </orders>
+  </customer>
+  <customer>
+    <customer-id>CUST00081</customer-id>
+    <first-name>Zane</first-name>
+    <last-name>Zavala</last-name>
+    <email>zane.zavala@example.com</email>
+    <registration-date>2024-01-05</registration-date>
+    <address>
+      <street>21 Bayside Dr</street>
+      <city>San Diego</city>
+      <zip-code>92101</zip-code>
+      <country>USA</country>
+    </address>
+    <orders>
+      <order>
+        <order-id>ORD1089</order-id>
+        <order-date>2024-01-20T14:00:00Z</order-date>
+        <total-amount>19.99</total-amount>
+        <status>Shipped</status>
+        <products>
+          <product>
+            <product-id>PROD770</product-id>
             <name>Car Phone Mount</name>
             <price>19.99</price>
             <quantity>1</quantity>
@@ -2509,26 +2515,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00082</customer_id>
-    <first_name>Alice</first_name>
-    <last_name>Avery</last_name>
+    <customer-id>CUST00082</customer-id>
+    <first-name>Alice</first-name>
+    <last-name>Avery</last-name>
     <email>alice.avery@example.com</email>
-    <registration_date>2023-11-05</registration_date>
+    <registration-date>2023-11-05</registration-date>
     <address>
       <street>30 Maple Lane</street>
       <city>Riverdale</city>
-      <zip_code>20005</zip_code>
+      <zip-code>20005</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1090</order_id>
-        <order_date>2023-12-01T17:00:00Z</order_date>
-        <total_amount>49</total_amount>
+        <order-id>ORD1090</order-id>
+        <order-date>2023-12-01T17:00:00Z</order-date>
+        <total-amount>49</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD780</product_id>
+            <product-id>PROD780</product-id>
             <name>Set of Bath Bombs</name>
             <price>49</price>
             <quantity>1</quantity>
@@ -2538,26 +2544,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00083</customer_id>
-    <first_name>Brian</first_name>
-    <last_name>Barnes</last_name>
+    <customer-id>CUST00083</customer-id>
+    <first-name>Brian</first-name>
+    <last-name>Barnes</last-name>
     <email>brian.barnes@example.com</email>
-    <registration_date>2024-05-01</registration_date>
+    <registration-date>2024-05-01</registration-date>
     <address>
       <street>45 Tech Way</street>
       <city>San Jose</city>
-      <zip_code>95113</zip_code>
+      <zip-code>95113</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1091</order_id>
-        <order_date>2024-05-15T12:45:00Z</order_date>
-        <total_amount>499</total_amount>
+        <order-id>ORD1091</order-id>
+        <order-date>2024-05-15T12:45:00Z</order-date>
+        <total-amount>499</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD790</product_id>
+            <product-id>PROD790</product-id>
             <name>Virtual Reality Headset</name>
             <price>499</price>
             <quantity>1</quantity>
@@ -2567,26 +2573,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00084</customer_id>
-    <first_name>Carla</first_name>
-    <last_name>Cobb</last_name>
+    <customer-id>CUST00084</customer-id>
+    <first-name>Carla</first-name>
+    <last-name>Cobb</last-name>
     <email>carla.cobb@example.com</email>
-    <registration_date>2023-10-20</registration_date>
+    <registration-date>2023-10-20</registration-date>
     <address>
       <street>10 Pine Cone Trail</street>
       <city>Portland</city>
-      <zip_code>97204</zip_code>
+      <zip-code>97204</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1092</order_id>
-        <order_date>2023-11-05T15:30:00Z</order_date>
-        <total_amount>15</total_amount>
+        <order-id>ORD1092</order-id>
+        <order-date>2023-11-05T15:30:00Z</order-date>
+        <total-amount>15</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD800</product_id>
+            <product-id>PROD800</product-id>
             <name>Dog Leash (Retractable)</name>
             <price>15</price>
             <quantity>1</quantity>
@@ -2596,26 +2602,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00085</customer_id>
-    <first_name>David</first_name>
-    <last_name>Dale</last_name>
+    <customer-id>CUST00085</customer-id>
+    <first-name>David</first-name>
+    <last-name>Dale</last-name>
     <email>david.dale@example.com</email>
-    <registration_date>2024-03-05</registration_date>
+    <registration-date>2024-03-05</registration-date>
     <address>
       <street>303 Bridge Blvd</street>
       <city>Philadelphia</city>
-      <zip_code>19103</zip_code>
+      <zip-code>19103</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1093</order_id>
-        <order_date>2024-03-10T11:45:00Z</order_date>
-        <total_amount>6.99</total_amount>
+        <order-id>ORD1093</order-id>
+        <order-date>2024-03-10T11:45:00Z</order-date>
+        <total-amount>6.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD810</product_id>
+            <product-id>PROD810</product-id>
             <name>Pack of Post-it Notes</name>
             <price>6.99</price>
             <quantity>1</quantity>
@@ -2625,26 +2631,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00086</customer_id>
-    <first_name>Eva</first_name>
-    <last_name>Esparza</last_name>
+    <customer-id>CUST00086</customer-id>
+    <first-name>Eva</first-name>
+    <last-name>Esparza</last-name>
     <email>eva.esparza@example.com</email>
-    <registration_date>2024-01-01</registration_date>
+    <registration-date>2024-01-01</registration-date>
     <address>
       <street>50 Skyline Blvd</street>
       <city>Los Angeles</city>
-      <zip_code>90001</zip_code>
+      <zip-code>90001</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1094</order_id>
-        <order_date>2024-01-05T18:30:00Z</order_date>
-        <total_amount>99</total_amount>
+        <order-id>ORD1094</order-id>
+        <order-date>2024-01-05T18:30:00Z</order-date>
+        <total-amount>99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD820</product_id>
+            <product-id>PROD820</product-id>
             <name>Digital Drawing Tablet</name>
             <price>99</price>
             <quantity>1</quantity>
@@ -2654,26 +2660,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00087</customer_id>
-    <first_name>Felix</first_name>
-    <last_name>Franco</last_name>
+    <customer-id>CUST00087</customer-id>
+    <first-name>Felix</first-name>
+    <last-name>Franco</last-name>
     <email>felix.franco@example.com</email>
-    <registration_date>2023-12-15</registration_date>
+    <registration-date>2023-12-15</registration-date>
     <address>
       <street>15 Water St</street>
       <city>Baltimore</city>
-      <zip_code>21201</zip_code>
+      <zip-code>21201</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1095</order_id>
-        <order_date>2024-01-20T14:00:00Z</order_date>
-        <total_amount>29.99</total_amount>
+        <order-id>ORD1095</order-id>
+        <order-date>2024-01-20T14:00:00Z</order-date>
+        <total-amount>29.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD830</product_id>
+            <product-id>PROD830</product-id>
             <name>Set of 3 Fitness Jump Ropes</name>
             <price>29.99</price>
             <quantity>1</quantity>
@@ -2683,26 +2689,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00088</customer_id>
-    <first_name>Giselle</first_name>
-    <last_name>Graham</last_name>
+    <customer-id>CUST00088</customer-id>
+    <first-name>Giselle</first-name>
+    <last-name>Graham</last-name>
     <email>giselle.graham@example.com</email>
-    <registration_date>2024-04-20</registration_date>
+    <registration-date>2024-04-20</registration-date>
     <address>
       <street>500 High St</street>
       <city>Salt Lake City</city>
-      <zip_code>84101</zip_code>
+      <zip-code>84101</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1096</order_id>
-        <order_date>2024-05-05T10:30:00Z</order_date>
-        <total_amount>15</total_amount>
+        <order-id>ORD1096</order-id>
+        <order-date>2024-05-05T10:30:00Z</order-date>
+        <total-amount>15</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD840</product_id>
+            <product-id>PROD840</product-id>
             <name>Reusable Food Wraps (Set of 3)</name>
             <price>15</price>
             <quantity>1</quantity>
@@ -2712,26 +2718,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00089</customer_id>
-    <first_name>Hugo</first_name>
-    <last_name>Hidalgo</last_name>
+    <customer-id>CUST00089</customer-id>
+    <first-name>Hugo</first-name>
+    <last-name>Hidalgo</last-name>
     <email>hugo.hidalgo@example.com</email>
-    <registration_date>2023-09-01</registration_date>
+    <registration-date>2023-09-01</registration-date>
     <address>
       <street>10 Riverbend Pkwy</street>
       <city>Atlanta</city>
-      <zip_code>30303</zip_code>
+      <zip-code>30303</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1097</order_id>
-        <order_date>2023-09-10T13:00:00Z</order_date>
-        <total_amount>75</total_amount>
+        <order-id>ORD1097</order-id>
+        <order-date>2023-09-10T13:00:00Z</order-date>
+        <total-amount>75</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD850</product_id>
+            <product-id>PROD850</product-id>
             <name>Leather Messenger Bag</name>
             <price>75</price>
             <quantity>1</quantity>
@@ -2741,26 +2747,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00090</customer_id>
-    <first_name>Iris</first_name>
-    <last_name>Inman</last_name>
+    <customer-id>CUST00090</customer-id>
+    <first-name>Iris</first-name>
+    <last-name>Inman</last-name>
     <email>iris.inman@example.com</email>
-    <registration_date>2024-03-25</registration_date>
+    <registration-date>2024-03-25</registration-date>
     <address>
       <street>300 Tech Dr</street>
       <city>Seattle</city>
-      <zip_code>98101</zip_code>
+      <zip-code>98101</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1098</order_id>
-        <order_date>2024-04-01T10:00:00Z</order_date>
-        <total_amount>15</total_amount>
+        <order-id>ORD1098</order-id>
+        <order-date>2024-04-01T10:00:00Z</order-date>
+        <total-amount>15</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD860</product_id>
+            <product-id>PROD860</product-id>
             <name>Webcam Cover (3-pack)</name>
             <price>5</price>
             <quantity>3</quantity>
@@ -2770,26 +2776,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00091</customer_id>
-    <first_name>Jake</first_name>
-    <last_name>Jansen</last_name>
+    <customer-id>CUST00091</customer-id>
+    <first-name>Jake</first-name>
+    <last-name>Jansen</last-name>
     <email>jake.jansen@example.com</email>
-    <registration_date>2023-10-10</registration_date>
+    <registration-date>2023-10-10</registration-date>
     <address>
       <street>70 Green St</street>
       <city>San Francisco</city>
-      <zip_code>94107</zip_code>
+      <zip-code>94107</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1099</order_id>
-        <order_date>2023-11-01T11:30:00Z</order_date>
-        <total_amount>19.99</total_amount>
+        <order-id>ORD1099</order-id>
+        <order-date>2023-11-01T11:30:00Z</order-date>
+        <total-amount>19.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD870</product_id>
+            <product-id>PROD870</product-id>
             <name>Rechargeable Hand Warmer</name>
             <price>19.99</price>
             <quantity>1</quantity>
@@ -2799,26 +2805,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00092</customer_id>
-    <first_name>Kylie</first_name>
-    <last_name>Katz</last_name>
+    <customer-id>CUST00092</customer-id>
+    <first-name>Kylie</first-name>
+    <last-name>Katz</last-name>
     <email>kylie.katz@example.com</email>
-    <registration_date>2024-05-15</registration_date>
+    <registration-date>2024-05-15</registration-date>
     <address>
       <street>1090 Industrial Rd</street>
       <city>Detroit</city>
-      <zip_code>48201</zip_code>
+      <zip-code>48201</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1100</order_id>
-        <order_date>2024-05-25T16:00:00Z</order_date>
-        <total_amount>12</total_amount>
+        <order-id>ORD1100</order-id>
+        <order-date>2024-05-25T16:00:00Z</order-date>
+        <total-amount>12</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD880</product_id>
+            <product-id>PROD880</product-id>
             <name>Car Wash Mitt (Microfiber)</name>
             <price>12</price>
             <quantity>1</quantity>
@@ -2828,26 +2834,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00093</customer_id>
-    <first_name>Leo</first_name>
-    <last_name>Larson</last_name>
+    <customer-id>CUST00093</customer-id>
+    <first-name>Leo</first-name>
+    <last-name>Larson</last-name>
     <email>leo.larson@example.com</email>
-    <registration_date>2023-11-25</registration_date>
+    <registration-date>2023-11-25</registration-date>
     <address>
       <street>25 Park Ave</street>
       <city>Houston</city>
-      <zip_code>77002</zip_code>
+      <zip-code>77002</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1101</order_id>
-        <order_date>2023-12-10T14:45:00Z</order_date>
-        <total_amount>7.99</total_amount>
+        <order-id>ORD1101</order-id>
+        <order-date>2023-12-10T14:45:00Z</order-date>
+        <total-amount>7.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD890</product_id>
+            <product-id>PROD890</product-id>
             <name>Microfiber Cleaning Cloths (10-pack)</name>
             <price>7.99</price>
             <quantity>1</quantity>
@@ -2857,26 +2863,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00094</customer_id>
-    <first_name>Maria</first_name>
-    <last_name>Mendez</last_name>
+    <customer-id>CUST00094</customer-id>
+    <first-name>Maria</first-name>
+    <last-name>Mendez</last-name>
     <email>maria.mendez@example.com</email>
-    <registration_date>2024-02-01</registration_date>
+    <registration-date>2024-02-01</registration-date>
     <address>
       <street>8 Quiet Lane</street>
       <city>Minneapolis</city>
-      <zip_code>55401</zip_code>
+      <zip-code>55401</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1102</order_id>
-        <order_date>2024-02-15T11:00:00Z</order_date>
-        <total_amount>25.99</total_amount>
+        <order-id>ORD1102</order-id>
+        <order-date>2024-02-15T11:00:00Z</order-date>
+        <total-amount>25.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD900</product_id>
+            <product-id>PROD900</product-id>
             <name>Portable Desk Fan (USB)</name>
             <price>25.99</price>
             <quantity>1</quantity>
@@ -2886,26 +2892,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00095</customer_id>
-    <first_name>Noah</first_name>
-    <last_name>Newman</last_name>
+    <customer-id>CUST00095</customer-id>
+    <first-name>Noah</first-name>
+    <last-name>Newman</last-name>
     <email>noah.newman@example.com</email>
-    <registration_date>2023-10-05</registration_date>
+    <registration-date>2023-10-05</registration-date>
     <address>
       <street>40 Oak Ln</street>
       <city>Raleigh</city>
-      <zip_code>27601</zip_code>
+      <zip-code>27601</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1103</order_id>
-        <order_date>2023-10-20T16:30:00Z</order_date>
-        <total_amount>35</total_amount>
+        <order-id>ORD1103</order-id>
+        <order-date>2023-10-20T16:30:00Z</order-date>
+        <total-amount>35</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD910</product_id>
+            <product-id>PROD910</product-id>
             <name>Puzzle (1000 Pieces)</name>
             <price>35</price>
             <quantity>1</quantity>
@@ -2915,26 +2921,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00096</customer_id>
-    <first_name>Penelope</first_name>
-    <last_name>Pena</last_name>
+    <customer-id>CUST00096</customer-id>
+    <first-name>Penelope</first-name>
+    <last-name>Pena</last-name>
     <email>penelope.pena@example.com</email>
-    <registration_date>2024-01-08</registration_date>
+    <registration-date>2024-01-08</registration-date>
     <address>
       <street>19 Summit View</street>
       <city>Denver</city>
-      <zip_code>80202</zip_code>
+      <zip-code>80202</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1104</order_id>
-        <order_date>2024-01-25T13:00:00Z</order_date>
-        <total_amount>10.99</total_amount>
+        <order-id>ORD1104</order-id>
+        <order-date>2024-01-25T13:00:00Z</order-date>
+        <total-amount>10.99</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD920</product_id>
+            <product-id>PROD920</product-id>
             <name>Set of Highlighter Pens</name>
             <price>10.99</price>
             <quantity>1</quantity>
@@ -2944,26 +2950,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00097</customer_id>
-    <first_name>Rafael</first_name>
-    <last_name>Ramirez</last_name>
+    <customer-id>CUST00097</customer-id>
+    <first-name>Rafael</first-name>
+    <last-name>Ramirez</last-name>
     <email>rafael.ramirez@example.com</email>
-    <registration_date>2023-12-10</registration_date>
+    <registration-date>2023-12-10</registration-date>
     <address>
       <street>777 Lucky Pl</street>
       <city>Las Vegas</city>
-      <zip_code>89109</zip_code>
+      <zip-code>89109</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1105</order_id>
-        <order_date>2024-01-01T10:00:00Z</order_date>
-        <total_amount>15</total_amount>
+        <order-id>ORD1105</order-id>
+        <order-date>2024-01-01T10:00:00Z</order-date>
+        <total-amount>15</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD930</product_id>
+            <product-id>PROD930</product-id>
             <name>Deck of Cards</name>
             <price>7.5</price>
             <quantity>2</quantity>
@@ -2973,26 +2979,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00098</customer_id>
-    <first_name>Samantha</first_name>
-    <last_name>Salazar</last_name>
+    <customer-id>CUST00098</customer-id>
+    <first-name>Samantha</first-name>
+    <last-name>Salazar</last-name>
     <email>samantha.salazar@example.com</email>
-    <registration_date>2024-03-18</registration_date>
+    <registration-date>2024-03-18</registration-date>
     <address>
       <street>5 Schoolhouse Rd</street>
       <city>Providence</city>
-      <zip_code>02903</zip_code>
+      <zip-code>02903</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1106</order_id>
-        <order_date>2024-04-05T15:00:00Z</order_date>
-        <total_amount>199.99</total_amount>
+        <order-id>ORD1106</order-id>
+        <order-date>2024-04-05T15:00:00Z</order-date>
+        <total-amount>199.99</total-amount>
         <status>Shipped</status>
         <products>
           <product>
-            <product_id>PROD940</product_id>
+            <product-id>PROD940</product-id>
             <name>Electric Guitar (Beginner)</name>
             <price>199.99</price>
             <quantity>1</quantity>
@@ -3002,32 +3008,32 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00099</customer_id>
-    <first_name>Tyler</first_name>
-    <last_name>Tran</last_name>
+    <customer-id>CUST00099</customer-id>
+    <first-name>Tyler</first-name>
+    <last-name>Tran</last-name>
     <email>tyler.tran@example.com</email>
-    <registration_date>2024-05-08</registration_date>
+    <registration-date>2024-05-08</registration-date>
     <address>
       <street>100 Broadway</street>
       <city>New York</city>
-      <zip_code>10007</zip_code>
+      <zip-code>10007</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1107</order_id>
-        <order_date>2024-05-20T10:30:00Z</order_date>
-        <total_amount>15.99</total_amount>
+        <order-id>ORD1107</order-id>
+        <order-date>2024-05-20T10:30:00Z</order-date>
+        <total-amount>15.99</total-amount>
         <status>Processing</status>
         <products>
           <product>
-            <product_id>PROD950</product_id>
+            <product-id>PROD950</product-id>
             <name>Guitar Picks (Pack of 10)</name>
             <price>5.99</price>
             <quantity>1</quantity>
           </product>
           <product>
-            <product_id>PROD951</product_id>
+            <product-id>PROD951</product-id>
             <name>Guitar Strap (Black)</name>
             <price>10</price>
             <quantity>1</quantity>
@@ -3037,26 +3043,26 @@
     </orders>
   </customer>
   <customer>
-    <customer_id>CUST00100</customer_id>
-    <first_name>Ursula</first_name>
-    <last_name>Vega</last_name>
+    <customer-id>CUST00100</customer-id>
+    <first-name>Ursula</first-name>
+    <last-name>Vega</last-name>
     <email>ursula.vega@example.com</email>
-    <registration_date>2023-11-01</registration_date>
+    <registration-date>2023-11-01</registration-date>
     <address>
       <street>555 South Blvd</street>
       <city>Nashville</city>
-      <zip_code>37203</zip_code>
+      <zip-code>37203</zip-code>
       <country>USA</country>
     </address>
     <orders>
       <order>
-        <order_id>ORD1108</order_id>
-        <order_date>2023-12-05T12:00:00Z</order_date>
-        <total_amount>12.99</total_amount>
+        <order-id>ORD1108</order-id>
+        <order-date>2023-12-05T12:00:00Z</order-date>
+        <total-amount>12.99</total-amount>
         <status>Delivered</status>
         <products>
           <product>
-            <product_id>PROD960</product_id>
+            <product-id>PROD960</product-id>
             <name>Dog Treats (Large Bag)</name>
             <price>12.99</price>
             <quantity>1</quantity>

@@ -10,9 +10,9 @@
     skills:
       primary: Ruby
       secondary:
-      - SQL
-      - Rails
-      - RSpec
+        - SQL
+        - Rails
+        - RSpec
   address:
     home:
       street: 909 Matthew Mills Apt. 582
@@ -34,9 +34,9 @@
     skills:
       primary: Node.js
       secondary:
-      - Express
-      - SQL
-      - MongoDB
+        - Express
+        - SQL
+        - MongoDB
   address:
     home:
       street: 8220 Park Greens
@@ -58,9 +58,9 @@
     skills:
       primary: JavaScript
       secondary:
-      - React
-      - Angular
-      - Vue
+        - React
+        - Angular
+        - Vue
   address:
     home:
       street: 0841 Taylor Glens
@@ -82,9 +82,9 @@
     skills:
       primary: SQL
       secondary:
-      - MySQL
-      - SQLite
-      - PostgreSQL
+        - MySQL
+        - SQLite
+        - PostgreSQL
   address:
     home:
       street: 49444 Ruiz Unions
@@ -106,9 +106,9 @@
     skills:
       primary: Angular
       secondary:
-      - TypeScript
-      - RxJS
-      - NgRx
+        - TypeScript
+        - RxJS
+        - NgRx
   address:
     home:
       street: 7243 Russell Lodge
@@ -130,9 +130,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - Scrum
-      - Kanban
-      - JIRA
+        - Scrum
+        - Kanban
+        - JIRA
   address:
     home:
       street: 383 Johnson Prairie
@@ -154,9 +154,9 @@
     skills:
       primary: Ruby
       secondary:
-      - RSpec
-      - Rails
-      - SQL
+        - RSpec
+        - Rails
+        - SQL
   address:
     home:
       street: 88127 Smith Branch Suite 003
@@ -178,9 +178,9 @@
     skills:
       primary: React
       secondary:
-      - Redux
-      - Next.js
-      - TypeScript
+        - Redux
+        - Next.js
+        - TypeScript
   address:
     home:
       street: 410 Brenda Way
@@ -202,9 +202,9 @@
     skills:
       primary: NoSQL
       secondary:
-      - Cassandra
-      - MongoDB
-      - Redis
+        - Cassandra
+        - MongoDB
+        - Redis
   address:
     home:
       street: 5771 Robert Point
@@ -226,9 +226,9 @@
     skills:
       primary: Angular
       secondary:
-      - TypeScript
-      - RxJS
-      - NgRx
+        - TypeScript
+        - RxJS
+        - NgRx
   address:
     home:
       street: 72807 Perez Orchard Suite 200
@@ -250,9 +250,9 @@
     skills:
       primary: Machine Learning
       secondary:
-      - scikit-learn
-      - PyTorch
-      - TensorFlow
+        - scikit-learn
+        - PyTorch
+        - TensorFlow
   address:
     home:
       street: 4263 Mario Common Suite 684
@@ -274,9 +274,9 @@
     skills:
       primary: Angular
       secondary:
-      - TypeScript
-      - NgRx
-      - RxJS
+        - TypeScript
+        - NgRx
+        - RxJS
   address:
     home:
       street: 8791 Griffith Radial Apt. 460
@@ -298,9 +298,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - Kanban
-      - Scrum
-      - JIRA
+        - Kanban
+        - Scrum
+        - JIRA
   address:
     home:
       street: 88685 Zachary Curve
@@ -322,9 +322,9 @@
     skills:
       primary: React
       secondary:
-      - Redux
-      - TypeScript
-      - Next.js
+        - Redux
+        - TypeScript
+        - Next.js
   address:
     home:
       street: 0405 Christopher Landing
@@ -346,9 +346,9 @@
     skills:
       primary: NoSQL
       secondary:
-      - Cassandra
-      - MongoDB
-      - Redis
+        - Cassandra
+        - MongoDB
+        - Redis
   address:
     home:
       street: 47713 Foster Overpass Suite 681
@@ -370,9 +370,9 @@
     skills:
       primary: Angular
       secondary:
-      - NgRx
-      - RxJS
-      - TypeScript
+        - NgRx
+        - RxJS
+        - TypeScript
   address:
     home:
       street: 01639 Sarah Common Apt. 208
@@ -394,9 +394,9 @@
     skills:
       primary: Go
       secondary:
-      - Gin
-      - Kubernetes
-      - Docker
+        - Gin
+        - Kubernetes
+        - Docker
   address:
     home:
       street: 83719 Burns Burg
@@ -418,9 +418,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - JIRA
-      - Kanban
-      - Scrum
+        - JIRA
+        - Kanban
+        - Scrum
   address:
     home:
       street: 0962 Jessica Run
@@ -442,9 +442,9 @@
     skills:
       primary: SQL
       secondary:
-      - MySQL
-      - PostgreSQL
-      - SQLite
+        - MySQL
+        - PostgreSQL
+        - SQLite
   address:
     home:
       street: 1408 Mccullough Point Apt. 428
@@ -466,9 +466,9 @@
     skills:
       primary: Machine Learning
       secondary:
-      - scikit-learn
-      - PyTorch
-      - TensorFlow
+        - scikit-learn
+        - PyTorch
+        - TensorFlow
   address:
     home:
       street: 52093 Andrew Canyon
@@ -490,9 +490,9 @@
     skills:
       primary: C#
       secondary:
-      - SQL
-      - Azure
-      - .NET
+        - SQL
+        - Azure
+        - .NET
   address:
     home:
       street: 4133 Joshua Mission
@@ -514,9 +514,9 @@
     skills:
       primary: React
       secondary:
-      - Next.js
-      - Redux
-      - TypeScript
+        - Next.js
+        - Redux
+        - TypeScript
   address:
     home:
       street: 32441 Nelson Fort
@@ -538,9 +538,9 @@
     skills:
       primary: Angular
       secondary:
-      - RxJS
-      - TypeScript
-      - NgRx
+        - RxJS
+        - TypeScript
+        - NgRx
   address:
     home:
       street: 73254 Brown Canyon
@@ -562,9 +562,9 @@
     skills:
       primary: Go
       secondary:
-      - Gin
-      - Docker
-      - Kubernetes
+        - Gin
+        - Docker
+        - Kubernetes
   address:
     home:
       street: 9065 Nathan Cliffs Apt. 873
@@ -586,9 +586,9 @@
     skills:
       primary: SQL
       secondary:
-      - PostgreSQL
-      - SQLite
-      - MySQL
+        - PostgreSQL
+        - SQLite
+        - MySQL
   address:
     home:
       street: 2834 Benjamin Manors Apt. 551
@@ -610,9 +610,9 @@
     skills:
       primary: SQL
       secondary:
-      - MySQL
-      - PostgreSQL
-      - SQLite
+        - MySQL
+        - PostgreSQL
+        - SQLite
   address:
     home:
       street: 71027 Steven Camp Suite 369
@@ -634,9 +634,9 @@
     skills:
       primary: SQL
       secondary:
-      - MySQL
-      - SQLite
-      - PostgreSQL
+        - MySQL
+        - SQLite
+        - PostgreSQL
   address:
     home:
       street: 75563 Mckenzie Mountain
@@ -658,9 +658,9 @@
     skills:
       primary: Node.js
       secondary:
-      - SQL
-      - Express
-      - MongoDB
+        - SQL
+        - Express
+        - MongoDB
   address:
     home:
       street: 7649 Barnes Spur
@@ -682,9 +682,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - Kanban
-      - Scrum
-      - JIRA
+        - Kanban
+        - Scrum
+        - JIRA
   address:
     home:
       street: 855 Edwards Manor
@@ -706,9 +706,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - Kanban
-      - Scrum
-      - JIRA
+        - Kanban
+        - Scrum
+        - JIRA
   address:
     home:
       street: 16412 Fields Village Suite 561
@@ -730,9 +730,9 @@
     skills:
       primary: JavaScript
       secondary:
-      - Node.js
-      - Angular
-      - Vue
+        - Node.js
+        - Angular
+        - Vue
   address:
     home:
       street: 749 Lewis Fields
@@ -754,9 +754,9 @@
     skills:
       primary: Python
       secondary:
-      - Pandas
-      - Django
-      - Flask
+        - Pandas
+        - Django
+        - Flask
   address:
     home:
       street: 7315 Sean Common Apt. 618
@@ -778,9 +778,9 @@
     skills:
       primary: NoSQL
       secondary:
-      - Redis
-      - MongoDB
-      - Cassandra
+        - Redis
+        - MongoDB
+        - Cassandra
   address:
     home:
       street: 741 Hess Prairie
@@ -802,9 +802,9 @@
     skills:
       primary: Java
       secondary:
-      - Spring
-      - Hibernate
-      - SQL
+        - Spring
+        - Hibernate
+        - SQL
   address:
     home:
       street: 96336 Haynes Bridge Apt. 204
@@ -826,9 +826,9 @@
     skills:
       primary: JavaScript
       secondary:
-      - Angular
-      - SQL
-      - Node.js
+        - Angular
+        - SQL
+        - Node.js
   address:
     home:
       street: 458 Richmond Fields
@@ -850,9 +850,9 @@
     skills:
       primary: Go
       secondary:
-      - Kubernetes
-      - Gin
-      - Docker
+        - Kubernetes
+        - Gin
+        - Docker
   address:
     home:
       street: 17189 Kevin Mews Apt. 762
@@ -874,9 +874,9 @@
     skills:
       primary: Angular
       secondary:
-      - TypeScript
-      - RxJS
-      - NgRx
+        - TypeScript
+        - RxJS
+        - NgRx
   address:
     home:
       street: 0969 Gloria Forges
@@ -898,9 +898,9 @@
     skills:
       primary: Java
       secondary:
-      - Spring
-      - SQL
-      - Hibernate
+        - Spring
+        - SQL
+        - Hibernate
   address:
     home:
       street: 2893 Brenda Squares Suite 105
@@ -922,9 +922,9 @@
     skills:
       primary: Go
       secondary:
-      - Gin
-      - Kubernetes
-      - Docker
+        - Gin
+        - Kubernetes
+        - Docker
   address:
     home:
       street: 21592 Thomas Walk
@@ -946,9 +946,9 @@
     skills:
       primary: Node.js
       secondary:
-      - Express
-      - SQL
-      - MongoDB
+        - Express
+        - SQL
+        - MongoDB
   address:
     home:
       street: 3952 Kathryn Place
@@ -970,9 +970,9 @@
     skills:
       primary: Node.js
       secondary:
-      - Express
-      - MongoDB
-      - SQL
+        - Express
+        - MongoDB
+        - SQL
   address:
     home:
       street: 311 Sims Crest Suite 705
@@ -994,9 +994,9 @@
     skills:
       primary: JavaScript
       secondary:
-      - SQL
-      - React
-      - Node.js
+        - SQL
+        - React
+        - Node.js
   address:
     home:
       street: 32169 Terry Walks Suite 031
@@ -1018,9 +1018,9 @@
     skills:
       primary: Angular
       secondary:
-      - TypeScript
-      - NgRx
-      - RxJS
+        - TypeScript
+        - NgRx
+        - RxJS
   address:
     home:
       street: 742 Adrian Motorway
@@ -1042,9 +1042,9 @@
     skills:
       primary: JavaScript
       secondary:
-      - React
-      - Angular
-      - SQL
+        - React
+        - Angular
+        - SQL
   address:
     home:
       street: 152 Sue Forest
@@ -1066,9 +1066,9 @@
     skills:
       primary: NoSQL
       secondary:
-      - Redis
-      - MongoDB
-      - Cassandra
+        - Redis
+        - MongoDB
+        - Cassandra
   address:
     home:
       street: 251 Christopher Fords
@@ -1090,9 +1090,9 @@
     skills:
       primary: Machine Learning
       secondary:
-      - PyTorch
-      - scikit-learn
-      - TensorFlow
+        - PyTorch
+        - scikit-learn
+        - TensorFlow
   address:
     home:
       street: 502 Perry Groves Apt. 111
@@ -1114,9 +1114,9 @@
     skills:
       primary: NoSQL
       secondary:
-      - Cassandra
-      - Redis
-      - MongoDB
+        - Cassandra
+        - Redis
+        - MongoDB
   address:
     home:
       street: 74009 Carter Springs
@@ -1138,9 +1138,9 @@
     skills:
       primary: Agile Management
       secondary:
-      - Scrum
-      - Kanban
-      - JIRA
+        - Scrum
+        - Kanban
+        - JIRA
   address:
     home:
       street: 463 Thomas Station Suite 203
@@ -1162,9 +1162,9 @@
     skills:
       primary: C#
       secondary:
-      - .NET
-      - Azure
-      - SQL
+        - .NET
+        - Azure
+        - SQL
   address:
     home:
       street: 38170 Jamie Brooks
@@ -1186,9 +1186,9 @@
     skills:
       primary: SQL
       secondary:
-      - MySQL
-      - SQLite
-      - PostgreSQL
+        - MySQL
+        - SQLite
+        - PostgreSQL
   address:
     home:
       street: 3429 Zachary Turnpike
@@ -1210,9 +1210,9 @@
     skills:
       primary: Java
       secondary:
-        - Spring Boot
-        - Microservices
-        - AWS
+          - Spring Boot
+          - Microservices
+          - AWS
   address:
     home:
       street: 1-5-2 Shinjuku
@@ -1234,9 +1234,9 @@
     skills:
       primary: Figma
       secondary:
-        - Sketch
-        - User Research
-        - Adobe XD
+          - Sketch
+          - User Research
+          - Adobe XD
   address:
     home:
       street: 789 Gangnam-daero
@@ -1258,9 +1258,9 @@
     skills:
       primary: Agile Management
       secondary:
-        - Scrum
-        - JIRA
-        - Confluence
+          - Scrum
+          - JIRA
+          - Confluence
   address:
     home:
       street: 456 Indiranagar
@@ -1282,9 +1282,9 @@
     skills:
       primary: Digital Marketing
       secondary:
-        - SEO
-        - SEM
-        - Google Analytics
+          - SEO
+          - SEM
+          - Google Analytics
   address:
     home:
       street: 321 Nanjing Road
@@ -1306,9 +1306,9 @@
     skills:
       primary: Team Leadership
       secondary:
-        - System Design
-        - Python
-        - AWS
+          - System Design
+          - Python
+          - AWS
   address:
     home:
       street: 111 Orchard Road
@@ -1330,9 +1330,9 @@
     skills:
       primary: Python
       secondary:
-        - Pandas
-        - TensorFlow
-        - Scikit-learn
+          - Pandas
+          - TensorFlow
+          - Scikit-learn
   address:
     home:
       street: 55 Nguyen Hue
@@ -1354,9 +1354,9 @@
     skills:
       primary: JavaScript
       secondary:
-        - React
-        - HTML
-        - CSS
+          - React
+          - HTML
+          - CSS
   address:
     home:
       street: 2-3-1 Minato
@@ -1378,9 +1378,9 @@
     skills:
       primary: Financial Modeling
       secondary:
-        - Excel
-        - SQL
-        - Tableau
+          - Excel
+          - SQL
+          - Tableau
   address:
     home:
       street: 123 Myeongdong
@@ -1402,9 +1402,9 @@
     skills:
       primary: Talent Acquisition
       secondary:
-        - Employee Relations
-        - HRIS
-        - Compensation
+          - Employee Relations
+          - HRIS
+          - Compensation
   address:
     home:
       street: 777 Bandra
@@ -1426,9 +1426,9 @@
     skills:
       primary: Machine Learning
       secondary:
-        - Deep Learning
-        - Python
-        - Spark
+          - Deep Learning
+          - Python
+          - Spark
   address:
     home:
       street: 88 Haidian District
@@ -1450,9 +1450,9 @@
     skills:
       primary: Node.js
       secondary:
-        - Express
-        - MongoDB
-        - REST APIs
+          - Express
+          - MongoDB
+          - REST APIs
   address:
     home:
       street: 555 Koramangala
@@ -1474,9 +1474,9 @@
     skills:
       primary: Content Writing
       secondary:
-        - SEO
-        - Copywriting
-        - CMS
+          - SEO
+          - Copywriting
+          - CMS
   address:
     home:
       street: 10 Jalan Ampang
@@ -1498,9 +1498,9 @@
     skills:
       primary: AWS
       secondary:
-        - Docker
-        - Kubernetes
-        - Terraform
+          - Docker
+          - Kubernetes
+          - Terraform
   address:
     home:
       street: 8-1-1 Shibuya
@@ -1522,9 +1522,9 @@
     skills:
       primary: Product Strategy
       secondary:
-        - User Research
-        - Agile
-        - Roadmapping
+          - User Research
+          - Agile
+          - Roadmapping
   address:
     home:
       street: 222 Hongdae
@@ -1546,9 +1546,9 @@
     skills:
       primary: Automation Testing
       secondary:
-        - Selenium
-        - JIRA
-        - SQL
+          - Selenium
+          - JIRA
+          - SQL
   address:
     home:
       street: 12 Sector 29
@@ -1570,9 +1570,9 @@
     skills:
       primary: Negotiation
       secondary:
-        - Salesforce
-        - CRM
-        - Lead Generation
+          - Salesforce
+          - CRM
+          - Lead Generation
   address:
     home:
       street: 567 Xuhui District
@@ -1594,9 +1594,9 @@
     skills:
       primary: Process Optimization
       secondary:
-        - Logistics
-        - Six Sigma
-        - Team Management
+          - Logistics
+          - Six Sigma
+          - Team Management
   address:
     home:
       street: 3-3-3 Ginza
@@ -1618,9 +1618,9 @@
     skills:
       primary: React
       secondary:
-        - TypeScript
-        - Next.js
-        - GraphQL
+          - TypeScript
+          - Next.js
+          - GraphQL
   address:
     home:
       street: 45 Itaewon-ro
@@ -1642,9 +1642,9 @@
     skills:
       primary: SQL
       secondary:
-        - Oracle
-        - MySQL
-        - Backup & Recovery
+          - Oracle
+          - MySQL
+          - Backup & Recovery
   address:
     home:
       street: 88 HSR Layout
@@ -1666,9 +1666,9 @@
     skills:
       primary: Data Analysis
       secondary:
-        - SQL
-        - Tableau
-        - Requirements Gathering
+          - SQL
+          - Tableau
+          - Requirements Gathering
   address:
     home:
       street: 12 Chaoyang Park
@@ -1690,9 +1690,9 @@
     skills:
       primary: AWS
       secondary:
-        - Azure
-        - GCP
-        - Terraform
+          - Azure
+          - GCP
+          - Terraform
   address:
     home:
       street: 21 Jubilee Hills
@@ -1714,9 +1714,9 @@
     skills:
       primary: Adobe Illustrator
       secondary:
-        - Photoshop
-        - InDesign
-        - Branding
+          - Photoshop
+          - InDesign
+          - Branding
   address:
     home:
       street: 5-5-5 Akihabara
@@ -1738,9 +1738,9 @@
     skills:
       primary: Bookkeeping
       secondary:
-        - Excel
-        - QuickBooks
-        - Taxation
+          - Excel
+          - QuickBooks
+          - Taxation
   address:
     home:
       street: 301 Clementi
@@ -1762,9 +1762,9 @@
     skills:
       primary: Java
       secondary:
-        - Project Management
-        - Spring
-        - Mentoring
+          - Project Management
+          - Spring
+          - Mentoring
   address:
     home:
       street: 88 Hai Ba Trung
@@ -1786,9 +1786,9 @@
     skills:
       primary: Flutter
       secondary:
-        - Dart
-        - Firebase
-        - Android
+          - Dart
+          - Firebase
+          - Android
   address:
     home:
       street: 25 Jalan Sudirman
@@ -1810,9 +1810,9 @@
     skills:
       primary: Python
       secondary:
-        - Django
-        - Flask
-        - PostgreSQL
+          - Django
+          - Flask
+          - PostgreSQL
   address:
     home:
       street: 45 Futian District
@@ -1834,9 +1834,9 @@
     skills:
       primary: Communication
       secondary:
-        - Zendesk
-        - Problem Solving
-        - Empathy
+          - Zendesk
+          - Problem Solving
+          - Empathy
   address:
     home:
       street: 12 Sukhumvit Soi 11
@@ -1858,9 +1858,9 @@
     skills:
       primary: Onboarding
       secondary:
-        - Employee Engagement
-        - Workday
-        - Payroll
+          - Employee Engagement
+          - Workday
+          - Payroll
   address:
     home:
       street: 6-7-8 Yokohama
@@ -1882,9 +1882,9 @@
     skills:
       primary: Sales Strategy
       secondary:
-        - Team Management
-        - Salesforce
-        - B2B
+          - Team Management
+          - Salesforce
+          - B2B
   address:
     home:
       street: 101 Defence Colony
@@ -1906,9 +1906,9 @@
     skills:
       primary: Copywriting
       secondary:
-        - SEO
-        - WordPress
-        - Storytelling
+          - SEO
+          - WordPress
+          - Storytelling
   address:
     home:
       street: 789 Ayala Avenue
@@ -1930,9 +1930,9 @@
     skills:
       primary: SQL
       secondary:
-        - Tableau
-        - Python
-        - Statistics
+          - Tableau
+          - Python
+          - Statistics
   address:
     home:
       street: 333 Jamsil
@@ -1954,9 +1954,9 @@
     skills:
       primary: C++
       secondary:
-        - Data Structures
-        - Algorithms
-        - Git
+          - Data Structures
+          - Algorithms
+          - Git
   address:
     home:
       street: 77 Gulou Street
@@ -1978,9 +1978,9 @@
     skills:
       primary: Selenium
       secondary:
-        - Appium
-        - TestNG
-        - CI/CD
+          - Appium
+          - TestNG
+          - CI/CD
   address:
     home:
       street: 15 Block D, Gulberg
@@ -2002,9 +2002,9 @@
     skills:
       primary: Accounts Payable
       secondary:
-        - Excel
-        - SAP
-        - Reporting
+          - Excel
+          - SAP
+          - Reporting
   address:
     home:
       street: 88 Jalan Thamrin
@@ -2026,9 +2026,9 @@
     skills:
       primary: Sketch
       secondary:
-        - Figma
-        - Interaction Design
-        - Prototyping
+          - Figma
+          - Interaction Design
+          - Prototyping
   address:
     home:
       street: 9-1-2 Ginza
@@ -2050,9 +2050,9 @@
     skills:
       primary: Go-to-Market Strategy
       secondary:
-        - Market Research
-        - Content Marketing
-        - Salesforce
+          - Market Research
+          - Content Marketing
+          - Salesforce
   address:
     home:
       street: 111 Jayanagar
@@ -2074,9 +2074,9 @@
     skills:
       primary: Sourcing
       secondary:
-        - Interviewing
-        - LinkedIn Recruiter
-        - ATS
+          - Interviewing
+          - LinkedIn Recruiter
+          - ATS
   address:
     home:
       street: 56 Sinchon
@@ -2098,9 +2098,9 @@
     skills:
       primary: Troubleshooting
       secondary:
-        - Active Directory
-        - Networking
-        - Hardware
+          - Active Directory
+          - Networking
+          - Hardware
   address:
     home:
       street: 10 Quezon Avenue
@@ -2122,9 +2122,9 @@
     skills:
       primary: Contract Law
       secondary:
-        - Compliance
-        - Corporate Law
-        - Negotiation
+          - Compliance
+          - Corporate Law
+          - Negotiation
   address:
     home:
       street: 22 Wangfujing
@@ -2146,9 +2146,9 @@
     skills:
       primary: C
       secondary:
-        - Embedded Systems
-        - RTOS
-        - Linux
+          - Embedded Systems
+          - RTOS
+          - Linux
   address:
     home:
       street: 45 Xinyi Road
@@ -2170,9 +2170,9 @@
     skills:
       primary: Lead Generation
       secondary:
-        - CRM
-        - Cold Calling
-        - Email Marketing
+          - CRM
+          - Cold Calling
+          - Email Marketing
   address:
     home:
       street: 33 Lokhandwala
@@ -2194,9 +2194,9 @@
     skills:
       primary: Strategic Planning
       secondary:
-        - Leadership
-        - Budgeting
-        - Architecture
+          - Leadership
+          - Budgeting
+          - Architecture
   address:
     home:
       street: 7-7-7 Roppongi
@@ -2218,9 +2218,9 @@
     skills:
       primary: Community Management
       secondary:
-        - Hootsuite
-        - Content Creation
-        - Analytics
+          - Hootsuite
+          - Content Creation
+          - Analytics
   address:
     home:
       street: 55 Damansara
@@ -2242,9 +2242,9 @@
     skills:
       primary: Supply Chain
       secondary:
-        - Logistics
-        - SAP
-        - Process Improvement
+          - Logistics
+          - SAP
+          - Process Improvement
   address:
     home:
       street: 88 Yeouido
@@ -2266,9 +2266,9 @@
     skills:
       primary: Scrum
       secondary:
-        - Agile Coaching
-        - JIRA
-        - Facilitation
+          - Agile Coaching
+          - JIRA
+          - Facilitation
   address:
     home:
       street: 15 District 1
@@ -2290,9 +2290,9 @@
     skills:
       primary: System Architecture
       secondary:
-        - Java
-        - Distributed Systems
-        - Scalability
+          - Java
+          - Distributed Systems
+          - Scalability
   address:
     home:
       street: 44 Whitefield
@@ -2314,9 +2314,9 @@
     skills:
       primary: Kubernetes
       secondary:
-        - AWS
-        - CI/CD
-        - Ansible
+          - AWS
+          - CI/CD
+          - Ansible
   address:
     home:
       street: 404 Punggol
@@ -2338,9 +2338,9 @@
     skills:
       primary: User Interviews
       secondary:
-        - Usability Testing
-        - Personas
-        - Analytics
+          - Usability Testing
+          - Personas
+          - Analytics
   address:
     home:
       street: 10 Jalan Gajah Mada
@@ -2362,9 +2362,9 @@
     skills:
       primary: Network Security
       secondary:
-        - Penetration Testing
-        - SIEM
-        - CISSP
+          - Penetration Testing
+          - SIEM
+          - CISSP
   address:
     home:
       street: 4-4-4 Ueno
@@ -2386,9 +2386,9 @@
     skills:
       primary: Android (Kotlin)
       secondary:
-        - Java
-        - MVVM
-        - Firebase
+          - Java
+          - MVVM
+          - Firebase
   address:
     home:
       street: 78 Dhanmondi

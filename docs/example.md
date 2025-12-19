@@ -1,6 +1,6 @@
 # EMON Syntax Examples
 
-**EMON (Efficient Minimal Object Notation)** is a compact, typed, and human-friendly data notation format designed as a minimal alternative to JSON. It prioritizes efficiency by using explicit schema lines (`#typeName(...)`) and positional data records (`=value1,value2,...`), significantly reducing boilerplate characters.
+**EMON (Efficient Minimal Object Notation)** is a compact, typed, and human-friendly data notation format designed as a minimal alternative to JSON. It prioritizes efficiency by using explicit schema lines (`#(...)`) and positional data records (`=value1,value2,...`), significantly reducing boilerplate characters.
 
 These examples illustrate the core syntax principles of EMON:
 
@@ -20,7 +20,7 @@ This example shows a simple object structure, demonstrating the rules for quotin
 
 ```emon
 // Define the user type
-#user(id:number,username:string,email:string,isActive:bool)
+#(id:number,username:string,email:string,isActive:bool)
 
 // Data record follows the defined schema
 =1001,JaneDoe,jane.doe@corp.com,true
@@ -47,7 +47,7 @@ To represent an array of objects, the root type declaration uses [] (e.g., #prod
 
 ```emon
 // Define an array of products
-#product(sku:string,name:string,price:number,tags:[string])[]
+#(sku:string,name:string,price:number,tags:[string])[]
 
 // Record 1: Name without spaces (unquoted)
 =SKU001,Apple,0.99,[fruit,fresh]
@@ -88,7 +88,7 @@ This demonstrates defining a child type (#location) separately and referencing i
 #location(city:string,country:string)
 
 // Parent type definition with a reference to #location
-#person(id:number,name:string,location:#location)[]
+#(id:number,name:string,location:#location)[]
 
 =201,John,{London,UK}
 =202,"M Alice",{Paris,France}
@@ -128,7 +128,7 @@ If a nested object is simple and unlikely to be reused, it can be defined inline
 **EMON**
 
 ```emon
-#order(id:string,items:[(name:string,qty:number,price:number)])
+#(id:string,items:[(name:string,qty:number,price:number)])
 // The items array contains inline nested objects: [{val1,val2,val3}, {val1,val2,val3}]
 =ABC-456,[{Mug,2,12.50},{Pen,5,1.99}]
 ```
@@ -162,7 +162,7 @@ The triple-quote ("""...""") syntax is used for multiline strings. All internal 
 **EMON**
 
 ```emon
-#article(title:string,body:string)
+#(title:string,body:string)
 ="Q3 Summary", """
 The third quarter performance exceeded expectations.
 Key highlights include:
@@ -191,7 +191,7 @@ Fields can be explicitly set to null. Arrays can be empty [] or explicitly null.
 **EMON**
 
 ```emon
-#project(id:number,name:string,deadline:string,team:[string],notes:string)
+#(id:number,name:string,deadline:string,team:[string],notes:string)
 // deadline is null, notes is an empty string (""), team is an empty array ([])
 =10,Website-Redesign,null,[],""
 ```
@@ -217,7 +217,7 @@ Demonstrating inline type definition used for a complex, nested configuration st
 **EMON**
 
 ```emon
-#config(name:string, settings:[(timeout:number, retry:[(max:number, delay:number)])])
+#(name:string, settings:[(timeout:number, retry:[(max:number, delay:number)])])
 =API-Client-1,[{15000, [{3, 500}, {5, 1000}]}]
 ```
 
@@ -247,7 +247,7 @@ A single record demonstrating all quoting rules: unquoted strings, quoted string
 **EMON**
 
 ```emon
-#comment(user:string, timestamp:string, message:string)
+#(user:string, timestamp:string, message:string)
 // Timestamp contains spaces and must be quoted
 // Message contains an internal double quote, which must be escaped as \"
 =user-A,"2024-10-26 10:30","He said \"Hello\" to me."
@@ -272,7 +272,7 @@ The multiline block can hold complex structured text, like a JSON snippet, prese
 **EMON**
 
 ```emon
-#log(source:string, payload:string)
+#(source:string, payload:string)
 =payment-processor, """
 {
   "status": "fail",
@@ -300,7 +300,7 @@ The multiline block can hold HTML or XML structure.
 **EMON**
 
 ```emon
-#template(name:string, content:string)
+#(name:string, content:string)
 =email-welcome, """
 <p>
   Welcome, {{user.name}}!
@@ -330,7 +330,7 @@ Demonstrates an array field that holds multiple references to a separately defin
 
 ```emon
 #skill(name:string, level:number)
-#employee(name:string, skills:#skill[])
+#(name:string, skills:#skill[])
 =David,[{Python,5},{MongoDB,3},{teamwork,4}]
 ```
 
@@ -357,12 +357,12 @@ Demonstrates how data records follow the most recently defined schema.
 
 ```emon
 // Schema 1: #ship
-#ship(id:number, name:string)
+#(id:number, name:string)
 =1,"Voyager"
 =2,"Enterprise"
 
 // Schema 2: #captain
-#captain(shipId:number, name:string)
+#(shipId:number, name:string)
 =1,"J. Sisko"
 =2,"J. Picard"
 ```
@@ -394,7 +394,7 @@ Simple demonstration of mixed numeric and boolean types.
 **EMON**
 
 ```emon
-#item_status(name:string, inStock:bool, weightKg:number, lastChecked:number)[]
+#(name:string, inStock:bool, weightKg:number, lastChecked:number)[]
 // weightKg is a float, lastChecked is a timestamp (integer)
 =Widget-A,true,0.12,1678886400
 =Gadget-B,false,1.5,1678972800
@@ -428,7 +428,7 @@ A multiline string used as a value inside a nested object.
 **EMON**
 
 ```emon
-#data_package(id:number, summary:[(notes:string, version:string)])
+#(id:number, summary:[(notes:string, version:string)])
 =10, [{
 """
 Release notes for 2.1:
@@ -461,7 +461,7 @@ Demonstrates an array of primitives (roles) and an array of simple nested object
 
 ```emon
 #access_rule(resource:string, permission:string)
-#user_profile(username:string, roles:[string], access:#access_rule[])
+#(username:string, roles:[string], access:#access_rule[])
 =SystemAdmin,[admin,billing,user-mgmt],[{database,read},{settings,write}]
 ```
 
@@ -487,7 +487,7 @@ Demonstrates a record where all fields are explicitly set to null.
 **EMON**
 
 ```emon
-#record(key:string, value:string, count:number, details:[(a:string)])
+#(key:string, value:string, count:number, details:[(a:string)])
 =test-nulls,null,null,null
 ```
 
@@ -511,7 +511,7 @@ Demonstrates a minimal inline object type [(a:string)].
 **EMON**
 
 ```emon
-#list(id:number, names:[(first:string)])
+#(id:number, names:[(first:string)])
 =55,[{Alice},{Bob},{Charlie}]
 ```
 
@@ -536,7 +536,7 @@ Demonstrates a minimal inline object type [(a:string)].
 
 ```emon
 #coordinate(lat:number, lon:number)
-#region(name:string, boundary:#coordinate[])
+#(name:string, boundary:#coordinate[])
 =Ocean-Zone-A, [{40.71,-74.01}, {41.50,-73.00}, {40.00,-75.00}]
 ```
 
@@ -562,7 +562,7 @@ An array field containing an array of primitive types (like a matrix row).
 **EMON**
 
 ```emon
-#grid(id:string, rows:[[number]])
+#(id:string, rows:[[number]])
 =matrix-4x2, [[1,2,3,4],[5,6,7,8]]
 ```
 
@@ -585,7 +585,7 @@ An array field containing an array of primitive types (like a matrix row).
 **EMON**
 
 ```emon
-#sensor_readings(id:number, states:[bool])
+#(id:number, states:[bool])
 =99,[true,false,false,true]
 ```
 
@@ -605,7 +605,7 @@ An array field containing an array of primitive types (like a matrix row).
 **EMON**
 
 ```emon
-#event(code:string, description:string, severity:number)[]
+#(code:string, description:string, severity:number)[]
 =E100,"Disk Full",3
 =W201,"Low Memory",1
 =I300,"Backup Complete",0
