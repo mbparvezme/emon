@@ -60,15 +60,15 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - All other definitions must be named (`#type_name(`...`)`) and are used for nesting.
 - Field names and type names are case-sensitive.
 
-**2. Object vs Array**  
+**2. Object vs Array**
 - `#(...)` → single JSON object `{...}` or flat data.
 - `#(`...`)[]` → array of objects `[{`...`},{`...`}]`
 
-**3. Value Assignment**  
-- Each `=` line represents **one record**.  
+**3. Value Assignment**
+- Each `=` line represents **one record**.
 - Values must follow the **exact field order** defined in the root or nested schema.
 
-**4. Quotation**  
+**4. Quotation**
 - Single-word strings → no quotes (`Alice`, `Admin`).
 - Multi-word or special strings → use double quotes (`"M Alice"`, `"NY, USA"`). **Quotes are mandatory if the string contains spaces or delimiters.**
 
@@ -83,10 +83,10 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 
 **6. Spacing**
 - No unnecessary spaces inside structures (`#()`, `{}`, `[]`, or data records `=`).
-- Correct: `=[{Alice},{Bob}]`  
+- Correct: `=[{Alice},{Bob}]`
 - Incorrect: `= [ { Alice }, { Bob } ]`
 
-**7. Nested Types**  
+**7. Nested Types**
 - Use `{}` for objects.
 - Use `[]` for arrays of primitives or objects. Example: `string[]`, `number[]` or `#type[]`
 
@@ -95,13 +95,13 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Arrays: `type[]`
 - Nested object: `#type`
 
-**9. Comments**  
-- Use `//` **outside** data lines.  
+**9. Comments**
+- Use `//` **outside** data lines.
 - Inline comments inside `=` lines or type definitions are **not allowed**.
 
-**10. Escaping & Special Strings**  
-- Use `\` for special characters: `"He said \"Hello\""`  
-- Multi-line strings: triple quotes  
+**10. Escaping & Special Strings**
+- Use `\` for special characters: `"He said \"Hello\""`
+- Multi-line strings: triple quotes
 ```emon
 #(text:string)
 ="""Line 1
@@ -114,16 +114,16 @@ Line 2"""
 @encoding(utf-8)
 ```
 
-**12. Strict Type Validation**  
-- Values must match declared types exactly:  
+**12. Strict Type Validation**
+- Values must match declared types exactly:
 - `#(age:number)` → `=twenty-five` ❌
-- `#(age:number)` → `=25` ✅  
+- `#(age:number)` → `=25` ✅
 
-**13. Array Rules**  
-- Arrays are **position-based**, no indexes required: `[A,B,C]`  
+**13. Array Rules**
+- Arrays are **position-based**, no indexes required: `[A,B,C]`
 - Arrays must be homogenous in type.
 
-**14. Importing Types**: Reuse types across files using:  
+**14. Importing Types**: Reuse types across files using:
 ```emon
 import "./common/user.emon"
 ```
