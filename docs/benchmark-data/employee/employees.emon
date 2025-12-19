@@ -1,11 +1,11 @@
-#(personalInfo:#personalinfo,jobDetails:#jobdetails,address:#address)[]
-#personalinfo(name:string,age:number,contact:#contact)
 #contact(email:string,phone:string)
-#jobdetails(position:string,department:string,skills:#skills)
+#personalinfo(name:string,age:number,contact:#contact)
 #skills(primary:string,secondary:[string])
-#address(home:#home,office:#office)
-#home(street:string,city:string,country:string)
+#jobdetails(position:string,department:string,skills:#skills)
 #office(street:string,city:string,country:string)
+#home(street:string,city:string,country:string)
+#address(home:#home,office:#office)
+#(personalInfo:#personalinfo,jobDetails:#jobdetails,address:#address)[]
 
 ={"Mr. Joshua Simpson",45,{"pbaxter@garcia.biz","345-186-6295"}},{"Backend Developer",Data,{Ruby,[SQL,Rails,RSpec]}},{{"909 Matthew Mills Apt. 582",Sanchezton,"Falkland Islands (Malvinas)"},{"6199 Lori Falls Apt. 579",Moranside,"New Zealand"}}
 ={"Stephanie Valdez",48,{"richardpeterson@hanson-johnson.org","001-641-473-9218x638"}},{"UI/UX Designer",QA,{Node.js,[Express,SQL,MongoDB]}},{{"8220 Park Greens","South Steven",Niue},{"414 Martinez Road",Lewisfurt,Uruguay}}

@@ -1,7 +1,7 @@
-#(customer_id:string,first_name:string,last_name:string,email:string,registration_date:string,address:#address,orders:[#order])[]
 #address(street:string,city:string,zip_code:string,country:string)
 #order(order_id:string,order_date:string,total_amount:number,status:string,products:[#product])
 #product(product_id:string,name:string,price:number,quantity:number)
+#(customer_id:string,first_name:string,last_name:string,email:string,registration_date:string,address:#address,orders:[#order])[]
 
 =CUST00001,Oliver,Hayes,"oliver.hayes@example.com","2024-01-15",{"12 Elm St",Springfield,10001,USA},[{ORD1000,"2024-02-01T11:00:00Z",54.98,Delivered,[{PROD001,"Cotton T-Shirt (Blue)",25.99,2},{PROD005,"Canvas Tote Bag",2.99,1}]}]
 =CUST00002,Sophia,Chen,"sophia.chen@example.com","2024-03-10",{"789 Pine Ave",Oakland,94601,USA},[{ORD1001,"2024-03-20T15:45:00Z",129.99,Shipped,[{PROD010,"Noise-Cancelling Headphones",129.99,1}]},{ORD1002,"2024-04-05T08:30:00Z",45,Processing,[{PROD012,"Stainless Steel Water Bottle",22.5,2}]}]

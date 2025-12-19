@@ -7,113 +7,128 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 
 ## Core Syntax
 
-* **Type Declaration**: Begin with `#(` to define the primary root type and its fields.
+**1. Type Declaration**: Begin with `#(` to define the primary root type and its fields.
 
-  ```emon
-  #(field:type,...)
-  ```
+```emon
+#(field:type,...)
+```
 
-  Example:
+**Example**
 
-  ```emon
-  #(id:number,name:string,gender:string,roles:[string])
-  ```
+```emon
+#(id:number,name:string,gender:string,roles:[string])[]
+```
 
-* **Value Assignment**: Use `=` to provide values in the same order as the fields.
+**2. Type Declaration (Nested - Named)**: Begin with `#type_name(` to define reusable, named types for nested structures.
 
-  ```emon
-  =1,A,female,[admin,editor]
-  ```
+```emon
+#profile(bio:string,location:string)
+```
 
-* **Nested Structures**: Define nested objects or arrays explicitly.
+**3. Value Assignment**: Use `=` to provide values in the same order as the fields defined in the root type.
 
-  ```emon
-  #(name:string,members:#member[])
-  #member(name:string,role:string)
-  =AI_Dev,[{Alice,Lead},{Bob,Engineer}]
-  ```
+```emon
+=1,Alice,female,[admin,editor]
+```
+
+**4. Nested Structures**: Define nested objects or arrays explicitly.
+
+```emon
+#member(name:string,role:string)
+#(name:string,members:#member[])[]
+=AI_Dev,[{Alice,Lead},{Bob,Engineer}]
+```
 
 <br>
 
 ## Field Types
 
-| Type     | Description                          | Example                  |
-| -------- | ------------------------------------ | ------------------------ |
-| `string` | Text values; quotes only when needed | `"M Parvez"` or `Parvez` |
-| `number` | Integer or float values              | `42`, `3.14`             |
-| `bool`   | Boolean values                       | `true`, `false`          |
-| `[type]` | Array of a single type               | `[admin,editor]`         |
-| `#type`  | Reference to another defined type    | `{PHP,Expert}`           |
+| Type      | Description                                        | Example                              |
+| --------- | -------------------------------------------------- | ------------------------------------ |
+| `string`  | Text values; quotes only when needed               | `"John Doe"` or `John`               |
+| `number`  | Integer or float values                            | `42`, `3.14`                         |
+| `bool`    | Boolean values                                     | `true`, `false`                      |
+| `type[]`  | Array of a single type (homogenous).               | `string[]`, `number[]`, `#member[]`  |
+| `#type`   | Reference to another defined type (nested object). | `{PHP,Expert}`                       |
 
 <br>
 
 ## Rules
 
 **1. Type Definition**
-- Always define types before using them.  
+- The first definition in the file is the Root Type and must be nameless (`#(`...`)`).
+- All other definitions must be named (`#type_name(`...`)`) and are used for nesting.
 - Field names and type names are case-sensitive.
 
 **2. Object vs Array**  
-- `#(...)` → single JSON object `{...}`  
-- `#(...)[]` → array of objects `[{...}, {...}]`
+- `#(...)` → single JSON object `{...}` or flat data.
+- `#(`...`)[]` → array of objects `[{`...`},{`...`}]`
 
 **3. Value Assignment**  
 - Each `=` line represents **one record**.  
-- Values must follow the **exact field order**.  
+- Values must follow the **exact field order** defined in the root or nested schema.
 
 **4. Quotation**  
-- Single-word strings → no quotes (`Alice`, `Admin`)  
-- Multi-word or special strings → use double quotes (`"M Alice"`, `"NY, USA"`)
+- Single-word strings → no quotes (`Alice`, `Admin`).
+- Multi-word or special strings → use double quotes (`"M Alice"`, `"NY, USA"`). **Quotes are mandatory if the string contains spaces or delimiters.**
 
-**5. Spacing**
-- No unnecessary spaces inside structures.  
+**5. Null / Missing Values**
+- **Explicit Null**: Use the keyword `null` for missing data. This is mandatory if the null field is followed by other values in the record.
+
+```emon
+#(f1:string,f2:number,f3:string)
+=Value1,null,Value3   // ✅ Correct: f2 is explicitly null
+=Value1,,Value3       // ❌ Incorrect: Empty segments are not allowed
+```
+
+**6. Spacing**
+- No unnecessary spaces inside structures (`#()`, `{}`, `[]`, or data records `=`).
 - Correct: `=[{Alice},{Bob}]`  
 - Incorrect: `= [ { Alice }, { Bob } ]`
 
-**6. Nested Types**  
-- Use `{}` for objects, `[]` for arrays of primitives or objects.  
-- Arrays of objects: `#type[]`  
-- Inline nested type (optional): `(name:string,price:number)`
+**7. Nested Types**  
+- Use `{}` for objects.
+- Use `[]` for arrays of primitives or objects. Example: `string[]`, `number[]` or `#type[]`
 
-**7. Primitive Types**  
+**8. Primitive Types**
 - `string`, `number`, `bool`
-- Arrays: `[type]`  
+- Arrays: `type[]`
 - Nested object: `#type`
 
-**8. Comments**  
+**9. Comments**  
 - Use `//` **outside** data lines.  
 - Inline comments inside `=` lines or type definitions are **not allowed**.
 
-**9. Escaping & Special Strings**  
+**10. Escaping & Special Strings**  
 - Use `\` for special characters: `"He said \"Hello\""`  
 - Multi-line strings: triple quotes  
-   ```emon
-   #(text:string)
-   ="""Line 1
-   Line 2"""
-   ```
+```emon
+#(text:string)
+="""Line 1
+Line 2"""
+```
 
-**10. File Header (Optional)**: Meta information at the top:  
+**11. File Header (Optional)**: Meta information at the top:
 ```emon
 @version(1.0)
 @encoding(utf-8)
 ```
 
-**11. Strict Type Validation**  
+**12. Strict Type Validation**  
 - Values must match declared types exactly:  
+- `#(age:number)` → `=twenty-five` ❌
 - `#(age:number)` → `=25` ✅  
-- `=twenty-five` ❌
 
-**12. Array Rules**  
+**13. Array Rules**  
 - Arrays are **position-based**, no indexes required: `[A,B,C]`  
 - Arrays must be homogenous in type.
 
-**13. Importing Types**: Reuse types across files using:  
+**14. Importing Types**: Reuse types across files using:  
 ```emon
 import "./common/user.emon"
 ```
 
-**14. Single Root Type per File**: Each file should have one main root type; others as helper types.
+**15. Single Root Type per File**: Each file should have one main root type; others as helper types.
 
 <br>
 
@@ -161,7 +176,7 @@ Follow these guidelines to write clean, efficient, and valid EMON files.
 [1,true,"A"]   // ❌ Mixed types
 ```
 
-**7. Use Modular Types for Reusability**: Define and reuse structures instead of repeating fields.
+**7. Use Modular Types for Reusability**: Define and reuse named structures (`#user`, `#profile`) instead of repeating fields in multiple places.
 ```emon
 #user(name:string,age:number)
 #(title:string,author:#user)
