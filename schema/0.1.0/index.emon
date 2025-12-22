@@ -1,7 +1,7 @@
 #definition(id:string,pattern:string,example:string,description:string,type_list:string[])
 #(name:string,version:string,description:string,definitions:#definition[])
 
-="EMON Schema","1.1.0",
+="EMON Schema","0.1.0",
 """Official EMON (Efficient Minimal Object Notation) schema definition. Supports nameless roots, suffix-based arrays (type[]), and explicit nulls.""",
 [
     {
