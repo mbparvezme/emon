@@ -325,6 +325,15 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 
 <br>
 
+## Tools Development
+
+### Official Tools
+- JavaScript: [emon-js](https://github.com/mbparvezme/emon-js)
+- PHP: [emon-php]()(in development)
+- VS Code: [emon]()(in development)
+
+<br>
+
 ## Ecosystem Possibilities
 
 To expand EMON’s adoption and usability, community-driven tools and integrations are encouraged:
