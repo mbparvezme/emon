@@ -1,5 +1,4 @@
 # EMON: Efficient Modular Object Notation
-
 **EMON** is a compact, modular, and AI-friendly structured data format designed for research, AI pipelines, web/mobile data exchange, and human-readable configuration. It provides a minimal yet expressive way to represent structured information, making it ideal for **AI training, data serialization, and efficient communication** across systems.
 
 Unlike JSON or XML, EMON is built with **efficiency in mind**: every symbol, key, and quote is considered for its impact on storage, bandwidth, or token usage. This makes EMON particularly valuable in AI applications where token economy translates directly into **lower cost** and **faster model processing**.
@@ -7,7 +6,6 @@ Unlike JSON or XML, EMON is built with **efficiency in mind**: every symbol, key
 <br>
 
 ## Why EMON
-
 While JSON is simple, readable, and widely supported, it introduces redundancy that can become costly in large-scale systems:
 
 - **Repetitive keys and field names** increase file size and network payload.
@@ -96,7 +94,6 @@ Here is a quick look at how the same data looks in both JSON and EMON. This make
 <br>
 
 ## Key Features & Benefits of EMON
-
 **1. Token Efficiency (40%–70% Savings)**<br>
 EMON's core innovation is reducing the size of the structured payload. This reduction lowers LLM API costs and accelerates data processing in high-volume AI pipelines.
 
@@ -150,7 +147,6 @@ A core strength of EMON is its **modular design**. Complex datasets can be decom
 Here, the `profile` type is defined once and referenced inside `user`. The syntax is **compact**, yet fully expressive and human-readable.
 
 #### How it works
-
 * The entire payload structure starts with the most token-efficient root: `#(...)[]`.
 * The named type `#profile` is defined once for the structure `age:number, city:string`.
 * The root definition then references the reusable structure via `profile:#profile`.
@@ -158,7 +154,6 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 * The value for profile is the nested object: `{30,"New York"}`.
 
 #### Benefits
-
 * Keeps large datasets clean and consistent.
 * Encourages reusability and separation of logic.
 * Simplifies parsing for AI and validation tools.
@@ -169,7 +164,6 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 EMON follows a **structured and minimal format** for defining data types and records. Each EMON file is composed of **schemas** and **data records**.
 
 #### 1. Root Definition (Nameless)
-
 The root structure must be the first definition and lacks a name after the `#`.
 
 ```emon
@@ -199,7 +193,6 @@ For full syntax details, advanced nested types, arrays, and multiline text, see 
 <br>
 
 ## Comparison Example
-
 The table below illustrates how **EMON** reduces redundancy compared to JSON while preserving the same data structure with a simple example.
 
 <table>
@@ -260,7 +253,6 @@ The table below illustrates how **EMON** reduces redundancy compared to JSON whi
 <br>
 
 ## Benchmarking EMON
-
 To evaluate EMON’s efficiency, we compared its performance against **JSON**, **compact JSON**, **YAML**, **CSV**, and **XML** across multiple AI models and datasets. The metrics considered include **token count**, **character count**, and **processing speed**.
 
 **Benchmark Setup**
@@ -297,7 +289,6 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 <br>
 
 ## Use Cases
-
 **EMON** is designed to solve real-world efficiency and structure challenges in data processing, AI pipelines, and application development.
 
 **1. AI Prompt Optimization**: EMON reduces redundant syntax, cutting prompt size and token cost by 40–60%. Ideal for LLMs that process structured data like user profiles, logs, or API outputs.
@@ -325,7 +316,6 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 <br>
 
 ## Ecosystem Possibilities
-
 To expand EMON’s adoption and usability, community-driven tools and integrations are encouraged:
 
 - **Parsers & Converters**<BR>
@@ -346,7 +336,6 @@ A future standard for EMON-type definitions, enabling validation, type safety, a
 <br>
 
 ## Contributing
-
 This project is at an early research and concept stage.
 Ideas, feedback, and experimental implementations are highly encouraged.
 
@@ -365,13 +354,11 @@ You can also open an issue for:
 <br>
 
 ## License
-
 Released under the **MIT License** - free to use, modify, and experiment with.
 
 <br>
 
 ## Author & Acknowledgment
-
 Developed and researched by **M B Parvez**, as part of an ongoing study on efficient data representation for AI systems.
 
 <br>
