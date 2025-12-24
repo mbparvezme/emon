@@ -173,7 +173,7 @@ EMON follows a **structured and minimal format** for defining data types and rec
 The root structure must be the first definition and lacks a name after the `#`.
 
 ```emon
-#(id:number, name:string, is_manager:bool, roles:[string])[]
+#(id:number,name:string,is_manager:bool,roles:[string])[]
 ```
 
 **Explanation**: This defines an array of records where the first field is `id` (number) and the last is `roles` (array of strings).
@@ -182,8 +182,8 @@ The root structure must be the first definition and lacks a name after the `#`.
 Nested types *must* be named for reference, maintaining modularity.
 
 ```emon
-#contact(email:string, phone:string)
-#(name:string, contact_info:#contact)
+#contact(email:string,phone:string)
+#(name:string,contact_info:#contact)
 ```
 
 #### 3. Data Records (Positional)
@@ -294,17 +294,6 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 | XML          | 1300        | 4200            |            |               |
 | **EMON**     | 500         | 1700            |            |               |
 
-### **Data of 100 Employee Profiles**
-
-| Format       | Token Count | Character Count | Data Size  | Efficiency    |
-| ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
-
 <br>
 
 ## Use Cases
@@ -328,9 +317,10 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 ## Tools Development
 
 ### Official Tools
-- JavaScript: [emon-js](https://github.com/mbparvezme/emon-js)
-- PHP: [emon-php]()(in development)
-- VS Code: [emon]()(in development)
+- JavaScript &rarr; [emon-js](https://github.com/emondata/emon-js)
+- PHP &rarr; [emon](https://github.com/emondata/emon-php) (in development)
+- Python &rarr; [emon](https://github.com/emondata/emon-python) (in development)
+- VS Code Extension &rarr; [emon](https://github.com/emondata/vscode-extension) (in development)
 
 <br>
 
@@ -355,7 +345,7 @@ A future standard for EMON-type definitions, enabling validation, type safety, a
 
 <br>
 
-## 🤝 Contributing
+## Contributing
 
 This project is at an early research and concept stage.
 Ideas, feedback, and experimental implementations are highly encouraged.
@@ -374,13 +364,13 @@ You can also open an issue for:
 
 <br>
 
-## 📄 License
+## License
 
 Released under the **MIT License** - free to use, modify, and experiment with.
 
 <br>
 
-## 🪶 Author & Acknowledgment
+## Author & Acknowledgment
 
 Developed and researched by **M B Parvez**, as part of an ongoing study on efficient data representation for AI systems.
 
