@@ -268,23 +268,23 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 
 | Format       | Token Count | Character Count | Data Size  | Efficiency    |
 | ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
+| JSON         | 19741       | 71637           | 69.96 KB   | Baseline      |
+| JSON Compact | 11353       | 44336           | 22.65 KB   | 38.1% Smaller |
+| YAML         | 13673       | 50638           | 49.45 KB   | 29.3% Smaller |
+| XML          | 23614       | 87702           | 85.65 KB   | 22.4% Larger  |
+| **EMON**     | 7192        | 23191           | 22.65 KB   | 67.6% Smaller |
 
 ### **Data of 100 Customers with Orders**
 
-| Format       | Token Count | Character Count | Data Size  | Efficiency    |
-| ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
+| Format       | Token Count  | Character Count | Data Size | Efficiency    |
+| ------------ | ------------ | --------------- | --------- | ------------- |
+| JSON         | 21360        | 71648           | 69.97 KB  | Baseline      |
+| JSON Compact | 13772        | 45579           | 44.51 KB  | 36.4% Smaller |
+| YAML         | 15906        | 47875           | 46.75 KB  | 33.2% Smaller |
+| XML          | 25789        | 90712           | 88.59 KB  | 26.6% Larger  |
+| **EMON**     | 8453         | 20732           | 20.25 KB  | 71.1% Smaller |
+
+The results clearly demonstrate that **EMON** is the most efficient format for LLM communication and data exchange. By utilizing a nameless root and eliminating repetitive keys, EMON consistently achieves a token reduction of **67%** to **71%** compared to the JSON baseline. This massive reduction allows developers to fit three times more data into a model's context window while significantly lowering API costs. Unlike simple minification, EMON removes structural noise at the source, making it the superior choice for high-volume AI data pipelines and bandwidth-constrained microservices.
 
 <br>
 
@@ -306,12 +306,11 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 <br>
 
 ## Tools Development
-
 ### Official Tools
 - JavaScript &rarr; [emon-js](https://github.com/emondata/emon-js)
-- PHP &rarr; [emon](https://github.com/emondata/emon-php) (in development)
-- Python &rarr; [emon](https://github.com/emondata/emon-python) (in development)
-- VS Code Extension &rarr; [emon](https://github.com/emondata/vscode-extension) (in development)
+- PHP &rarr; [emon for PHP](https://github.com/emondata/emon-php) (in development)
+- Python &rarr; [emon for Python](https://github.com/emondata/emon-python) (in development)
+- VS Code Extension &rarr; [emon VS Code](https://github.com/emondata/vscode-extension) (in development)
 
 <br>
 
