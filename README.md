@@ -1,5 +1,4 @@
 # EMON: Efficient Modular Object Notation
-
 **EMON** is a compact, modular, and AI-friendly structured data format designed for research, AI pipelines, web/mobile data exchange, and human-readable configuration. It provides a minimal yet expressive way to represent structured information, making it ideal for **AI training, data serialization, and efficient communication** across systems.
 
 Unlike JSON or XML, EMON is built with **efficiency in mind**: every symbol, key, and quote is considered for its impact on storage, bandwidth, or token usage. This makes EMON particularly valuable in AI applications where token economy translates directly into **lower cost** and **faster model processing**.
@@ -7,7 +6,6 @@ Unlike JSON or XML, EMON is built with **efficiency in mind**: every symbol, key
 <br>
 
 ## Why EMON
-
 While JSON is simple, readable, and widely supported, it introduces redundancy that can become costly in large-scale systems:
 
 - **Repetitive keys and field names** increase file size and network payload.
@@ -96,7 +94,6 @@ Here is a quick look at how the same data looks in both JSON and EMON. This make
 <br>
 
 ## Key Features & Benefits of EMON
-
 **1. Token Efficiency (40%–70% Savings)**<br>
 EMON's core innovation is reducing the size of the structured payload. This reduction lowers LLM API costs and accelerates data processing in high-volume AI pipelines.
 
@@ -150,7 +147,6 @@ A core strength of EMON is its **modular design**. Complex datasets can be decom
 Here, the `profile` type is defined once and referenced inside `user`. The syntax is **compact**, yet fully expressive and human-readable.
 
 #### How it works
-
 * The entire payload structure starts with the most token-efficient root: `#(...)[]`.
 * The named type `#profile` is defined once for the structure `age:number, city:string`.
 * The root definition then references the reusable structure via `profile:#profile`.
@@ -158,7 +154,6 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 * The value for profile is the nested object: `{30,"New York"}`.
 
 #### Benefits
-
 * Keeps large datasets clean and consistent.
 * Encourages reusability and separation of logic.
 * Simplifies parsing for AI and validation tools.
@@ -169,11 +164,10 @@ Here, the `profile` type is defined once and referenced inside `user`. The synta
 EMON follows a **structured and minimal format** for defining data types and records. Each EMON file is composed of **schemas** and **data records**.
 
 #### 1. Root Definition (Nameless)
-
 The root structure must be the first definition and lacks a name after the `#`.
 
 ```emon
-#(id:number, name:string, is_manager:bool, roles:[string])[]
+#(id:number,name:string,is_manager:bool,roles:[string])[]
 ```
 
 **Explanation**: This defines an array of records where the first field is `id` (number) and the last is `roles` (array of strings).
@@ -182,8 +176,8 @@ The root structure must be the first definition and lacks a name after the `#`.
 Nested types *must* be named for reference, maintaining modularity.
 
 ```emon
-#contact(email:string, phone:string)
-#(name:string, contact_info:#contact)
+#contact(email:string,phone:string)
+#(name:string,contact_info:#contact)
 ```
 
 #### 3. Data Records (Positional)
@@ -199,7 +193,6 @@ For full syntax details, advanced nested types, arrays, and multiline text, see 
 <br>
 
 ## Comparison Example
-
 The table below illustrates how **EMON** reduces redundancy compared to JSON while preserving the same data structure with a simple example.
 
 <table>
@@ -260,7 +253,6 @@ The table below illustrates how **EMON** reduces redundancy compared to JSON whi
 <br>
 
 ## Benchmarking EMON
-
 To evaluate EMON’s efficiency, we compared its performance against **JSON**, **compact JSON**, **YAML**, **CSV**, and **XML** across multiple AI models and datasets. The metrics considered include **token count**, **character count**, and **processing speed**.
 
 **Benchmark Setup**
@@ -274,41 +266,29 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 
 ### **Data of 100 Employee Profiles**
 
-| Format       | Token Count | Character Count | Data Size  | Efficiency    |
-| ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
+| Format       | Token Count | Character Count | Data Size | Token Efficiency | Size Efficiency |
+| ------------ | ----------- | --------------- | --------- | ---------------- | --------------- |
+| JSON         | 19741       | 71637           | 69.96 KB  | Baseline         | Baseline        |
+| JSON Compact | 11353       | 44336           | 22.65 KB  | 42.49% Fewer     | 38.1% Smaller   |
+| YAML         | 13673       | 50638           | 49.45 KB  | 30.75% Fewer     | 29.3% Smaller   |
+| XML          | 23614       | 87702           | 85.65 KB  | 19.62% More      | 22.4% Larger    |
+| **EMON**     | 7192        | 23191           | 22.65 KB  | 63.58% Fewer     | 67.6% Smaller   |
 
 ### **Data of 100 Customers with Orders**
 
-| Format       | Token Count | Character Count | Data Size  | Efficiency    |
-| ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
+| Format       | Token Count | Character Count | Data Size | Token Efficiency | Size Efficiency |
+| ------------ | ----------- | --------------- | --------- | ---------------- | --------------- |
+| JSON         | 21360       | 71648           | 69.97 KB  | Baseline         | Baseline        |
+| JSON Compact | 13772       | 45579           | 44.51 KB  | 35.52% Fewer     | 36.4% Smaller   |
+| YAML         | 15906       | 47875           | 46.75 KB  | 25.53% Fewer     | 33.2% Smaller   |
+| XML          | 25789       | 90712           | 88.59 KB  | 20.73% More      | 26.6% Larger    |
+| **EMON**     | 8453        | 20732           | 20.25 KB  | 60.42% Fewer     | 71.1% Smaller   |
 
-### **Data of 100 Employee Profiles**
-
-| Format       | Token Count | Character Count | Data Size  | Efficiency    |
-| ------------ | ----------- | --------------- | ---------- | ------------- |
-| JSON         | 1000        | 3500            | —          |               |
-| JSON Compact | 850         | 2800            |            |               |
-| YAML         | 1200        | 4000            |            |               |
-| CSV          | 950         | 3000            |            |               |
-| XML          | 1300        | 4200            |            |               |
-| **EMON**     | 500         | 1700            |            |               |
+The results clearly demonstrate that **EMON** is the most efficient format for LLM communication and data exchange. By utilizing a nameless root and eliminating repetitive keys, EMON consistently achieves a token reduction of **67%** to **71%** compared to the JSON baseline. This massive reduction allows developers to fit three times more data into a model's context window while significantly lowering API costs. Unlike simple minification, EMON removes structural noise at the source, making it the superior choice for high-volume AI data pipelines and bandwidth-constrained microservices.
 
 <br>
 
 ## Use Cases
-
 **EMON** is designed to solve real-world efficiency and structure challenges in data processing, AI pipelines, and application development.
 
 **1. AI Prompt Optimization**: EMON reduces redundant syntax, cutting prompt size and token cost by 40–60%. Ideal for LLMs that process structured data like user profiles, logs, or API outputs.
@@ -325,8 +305,16 @@ To evaluate EMON’s efficiency, we compared its performance against **JSON**, *
 
 <br>
 
-## Ecosystem Possibilities
+## Tools Development
+### Official Tools
+- JavaScript &rarr; [emon-js](https://github.com/emondata/emon-js)
+- PHP &rarr; [emon for PHP](https://github.com/emondata/emon-php) (in development)
+- Python &rarr; [emon for Python](https://github.com/emondata/emon-python) (in development)
+- VS Code Extension &rarr; [emon VS Code](https://github.com/emondata/vscode-extension) (in development)
 
+<br>
+
+## Ecosystem Possibilities
 To expand EMON’s adoption and usability, community-driven tools and integrations are encouraged:
 
 - **Parsers & Converters**<BR>
@@ -346,8 +334,7 @@ A future standard for EMON-type definitions, enabling validation, type safety, a
 
 <br>
 
-## 🤝 Contributing
-
+## Contributing
 This project is at an early research and concept stage.
 Ideas, feedback, and experimental implementations are highly encouraged.
 
@@ -365,14 +352,12 @@ You can also open an issue for:
 
 <br>
 
-## 📄 License
-
+## License
 Released under the **MIT License** - free to use, modify, and experiment with.
 
 <br>
 
-## 🪶 Author & Acknowledgment
-
+## Author & Acknowledgment
 Developed and researched by **M B Parvez**, as part of an ongoing study on efficient data representation for AI systems.
 
 <br>

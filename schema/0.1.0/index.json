@@ -1,6 +1,6 @@
 {
   "name": "EMON Schema",
-  "version": "1.1.0",
+  "version": "0.1.0",
   "description": "Official EMON (Efficient Minimal Object Notation) schema definition. Supports nameless roots, suffix-based arrays (type[]), and explicit nulls.",
   "definitions": [
     {
