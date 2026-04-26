@@ -47,7 +47,7 @@ To represent an array of objects, the root type declaration uses [] (e.g., #prod
 
 ```emon
 // Define an array of products
-#(sku:string,name:string,price:number,tags:[string])[]
+#(sku:string,name:string,price:number,tags:string[])[]
 
 // Record 1: Name without spaces (unquoted)
 =SKU001,Apple,0.99,[fruit,fresh]
