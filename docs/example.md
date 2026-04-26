@@ -14,7 +14,7 @@ These examples illustrate the core syntax principles of EMON:
 
 ## 1. Basic Single Object (Primitive Types & Quoting)
 
-This example shows a simple object structure, demonstrating the rules for quoting strings. Strings containing only letters, numbers, and `_-.@` are unquoted.
+This example shows a simple object structure, demonstrating the rules for quoting strings. Strings containing only letters, numbers, and `_` are unquoted.
 
 **EMON**
 
