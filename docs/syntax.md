@@ -69,8 +69,16 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 - Values must follow the **exact field order** defined in the root or nested schema.
 
 **4. Quotation**
-- Single-word strings → no quotes (`Alice`, `Admin`).
-- Multi-word or special strings → use double quotes (`"M Alice"`, `"NY, USA"`). **Quotes are mandatory if the string contains spaces or delimiters.**
+- Strings containing only letters, numbers, and _ (underscore) → no quotes (Alice, md_asad, Admin123)
+- Strings containing spaces, commas, or any special character other than _ → must be quoted ("M Alice", "NY, USA", "asad@example.com")
+
+```emon
+#(full_name:string,display_name:string,username:string,email:string)
+="Md Asad Mahmud",Asad,md_asad,"asad@example.com"     // ✅ Correct: Quotation will be applied if there are space and special characters (except '_' underscore)
+="Md Asad Mahmud",Asad,md_asad,asad@example.com       // ❌ Incorrect: Email address must be inside quotation
+="Md Asad Mahmud",Asad,"md_asad","asad@example.com"   // ❌ Incorrect: Username should not be quoted as there are no space and special character other than underscore '_'
+=Md Asad Mahmud,Asad,md_asad,"asad@example.com"       // ❌ Incorrect: Full name must be inside quotation as there are spaces in the string
+```
 
 **5. Null / Missing Values**
 - **Explicit Null**: Use the keyword `null` for missing data. This is mandatory if the null field is followed by other values in the record.
@@ -98,6 +106,12 @@ Understanding these rules ensures clean, consistent, and AI-friendly data files.
 **9. Comments**
 - Use `//` **outside** data lines.
 - Inline comments inside `=` lines or type definitions are **not allowed**.
+
+```emon
+// User data records
+=user1,30,true    // ✅ Comment is above, not inline
+=user2,25,false   // ❌ This inline comment breaks parsing
+```
 
 **10. Escaping & Special Strings**
 - Use `\` for special characters: `"He said \"Hello\""`
