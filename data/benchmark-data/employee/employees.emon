@@ -1,7 +1,7 @@
 #(personalInfo:#personalinfo,jobDetails:#jobdetails,address:#address)[]
 #contact(email:string,phone:string)
 #personalinfo(name:string,age:number,contact:#contact)
-#skills(primary:string,secondary:[string])
+#skills(primary:string,secondary:string[])
 #jobdetails(position:string,department:string,skills:#skills)
 #office(street:string,city:string,country:string)
 #home(street:string,city:string,country:string)
