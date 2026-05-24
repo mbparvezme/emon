@@ -1,62 +1,116 @@
-(* EMON (Efficient Modular Object Notation) Syntax Definition in EBNF (v2.2) *)
-(* Features: Nameless Root, Suffix Array Notation (type[]), and Explicit Nulls *)
+(* EMON: Schema-driven, positional, plain-text data format   *)
+(* ========================================================= *)
 
-(* ------------------- 1. DOCUMENT STRUCTURE ------------------- *)
+(* ------------------ BASIC CHARACTER SET ------------------ *)
+letter        = "A"…"Z" | "a"…"z" ;
+digit         = "0"…"9" ;
 
-emon_document      = { header_line } , { comment | definition | record } ;
+(* ----------------- WHITESPACE & COMMENTS ----------------- *)
+ws            = { " " | "\t" } ;
+new_line      = "\r\n" | "\n" ;
+comment       = "//" , { character } , new_line ;
+character     = ? any valid Unicode character ? ;
 
-header_line        = "@" , identifier , "(" , { unquoted_string | quoted_string } , ")" ;
-comment            = "//" , { character } , new_line ;
-definition         = "#" , [ type_identifier ] , "(" , field_list , ")" , [ "[]" ] , new_line ;
+(* -------------------- IDENTIFIERS ------------------------ *)
+identifier    = letter , { letter | digit | "_" } ;
+type_name     = identifier ;
+field_name    = identifier ;
 
-record             = "=" , value_list , new_line ;
+(* ---------------------- LITERALS ------------------------- *)
+integer       = [ "+" | "-" ] , digit , { digit } ;
+float         = integer , "." , digit , { digit } ;
+number        = float | integer ;
+boolean       = "true" | "false" ;
+null_value    = "null" ;
+(* 'null' is a reserved literal and always represents null.
+   It is never treated as a string unless explicitly quoted. *)
 
-(* ------------------- 2. TYPE DEFINITIONS (#) ------------------- *)
+quoted_string = '"' , { string_char } , '"' ;
+string_char =
+      ? any character except " or \ or newline ?
+    | escaped_sequence ;
 
-type_identifier    = letter , { letter | digit | "_" } ;
-field_list         = field_definition , { "," , field_definition } ;
-field_definition   = identifier , ":" , field_type ;
 
-(* Array syntax updated to suffix notation: type[] *)
-field_type         = ( primitive_type | custom_type_ref | inline_type_def ) , [ "[]" ] ;
+escaped_sequence =
+      "\" , '"'
+    | "\" , "\"
+    | "\" , "n"
+    | "\" , "t"
+    | "\" , "r"
+    | "\" , "\" ;
 
-primitive_type     = "string" | "number" | "bool" ;
-custom_type_ref    = "#" , type_identifier ;
-inline_type_def    = "(" , field_list , ")" ;
+multiline_string = '"""' , { character | new_line } , '"""' ;
+bare_string   = letter , { letter | digit | "_" } ;
+string        = quoted_string | multiline_string | bare_string ;
+(* NOTE: bare_string, number, and boolean may overlap lexically.
+   Interpretation is deferred to schema-based typing. *)
 
-(* ------------------- 3. DATA RECORDS (=) ------------------- *)
+(* ---------------------- DOCUMENT ------------------------- *)
+(* Version declaration is optional. If omitted, the parser   *)
+(* defaults to the latest supported version.                 *)
+emon_document = { ws | new_line | comment }, [ version_decl ], { ws | new_line | comment }, schema_block, { schema_block } ;
 
-value_list         = value_segment , { "," , value_segment } ;
 
-value_segment      = quoted_string
-                   | multiline_string
-                   | number
-                   | boolean
-                   | null_value
-                   | array_instance
-                   | object_instance
-                   | unquoted_string ;
+schema_block = definition, { record } ;
+version_decl  = "@version" , "(" , version_number , ")" , new_line ;
+version_number = digit , { digit } , "." , digit , { digit } ;
 
-array_instance     = "[" , [ value_list ] , "]" ;
-object_instance    = "{" , value_list , "}" ;
+(* ------------------ SCHEMA DEFINITIONS ------------------- *)
+definition = "#" , [ type_name ] , "(" , field_list , ")" , [ "[]" ] , new_line ;
+(* NOTE: "[]" suffix is only valid on the root (nameless) definition.
+   Named type definitions must not use "[]". 
+   This constraint is enforced during semantic validation. *)
 
-(* ------------------- 4. PRIMITIVE VALUES (Terminals) ------------------- *)
+field_list = field_def , { "," , field_def } ;
 
-quoted_string      = '"' , { character | escaped_quote } , '"' ;
-multiline_string   = '"""' , { character | new_line } , '"""' ;
-escaped_quote      = '\' , '"' ;
+(* Optional fields may only be omitted from the end of a record.
+   This constraint must be enforced during semantic validation. *)
+field_def = field_name , [ "?" ] , ":" , field_type ;
 
-unquoted_string    = { letter | digit | "_" | "." | "-" | "@" | "/" } - ( reserved_keyword ) ;
+field_type =
+      primitive_type
+    | custom_type_ref
+    | inline_type_def
+    ,
+    [ "[]" ] ;
 
-number             = [ "-" | "+" ] , digit , { digit } , [ "." , { digit } ] ;
-boolean            = "true" | "false" ;
-null_value         = "null" ;
+primitive_type = "string" | "number" | "bool" ;
+custom_type_ref = "#" , type_name ;
 
-(* ------------------- 5. FUNDAMENTAL TERMINALS ------------------- *)
+(* Inline types are anonymous, non-recursive, non-reusable   *)
+inline_type_def = "(" , field_list , ")" ;
 
-identifier         = letter , { letter | digit | "_" } ;
-reserved_keyword   = "true" | "false" | "null" ;
-letter             = ? any alphabetic character (A-Z, a-z) ? ;
-digit              = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-new_line           = ? carriage return and/or line feed ? ;
-character          = ? any printable character including new_line, except control characters ? ;
+(* --------------------- DATA RECORDS ---------------------- *)
+(* Values are positional and aligned to schema order         *)
+record = "=" , value_list , new_line ;
+value_list = value , { "," , value } ;
+
+value =
+      raw_token
+    | null_value
+    | array_instance
+    | tuple_instance ;
+
+raw_token = string | number | boolean ;
+
+(* ---------------- TYPE INTERPRETATION -------------------- *)
+(* All raw_token values are untyped at parse time.           *)
+(* Their final type is determined by the schema.             *)
+
+(* Casting Rules:
+   - string: any raw_token is converted to string
+   - number: must match numeric format, else error
+   - bool: must be 'true' or 'false', else error
+   - null: always null (not castable to string)
+*)
+
+(* ---------------- ARRAYS & TUPLES ------------------------ *)
+(* Tuples are ordered positional aggregates, not maps        *)
+array_instance = "[" , ws , [ value_list ] , ws , "]" ;
+tuple_instance = "{" , ws , [ value_list ] , ws , "}" ;
+
+(* ---------------- RESERVED FOR FUTURE USE ---------------- *)
+(* Identifiers prefixed with "_" (e.g., _checksum, _source)  *)
+(* are reserved for future parser-level metadata extensions. *)
+(* They are not valid in the current version of EMON.        *)
+(* reserved_field = "_" , identifier ;                       *)
