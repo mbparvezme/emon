@@ -1,0 +1,218 @@
+{
+  "name": "EMON Schema",
+  "version": "0.2.0",
+  "description": "Official EMON (Efficient Modular Object Notation) schema definition. Defines the strict file order: directives, imports, named type definitions, a single nameless root definition, and positional data records. Supports generic @name(value) directives, file and URL imports, suffix-based arrays (type[]), explicit nulls, optional trailing fields, signed numbers, inline type definitions, and single-line and multi-line comments.",
+  "definitions": [
+    {
+      "id": "document",
+      "pattern": "^(\\s|//.*|/\\*[\\s\\S]*?\\*/)*((@\\w+\\([^)]*\\)\\s*)*(import\\s+\"[^\"]+\"\\s*)*(#\\w+\\([^)]*\\)\\s*)*#\\([^)]*\\)(\\[\\])?(\\s|=.*)*)$",
+      "example": "@version(1.0)\n@encoding(utf-8)\nimport \"./types/address.emon\"\n#address(city:string,country:string)\n#(id:number,name:string,location:#address)[]\n=1,Alice,{London,UK}",
+      "description": "An EMON document follows a strict top-to-bottom order: optional directives, optional imports, optional named type definitions, exactly one nameless root definition, and zero or more data records. Comments and blank lines may appear between any element.",
+      "type_list": []
+    },
+    {
+      "id": "directive",
+      "pattern": "^@[a-z][a-z0-9_]*\\([^)]*\\)$",
+      "example": "@version(1.0)",
+      "description": "A file-level metadata declaration in the form @name(value). Directives must appear at the top of the file before imports, type definitions, and data records. Known directives include @version, @encoding, and @lang. Unknown directive names are reserved for future use and must not cause a parse error.",
+      "type_list": []
+    },
+    {
+      "id": "version_decl",
+      "pattern": "^@version\\(\\d+\\.\\d+\\)$",
+      "example": "@version(1.0)",
+      "description": "A specific directive that declares the EMON format version. Allows parsers to apply version-specific mapping logic. If omitted, the parser defaults to the latest supported version.",
+      "type_list": []
+    },
+    {
+      "id": "import_decl",
+      "pattern": "^import\\s+\"[^\"]+\"$",
+      "example": "import \"./types/address.emon\"",
+      "description": "Loads named type definitions from an external EMON file. The import path may be a relative file path or a full URL and must be a quoted string. Only named type definitions are imported; root schemas and data records from the imported file are ignored. Circular imports are not supported. Imports must appear after directives and before type definitions.",
+      "type_list": []
+    },
+    {
+      "id": "named_definition",
+      "pattern": "^#[a-zA-Z][a-zA-Z0-9_]*\\(.+\\)$",
+      "example": "#address(street:string,city:string,country:string)",
+      "description": "A reusable named type definition used for nested type references. The name must begin with a letter and contain only letters, digits, and underscores. Named definitions must not use the [] suffix. They must be declared before the root definition. Circular references are not supported.",
+      "type_list": [
+        "string",
+        "number",
+        "bool",
+        "string[]",
+        "number[]",
+        "bool[]",
+        "#type",
+        "#type[]"
+      ]
+    },
+    {
+      "id": "root_definition",
+      "pattern": "^#\\(.+\\)(\\[\\])?$",
+      "example": "#(id:number,name:string,roles:string[])[]",
+      "description": "The single nameless root schema of the file. Exactly one root definition is required per file. The optional [] suffix indicates that the file represents an array of records; without it the file represents a single object. The root definition must appear after all named definitions and before any data records.",
+      "type_list": [
+        "string",
+        "number",
+        "bool",
+        "string[]",
+        "number[]",
+        "bool[]",
+        "#type",
+        "#type[]"
+      ]
+    },
+    {
+      "id": "field_def",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*\\??:(string|number|bool|#[a-zA-Z][a-zA-Z0-9_]*|\\(.+\\))(\\[\\])?$",
+      "example": "email?:string",
+      "description": "Defines a single field with a name, an optional marker (?), and a type. The type may be a primitive, a named type reference, or an inline type definition, each optionally suffixed with []. Optional fields may only appear at the end of a field list and can be omitted from the end of data records. The parser assigns null to omitted optional fields.",
+      "type_list": [
+        "string",
+        "number",
+        "bool",
+        "string[]",
+        "number[]",
+        "bool[]",
+        "#type",
+        "#type[]"
+      ]
+    },
+    {
+      "id": "record",
+      "pattern": "^=.*$",
+      "example": "=1,Alice,{Developer,\"New York\"},[admin,editor]",
+      "description": "A data row matching the root schema. Values are positional and must follow the exact field order of the root definition. Each = line represents one record. No spaces are allowed around commas or inside structures. Inline comments on a record line are not allowed.",
+      "type_list": []
+    },
+    {
+      "id": "primitive_type",
+      "pattern": "^(string|number|bool)$",
+      "example": "name:string",
+      "description": "The three primitive field types supported by EMON. string accepts any text value. number accepts integers and floats, optionally signed with + or -. bool accepts only true or false.",
+      "type_list": [
+        "string",
+        "number",
+        "bool"
+      ]
+    },
+    {
+      "id": "array_type",
+      "pattern": "^(string|number|bool|#[a-zA-Z][a-zA-Z0-9_]*)\\[\\]$",
+      "example": "roles:string[]",
+      "description": "Suffix-based array notation. Arrays are homogeneous and position-based. Supported forms: string[], number[], bool[], or #type[] for arrays of named types.",
+      "type_list": [
+        "string[]",
+        "number[]",
+        "bool[]",
+        "#type[]"
+      ]
+    },
+    {
+      "id": "custom_type_ref",
+      "pattern": "^#[a-zA-Z][a-zA-Z0-9_]*$",
+      "example": "#address",
+      "description": "A reference to a named type definition. The referenced type must be defined in the same file or imported from an external file. Circular references are not supported.",
+      "type_list": []
+    },
+    {
+      "id": "inline_type_def",
+      "pattern": "^\\(.+\\)$",
+      "example": "items:[(name:string,qty:number,price:number)]",
+      "description": "An anonymous inline type definition used directly within a field type. Inline types are non-recursive and non-reusable. They cannot be referenced by name elsewhere in the file.",
+      "type_list": []
+    },
+    {
+      "id": "integer",
+      "pattern": "^[+-]?\\d+$",
+      "example": "+42",
+      "description": "An integer literal with an optional leading + or - sign. Integers must not be quoted when assigned to a number field.",
+      "type_list": []
+    },
+    {
+      "id": "float",
+      "pattern": "^[+-]?\\d+\\.\\d+$",
+      "example": "-3.14",
+      "description": "A floating-point literal with an optional leading + or - sign and a fractional part. Floats must not be quoted when assigned to a number field.",
+      "type_list": []
+    },
+    {
+      "id": "boolean",
+      "pattern": "^(true|false)$",
+      "example": "true",
+      "description": "A boolean literal. Only the unquoted values true and false are valid in a bool field.",
+      "type_list": []
+    },
+    {
+      "id": "null_value",
+      "pattern": "^null$",
+      "example": "=1,null,active",
+      "description": "A reserved literal representing a missing or undefined value. null is never treated as a string; to store the text null as a string it must be quoted. It must be used explicitly when a non-terminal field has no value. Empty comma segments (e.g. =1,,active) are not allowed.",
+      "type_list": []
+    },
+    {
+      "id": "bare_string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+      "example": "Alice",
+      "description": "An unquoted string value containing only letters, digits, and underscores, beginning with a letter. Bare strings containing spaces, commas, braces, brackets, or any other special character must be quoted. The parser rejects bare strings containing delimiter characters.",
+      "type_list": []
+    },
+    {
+      "id": "quoted_string",
+      "pattern": "^\"(\\\\.|[^\"\\\\])*\"$",
+      "example": "\"New York, USA\"",
+      "description": "A double-quoted string value. Required when the string contains spaces, commas, or any special character other than underscore. Supports escape sequences: \\\" (quote), \\\\ (backslash), \\n (newline), \\t (tab), \\r (carriage return).",
+      "type_list": []
+    },
+    {
+      "id": "multiline_string",
+      "pattern": "^\"\"\"[\\s\\S]*\"\"\"$",
+      "example": "\"\"\"Line 1\nLine 2\"\"\"",
+      "description": "A triple-quoted string block for multiline text. Preserves all internal line breaks and whitespace exactly as written. Converted to a JSON string with \\n escape sequences on export.",
+      "type_list": []
+    },
+    {
+      "id": "tuple_instance",
+      "pattern": "^\\{.*\\}$",
+      "example": "{Alice,Developer,\"New York\"}",
+      "description": "An ordered positional aggregate representing a nested object instance. Values inside {} follow the field order of the referenced named or inline type. No spaces are allowed inside the braces. Tuples are not key-value maps.",
+      "type_list": []
+    },
+    {
+      "id": "array_instance",
+      "pattern": "^\\[.*\\]$",
+      "example": "[admin,editor,viewer]",
+      "description": "An ordered list of values of the same type. Arrays are homogeneous and position-based with no index syntax required. No spaces are allowed inside the brackets. May contain primitives, tuples, or nested arrays. An empty array [] is valid.",
+      "type_list": []
+    },
+    {
+      "id": "line_comment",
+      "pattern": "^//.*$",
+      "example": "// This is a comment",
+      "description": "A single-line comment starting with //. Must appear on its own line or above an element. Inline comments within record lines or type definition lines are not allowed and will break parsing.",
+      "type_list": []
+    },
+    {
+      "id": "block_comment",
+      "pattern": "^/\\*[\\s\\S]*?\\*/$",
+      "example": "/* multi-line\\n   comment */",
+      "description": "A multi-line comment enclosed in /* and */. May span multiple lines and appear between any top-level elements. Must not appear inside a record line or a type definition line.",
+      "type_list": []
+    },
+    {
+      "id": "reserved_field",
+      "pattern": "^_[a-zA-Z][a-zA-Z0-9_]*$",
+      "example": "_checksum",
+      "description": "Identifiers prefixed with _ are reserved for future parser-level metadata extensions such as _checksum and _source. Reserved fields are not valid in the current version of EMON and will be rejected by the parser.",
+      "type_list": []
+    },
+    {
+      "id": "schema_hash",
+      "pattern": "^@schema-hash\\(sha256:[a-fA-F0-9]{64}\\)$",
+      "example": "@schema-hash(sha256:a3f1...)",
+      "description": "An optional document-level integrity directive. When present, the parser verifies the schema hash before processing any data records, providing protection against schema tampering in untrusted transmission channels. Planned for implementation in the next parser release.",
+      "type_list": []
+    }
+  ]
+}

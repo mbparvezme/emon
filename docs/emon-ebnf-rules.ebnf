@@ -1,0 +1,246 @@
+(* ================================================================ *)
+(* EMON: Efficient Modular Object Notation                         *)
+(* EBNF Grammar Specification                                      *)
+(* ================================================================ *)
+
+
+(* ---------------------------------------------------------------- *)
+(* BASIC CHARACTER SET                                              *)
+(* ---------------------------------------------------------------- *)
+
+letter        = "A"…"Z" | "a"…"z" ;
+digit         = "0"…"9" ;
+character     = ? any valid Unicode character ? ;
+
+
+(* ---------------------------------------------------------------- *)
+(* WHITESPACE                                                       *)
+(* ---------------------------------------------------------------- *)
+
+ws            = { " " | "\t" } ;
+new_line      = "\r\n" | "\n" ;
+
+
+(* ---------------------------------------------------------------- *)
+(* COMMENTS                                                         *)
+(* Single-line comments begin with // and end at the line break.   *)
+(* Multi-line comments are enclosed in /* and */.                  *)
+(* Comments may appear between any top-level elements but not      *)
+(* inside schema definition lines or data record lines.            *)
+(* ---------------------------------------------------------------- *)
+
+line_comment   = "//" , { character } , new_line ;
+block_comment  = "/*" , { character | new_line } , "*/" ;
+comment        = line_comment | block_comment ;
+
+
+(* ---------------------------------------------------------------- *)
+(* IDENTIFIERS                                                      *)
+(* ---------------------------------------------------------------- *)
+
+identifier    = letter , { letter | digit | "_" } ;
+type_name     = identifier ;
+field_name    = identifier ;
+
+(* NOTE: Identifiers prefixed with "_" are reserved for future     *)
+(* parser-level metadata (e.g. _checksum, _source).               *)
+(* Reserved identifiers are not valid in the current version.      *)
+(* reserved_id = "_" , identifier ;                                *)
+
+
+(* ---------------------------------------------------------------- *)
+(* LITERALS                                                         *)
+(* ---------------------------------------------------------------- *)
+
+integer       = [ "+" | "-" ] , digit , { digit } ;
+float         = [ "+" | "-" ] , digit , { digit } , "." , digit , { digit } ;
+number        = float | integer ;
+
+boolean       = "true" | "false" ;
+
+null_value    = "null" ;
+(* null is a reserved literal. It always represents a missing or   *)
+(* undefined value. It is never treated as a string. To store the  *)
+(* text "null" as a string value, it must be quoted: "null".       *)
+
+quoted_string = '"' , { string_char } , '"' ;
+string_char   =
+      ? any character except '"' or '\' or newline ?
+    | escaped_sequence ;
+
+escaped_sequence =
+      "\" , '"'    (* \"  → literal double quote  *)
+    | "\" , "\"   (* \\  → literal backslash      *)
+    | "\" , "n"   (* \n  → newline                *)
+    | "\" , "t"   (* \t  → tab                    *)
+    | "\" , "r"   (* \r  → carriage return        *)
+    ;
+
+multiline_string = '"""' , { character | new_line } , '"""' ;
+
+bare_string   = letter , { letter | digit | "_" } ;
+(* bare_string must begin with a letter.                           *)
+(* Strings containing spaces, commas, or special characters        *)
+(* other than underscore must be quoted.                           *)
+
+string        = quoted_string | multiline_string | bare_string ;
+
+(* NOTE: bare_string, number, and boolean may overlap lexically    *)
+(* (e.g. "true", "42"). Final type interpretation is deferred to   *)
+(* schema-based typing at validation time.                         *)
+
+
+(* ---------------------------------------------------------------- *)
+(* DOCUMENT STRUCTURE                                               *)
+(*                                                                  *)
+(* An EMON file must follow this strict top-to-bottom order:       *)
+(*   1. Directives   (optional, all @name(value) declarations)     *)
+(*   2. Imports      (optional, import "path" statements)          *)
+(*   3. Named types  (optional, #name(...) definitions)            *)
+(*   4. Root schema  (required, nameless #(...) definition)        *)
+(*   5. Data records (optional, = lines)                           *)
+(*                                                                  *)
+(* Blank lines and comments are allowed between any section.       *)
+(* ---------------------------------------------------------------- *)
+
+emon_document =
+    { ws | new_line | comment } ,
+    { directive , { ws | new_line | comment } } ,
+    { import_decl , { ws | new_line | comment } } ,
+    { named_definition , { ws | new_line | comment } } ,
+    root_definition ,
+    { ws | new_line | comment } ,
+    { record } ;
+
+
+(* ---------------------------------------------------------------- *)
+(* DIRECTIVES                                                       *)
+(* File-level metadata declarations. Must appear at the top of     *)
+(* the file before imports, type definitions, and data records.    *)
+(* Unknown directive names are reserved for future use.            *)
+(* ---------------------------------------------------------------- *)
+
+directive     = "@" , identifier , "(" , directive_value , ")" , new_line ;
+directive_value = { character } ;
+
+(* Known directives:                                               *)
+(*   @version(1.0)     — EMON format version                      *)
+(*   @encoding(utf-8)  — file character encoding                  *)
+(*   @lang(en)         — content language                         *)
+(* Parsers must not reject unknown directive names.               *)
+
+
+(* ---------------------------------------------------------------- *)
+(* IMPORTS                                                          *)
+(* Imports load named type definitions from external EMON files.   *)
+(* Both relative file paths and full URLs are supported.           *)
+(* Must appear after directives and before type definitions.       *)
+(* ---------------------------------------------------------------- *)
+
+import_decl   = "import" , ws , import_path , new_line ;
+import_path   = '"' , { character } , '"' ;
+
+(* Only named type definitions are imported.                       *)
+(* Root schemas and data records from imported files are ignored.  *)
+(* Circular imports are not supported.                             *)
+
+
+(* ---------------------------------------------------------------- *)
+(* SCHEMA DEFINITIONS                                               *)
+(* ---------------------------------------------------------------- *)
+
+(* Named type definition — reusable, must appear before root.      *)
+(* The [] suffix is not allowed on named definitions.              *)
+named_definition = "#" , type_name , "(" , field_list , ")" , new_line ;
+
+(* Root schema definition — nameless, exactly one per file.        *)
+(* The [] suffix declares the file as an array of records.         *)
+root_definition  = "#" , "(" , field_list , ")" , [ "[]" ] , new_line ;
+
+field_list    = field_def , { "," , field_def } ;
+(* No spaces around commas in field_list.                          *)
+(* Optional fields (?) must appear at the end of the field list.   *)
+
+field_def     = field_name , [ "?" ] , ":" , field_type ;
+(* Optional marker ? indicates the field may be omitted from the  *)
+(* end of a data record. The parser assigns null automatically.    *)
+
+field_type    =
+    (
+      primitive_type
+    | custom_type_ref
+    | inline_type_def
+    ) ,
+    [ "[]" ] ;
+
+primitive_type  = "string" | "number" | "bool" ;
+
+custom_type_ref = "#" , type_name ;
+(* Must reference a named type defined in the same file or        *)
+(* imported from an external file. Circular references are not    *)
+(* supported.                                                      *)
+
+inline_type_def = "(" , field_list , ")" ;
+(* Anonymous type defined directly within a field declaration.    *)
+(* Inline types are non-recursive and non-reusable.               *)
+(* They cannot be referenced by name elsewhere in the file.       *)
+
+
+(* ---------------------------------------------------------------- *)
+(* DATA RECORDS                                                     *)
+(* Each = line represents one record aligned to the root schema.   *)
+(* No spaces are allowed around commas or inside structures.       *)
+(* ---------------------------------------------------------------- *)
+
+record        = "=" , value_list , new_line ;
+value_list    = value , { "," , value } ;
+
+value         =
+      null_value
+    | boolean
+    | number
+    | string
+    | array_instance
+    | tuple_instance ;
+
+(* ---------------------------------------------------------------- *)
+(* ARRAYS AND TUPLES                                                *)
+(* ---------------------------------------------------------------- *)
+
+array_instance = "[" , [ value_list ] , "]" ;
+(* Arrays are homogeneous — all elements must be the same type.   *)
+(* No spaces inside array brackets.                               *)
+(* An empty array [] is valid.                                    *)
+
+tuple_instance = "{" , [ value_list ] , "}" ;
+(* Tuples represent a positional instance of a named or inline    *)
+(* type. Values follow the field order of the referenced type.    *)
+(* No spaces inside tuple braces.                                 *)
+(* Tuples are not key-value maps.                                 *)
+
+
+(* ---------------------------------------------------------------- *)
+(* TYPE INTERPRETATION                                              *)
+(* All values in data records are untyped at parse time.          *)
+(* Their final type is resolved against the schema.               *)
+(*                                                                  *)
+(* Casting rules:                                                  *)
+(*   string  — any bare or quoted string value                    *)
+(*   number  — must match integer or float format, else error     *)
+(*   bool    — must be exactly "true" or "false", else error      *)
+(*   null    — always null, never cast to string                  *)
+(* ---------------------------------------------------------------- *)
+
+
+(* ---------------------------------------------------------------- *)
+(* NULL AND OPTIONAL FIELD RULES                                   *)
+(*                                                                  *)
+(* Explicit null:                                                  *)
+(*   Required when a non-terminal field has no value.             *)
+(*   Empty comma segments (,,) are not valid.                     *)
+(*                                                                  *)
+(* Trailing omission:                                             *)
+(*   Optional fields at the end of a record may be omitted.       *)
+(*   The parser assigns null to all omitted trailing fields.      *)
+(*   A required field may never be omitted.                       *)
+(* ---------------------------------------------------------------- *)

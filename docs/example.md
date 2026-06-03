@@ -1,279 +1,810 @@
-# EMON Syntax Examples
+# EMON Examples
 
-**EMON (Efficient Minimal Object Notation)** is a compact, typed, and human-friendly data notation format designed as a minimal alternative to JSON. It prioritizes efficiency by using explicit schema lines (`#(...)`) and positional data records (`=value1,value2,...`), significantly reducing boilerplate characters.
+This document provides practical examples for every syntax rule in EMON. Each example includes the EMON file and its JSON equivalent. Examples are organized to match the rule order in the Syntax Guide.
 
-These examples illustrate the core syntax principles of EMON:
+---
 
-- Schema Definition: Declaring types, fields, and nested structures.
-- Data Records: Positional data entry matching the schema order.
-- Quotation Rules: Omitting quotes for simple strings to achieve maximum conciseness.
-- Nesting and Arrays: Using `{}` and `[]` for nested objects and lists.
-- Multiline Strings: Defining large blocks of text using triple quotes (`"""`).
+## 1. File Structure
 
-<br>
-
-## 1. Basic Single Object (Primitive Types & Quoting)
-
-This example shows a simple object structure, demonstrating the rules for quoting strings. Strings containing only letters, numbers, and `_` are unquoted.
-
-**EMON**
+A complete EMON file following the required top-to-bottom order: directives, imports, named types, root schema, data records.
 
 ```emon
-// Define the user type
-#(id:number,username:string,email:string,isActive:bool)
+@version(1.0)
+@encoding(utf-8)
 
-// Data record follows the defined schema
-=1001,JaneDoe,jane.doe@corp.com,true
+import "./types/address.emon"
+
+#skill(name:string,level:string)
+
+#(id:number,name:string,location:#address,skills:#skill[])[]
+
+=1,Alice,{London,UK},[{PHP,Expert},{JS,Intermediate}]
+=2,Bob,{Paris,France},[{Python,Advanced}]
 ```
-
-**JSON Equivalent**
-
-```json
-{
-  "id": 1001,
-  "username": "JaneDoe",
-  "email": "jane.doe@corp.com",
-  "isActive": true
-}
-```
-
-<br>
-
-## 2. Array of Objects (Multiple Records)
-
-To represent an array of objects, the root type declaration uses [] (e.g., #product(...)[]), and subsequent data records start with = until a new schema is declared.
-
-**EMON**
-
-```emon
-// Define an array of products
-#(sku:string,name:string,price:number,tags:string[])[]
-
-// Record 1: Name without spaces (unquoted)
-=SKU001,Apple,0.99,[fruit,fresh]
-
-// Record 2: Name with a space (must be quoted)
-=SKU002,"Orange Juice",3.45,[drink,packaged]
-```
-
-**JSON Equivalent**
 
 ```json
 [
   {
-    "sku": "SKU001",
-    "name": "Apple",
-    "price": 0.99,
-    "tags": ["fruit", "fresh"]
+    "id": 1,
+    "name": "Alice",
+    "location": { "city": "London", "country": "UK" },
+    "skills": [
+      { "name": "PHP", "level": "Expert" },
+      { "name": "JS", "level": "Intermediate" }
+    ]
   },
   {
-    "sku": "SKU002",
-    "name": "Orange Juice",
-    "price": 3.45,
-    "tags": ["drink", "packaged"]
+    "id": 2,
+    "name": "Bob",
+    "location": { "city": "Paris", "country": "France" },
+    "skills": [
+      { "name": "Python", "level": "Advanced" }
+    ]
   }
 ]
 ```
 
-<br>
+---
 
-## 3. Nested Objects (Type References)
+## 2. Directives
 
-This demonstrates defining a child type (#location) separately and referencing it using #type in the parent schema (#person). Nested data is enclosed in {} and follows the child type's field order.
-
-**EMON**
+### 2.1 — Version only
 
 ```emon
-// Child type definition
+@version(1.0)
+
+#(id:number,name:string)[]
+
+=1,Alice
+=2,Bob
+```
+
+### 2.2 — Multiple directives
+
+```emon
+@version(1.0)
+@encoding(utf-8)
+@lang(en)
+
+#(id:number,title:string,published:bool)[]
+
+=101,"Getting Started with EMON",true
+=102,"Advanced Schema Design",false
+```
+
+```json
+[
+  { "id": 101, "title": "Getting Started with EMON", "published": true },
+  { "id": 102, "title": "Advanced Schema Design", "published": false }
+]
+```
+
+---
+
+## 3. Imports
+
+Named types from `./types/geo.emon` are used directly after import. Root schemas and data records from the imported file are ignored.
+
+```emon
+@version(1.0)
+
+import "./types/geo.emon"
+import "https://schemas.example.com/common/tag.emon"
+
+#(id:number,name:string,location:#coordinate,tags:#tag[])[]
+
+=1,Station-A,{40.71,-74.01},[{urgent},{monitored}]
+=2,Station-B,{41.50,-73.00},[{routine}]
+```
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Station-A",
+    "location": { "lat": 40.71, "lon": -74.01 },
+    "tags": [{ "label": "urgent" }, { "label": "monitored" }]
+  },
+  {
+    "id": 2,
+    "name": "Station-B",
+    "location": { "lat": 41.50, "lon": -73.00 },
+    "tags": [{ "label": "routine" }]
+  }
+]
+```
+
+---
+
+## 4. Named Type Definitions
+
+### 4.1 — Single named type
+
+```emon
+#address(street:string,city:string,country:string)
+
+#(id:number,name:string,address:#address)[]
+
+=1,Alice,{"123 Main St",London,UK}
+=2,Bob,{"456 Oak Ave",Paris,France}
+```
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "address": { "street": "123 Main St", "city": "London", "country": "UK" }
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "address": { "street": "456 Oak Ave", "city": "Paris", "country": "France" }
+  }
+]
+```
+
+### 4.2 — Multiple named types
+
+```emon
+#tag(label:string,color:string)
+#author(name:string,email:string)
+
+#(id:number,title:string,author:#author,tags:#tag[])[]
+
+=1,"Getting Started",{Alice,"alice@example.com"},[{tutorial,blue},{beginner,green}]
+=2,"Advanced Patterns",{Bob,"bob@example.com"},[{advanced,red}]
+```
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Getting Started",
+    "author": { "name": "Alice", "email": "alice@example.com" },
+    "tags": [
+      { "label": "tutorial", "color": "blue" },
+      { "label": "beginner", "color": "green" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Advanced Patterns",
+    "author": { "name": "Bob", "email": "bob@example.com" },
+    "tags": [{ "label": "advanced", "color": "red" }]
+  }
+]
+```
+
+---
+
+## 5. Root Schema
+
+### 5.1 — Single object (no `[]`)
+
+```emon
+#(appName:string,version:string,debug:bool)
+
+=MyApp,2.1.0,false
+```
+
+```json
+{
+  "appName": "MyApp",
+  "version": "2.1.0",
+  "debug": false
+}
+```
+
+### 5.2 — Array of objects (with `[]`)
+
+```emon
+#(id:number,name:string,active:bool)[]
+
+=1,Alice,true
+=2,Bob,false
+=3,Carol,true
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "active": true },
+  { "id": 2, "name": "Bob", "active": false },
+  { "id": 3, "name": "Carol", "active": true }
+]
+```
+
+---
+
+## 6. Data Records
+
+### 6.1 — Basic positional values
+
+```emon
+#(id:number,username:string,email:string,verified:bool)[]
+
+=1001,JaneDoe,"jane@corp.com",true
+=1002,md_asad,"asad@corp.com",false
+```
+
+```json
+[
+  { "id": 1001, "username": "JaneDoe", "email": "jane@corp.com", "verified": true },
+  { "id": 1002, "username": "md_asad", "email": "asad@corp.com", "verified": false }
+]
+```
+
+---
+
+## 7. Field Types
+
+### 7.1 — All primitive types
+
+```emon
+#(name:string,age:number,score:number,active:bool)[]
+
+=Alice,30,98.5,true
+=Bob,25,74.0,false
+```
+
+```json
+[
+  { "name": "Alice", "age": 30, "score": 98.5, "active": true },
+  { "name": "Bob", "age": 25, "score": 74.0, "active": false }
+]
+```
+
+### 7.2 — String array
+
+```emon
+#(username:string,roles:string[])[]
+
+=alice,[admin,editor,viewer]
+=bob,[viewer]
+```
+
+```json
+[
+  { "username": "alice", "roles": ["admin", "editor", "viewer"] },
+  { "username": "bob", "roles": ["viewer"] }
+]
+```
+
+### 7.3 — Number array
+
+```emon
+#(label:string,scores:number[])[]
+
+=TeamA,[88,92,76,95]
+=TeamB,[70,65,80]
+```
+
+```json
+[
+  { "label": "TeamA", "scores": [88, 92, 76, 95] },
+  { "label": "TeamB", "scores": [70, 65, 80] }
+]
+```
+
+### 7.4 — Boolean array
+
+```emon
+#(device:string,states:bool[])[]
+
+=SensorBank1,[true,false,true,true]
+=SensorBank2,[false,false,true]
+```
+
+```json
+[
+  { "device": "SensorBank1", "states": [true, false, true, true] },
+  { "device": "SensorBank2", "states": [false, false, true] }
+]
+```
+
+### 7.5 — Named type reference (`#type`)
+
+```emon
 #location(city:string,country:string)
 
-// Parent type definition with a reference to #location
 #(id:number,name:string,location:#location)[]
 
-=201,John,{London,UK}
-=202,"M Alice",{Paris,France}
+=1,Alice,{London,UK}
+=2,Bob,{Dhaka,Bangladesh}
 ```
 
-**JSON Equivalent**
+```json
+[
+  { "id": 1, "name": "Alice", "location": { "city": "London", "country": "UK" } },
+  { "id": 2, "name": "Bob", "location": { "city": "Dhaka", "country": "Bangladesh" } }
+]
+```
+
+### 7.6 — Array of named type (`#type[]`)
+
+```emon
+#skill(name:string,level:string)
+
+#(name:string,skills:#skill[])[]
+
+=Alice,[{PHP,Expert},{JS,Intermediate}]
+=Bob,[{Python,Advanced},{SQL,Beginner}]
+```
 
 ```json
 [
   {
-    "id": 201,
-    "name": "John",
-    "location": {
-      "city": "London",
-      "country": "UK"
-    }
+    "name": "Alice",
+    "skills": [
+      { "name": "PHP", "level": "Expert" },
+      { "name": "JS", "level": "Intermediate" }
+    ]
   },
   {
-    "id": 202,
-    "name": "M Alice",
-    "location": {
-      "city": "Paris",
-      "country": "France"
-    }
+    "name": "Bob",
+    "skills": [
+      { "name": "Python", "level": "Advanced" },
+      { "name": "SQL", "level": "Beginner" }
+    ]
   }
 ]
 ```
 
-Note: In this case, two records imply the root JSON structure is an array.
+---
 
-<br>
+## 8. Optional Fields (`?`)
 
-## 4. Array of Inline Nested Types
+### 8.1 — Trailing optional fields omitted
 
-If a nested object is simple and unlikely to be reused, it can be defined inline within the schema using parentheses (...).
-
-**EMON**
+When optional fields are at the end, they can be left out entirely. The parser assigns `null` automatically.
 
 ```emon
-#(id:string,items:[(name:string,qty:number,price:number)])
-// The items array contains inline nested objects: [{val1,val2,val3}, {val1,val2,val3}]
-=ABC-456,[{Mug,2,12.50},{Pen,5,1.99}]
-```
+#(id:number,name:string,bio?:string,website?:string)[]
 
-**JSON Equivalent**
+=1,Alice
+=2,Bob,"A backend developer"
+=3,Carol,"UI designer","carol.dev"
+```
 
 ```json
-{
-  "id": "ABC-456",
-  "items": [
-    {
-      "name": "Mug",
-      "qty": 2,
-      "price": 12.50
-    },
-    {
-      "name": "Pen",
-      "qty": 5,
-      "price": 1.99
-    }
-  ]
-}
+[
+  { "id": 1, "name": "Alice", "bio": null, "website": null },
+  { "id": 2, "name": "Bob", "bio": "A backend developer", "website": null },
+  { "id": 3, "name": "Carol", "bio": "UI designer", "website": "carol.dev" }
+]
 ```
 
-<br>
-
-## 5. Multiline Text Block
-
-The triple-quote ("""...""") syntax is used for multiline strings. All internal line breaks and white space are preserved exactly as written.
-
-**EMON**
+### 8.2 — Multiple optional fields, partially provided
 
 ```emon
-#(title:string,body:string)
-="Q3 Summary", """
-The third quarter performance exceeded expectations.
-Key highlights include:
+#(id:number,name:string,phone?:string,city?:string,country?:string)[]
+
+=1,Alice,"+880-1700-000000"
+=2,Bob,null,Dhaka,Bangladesh
+=3,Carol
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "phone": "+880-1700-000000", "city": null, "country": null },
+  { "id": 2, "name": "Bob", "phone": null, "city": "Dhaka", "country": "Bangladesh" },
+  { "id": 3, "name": "Carol", "phone": null, "city": null, "country": null }
+]
+```
+
+---
+
+## 9. Quotation Rules
+
+```emon
+#(full_name:string,username:string,email:string,city:string)[]
+
+// ✅ Correct quotation
+="M. Hasan",md_hasan,"hasan@example.com","New York, USA"
+
+// ❌ full_name must be quoted — contains a dot and space
+// =M. Hasan,md_hasan,"hasan@example.com","New York, USA"
+
+// ❌ username must not be quoted — contains only letters, digits, underscore
+// ="M. Hasan","md_hasan","hasan@example.com","New York, USA"
+```
+
+```json
+[
+  {
+    "full_name": "M. Hasan",
+    "username": "md_hasan",
+    "email": "hasan@example.com",
+    "city": "New York, USA"
+  }
+]
+```
+
+---
+
+## 10. Null Values
+
+### 10.1 — Explicit null in a non-terminal field
+
+```emon
+#(id:number,name:string,middle_name:string,surname:string)[]
+
+=1,Alice,null,Smith
+=2,Bob,null,Jones
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "middle_name": null, "surname": "Smith" },
+  { "id": 2, "name": "Bob", "middle_name": null, "surname": "Jones" }
+]
+```
+
+### 10.2 — Null vs quoted `"null"`
+
+```emon
+#(id:number,status:string,note:string)[]
+
+=1,null,"No status set"
+=2,active,"null"
+```
+
+```json
+[
+  { "id": 1, "status": null, "note": "No status set" },
+  { "id": 2, "status": "active", "note": "null" }
+]
+```
+
+### 10.3 — Empty array vs null
+
+```emon
+#(id:number,name:string,tags:string[],notes:string)[]
+
+=1,Alice,[],""
+=2,Bob,null,null
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "tags": [], "notes": "" },
+  { "id": 2, "name": "Bob", "tags": null, "notes": null }
+]
+```
+
+---
+
+## 11. Numbers
+
+### 11.1 — Integers, floats, signed values
+
+```emon
+#(label:string,integer:number,float:number,positive:number,negative:number)[]
+
+=Row1,42,3.14,+10,-7
+=Row2,0,-0.5,+100,-3.14
+```
+
+```json
+[
+  { "label": "Row1", "integer": 42, "float": 3.14, "positive": 10, "negative": -7 },
+  { "label": "Row2", "integer": 0, "float": -0.5, "positive": 100, "negative": -3.14 }
+]
+```
+
+---
+
+## 12. Inline Type Definitions
+
+### 12.1 — Simple inline type
+
+```emon
+#(id:string,items:[(name:string,qty:number,price:number)])[]
+
+=ORD-001,[{Mug,2,12.50},{Pen,5,1.99}]
+=ORD-002,[{Notebook,1,8.00}]
+```
+
+```json
+[
+  {
+    "id": "ORD-001",
+    "items": [
+      { "name": "Mug", "qty": 2, "price": 12.50 },
+      { "name": "Pen", "qty": 5, "price": 1.99 }
+    ]
+  },
+  {
+    "id": "ORD-002",
+    "items": [
+      { "name": "Notebook", "qty": 1, "price": 8.00 }
+    ]
+  }
+]
+```
+
+### 12.2 — Inline type used as a single nested object
+
+```emon
+#(name:string,config:(host:string,port:number,secure:bool))[]
+
+=ServiceA,{api.example.com,443,true}
+=ServiceB,{internal.local,8080,false}
+```
+
+```json
+[
+  { "name": "ServiceA", "config": { "host": "api.example.com", "port": 443, "secure": true } },
+  { "name": "ServiceB", "config": { "host": "internal.local", "port": 8080, "secure": false } }
+]
+```
+
+### 12.3 — Deeply nested inline type
+
+```emon
+#(name:string,settings:[(timeout:number,retry:[(max:number,delay:number)])])[]
+
+=API-Client-1,[{15000,[{3,500},{5,1000}]}]
+```
+
+```json
+[
+  {
+    "name": "API-Client-1",
+    "settings": [
+      {
+        "timeout": 15000,
+        "retry": [
+          { "max": 3, "delay": 500 },
+          { "max": 5, "delay": 1000 }
+        ]
+      }
+    ]
+  }
+]
+```
+
+---
+
+## 13. Arrays
+
+### 13.1 — Primitive arrays
+
+```emon
+#(id:number,tags:string[],scores:number[],flags:bool[])[]
+
+=1,[alpha,beta,gamma],[10,20,30],[true,false,true]
+```
+
+```json
+[
+  {
+    "id": 1,
+    "tags": ["alpha", "beta", "gamma"],
+    "scores": [10, 20, 30],
+    "flags": [true, false, true]
+  }
+]
+```
+
+### 13.2 — Empty array
+
+```emon
+#(id:number,name:string,roles:string[])[]
+
+=1,Alice,[admin,editor]
+=2,Bob,[]
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "roles": ["admin", "editor"] },
+  { "id": 2, "name": "Bob", "roles": [] }
+]
+```
+
+### 13.3 — Array of arrays (matrix)
+
+```emon
+#(id:string,matrix:[[number]])[]
+
+=grid-A,[[1,2,3],[4,5,6],[7,8,9]]
+```
+
+```json
+[
+  {
+    "id": "grid-A",
+    "matrix": [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  }
+]
+```
+
+---
+
+## 14. Tuples
+
+### 14.1 — Single tuple field
+
+```emon
+#coordinate(lat:number,lon:number)
+
+#(name:string,position:#coordinate)[]
+
+=PointA,{40.71,-74.01}
+=PointB,{51.50,-0.12}
+```
+
+```json
+[
+  { "name": "PointA", "position": { "lat": 40.71, "lon": -74.01 } },
+  { "name": "PointB", "position": { "lat": 51.50, "lon": -0.12 } }
+]
+```
+
+### 14.2 — Array of tuples
+
+```emon
+#member(name:string,role:string)
+
+#(team:string,members:#member[])[]
+
+=Engineering,[{Alice,Lead},{Bob,Developer},{Carol,QA}]
+=Design,[{Dave,Designer},{Eve,Researcher}]
+```
+
+```json
+[
+  {
+    "team": "Engineering",
+    "members": [
+      { "name": "Alice", "role": "Lead" },
+      { "name": "Bob", "role": "Developer" },
+      { "name": "Carol", "role": "QA" }
+    ]
+  },
+  {
+    "team": "Design",
+    "members": [
+      { "name": "Dave", "role": "Designer" },
+      { "name": "Eve", "role": "Researcher" }
+    ]
+  }
+]
+```
+
+---
+
+## 15. Comments
+
+### 15.1 — Single-line comments
+
+```emon
+// Product catalog
+#(sku:string,name:string,price:number,inStock:bool)[]
+
+// In-stock items
+=SKU001,Apple,0.99,true
+=SKU002,"Orange Juice",3.45,true
+
+// Out-of-stock items
+=SKU003,"Sparkling Water",1.20,false
+```
+
+```json
+[
+  { "sku": "SKU001", "name": "Apple", "price": 0.99, "inStock": true },
+  { "sku": "SKU002", "name": "Orange Juice", "price": 3.45, "inStock": true },
+  { "sku": "SKU003", "name": "Sparkling Water", "price": 1.20, "inStock": false }
+]
+```
+
+### 15.2 — Multi-line comments
+
+```emon
+/*
+  Employee records.
+  Fields: id, name, department, salary
+  Last updated: 2026-06-01
+*/
+#(id:number,name:string,department:string,salary:number)[]
+
+=1,Alice,Engineering,95000
+=2,Bob,Marketing,72000
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "department": "Engineering", "salary": 95000 },
+  { "id": 2, "name": "Bob", "department": "Marketing", "salary": 72000 }
+]
+```
+
+### 15.3 — Comments between sections
+
+```emon
+@version(1.0)
+
+// Reusable address type
+#address(city:string,country:string)
+
+/*
+  Root schema for customer records.
+  address field uses the #address named type.
+*/
+#(id:number,name:string,address:#address)[]
+
+=1,Alice,{London,UK}
+=2,Bob,{Dhaka,Bangladesh}
+```
+
+```json
+[
+  { "id": 1, "name": "Alice", "address": { "city": "London", "country": "UK" } },
+  { "id": 2, "name": "Bob", "address": { "city": "Dhaka", "country": "Bangladesh" } }
+]
+```
+
+---
+
+## 16. Escape Sequences
+
+```emon
+#(id:number,message:string,path:string,note:string)[]
+
+=1,"He said \"Hello\" to me.","C:\\Users\\Alice\\docs","Line1\nLine2"
+=2,"She replied \"Hi there!\"","C:\\Projects\\emon","Col1\tCol2"
+```
+
+```json
+[
+  {
+    "id": 1,
+    "message": "He said \"Hello\" to me.",
+    "path": "C:\\Users\\Alice\\docs",
+    "note": "Line1\nLine2"
+  },
+  {
+    "id": 2,
+    "message": "She replied \"Hi there!\"",
+    "path": "C:\\Projects\\emon",
+    "note": "Col1\tCol2"
+  }
+]
+```
+
+---
+
+## 17. Multiline Strings
+
+### 17.1 — Basic multiline string
+
+```emon
+#(title:string,body:string)[]
+
+="Q3 Summary","""
+The third quarter exceeded expectations.
+Key highlights:
   - 15% growth in services.
   - Successful product launch.
-
-We look forward to the next fiscal period.
 """
 ```
 
-**JSON Equivalent**
-
 ```json
-{
-  "title": "Q3 Summary",
-  "body": "The third quarter performance exceeded expectations.\n\nKey highlights include:\n  - 15% growth in services.\n  - Successful product launch.\n\nWe look forward to the next fiscal period.\n"
-}
+[
+  {
+    "title": "Q3 Summary",
+    "body": "The third quarter exceeded expectations.\nKey highlights:\n  - 15% growth in services.\n  - Successful product launch.\n"
+  }
+]
 ```
 
-<br>
-
-## 6. Null Values and Empty Arrays
-
-Fields can be explicitly set to null. Arrays can be empty [] or explicitly null.
-
-**EMON**
+### 17.2 — Multiline string containing JSON
 
 ```emon
-#(id:number,name:string,deadline:string,team:[string],notes:string)
-// deadline is null, notes is an empty string (""), team is an empty array ([])
-=10,Website-Redesign,null,[],""
-```
+#(source:string,payload:string)[]
 
-**JSON Equivalent**
-
-```json
-{
-  "id": 10,
-  "name": "Website-Redesign",
-  "deadline": null,
-  "team": [],
-  "notes": ""
-}
-```
-
-<br>
-
-## 7. Configuration Object with Deep Inline Nesting
-
-Demonstrating inline type definition used for a complex, nested configuration structure.
-
-**EMON**
-
-```emon
-#(name:string, settings:[(timeout:number, retry:[(max:number, delay:number)])])
-=API-Client-1,[{15000, [{3, 500}, {5, 1000}]}]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "name": "API-Client-1",
-  "settings": [
-    {
-      "timeout": 15000,
-      "retry": [
-        { "max": 3, "delay": 500 },
-        { "max": 5, "delay": 1000 }
-      ]
-    }
-  ]
-}
-```
-
-<br>
-
-## 8. Mixed Quoting and Escaped Characters
-
-A single record demonstrating all quoting rules: unquoted strings, quoted strings, and quotes escaped inside a quoted string.
-
-**EMON**
-
-```emon
-#(user:string, timestamp:string, message:string)
-// Timestamp contains spaces and must be quoted
-// Message contains an internal double quote, which must be escaped as \"
-=user-A,"2024-10-26 10:30","He said \"Hello\" to me."
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "user": "user-A",
-  "timestamp": "2024-10-26 10:30",
-  "message": "He said \"Hello\" to me."
-}
-```
-
-<br>
-
-## 9. Multiline Text Containing JSON
-
-The multiline block can hold complex structured text, like a JSON snippet, preserving all formatting and line breaks.
-
-**EMON**
-
-```emon
-#(source:string, payload:string)
-=payment-processor, """
+=payment-processor,"""
 {
   "status": "fail",
   "reason": "Invalid card details",
@@ -282,355 +813,103 @@ The multiline block can hold complex structured text, like a JSON snippet, prese
 """
 ```
 
-**JSON Equivalent**
-
-```json
-{
-  "source": "payment-processor",
-  "payload": "{\n  \"status\": \"fail\",\n  \"reason\": \"Invalid card details\",\n  \"code\": 401\n}"
-}
-```
-
-<br>
-
-## 10. Multiline Text Containing HTML/XML
-
-The multiline block can hold HTML or XML structure.
-
-**EMON**
-
-```emon
-#(name:string, content:string)
-=email-welcome, """
-<p>
-  Welcome, {{user.name}}!
-</p>
-<button class="primary">
-  Activate
-</button>
-"""
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "name": "email-welcome",
-  "content": "<p>\n  Welcome, {{user.name}}!\n</p>\n<button class=\"primary\">\n  Activate\n</button>\n"
-}
-```
-
-<br>
-
-## 11. Array of Type References
-
-Demonstrates an array field that holds multiple references to a separately defined object type.
-
-**EMON**
-
-```emon
-#skill(name:string, level:number)
-#(name:string, skills:#skill[])
-=David,[{Python,5},{MongoDB,3},{teamwork,4}]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "name": "David",
-  "skills": [
-    { "name": "Python", "level": 5 },
-    { "name": "MongoDB", "level": 3 },
-    { "name": "teamwork", "level": 4 }
-  ]
-}
-```
-
-<br>
-
-## 12. Multiple Schemas in One File
-
-Demonstrates how data records follow the most recently defined schema.
-
-**EMON**
-
-```emon
-// Schema 1: #ship
-#(id:number, name:string)
-=1,"Voyager"
-=2,"Enterprise"
-
-// Schema 2: #captain
-#(shipId:number, name:string)
-=1,"J. Sisko"
-=2,"J. Picard"
-```
-
-**JSON Equivalent** (Output depends on which record set is being processed, but generally one root object/array)
-
-If parsed as an array of #ship objects:
-
-```json
-[
-  { "id": 1, "name": "Voyager" },
-  { "id": 2, "name": "Enterprise" }
-]
-// ... and then an array of #captain objects:
-[
-  { "shipId": 1, "name": "J. Sisko" },
-  { "shipId": 2, "name": "J. Picard" }
-]
-```
-
-(The toJSON function should ideally return the last processed set, or handle the entire block for complex parsers.)
-
-<br>
-
-## 13. Inventory Log (Numbers and Booleans)
-
-Simple demonstration of mixed numeric and boolean types.
-
-**EMON**
-
-```emon
-#(name:string, inStock:bool, weightKg:number, lastChecked:number)[]
-// weightKg is a float, lastChecked is a timestamp (integer)
-=Widget-A,true,0.12,1678886400
-=Gadget-B,false,1.5,1678972800
-```
-
-**JSON Equivalent**
-
 ```json
 [
   {
-    "name": "Widget-A",
-    "inStock": true,
-    "weightKg": 0.12,
-    "lastChecked": 1678886400
-  },
-  {
-    "name": "Gadget-B",
-    "inStock": false,
-    "weightKg": 1.5,
-    "lastChecked": 1678972800
+    "source": "payment-processor",
+    "payload": "{\n  \"status\": \"fail\",\n  \"reason\": \"Invalid card details\",\n  \"code\": 401\n}"
   }
 ]
 ```
 
-<br>
-
-## 14. Nested Multiline Text
-
-A multiline string used as a value inside a nested object.
-
-**EMON**
+### 17.3 — Multiline string containing HTML
 
 ```emon
-#(id:number, summary:[(notes:string, version:string)])
-=10, [{
+#(name:string,content:string)[]
+
+=email-welcome,"""
+<p>Welcome, {{user.name}}!</p>
+<button class="primary">Activate</button>
 """
-Release notes for 2.1:
-- Fixed critical bug in auth flow.
-- Improved performance by 30%.
-""", 2.1}]
 ```
-
-**JSON Equivalent**
-
-```json
-{
-  "id": 10,
-  "summary": [
-    {
-      "notes": "Release notes for 2.1:\n- Fixed critical bug in auth flow.\n- Improved performance by 30%.\n",
-      "version": "2.1"
-    }
-  ]
-}
-```
-
-<br>
-
-## 15. User Permissions Structure
-
-Demonstrates an array of primitives (roles) and an array of simple nested objects (access) within one structure.
-
-**EMON**
-
-```emon
-#access_rule(resource:string, permission:string)
-#(username:string, roles:[string], access:#access_rule[])
-=SystemAdmin,[admin,billing,user-mgmt],[{database,read},{settings,write}]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "username": "SystemAdmin",
-  "roles": ["admin", "billing", "user-mgmt"],
-  "access": [
-    { "resource": "database", "permission": "read" },
-    { "resource": "settings", "permission": "write" }
-  ]
-}
-```
-
-<br>
-
-## 16. Object with All Nulls
-
-Demonstrates a record where all fields are explicitly set to null.
-
-**EMON**
-
-```emon
-#(key:string, value:string, count:number, details:[(a:string)])
-=test-nulls,null,null,null
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "key": "test-nulls",
-  "value": null,
-  "count": null,
-  "details": null
-}
-```
-
-<br>
-
-## 17. Array of Objects with Only One Field (Inline)
-
-Demonstrates a minimal inline object type [(a:string)].
-
-**EMON**
-
-```emon
-#(id:number, names:[(first:string)])
-=55,[{Alice},{Bob},{Charlie}]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "id": 55,
-  "names": [
-    { "first": "Alice" },
-    { "first": "Bob" },
-    { "first": "Charlie" }
-  ]
-}
-```
-
-<br>
-
-## 18. Complex Geographic Data (Nested Reference Array)
-
-**EMON**
-
-```emon
-#coordinate(lat:number, lon:number)
-#(name:string, boundary:#coordinate[])
-=Ocean-Zone-A, [{40.71,-74.01}, {41.50,-73.00}, {40.00,-75.00}]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "name": "Ocean-Zone-A",
-  "boundary": [
-    { "lat": 40.71, "lon": -74.01 },
-    { "lat": 41.50, "lon": -73.00 },
-    { "lat": 40.00, "lon": -75.00 }
-  ]
-}
-```
-
-<br>
-
-## 19. Simple Array of Primitive Arrays
-
-An array field containing an array of primitive types (like a matrix row).
-
-**EMON**
-
-```emon
-#(id:string, rows:[[number]])
-=matrix-4x2, [[1,2,3,4],[5,6,7,8]]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "id": "matrix-4x2",
-  "rows": [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8]
-  ]
-}
-```
-
-<br>
-
-## 20. Simple Array of Booleans
-
-**EMON**
-
-```emon
-#(id:number, states:[bool])
-=99,[true,false,false,true]
-```
-
-**JSON Equivalent**
-
-```json
-{
-  "id": 99,
-  "states": [true, false, false, true]
-}
-```
-
-<br>
-
-## 21. Data with Different Root Schema (Array)
-
-**EMON**
-
-```emon
-#(code:string, description:string, severity:number)[]
-=E100,"Disk Full",3
-=W201,"Low Memory",1
-=I300,"Backup Complete",0
-```
-
-**JSON Equivalent**
 
 ```json
 [
-  { "code": "E100", "description": "Disk Full", "severity": 3 },
-  { "code": "W201", "description": "Low Memory", "severity": 1 },
-  { "code": "I300", "description": "Backup Complete", "severity": 0 }
+  {
+    "name": "email-welcome",
+    "content": "<p>Welcome, {{user.name}}!</p>\n<button class=\"primary\">Activate</button>\n"
+  }
 ]
 ```
 
-<br>
+---
 
-## Summary and Usage
+## 18. Type Validation
 
-These examples serve as the primary **reference and validation set** for EMON parser and converter implementations across various languages (JS, Python, PHP).
+### 18.1 — Valid vs invalid values per type
 
-#### Key Takeaways for Developers:
+```emon
+// ✅ Valid
+#(age:number,active:bool,name:string)
+=25,true,Alice
 
-1. **Efficiency**: Notice how little syntax is required for complex nested data (e.g., Example 7) compared to the verbose JSON equivalent.
-2. **Strict Rules**: Consistent application of quoting (or lack thereof) and positional ordering is mandatory for successful parsing.
-3. **Readability**: The use of comments (`//`) and multiline strings (`"""`) is designed to enhance the human-readability of the resulting data format without adding significant overhead.
+// ❌ "25" is a string in a number field — type error
+// =25,true,"Alice" is fine, but ="25",true,Alice is not for age:number
 
-By adhering to the structured schema and positional data format shown here, we ensure maximum data density and minimal file size, which is the core goal of the EMON project.
+// ❌ "yes" is not a valid bool — only true or false
+// =25,yes,Alice
+```
+
+---
+
+## 19. Complete Real-World Example
+
+An e-commerce order file using all major syntax features.
+
+```emon
+@version(1.0)
+@encoding(utf-8)
+
+#address(street:string,city:string,country:string)
+#item(sku:string,name:string,qty:number,price:number)
+
+#(orderId:string,customer:string,email?:string,address:#address,items:#item[],notes?:string)[]
+
+=ORD-001,Alice,"alice@shop.com",{"123 Main St",London,UK},[{SKU-A,Widget,2,9.99},{SKU-B,Gadget,1,24.99}],"Please gift wrap."
+=ORD-002,Bob,null,{"456 Oak Ave",Paris,France},[{SKU-C,Gizmo,3,4.50}]
+=ORD-003,Carol
+```
+
+```json
+[
+  {
+    "orderId": "ORD-001",
+    "customer": "Alice",
+    "email": "alice@shop.com",
+    "address": { "street": "123 Main St", "city": "London", "country": "UK" },
+    "items": [
+      { "sku": "SKU-A", "name": "Widget", "qty": 2, "price": 9.99 },
+      { "sku": "SKU-B", "name": "Gadget", "qty": 1, "price": 24.99 }
+    ],
+    "notes": "Please gift wrap."
+  },
+  {
+    "orderId": "ORD-002",
+    "customer": "Bob",
+    "email": null,
+    "address": { "street": "456 Oak Ave", "city": "Paris", "country": "France" },
+    "items": [
+      { "sku": "SKU-C", "name": "Gizmo", "qty": 3, "price": 4.50 }
+    ],
+    "notes": null
+  },
+  {
+    "orderId": "ORD-003",
+    "customer": "Carol",
+    "email": null,
+    "address": null,
+    "items": null,
+    "notes": null
+  }
+]
+```

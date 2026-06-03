@@ -1,270 +1,447 @@
-# Syntax Guide
+# EMON Syntax Guide
 
-This document explains the full syntax used in **EMON (Efficient Modular Object Notation)**.
-Understanding these rules ensures clean, consistent, and AI-friendly data files.
+**EMON (Efficient Modular Object Notation)** is a schema-driven, positional, plain-text data format. It eliminates structural redundancy by defining fields once in a schema and assigning values by position in data records.
 
-<br>
+---
 
-## Core Syntax
+## File Structure
 
-**1. Type Declaration**: Begin with `#(` to define the primary root type and its fields.
+Every EMON file must follow this strict top-to-bottom order:
 
-```emon
-#(field:type,...)
+```
+1. Directives       @version(...), @encoding(...), etc.
+2. Imports          import "..."
+3. Named Types      #name(...)
+4. Root Schema      #(...)  or  #(...)[]
+5. Data Records     =value,value,...
 ```
 
-**Example**
+Sections that are not needed may be omitted, but the order must never be reversed. For example, a named type cannot appear after the root schema, and an import cannot appear after a directive.
 
-```emon
-#(id:number,name:string,gender:string,roles:[string])[]
-```
+---
 
-**2. Type Declaration (Nested - Named)**: Begin with `#type_name(` to define reusable, named types for nested structures.
+## 1. Directives
 
-```emon
-#profile(bio:string,location:string)
-```
+Directives are optional file-level metadata declarations. They must appear at the very top of the file, before anything else.
 
-**3. Value Assignment**: Use `=` to provide values in the same order as the fields defined in the root type.
-
-```emon
-=1,Alice,female,[admin,editor]
-```
-
-**4. Nested Structures**: Define nested objects or arrays explicitly.
-
-```emon
-#member(name:string,role:string)
-#(name:string,members:#member[])[]
-=AI_Dev,[{Alice,Lead},{Bob,Engineer}]
-```
-
-<br>
-
-## Field Types
-
-| Type      | Description                                        | Example                              |
-| --------- | -------------------------------------------------- | ------------------------------------ |
-| `string`  | Text values; quotes only when needed               | `"John Doe"` or `John`               |
-| `number`  | Integer or float values                            | `42`, `3.14`                         |
-| `bool`    | Boolean values                                     | `true`, `false`                      |
-| `type[]`  | Array of a single type (homogenous).               | `string[]`, `number[]`, `#member[]`  |
-| `#type`   | Reference to another defined type (nested object). | `{PHP,Expert}`                       |
-
-<br>
-
-## Rules
-
-**1. Type Definition**
-- The first definition in the file is the Root Type and must be nameless (`#(`...`)`).
-- All other definitions must be named (`#type_name(`...`)`) and are used for nesting.
-- Field names and type names are case-sensitive.
-
-**2. Object vs Array**
-- `#(...)` → single JSON object `{...}` or flat data.
-- `#(`...`)[]` → array of objects `[{`...`},{`...`}]`
-
-**3. Value Assignment**
-- Each `=` line represents **one record**.
-- Values must follow the **exact field order** defined in the root or nested schema.
-
-**4. Quotation**
-- Strings containing only letters, numbers, and _ (underscore) → no quotes (Alice, md_asad, Admin123)
-- Strings containing spaces, commas, or any special character other than _ → must be quoted ("M Alice", "NY, USA", "asad@example.com")
-
-```emon
-#(full_name:string,display_name:string,username:string,email:string)
-="Md Asad Mahmud",Asad,md_asad,"asad@example.com"     // ✅ Correct: Quotation will be applied if there are space and special characters (except '_' underscore)
-="Md Asad Mahmud",Asad,md_asad,asad@example.com       // ❌ Incorrect: Email address must be inside quotation
-="Md Asad Mahmud",Asad,"md_asad","asad@example.com"   // ❌ Incorrect: Username should not be quoted as there are no space and special character other than underscore '_'
-=Md Asad Mahmud,Asad,md_asad,"asad@example.com"       // ❌ Incorrect: Full name must be inside quotation as there are spaces in the string
-```
-
-**5. Null / Missing Values**
-- **Explicit Null**: Use the keyword `null` for missing data. This is mandatory if the null field is followed by other values in the record.
-
-```emon
-#(f1:string,f2:number,f3:string)
-=Value1,null,Value3   // ✅ Correct: f2 is explicitly null
-=Value1,,Value3       // ❌ Incorrect: Empty segments are not allowed
-```
-
-**6. Spacing**
-- No unnecessary spaces inside structures (`#()`, `{}`, `[]`, or data records `=`).
-- Correct: `=[{Alice},{Bob}]`
-- Incorrect: `= [ { Alice }, { Bob } ]`
-
-**7. Nested Types**
-- Use `{}` for objects.
-- Use `[]` for arrays of primitives or objects. Example: `string[]`, `number[]` or `#type[]`
-
-**8. Primitive Types**
-- `string`, `number`, `bool`
-- Arrays: `type[]`
-- Nested object: `#type`
-
-**9. Comments**
-- Use `//` **outside** data lines.
-- Inline comments inside `=` lines or type definitions are **not allowed**.
-
-```emon
-// User data records
-=user1,30,true    // ✅ Comment is above, not inline
-=user2,25,false   // ❌ This inline comment breaks parsing
-```
-
-**10. Escaping & Special Strings**
-- Use `\` for special characters: `"He said \"Hello\""`
-- Multi-line strings: triple quotes
-```emon
-#(text:string)
-="""Line 1
-Line 2"""
-```
-
-**11. File Header (Optional)**: Meta information at the top:
 ```emon
 @version(1.0)
 @encoding(utf-8)
+@lang(en)
 ```
 
-**12. Strict Type Validation**
-- Values must match declared types exactly:
-- `#(age:number)` → `=twenty-five` ❌
-- `#(age:number)` → `=25` ✅
+- Each directive uses the format `@name(value)`.
+- Directive names are lowercase identifiers.
+- Multiple directives are allowed, each on its own line.
+- If `@version` is omitted, the parser defaults to the latest supported version.
+- Unknown directives are reserved for future use and must not cause a parse error.
 
-**13. Array Rules**
-- Arrays are **position-based**, no indexes required: `[A,B,C]`
-- Arrays must be homogenous in type.
+---
 
-**14. Importing Types**: Reuse types across files using:
+## 2. Imports
+
+Imports allow reusing named type definitions from external EMON files. They must appear after directives and before any type definitions.
+
 ```emon
-import "./common/user.emon"
+import "./types/address.emon"
+import "https://example.com/schemas/user.emon"
 ```
 
-**15. Single Root Type per File**: Each file should have one main root type; others as helper types.
+- Both relative file paths and full URLs are supported.
+- The import path must be a quoted string.
+- Imported named types become available as if defined in the current file.
+- Circular imports are not supported.
+- Only named type definitions are imported. Root schemas and data records from imported files are ignored.
 
-<br>
+---
 
-## Best Practices
+## 3. Named Type Definitions
 
-Follow these guidelines to write clean, efficient, and valid EMON files.
-
-**1. Keep Field Order Consistent**: Values must always follow the same order as defined in the type.
-```emon
-#(name:string,age:number,verified:bool)
-=Parvez,30,true      // ✅ Correct
-=true,Parvez,30      // ❌ Wrong (order mismatch)
-```
-
-**2. Avoid Circular References**: Types cannot reference each other in a loop.
-```emon
-#(a:#A)
-#A(x:#X)    // ❌ Circular reference — not supported
-#X(a:#A)    // ❌ Circular reference — not supported
-```
-
-**3. Use Clear, Descriptive Field Names**: Use meaningful field names instead of short or unclear ones.
-```emon
-#t(id:number,name:string,price:number)   // ✅ Good
-#(i:n,n:s,p:n)                           // ❌ Avoid unclear abbreviations
-```
-
-**4. Maintain Human Readability with Compact Syntax**: Keep data compact but readable — don’t over-optimize spacing.
-```emon
-#profile(bio:string,location:string)
-=Developer,"New York, USA"       // ✅ Clean and readable
-= Developer , "New York, USA"    // ❌ Messy, unnecessary spaces
-```
-
-**5. Test Nested Structures**: Always verify deeply nested or referenced structures to ensure correct parsing.
-```emon
-#(name:string,members:#member[])
-#member(name:string,role:string)
-=Dev_Team,[{Alice,Lead},{Bob,Engineer}]  // ✅ Proper nesting
-```
-
-**6. Keep Arrays Homogenous**: All array elements must be of the same type.
-```emon
-[1,2,3]        // ✅ Valid
-[1,true,"A"]   // ❌ Mixed types
-```
-
-**7. Use Modular Types for Reusability**: Define and reuse named structures (`#user`, `#profile`) instead of repeating fields in multiple places.
-```emon
-#user(name:string,age:number)
-#(title:string,author:#user)
-```
-This makes files shorter and more maintainable.
-
-**8. Import Shared Types**: Share definitions across files using `import`.
-```emon
-import "./common/user.emon"
-#(text:string,author:#user)
-```
-
-**9. Comment Outside Data Lines**: Keep comments above or beside definitions - never inline with `=` records.
-```emon
-// User data records
-=user1,30,true    // ✅ Allowed
-=user2,25,false   // ❌ Inline comment breaks parsing
-```
-
-**10. Focus on One Root Type per File**: Each EMON file should define one main structure (root) for clarity.
-```emon
-#(...)
-#skill(...)
-```
-
-**11. Avoid Extra Spaces and Braces**: Use consistent minimal syntax.
-```emon
-=[{Alice},{Bob}]           // ✅ Correct
-= [ { Alice } , { Bob } ]  // ❌ Wrong
-```
-
-**12. Escape Special Characters in Strings**: Always escape quotes or special characters.
-```emon
-="He said \"Hello\""  // ✅
-="He said "Hello""    // ❌
-```
-
-**13. Validate Data Types Strictly**: Every field must match the declared type.
-```emon
-#(age:number)
-=25    // ✅
-="25"  // ❌ Wrong type
-```
-
-> [!TIP]
-> Keep EMON data modular, validated, and readable - your AI models and parsers will process it faster and more reliably.
-
-<br>
-
-## Example
+Named types define reusable structures for nested objects. They must be defined before the root schema.
 
 ```emon
-#(id:number,name:string,gender:string,skills:#skill[])
+#address(street:string,city:string,country:string)
 #skill(name:string,level:string)
-=1,Parvez,male,[{PHP,Expert},{JS,Intermediate}]
+```
+
+- Named types use the format `#name(field_list)`.
+- The name must start with a letter and contain only letters, digits, and underscores.
+- Named types cannot use the `[]` suffix. That suffix is reserved for the root schema only.
+- Named types cannot reference themselves (no circular references).
+- Named types defined in the same file are available to the root schema and to each other (forward references are allowed).
+
+---
+
+## 4. Root Schema
+
+The root schema defines the primary data structure of the file. It must appear after all named types and before data records.
+
+```emon
+#(id:number,name:string,email:string)
+```
+
+For an array of records:
+
+```emon
+#(id:number,name:string,email:string)[]
+```
+
+- The root schema is **nameless** — it uses `#(` directly with no type name.
+- Each file must have exactly one root schema.
+- The `[]` suffix means the file represents an array of records. Without it, the file represents a single object.
+- Field order in the schema is the positional contract for all data records.
+
+---
+
+## 5. Data Records
+
+Data records assign values to the fields declared in the root schema.
+
+```emon
+=1,Alice,"alice@example.com"
+=2,"M. Hasan","hasan@example.com"
+```
+
+- Each record starts with `=` followed by comma-separated values.
+- Values must follow the **exact field order** defined in the root schema.
+- Each `=` line represents one record.
+- No spaces are allowed around commas or inside structures.
+
+---
+
+## Field Types
+
+| Type | Description | Example |
+|---|---|---|
+| `string` | Text value. Quoted when needed. | `Alice`, `"M. Hasan"` |
+| `number` | Integer or float. | `42`, `3.14`, `+10`, `-7` |
+| `bool` | Boolean. Only `true` or `false`. | `true`, `false` |
+| `string[]` | Array of strings. | `[admin,editor]` |
+| `number[]` | Array of numbers. | `[1,2,3]` |
+| `bool[]` | Array of booleans. | `[true,false]` |
+| `#type` | Reference to a named type (nested object). | `{Alice,Lead}` |
+| `#type[]` | Array of named type instances. | `[{Alice,Lead},{Bob,Dev}]` |
+| `(field_list)` | Inline anonymous type (non-reusable). | `[(name:string,qty:number)]` |
+| `(field_list)[]` | Array of inline type instances. | `[{Mug,2},{Pen,5}]` |
+
+---
+
+## Rules
+
+### Rule 1 — Field Definition
+
+Fields are declared as `name:type` inside a schema.
+
+```emon
+#(id:number,name:string,active:bool)
+```
+
+- Field names must start with a letter and contain only letters, digits, and underscores.
+- Field names and type names are case-sensitive.
+- No spaces are allowed around `:` or `,` in field definitions.
+
+---
+
+### Rule 2 — Optional Fields
+
+A field can be marked optional with `?` after its name.
+
+```emon
+#(id:number,name:string,bio?:string,website?:string)
+```
+
+- Optional fields must appear at the **end** of the field list.
+- You cannot place an optional field before a required field.
+- In a data record, optional fields at the end of a record may be omitted entirely. The parser assigns `null` to omitted optional fields automatically.
+- If an optional field is not the last field, or if a required field follows it, `null` must be written explicitly.
+
+```emon
+#(id:number,name:string,bio?:string,website?:string)
+=1,Alice                          // bio and website are both null
+=2,Bob,"A developer"              // website is null, bio is provided
+=3,Carol,"Designer","carol.dev"   // all fields provided
+```
+
+---
+
+### Rule 3 — Quotation
+
+- Strings containing **only letters, digits, and underscores** do not need quotes.
+- Strings containing **spaces, commas, or any special character** (except `_`) must be quoted with double quotes.
+
+```emon
+#(full_name:string,username:string,email:string)
+="M. Hasan",md_hasan,"hasan@example.com"   // ✅ Correct
+=M. Hasan,md_hasan,"hasan@example.com"     // ❌ Full name must be quoted
+="M. Hasan","md_hasan","hasan@example.com" // ❌ Username should not be quoted
+```
+
+---
+
+### Rule 4 — Null Values
+
+Use the keyword `null` to represent a missing or undefined value.
+
+```emon
+#(id:number,name:string,bio:string)
+=1,Alice,null     // ✅ bio is explicitly null
+=2,Bob,,          // ❌ Empty segments are not allowed
+```
+
+- `null` is a reserved literal. It is never treated as a string.
+- To store the text `"null"` as a string value, it must be quoted: `"null"`.
+- Empty comma segments (`,,`) are not valid.
+
+---
+
+### Rule 5 — Numbers
+
+```emon
+#(score:number,temperature:number,offset:number)
+=42,3.14,+10
+=-7,-0.5,+100
+```
+
+- Integers and floats are both valid.
+- A leading `+` or `-` sign is allowed.
+- Numbers must not be quoted. `"42"` in a `number` field is a type error.
+
+---
+
+### Rule 6 — Inline Type Definitions
+
+For simple nested structures that do not need to be reused, you can define the type directly inside the field declaration using parentheses.
+
+```emon
+#(id:string,items:[(name:string,qty:number,price:number)])
+=ABC-001,[{Mug,2,12.50},{Pen,5,1.99}]
+```
+
+- Inline types use the format `(field_list)` or `(field_list)[]`.
+- Inline types are anonymous and cannot be referenced by name elsewhere.
+- Inline types cannot be nested recursively inside another inline type beyond what is necessary.
+
+---
+
+### Rule 7 — Arrays
+
+Arrays use `[]` and are always homogeneous (all elements must be the same type).
+
+```emon
+[admin,editor]            // string array
+[1,2,3]                   // number array
+[true,false,true]         // bool array
+[{Alice,Lead},{Bob,Dev}]  // array of named type instances
+```
+
+- No spaces inside arrays.
+- No index syntax — arrays are position-based.
+- Mixed-type arrays are not allowed: `[1,true,"A"]` ❌
+
+---
+
+### Rule 8 — Tuples (Nested Object Instances)
+
+Tuples use `{}` to represent an instance of a named or inline type.
+
+```emon
+#address(city:string,country:string)
+#(name:string,location:#address)
+=Alice,{London,UK}
+```
+
+- Values inside `{}` follow the field order of the referenced type.
+- No spaces inside tuples.
+- Tuples are not key-value maps — they are strictly positional.
+
+---
+
+### Rule 9 — Spacing
+
+No spaces are allowed inside structures. This applies to schemas, arrays, tuples, and data records.
+
+```emon
+// ✅ Correct
+#(id:number,name:string)
+=[{Alice,Lead},{Bob,Dev}]
+
+// ❌ Incorrect
+#( id : number, name : string )
+= [ { Alice, Lead }, { Bob, Dev } ]
+```
+
+---
+
+### Rule 10 — Comments
+
+EMON supports two comment styles.
+
+**Single-line:**
+```emon
+// This is a single-line comment
+#(id:number,name:string)
+```
+
+**Multi-line:**
+```emon
+/*
+  This schema defines a user record.
+  Fields: id, name, email.
+*/
+#(id:number,name:string,email:string)
+```
+
+- Comments may appear anywhere in the file except inside a data record (`=` line) or inside a schema definition line.
+- Inline comments at the end of a `=` line are **not allowed** and will break parsing.
+
+```emon
+=1,Alice,true    // ❌ Inline comment on a data record — not allowed
+```
+
+---
+
+### Rule 11 — Escape Sequences
+
+Inside quoted strings, the following escape sequences are supported:
+
+| Sequence | Meaning |
+|---|---|
+| `\"` | Literal double quote |
+| `\\` | Literal backslash |
+| `\n` | Newline |
+| `\t` | Tab |
+| `\r` | Carriage return |
+
+```emon
+#(message:string)
+="He said \"Hello\" to me."
+```
+
+---
+
+### Rule 12 — Multiline Strings
+
+Use triple double-quotes (`"""`) for strings that span multiple lines.
+
+```emon
+#(title:string,body:string)
+="Release Notes","""
+Fixed critical bug in auth flow.
+Improved performance by 30%.
+"""
+```
+
+- All internal line breaks and whitespace are preserved exactly as written.
+- Multiline strings can appear anywhere a regular string value is expected.
+
+---
+
+### Rule 13 — Root Schema Array vs Object
+
+- `#(...)` → the file represents a **single object**.
+- `#(...)[]` → the file represents an **array of objects**, with one record per `=` line.
+
+```emon
+// Single object — one = line expected
+#(id:number,name:string)
+=1,Alice
+
+// Array of objects — multiple = lines allowed
+#(id:number,name:string)[]
+=1,Alice
+=2,Bob
+```
+
+---
+
+### Rule 14 — One Root Schema Per File
+
+Each EMON file must have exactly one root schema (`#(...)`). Multiple named types are allowed, but only one nameless root.
+
+---
+
+### Rule 15 — Reserved Identifiers
+
+Field names and type names prefixed with `_` (e.g., `_checksum`, `_source`) are reserved for future parser-level metadata. They are not valid in the current version of EMON and will be rejected by the parser.
+
+---
+
+## Strict Type Validation
+
+Values must match the declared field type exactly.
+
+| Field Type | Valid | Invalid |
+|---|---|---|
+| `number` | `42`, `3.14`, `+10` | `"42"`, `twenty` |
+| `bool` | `true`, `false` | `"true"`, `1`, `yes` |
+| `string` | `Alice`, `"M. Hasan"` | _(any quoted or bare string is valid)_ |
+
+---
+
+## Complete Example
+
+```emon
+@version(1.0)
+@encoding(utf-8)
+
+import "./types/common.emon"
+
+#skill(name:string,level:string)
+
+#(id:number,name:string,email?:string,skills:#skill[])[]
+
+=1,Alice,"alice@example.com",[{PHP,Expert},{JS,Intermediate}]
+=2,Bob,null,[{Python,Advanced}]
+=3,Carol
 ```
 
 **Equivalent JSON:**
 
 ```json
-{
-  "id": 1,
-  "name": "Parvez",
-  "gender": "male",
-  "skills": [
-    { "name": "PHP", "level": "Expert" },
-    { "name": "JS", "level": "Intermediate" }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "email": "alice@example.com",
+    "skills": [
+      { "name": "PHP", "level": "Expert" },
+      { "name": "JS", "level": "Intermediate" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "email": null,
+    "skills": [
+      { "name": "Python", "level": "Advanced" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Carol",
+    "email": null,
+    "skills": null
+  }
+]
 ```
 
-<br>
+---
 
-## Notes
+## Quick Reference
 
-* Maintain readability for humans while being AI-parsable.
-* Ideal for training datasets, configurations, or structured AI input.
+| Element | Syntax | Example |
+|---|---|---|
+| Directive | `@name(value)` | `@version(1.0)` |
+| Import | `import "path"` | `import "./types/user.emon"` |
+| Named type | `#name(fields)` | `#skill(name:string,level:string)` |
+| Root schema | `#(fields)` or `#(fields)[]` | `#(id:number,name:string)[]` |
+| Optional field | `name?:type` | `bio?:string` |
+| Inline type | `(fields)` or `(fields)[]` | `[(name:string,qty:number)]` |
+| Data record | `=values` | `=1,Alice,true` |
+| Null value | `null` | `=1,null,active` |
+| Single-line comment | `// text` | `// User records` |
+| Multi-line comment | `/* text */` | `/* schema notes */` |
+| Quoted string | `"text"` | `"New York, USA"` |
+| Multiline string | `"""text"""` | `"""line1\nline2"""` |
+| Tuple instance | `{values}` | `{Alice,Lead}` |
+| Array instance | `[values]` | `[admin,editor]` |
